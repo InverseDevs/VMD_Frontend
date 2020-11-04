@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../index.css';
-import * as serviceWorker from '../serviceWorker';
-import ChatApp from './chat/components/ChatApp/ChatApp';
-import ProfileApp from '../profile/components/ProfileApp/ProfileApp';
+import './index.css';
+import * as serviceWorker from './serviceWorker';
+import ChatApp from './lambda/ChatApp';
+import ProfileApp from './lambda/profile/components/ProfileApp/ProfileApp';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 class App extends React.Component{
