@@ -1,6 +1,6 @@
 import React from 'react';
 import './Tab.css';
-import close from '../../../images/close.png';
+import close from '../../../../images/close.png';
 const Tab = ({closeTab}) => {
     return(
         <div className="tab">

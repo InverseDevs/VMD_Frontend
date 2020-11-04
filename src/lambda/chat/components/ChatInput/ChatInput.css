@@ -37,7 +37,7 @@
     overflow: hidden;
 }
 .msg-send{
-    background: url('../../../images/send_icon_react.svg');
+    background: url('../../../../images/send_icon_react.svg');
     outline:none;
     margin-left: 16px;
     margin-top: 19px; 
