@@ -1,7 +1,7 @@
 import React from 'react';
-import './chat/components/ChatApp/ChatApp.css';
-import logo from '../images/logo_opacity.png';
-import ChatContainer from './chat/components/ChatContainer/ChatContainer';
+import './ChatApp.css';
+import logo from '../../../../images/logo_opacity.png';
+import ChatContainer from '../ChatContainer/ChatContainer';
 import {BrowserRouter, Link} from 'react-router-dom';
 class ChatApp extends React.Component{
     render(){
