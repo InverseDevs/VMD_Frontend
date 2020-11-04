@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import ChatApp from './lambda/chat/components/ChatApp/ChatApp';
+import ChatApp from './lambda/ChatApp';
 // import ProfileApp from './profile/components/ProfileApp/ProfileApp';
 //import {BrowserRouter, Route} from 'react-router-dom';
 
