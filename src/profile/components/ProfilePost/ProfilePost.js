@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProfilePost.css';
-import like from '../../images/like.svg';
+import like from '../../../images/like.svg';
 class ProfilePost extends React.Component {
     render() {
         return(
