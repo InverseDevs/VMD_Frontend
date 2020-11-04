@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import ChatApp from './lambda/chat/components/ChatApp/ChatApp';
-// import ProfileApp from './profile/components/ProfileApp/ProfileApp';
+import ProfileApp from './profile/components/ProfileApp/ProfileApp';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 ReactDOM.render(<App />, document.getElementById('root'));
