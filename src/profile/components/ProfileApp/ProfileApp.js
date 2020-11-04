@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileContainer from '../ProfileContainer/ProfileContainer';
 import './ProfileApp.css';
-import logo from '../../../../images/logo_opacity.png';
+import logo from '../../../images/logo_opacity.png';
 
 class ProfileApp extends React.Component{
     
