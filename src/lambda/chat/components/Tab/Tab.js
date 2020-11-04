@@ -5,7 +5,7 @@ const Tab = ({closeTab}) => {
     return(
         <div className="tab">
                 <p className="chat-name">Chat Name</p>
-                <div onClick={closeTab} className="close-div">
+                <div onClick={require('../../../../images/close.png')} className="close-div">
                     <img src={close} className="close-icon" />
                 </div>
         </div>
