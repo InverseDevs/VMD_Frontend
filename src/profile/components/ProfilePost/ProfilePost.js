@@ -7,7 +7,7 @@ class ProfilePost extends React.Component {
             <div className="profile-post">
                 <div className="profile-post-header">
                     <div className="profile-post-header-left">
-                        <button className="profile-post-like"><img className="post-like" src={like}/></button>
+                        <button className="profile-post-like"><img className="post-like" src={require('../../../images/like.svg')}/></button>
                         <button className="profile-post-comments">Комментарии</button>
                     </div>
                     <div className="user-img"></div>
