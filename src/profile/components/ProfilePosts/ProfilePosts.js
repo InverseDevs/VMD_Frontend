@@ -8,7 +8,8 @@ class ProfilePosts extends React.Component {
     render() {
         return(
         <div className="profile-posts">
-            {[...Array(this.props.posts)].map(() => <ProfilePost />)}
+            {/* {[...Array(this.props.posts)].map(() => <ProfilePost />)} */}
+            <ProfilePost />
         </div>
     );}
 }
