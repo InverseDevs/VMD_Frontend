@@ -1,0 +1,138 @@
+#thanks-big-ellipse-top{
+    position: absolute;
+            width: 500px;
+            height: 500px;
+            left: 1659px;
+            top: -194px;
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 50%;
+}
+#thanks-big-ellipse-bot{
+    position: absolute;
+            width: 500px;
+            height: 500px;
+            left: 1659px;
+            top: 84px;
+            
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 50%;
+}
+#thanks-small-ellipse-1{
+    position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 1609px;
+            top: -44px;
+            border-radius: 50%;
+            background: #7CBC5F;
+}
+#thanks-small-ellipse-2{
+    position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 1659px;
+            top: 135px;
+            border-radius: 50%;
+            background: #7CBC5F;
+}
+#thanks-small-ellipse-3{
+    position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 1609px;
+            top: 314px;
+            border-radius: 50%;
+            background: #7CBC5F;
+}
+#thanks-small-ellipse-4{
+    position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 1809px;
+            top: 534px;
+            border-radius: 50%;
+            background: #7CBC5F;
+}
+#thanks-logo{
+    position: absolute;
+            width: 50px;
+            height: 50px;
+            left: 585px;
+            top: 286px;
+}
+#thanks-title{
+    position: absolute;
+            width: 733px;
+            height: 56px;
+            left: 553px;
+            top: 306px;
+            
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 48px;
+            line-height: 56px;
+            text-align: center;
+            
+            color: #000000;
+}
+#thanks-subtitle{
+    position: absolute;
+            width: 651px;
+            height: 42px;
+            left: 594px;
+            top: 393px;
+            
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 42px;
+            text-align: center;
+            
+            color: #000000;
+}
+#to-login{
+    text-decoration: none;
+}
+#thanks-btn{
+    position: absolute;
+        
+        left: 230px;
+        top: 524px;
+        
+        border: none;
+    display: block;
+    background: #7EC272;
+    height: 50px;
+    width: 240px;
+    font-family: 'Source Serif Pro', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    margin-left: 28%;
+    text-align: center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 3px 1px #2e885d;
+    -webkit-box-shadow: 0px 3px 1px #2e885d;
+    box-shadow: 0px 3px 1px #2e885d;
+    -moz-transition: all 0.15s linear;
+    -o-transition: all 0.15s linear;
+    -webkit-transition: all 0.15s linear;
+    transition: all 0.15s linear;
+    outline: none;
+}
+#thanks-btn:hover{
+    background: #92CE76;
+    -moz-box-shadow: 0 3px 1px #2e885d;
+    -webkit-box-shadow: 0 3px 1px #2e885d;
+    box-shadow: 0 3px 1px #2e885d;
+}
+
+#thanks-btn:active{
+    background:#74BC70;
+    box-shadow:  0 3px 1px #2e885d;
+}

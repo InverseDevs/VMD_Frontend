@@ -2,10 +2,8 @@ import React from 'react';
 import ProfileHeader from '../ProfileHeader/ProfileHeader';
 import ProfileFooter from '../ProfileFooter/ProfileFooter';
 import './ProfileContainer.css';
+import FetchData from '../../../services/FetchData';
 class ProfileContainer extends React.Component {
-    state = {
-        postsNumber: 0,
-    }
     addPost = () => {
         this.setState(({postsNumber})=> 
         ({postsNumber: postsNumber+1}))
@@ -13,8 +11,8 @@ class ProfileContainer extends React.Component {
     render() {
         return(
         <div className="profile-container">
-            <ProfileHeader addPost={this.addPost}/>
-            <ProfileFooter posts={this.state.postsNumber}/>
+            <ProfileHeader  userData={this.props.userData} addPost={this.addPost}/>
+            <ProfileFooter />
         </div>
     );}
 }

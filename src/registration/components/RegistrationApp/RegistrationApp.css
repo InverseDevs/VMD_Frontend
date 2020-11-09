@@ -1,0 +1,185 @@
+#reg-left-ellipse{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: -220px;
+    top: -306px;
+
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+#reg-right-ellipse{
+        position: absolute;
+    width: 500px;
+    height: 500px;
+    left: -96px;
+    top: -250px;
+
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+#reg-small-ellipse-1{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 212px;
+    top: -36.5px;
+
+    background: #7CBC5F;
+    border-radius: 50%;
+}
+#reg-small-ellipse-2{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 262px;
+    top: 135px;
+
+    background: #7CBC5F;
+    border-radius: 50%;
+}
+#reg-small-ellipse-3{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 54px;
+    top: 185px;
+
+    background: #7CBC5F;
+    border-radius: 50%;
+}
+#reg-form{
+    position: absolute;
+    width: 585px;
+    height: 740px;
+    left: 680px;
+    top: 148px;
+
+    background: linear-gradient(180deg, rgba(169, 217, 147, 0.7) 0%, rgba(255, 255, 255, 0.7) 100%), #7EC272;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#reg-form-header{
+    display:flex;
+
+    margin-left: 12%;
+    margin-top: 7%;
+    margin-bottom: -30px;
+}
+#reg-form input{
+    margin-bottom:20px;
+    margin-left: 15%;
+    width: 380px;
+    height: 50px;
+    padding-left: 15px;
+    font-family: 'Source Serif Pro',sans-serif;
+    font-size: 24px;
+    outline:none;
+    border:none;
+}
+#reg-email-field{
+    height: 40px;
+    margin-bottom: 10px;
+
+    background: #fff;
+    border: none;
+    color: #000;
+    outline: none;
+}
+#reg-login-field{
+    
+    height: 40px;
+    margin-bottom: 10px;
+
+    background: #fff;
+    border: none;
+    color: #000;
+    outline: none;
+}
+#reg-pass-field{
+    
+    height: 40px;
+    margin-bottom: 10px;
+
+    background: #fff;
+    border: none;
+    color: #000;
+    outline: none;
+}
+form #reg-btn{
+    border: none;
+    display: block;
+    background: #7EC272;
+    height: 50px;
+    width: 290px;
+    font-family: 'Source Serif Pro', sans-serif;
+    font-size: 24px;
+    margin-left: 24%;
+    color: #ffffff;
+    text-align: center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding-left: 5px;
+    -moz-box-shadow: 0px 3px 1px #2e885d;
+    -webkit-box-shadow: 0px 3px 1px #2e885d;
+    box-shadow: 0px 3px 1px #2e885d;
+    -moz-transition: all 0.15s linear;
+    -o-transition: all 0.15s linear;
+    -webkit-transition: all 0.15s linear;
+    transition: all 0.15s linear;
+    outline: none;
+}
+#reg-btn:hover{
+    background: #92CE76;
+    -moz-box-shadow: 0 3px 1px #2e885d;
+    -webkit-box-shadow: 0 3px 1px #2e885d;
+    box-shadow: 0 3px 1px #2e885d;
+}
+#reg-btn a{
+    text-decoration: none;
+    color: #000;
+}
+#reg-btn:active{
+    background:#74BC70;
+    box-shadow:  0 3px 1px #2e885d;
+}
+
+
+#reg-form-logo{
+    width: 80px;
+    height: 80px;
+    margin-left: -25px;;
+}
+#reg-form-title{
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 42px;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 3.5%;
+}
+#reg-shadow{
+    
+    position: absolute;
+    width: 400px;
+    height: 700px;
+    left: 970px;
+    top: 58px;
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.45) 100%), rgba(206, 251, 185, 0.45);
+}
+#to-after{
+    text-decoration: none;
+}
+.error-msg{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    margin-left: 15%;
+    color: red;
+    margin-bottom: 2px;
+    max-width: 70%;
+}
