@@ -10,7 +10,14 @@
     line-height: 33px;
 }
 
-.profile-status{
+.online{
+    margin-top: 30px;
+    margin-right: 105px;
+    font-size: 16px;
+    line-height: 19px;
+    color: red;
+}
+.offline{
     margin-top: 30px;
     margin-right: 105px;
     font-size: 16px;
@@ -21,7 +28,7 @@
     margin-top: 26px;
     margin-left: 60px;
 }
-.profile-town, .profile-study, .profile-bday{
+.profile-town, .profile-study, .profile-bday,.age,.school,.phone-number{
     font-size: 20px;
     line-height: 23px;
     margin-top:9px;
@@ -61,4 +68,73 @@
 }
 .profile-create-post:active{
     border:1px solid black;
+}
+.post-form{
+    display:flex;
+}
+.post-input-container{
+    width: 700px;
+    height: 80px;
+    margin-left: 110px;
+    border: 1px solid #48BF4A;
+    box-sizing: border-box;
+    border-radius: 25px;
+    overflow:hidden;
+    min-height: 200px;
+}
+.post-input{
+    margin-left: 22px;
+    margin-top: 20px;
+    margin-right: 22px;
+    font-family: 'Source Serif Pro', sans-serif;
+    border:none;
+    resize:none;
+    outline:none;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 160px;
+    font-size:17px;
+    width: 650px;
+}
+.post-input::-webkit-scrollbar{
+    width:0;
+    height:0;
+}
+.post-input::-webkit-scrollbar-thumb{
+    width:0;
+    height:0;
+}
+.post-send-btn {
+    width: 120px;
+    height: 40px;
+    background: #92CE76;
+    border-radius: 50px;
+    margin-left: 9px;
+}
+.post-send{
+    outline:none;
+    margin-left: 16px;
+    margin-top: 19px; 
+    width: 120px;
+    height: 40px;
+    background: #92CE76;
+    border-radius: 50px;
+    border:none;
+}
+.close-btn{
+    outline:none;
+    margin-left: 16px;
+    margin-top: 19px; 
+    width: 120px;
+    height: 40px;
+    background: #92CE76;
+    border-radius: 50px;
+    border:none;
+}
+.add-file{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-right:24px;
 }
