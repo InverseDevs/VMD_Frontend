@@ -6,6 +6,12 @@
     border-radius: 5px;
     margin-bottom: 40px;
 }
+.profile-full-post{
+    width: 950px;
+    min-height: 520px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99.99%, rgba(255, 255, 255, 0.0234375) 100%), #77BB59;
+    padding-bottom: 20px;
+}
 .profile-post-header{
     display:flex;
     justify-content:space-between;
@@ -28,10 +34,10 @@
 .post-like{
     margin-left:1px;
     margin-top:5px;
+    width: 25px;
+    height: 25px;
 }
-.profile-post-like:active {
-    border:1px solid red;
-}
+
 .profile-post-comments{
     width: 120px;
     height: 40px;
@@ -47,7 +53,7 @@
 .profile-post-comments:active{
     border:1px solid black;
 }
-.user-img{
+.user-img, .user-full-img{
     width: 60px;
     height: 60px;
     margin-top: 15px;
@@ -61,11 +67,27 @@
     margin-bottom: 20px;
     background: #C4C4C4;
 }
+.post-full-img{
+    width: 875px;
+    height: 270px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    background: #C4C4C4;
+}
 .post-text{
     font-size: 14px;
     line-height: 16px;
     margin-left:40px;
     max-width: 540px;
+    max-height: 45px;
+    overflow-y:hidden;
+}
+.post-full-text{
+    font-size: 14px;
+    line-height: 16px;
+    margin-left:40px;
+    max-width: 875px;
+    padding-bottom: 20px;
 }
 .post-readmore{
     width: 140px;
@@ -81,4 +103,23 @@
 }
 .post-readmore:active{
     border:1px solid black;
+}
+.close-btn{
+    outline:none;
+    margin-left: 16px;
+    margin-top: 19px; 
+    width: 120px;
+    height: 40px;
+    background: #92CE76;
+    border-radius: 50px;
+    border:none;
+}
+.close-post-btn{
+    outline:none;
+    margin-left: 16px;
+    width: 120px;
+    height: 40px;
+    background: #92CE76;
+    border-radius: 50px;
+    border:none;
 }

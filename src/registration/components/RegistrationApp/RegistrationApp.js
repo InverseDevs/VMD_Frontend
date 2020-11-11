@@ -7,14 +7,12 @@ class Registration extends React.Component{
         super(props);
         this.state={
             email: '',
-            name: '',
-            date: '',
-            town: '',
             login: '',
             repassword: '',
             password: '',
             error: '',
             same_password: true,
+            success: false,
         }
     }
     handleEmailChange= (e) => {
@@ -23,20 +21,11 @@ class Registration extends React.Component{
     handlePasswordChange = (e) => {
         this.setState({password: e.target.value});
     }
-    handleNameChange = (e) => {
-        this.setState({name: e.target.value});
-    }
     handleRePasswordChange = (e) => {
         this.setState({repass: e.target.value});
     }
     handleLoginChange = (e) => {
         this.setState({login: e.target.value});
-    }
-    handleTownChange = (e) => {
-        this.setState({town: e.target.value});
-    }
-    handleDateChange = (e) => {
-        this.setState({date: e.target.value});
     }
     postData = async (url,data) => {
         const res = await fetch(url, {
@@ -54,19 +43,18 @@ class Registration extends React.Component{
         {username: this.state.login, 
          password: this.state.password,
          email: this.state.email,
-         name: this.state.name,
-         birth_town: this.state.town,
-         birth_date: this.state.date})
+         })
         .then(data =>  {
             if (data.status !== undefined){
                 this.setState({error: data.status});
                 console.log(this.state.error);
+                this.setState({success: false});
             };
         
             if (data.status === 'success' && this.state.same_password == true){
-                this.props.history.push('/after-registration');
+                this.setState({success: true});
             }
-        })}else{this.setState({same_password: false})} };
+        })}else{this.setState({same_password: false, success:false})} };
 
         err_msg = () => {
         if (this.state.error == 'user already exists'){
@@ -95,13 +83,11 @@ class Registration extends React.Component{
                 <p id="reg-form-title">Регистрация</p>
                 </div>
                 <p className="error-msg">{`${this.err_msg()}`}</p>
+                <p className="check-email">{this.state.success === true ? 'Проверьте почту' : ''}</p>
                 <input onChange={this.handleEmailChange} type="email" name="email" id="reg-email-field" placeholder="Почта" required autoFocus/>
                 <input onChange={this.handleLoginChange} type="text" name="login" id="reg-login-field" placeholder="Логин" required/>
                 <input onChange={this.handlePasswordChange} type="password" name="pass" id="reg-pass-field" placeholder="Пароль" required/>
                 <input onChange={this.handleRePasswordChange} type="password" name="pass" id="reg-pass-field" placeholder="Повторите пароль" required/>
-                <input onChange={this.handleNameChange} type="text" name="name" id="reg-name-field" placeholder="Имя" required/>
-                <input onChange={this.handleTownChange} type="text" name="town" id="reg-town-field" placeholder="Город" required/>
-                <input onChange={this.handleDateChange}  type="text" name="date" id="reg-date-field" placeholder="Дата рождения" required/> 
                 <input type="submit" id="reg-btn" value="Зарегистрироваться" />
             </form>
             </div>

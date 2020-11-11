@@ -11,7 +11,7 @@ class ProfileHeader extends React.Component{
         return (
             <div className="profile-header">
                 <ProfilePhoto />
-                <ProfileInfo userData={this.props.userData} addPost={this.props.addPost}/>
+                <ProfileInfo userData={this.props.userData} posts={this.props.posts} addPost={this.props.addPost}/>
             </div>
         );
     }
