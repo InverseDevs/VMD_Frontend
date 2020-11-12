@@ -10,11 +10,13 @@
 .profile-btn{
     position:relative;
     width: 140px;
-    height: 30px;
+    height: 40px;
     left: 40px;
     top: 65px;
     display: inline-block;
+
     padding-top: 12px;
+
     text-align: center;
     cursor: pointer;
     background: #7CBC5F;
