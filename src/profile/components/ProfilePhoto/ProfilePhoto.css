@@ -14,8 +14,9 @@
     left: 40px;
     top: 65px;
     display: inline-block;
-    padding-top: 9px;
-    padding-bottom: 12px;
+
+    padding-top: 12px;
+
     text-align: center;
     cursor: pointer;
     background: #7CBC5F;

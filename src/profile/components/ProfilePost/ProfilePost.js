@@ -2,7 +2,10 @@ import React from 'react';
 import './ProfilePost.css';
 import like from './heart.svg';
 import likeClicked from './heart_clicked.svg';
-import {Modal } from 'semantic-ui-react'
+
+import ProfilePostModal from '../ProfilePostModal/ProfilePostModal';
+import ProfileCommentsModal from '../ProfileCommentsModal/ProfileCommentsModal';
+
 import Comments from '../ProfileComments/ProfileComments';
 import PostComments from '../ProfilePostComments/ProfilePostComments';
 class ProfilePost extends React.Component {
@@ -10,38 +13,52 @@ class ProfilePost extends React.Component {
         super(props);
         this.state = {
             liked: false,
-            openComments:false,
-            openPost: false,
+
+            showComments:false,
+            showPost: false,
+
         }
     }
     likePressed =() => {
         this.setState({liked: !this.state.liked})
     }
+
+    showCommentsModal = () => {
+        this.setState({ showComments: true });
+      };
+    
+      hideCommentsModal = () => {
+        this.setState({ showComments: false });
+      };
+      showPostModal = () => {
+        this.setState({ showPost: true });
+      };
+    
+      hidePostModal = () => {
+        this.setState({ showPost: false });
+      };
+
     render() {
         return(
             <div className="profile-post">
                 <div className="profile-post-header">
                     <div className="profile-post-header-left">
                         <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={this.state.liked === false ? like : likeClicked}/></button>
-                        <Modal
-                        onClose={() => this.setState({openComments:false})}
-                        onOpen={() => this.setState({openComments:true})}
-                        open={this.state.openComments}
-                        trigger={<button className="profile-post-comments">Комментарии</button>}
-                        >
-                            <Comments />
-                    </Modal>
+
+                        <button onClick={this.showCommentsModal} className="profile-post-comments">Комментарии</button>
+                        <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
+                            <Comments/>
+                    </ProfileCommentsModal>
+
                     </div>
                     <div className="user-img"></div>
                 </div>
                 <div className="post-img"></div>
                 <h6 className="post-text">Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.</h6>
-                <Modal
-                        onClose={() => this.setState({openPost:false})}
-                        onOpen={() => this.setState({openPost:true})}
-                        open={this.state.openPost}
-                        trigger={<button className="post-readmore">Подробнее</button>}
-                        >
+
+                <button className="post-readmore" onClick={this.showPostModal}>Подробнее</button>
+                <ProfilePostModal show={this.state.showPost} handleClose={this.hidePostModal}>
+
                         <div className="profile-full-post">
                 <div className="profile-post-header">
                     <div className="profile-post-header-left">
@@ -54,7 +71,9 @@ class ProfilePost extends React.Component {
                 <h6 className="post-full-text">Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.</h6>
                 <PostComments/>
                 </div>
-                    </Modal>
+
+                    </ProfilePostModal>
+
             </div>
         );
     }

@@ -8,6 +8,25 @@
 .break-line{
     border: 1px solid black;
 }
+
+.comment-post-input{
+    margin-top: 20px;
+
+        font-family: 'Source Serif Pro', sans-serif;
+        border:none;
+        resize:none;
+        outline:none;
+        padding-top: 25px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+        height: 160px;
+        font-size:17px;
+        width: 820px;
+        border-radius: 50px;
+        border: 1px solid  #48BF4A;
+}
+
 .comment-reply-post-btn{
     width: 140px;
     height: 40px;

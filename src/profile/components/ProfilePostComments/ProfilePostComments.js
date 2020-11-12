@@ -10,7 +10,9 @@ const ProfilePostComments = () => {
     <ProfileComment secondary img="https://react.semantic-ui.com/images/avatar/small/jenny.jpg" name="Jenny Hess" date="Just now" text="Elliot you are always so right :)"/>
     <ProfileComment img="https://react.semantic-ui.com/images/avatar/small/joe.jpg" name="Joe Henderson" date="5 days ago" text="Dude, this is awesome. Thanks so much"/>
     <form className="comment-form">
-        <textarea className="comment-input" placeholder="Введите текст"/>
+
+        <textarea className="comment-post-input" placeholder="Введите текст"/>
+
         <button className="comment-reply-post-btn">Ответить</button>
     </form>
     </div>)
