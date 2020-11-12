@@ -26,7 +26,6 @@ class ProfileInfo extends React.Component{
         this.setState({ show: false });
       };
 
-
     render() {
         const online = window.navigator.onLine;
         const status = online === true ? <h4 className="online">Онлайн</h4> : <h4 className="offline">Оффлайн</h4>
@@ -64,7 +63,6 @@ class ProfileInfo extends React.Component{
                             </label>  
                     </Modal>
                     <button className="profile-create-post" onClick={this.showModal}>Оставить запись</button>
-
 
                 </div>
             </div>
