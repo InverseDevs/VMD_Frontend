@@ -6,6 +6,7 @@
     margin-top:11px;
 }
 .profile-username{
+    margin-top: 25px;
     font-size: 28px;
     line-height: 33px;
 }
@@ -69,33 +70,33 @@
 .profile-create-post:active{
     border:1px solid black;
 }
-.post-form{
-    display:flex;
-}
-.post-input-container{
-    width: 700px;
-    height: 80px;
-    margin-left: 110px;
-    border: 1px solid #48BF4A;
-    box-sizing: border-box;
-    border-radius: 25px;
-    overflow:hidden;
-    min-height: 200px;
-}
+
+
 .post-input{
-    margin-left: 22px;
-    margin-top: 20px;
-    margin-right: 22px;
+    margin-left: 45px;
+    margin-top: 10px;
     font-family: 'Source Serif Pro', sans-serif;
     border:none;
     resize:none;
     outline:none;
-    padding-top: 10px;
+    padding-top: 25px;
     padding-left: 25px;
     padding-right: 25px;
-    height: 160px;
+    height: 330px;
     font-size:17px;
-    width: 650px;
+    width: 810px;
+    border: 1px solid white;
+    border-radius: 25px;
+    box-shadow: 0 1px 3px inset;
+}
+.post-create-img{
+    margin-left: 45px;
+    width: 860px;
+    height: 300px;
+    background: gray;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px inset;
 }
 .post-input::-webkit-scrollbar{
     width:0;
@@ -114,13 +115,18 @@
 }
 .post-send{
     outline:none;
-    margin-left: 16px;
+    margin-left: 45px;
     margin-top: 19px; 
     width: 120px;
     height: 40px;
     background: #92CE76;
     border-radius: 50px;
+    font-family: 'Source Serif Pro', sans-serif;
     border:none;
+    box-shadow: 0px 1px 3px inset;
+}
+.post-send:active{
+    box-shadow: none;
 }
 .close-btn{
     outline:none;
@@ -137,4 +143,5 @@
     padding-bottom: 12px;
     padding-left: 24px;
     padding-right:24px;
+    font-family: 'Source Serif Pro', sans-serif;
 }

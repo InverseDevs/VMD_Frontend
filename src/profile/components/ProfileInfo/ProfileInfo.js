@@ -1,19 +1,25 @@
 import React from 'react';
 import './ProfileInfo.css';
-import {Modal } from 'semantic-ui-react'
-
+import Modal from '../ProfileModal/ProfileModal';
 class ProfileInfo extends React.Component{
     constructor(props) {
     super(props);
     this.state = {
         fullInfo: false,
-        open: false,
+        show: false,
     }
 
 }
     onCheckInfo = () => {
         this.setState({fullInfo: !this.state.fullInfo})
     }
+    showModal = () => {
+        this.setState({ show: true });
+      };
+    
+      hideModal = () => {
+        this.setState({ show: false });
+      };
     render() {
         const online = window.navigator.onLine;
         const status = online === true ? <h4 className="online">Онлайн</h4> : <h4 className="offline">Оффлайн</h4>
@@ -37,31 +43,19 @@ class ProfileInfo extends React.Component{
                 
                 <div className="profile-btns">
                     <button className="profile-readmore" onClick={this.onCheckInfo}>{this.state.fullInfo === false ? 'Показать подробнее' : 'Скрыть'}</button>
-                    <Modal
-                        onClose={() => this.setState({open:false})}
-                        onOpen={() => this.setState({open:true})}
-                        open={this.state.open}
-                        trigger={<button className="profile-create-post">Оставить запись</button>}
-                        >
-                        <Modal.Header>Пост</Modal.Header>
-                        <Modal.Content image>
-                            <Modal.Description>
-                            <form className="post-form" >
-                                <div className="post-input-container">
+                    <Modal  show={this.state.show} handleClose={this.hideModal}>
+                    <form className="post-form" >
+                                    <div className="post-create-img"></div>
                                     <textarea type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input"/>
-                                </div>
+
                             </form>
-                            </Modal.Description>
-                        </Modal.Content>
-                        <Modal.Actions>
-                            <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({open:false}); this.props.addPost(this.props.posts)}}/>
+                            <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); this.props.addPost(this.props.posts)}}/>
                             <label class="post-send add-file">
                             <input type="file"  accept=".jpg, .png, .jpeg"/>
                             Прикрепить
-                            </label>    
-                            <button className="close-btn" onClick={() => this.setState({open:false})}>Закрыть</button>
-                        </Modal.Actions>
+                            </label>  
                     </Modal>
+                    <button className="profile-create-post" onClick={this.showModal}>Оставить запись</button>
                 </div>
             </div>
         );

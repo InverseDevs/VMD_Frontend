@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ChatApp from './chat/components/ChatApp/ChatApp';
 import ProfileApp from './profile/components/ProfileApp/ProfileApp';
-import LoginAppLogin from './lambda/LoginAppLogin';
-import LoginAppReset from './lambda/LoginAppReset/LoginAppReset';
+import LoginAppLogin from './login/components/LoginAppLogin/LoginAppLogin';
+import LoginAppReset from './login/components/LoginAppReset/LoginAppReset';
 import RegistrationApp from './registration/components/RegistrationApp/RegistrationApp';
 import AfterRegister from './after-register/components/AfterRegister/AfterRegister';
 import {BrowserRouter, Route} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-
 class App extends React.Component{
     state={
         userData: '',
@@ -31,7 +30,9 @@ class App extends React.Component{
                 <Route exact path="/profile/:id">
                     <ProfileApp userData={this.state.userData}/>
                 </Route>
-
+                <Route exact path="/profile/test">
+                    <ProfileApp userData={this.state.userData}/>
+                </Route>
             </BrowserRouter>
         );
     }
