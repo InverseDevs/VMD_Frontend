@@ -10,7 +10,7 @@ class ProfileFooter extends React.Component{
         return (
             <div className="profile-footer">
                 <ProfileAside/>
-                <ProfilePosts/>
+                <ProfilePosts postNumber={this.props.postNumber}/>
             </div>
         );
     }

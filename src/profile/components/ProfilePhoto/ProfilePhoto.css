@@ -13,13 +13,21 @@
     height: 30px;
     left: 40px;
     top: 65px;
+    display: inline-block;
+    padding-top: 12px;
+    text-align: center;
+    cursor: pointer;
     background: #7CBC5F;
     border-radius: 50px;
     border:none;
     outline:none;
     font-weight:bold;
     font-size:14px;
+    z-index: 1;
 }
 .profile-btn:active{
     border:1px solid black;
+}
+input[type="file"] {
+    display: none;
 }

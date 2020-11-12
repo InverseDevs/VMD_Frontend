@@ -6,11 +6,19 @@
     margin-top:11px;
 }
 .profile-username{
+    margin-top: 25px;
     font-size: 28px;
     line-height: 33px;
 }
 
-.profile-status{
+.online{
+    margin-top: 30px;
+    margin-right: 105px;
+    font-size: 16px;
+    line-height: 19px;
+    color: red;
+}
+.offline{
     margin-top: 30px;
     margin-right: 105px;
     font-size: 16px;
@@ -21,7 +29,7 @@
     margin-top: 26px;
     margin-left: 60px;
 }
-.profile-town, .profile-study, .profile-bday{
+.profile-town, .profile-study, .profile-bday,.age,.school,.phone-number{
     font-size: 20px;
     line-height: 23px;
     margin-top:9px;
@@ -61,4 +69,79 @@
 }
 .profile-create-post:active{
     border:1px solid black;
+}
+
+
+.post-input{
+    margin-left: 45px;
+    margin-top: 10px;
+    font-family: 'Source Serif Pro', sans-serif;
+    border:none;
+    resize:none;
+    outline:none;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 330px;
+    font-size:17px;
+    width: 810px;
+    border: 1px solid white;
+    border-radius: 25px;
+    box-shadow: 0 1px 3px inset;
+}
+.post-create-img{
+    margin-left: 45px;
+    width: 860px;
+    height: 300px;
+    background: gray;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px inset;
+}
+.post-input::-webkit-scrollbar{
+    width:0;
+    height:0;
+}
+.post-input::-webkit-scrollbar-thumb{
+    width:0;
+    height:0;
+}
+.post-send-btn {
+    width: 120px;
+    height: 40px;
+    background: #92CE76;
+    border-radius: 50px;
+    margin-left: 9px;
+}
+.post-send{
+    outline:none;
+    margin-left: 45px;
+    margin-top: 19px; 
+    width: 120px;
+    height: 40px;
+    background: #92CE76;
+    border-radius: 50px;
+    font-family: 'Source Serif Pro', sans-serif;
+    border:none;
+    box-shadow: 0px 1px 3px inset;
+}
+.post-send:active{
+    box-shadow: none;
+}
+.close-btn{
+    outline:none;
+    margin-left: 16px;
+    margin-top: 19px; 
+    width: 120px;
+    height: 40px;
+    background: #92CE76;
+    border-radius: 50px;
+    border:none;
+}
+.add-file{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-right:24px;
+    font-family: 'Source Serif Pro', sans-serif;
 }

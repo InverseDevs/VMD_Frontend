@@ -6,7 +6,10 @@ class ProfilePhoto extends React.Component{
         return (
             <div className="profile-photo-container">
                 <div className="profile-photo"></div>
-                <button className="profile-btn">Изменить</button>
+                <label class="profile-btn">
+                    <input type="file"  accept=".jpg, .png, .jpeg"/>
+                    Изменить
+                </label>
             </div>
         );
     }
