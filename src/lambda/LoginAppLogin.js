@@ -23,6 +23,10 @@ class LoginAppLogin extends React.Component {
             method: 'POST',
             body: JSON.stringify(data)
         });
+        console.log(res.headers.get('Authorization'));
+        for (let [key, value] of res.headers) {
+            console.log(`${key} = ${value}`);
+          }
         return await res.json();
     } 
     submitForm = async (e) => {
