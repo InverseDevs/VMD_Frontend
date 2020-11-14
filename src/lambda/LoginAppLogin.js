@@ -25,10 +25,12 @@ class LoginAppLogin extends React.Component {
 
 
         });
+
         this.setState({token: res.headers.get('Authorization')});
         window.localStorage.setItem('token',res.headers.get('Authorization'));
         this.props.getUserToken(this.state.token);
         return await res;
+
     } 
     submitForm = async (e) => {
         e.preventDefault();
