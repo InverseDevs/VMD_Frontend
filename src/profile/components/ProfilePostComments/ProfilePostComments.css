@@ -8,7 +8,6 @@
 .break-line{
     border: 1px solid black;
 }
-
 .comment-post-input{
     margin-top: 20px;
 
@@ -26,7 +25,6 @@
         border-radius: 50px;
         border: 1px solid  #48BF4A;
 }
-
 .comment-reply-post-btn{
     width: 140px;
     height: 40px;

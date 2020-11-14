@@ -10,7 +10,7 @@ class ProfileFooter extends React.Component{
         return (
             <div className="profile-footer">
                 <ProfileAside/>
-                <ProfilePosts postNumber={this.props.postNumber}/>
+                <ProfilePosts token={window.localStorage.getItem('token')} userData={this.props.userData}/>
             </div>
         );
     }

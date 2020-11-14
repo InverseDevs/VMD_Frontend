@@ -1,31 +1,44 @@
 import React from 'react';
 import './ProfileInfo.css';
-
 import Modal from '../ProfileModal/ProfileModal';
-
 class ProfileInfo extends React.Component{
     constructor(props) {
     super(props);
     this.state = {
         fullInfo: false,
-
         show: false,
-
+        postText: '',
     }
 
 }
+    handlePostTextChange= (e) => {
+        this.setState({postText:e.target.value});
+    }
     onCheckInfo = () => {
         this.setState({fullInfo: !this.state.fullInfo})
     }
-
     showModal = () => {
         this.setState({ show: true });
-      };
+    };
     
-      hideModal = () => {
+    hideModal = () => {
         this.setState({ show: false });
-      };
+    };
+    postData = async (url,data) => {
+        const res = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Authorization': `${window.localStorage.getItem('token')}`
+            }
+        });
+        return res.json();
+    } 
+    sendPost = async () => {
 
+        await this.postData(`https://inversedevs.herokuapp.com/post/${window.localStorage.getItem('id')}`, {sender : this.props.userData.username, content:this.state.postText})
+        .then(res => {console.log(res)});
+    }
     render() {
         const online = window.navigator.onLine;
         const status = online === true ? <h4 className="online">Онлайн</h4> : <h4 className="offline">Оффлайн</h4>
@@ -49,21 +62,19 @@ class ProfileInfo extends React.Component{
                 
                 <div className="profile-btns">
                     <button className="profile-readmore" onClick={this.onCheckInfo}>{this.state.fullInfo === false ? 'Показать подробнее' : 'Скрыть'}</button>
-
                     <Modal  show={this.state.show} handleClose={this.hideModal}>
                     <form className="post-form" >
                                     <div className="post-create-img"></div>
-                                    <textarea type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input"/>
+                                    <textarea onChange={this.handlePostTextChange} type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
 
                             </form>
-                            <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); this.props.addPost(this.props.posts)}}/>
-                            <label class="post-send add-file">
+                            <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); this.sendPost()}}/>
+                            <label className="post-send add-file">
                             <input type="file"  accept=".jpg, .png, .jpeg"/>
                             Прикрепить
                             </label>  
                     </Modal>
                     <button className="profile-create-post" onClick={this.showModal}>Оставить запись</button>
-
                 </div>
             </div>
         );

@@ -14,7 +14,7 @@ class ProfileComment extends React.Component {
           <img src={this.props.img} className="comment-img"/>
           <div className="comment-body">
             <div className="comment-info">
-            <p ><Link to="/" className="comment-profile-link">{this.props.name}</Link></p>
+            <Link to="/" className="comment-profile-link">{this.props.name}</Link>
             <p className="comment-date">
               {this.props.date}
             </p>
