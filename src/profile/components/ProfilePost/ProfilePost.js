@@ -2,7 +2,8 @@ import React from 'react';
 import './ProfilePost.css';
 import like from './heart.svg';
 import likeClicked from './heart_clicked.svg';
-import {Modal } from 'semantic-ui-react'
+import ProfilePostModal from '../ProfilePostModal/ProfilePostModal';
+import ProfileCommentsModal from '../ProfileCommentsModal/ProfileCommentsModal';
 import Comments from '../ProfileComments/ProfileComments';
 import PostComments from '../ProfilePostComments/ProfilePostComments';
 class ProfilePost extends React.Component {
@@ -10,51 +11,82 @@ class ProfilePost extends React.Component {
         super(props);
         this.state = {
             liked: false,
-            openComments:false,
-            openPost: false,
+            showComments:false,
+            showPost: false,
         }
     }
-    likePressed =() => {
-        this.setState({liked: !this.state.liked})
+    postData = async (url,data) => {
+        const res = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Authorization' : `${window.localStorage.getItem('token')}`
+            }
+        });
+        return await res.json();
+    } 
+    
+    deletePost = async () => {
+
+        await this.postData(`https://inversedevs.herokuapp.com/post/delete/${this.props.Postid}`,
+        {sender: this.props.sender,
+            content: this.props.content
+         })
+       }
+    likePressed = async () => {
+        await this.postData(`https://inversedevs.herokuapp.com/like/post/${this.props.Postid}`,
+        {
+            userId: window.localStorage.getItem('id')
+         })
+         .then(data => {if (data.status === 'added' || data.status === 'removed'){this.setState({liked: !this.state.liked})}})
     }
+    showCommentsModal = () => {
+        this.setState({ showComments: true });
+      };
+    
+      hideCommentsModal = () => {
+        this.setState({ showComments: false });
+      };
+      showPostModal = () => {
+        this.setState({ showPost: true });
+      };
+    
+      hidePostModal = () => {
+        this.setState({ showPost: false });
+      };
     render() {
         return(
             <div className="profile-post">
                 <div className="profile-post-header">
                     <div className="profile-post-header-left">
                         <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={this.state.liked === false ? like : likeClicked}/></button>
-                        <Modal
-                        onClose={() => this.setState({openComments:false})}
-                        onOpen={() => this.setState({openComments:true})}
-                        open={this.state.openComments}
-                        trigger={<button className="profile-post-comments">Комментарии</button>}
-                        >
-                            <Comments />
-                    </Modal>
+                        <button onClick={this.showCommentsModal} className="profile-post-comments">Комментарии</button>
+                        <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
+                        <h6 className="post-time">{this.props.time}</h6>
+                        <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
+                            <Comments token={this.props.token} sender={this.props.sender} Postid={this.props.Postid}/>
+                    </ProfileCommentsModal>
                     </div>
                     <div className="user-img"></div>
                 </div>
                 <div className="post-img"></div>
-                <h6 className="post-text">Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.</h6>
-                <Modal
-                        onClose={() => this.setState({openPost:false})}
-                        onOpen={() => this.setState({openPost:true})}
-                        open={this.state.openPost}
-                        trigger={<button className="post-readmore">Подробнее</button>}
-                        >
+                <h6 className="post-text">{this.props.content}</h6>
+                <button className="post-readmore" onClick={this.showPostModal}>Подробнее</button>
+                <ProfilePostModal show={this.state.showPost} handleClose={this.hidePostModal}>
                         <div className="profile-full-post">
                 <div className="profile-post-header">
                     <div className="profile-post-header-left">
                         <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={this.state.liked === false ? like : likeClicked}/></button>
+                        <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
+                        <h6 className="post-time">{this.props.time}</h6>
                     </div>
                     <div className="user-full-img"></div>
                 </div>
                 <div className="post-full-img"></div>
-                <h6 className="post-full-text">Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.</h6>
-                <h6 className="post-full-text">Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.Повседневная практика показывает, что новая модель организационной деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.</h6>
-                <PostComments/>
+                <h6 className="post-full-text">{this.props.content}</h6>
+                <PostComments token={this.props.token} sender={this.props.sender} id={this.props.id}/>
                 </div>
-                    </Modal>
+                    </ProfilePostModal>
             </div>
         );
     }

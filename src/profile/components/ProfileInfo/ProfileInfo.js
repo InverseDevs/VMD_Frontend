@@ -1,18 +1,43 @@
 import React from 'react';
 import './ProfileInfo.css';
-import {Modal } from 'semantic-ui-react'
-
+import Modal from '../ProfileModal/ProfileModal';
 class ProfileInfo extends React.Component{
     constructor(props) {
     super(props);
     this.state = {
         fullInfo: false,
-        open: false,
+        show: false,
+        postText: '',
     }
 
 }
+    handlePostTextChange= (e) => {
+        this.setState({postText:e.target.value});
+    }
     onCheckInfo = () => {
         this.setState({fullInfo: !this.state.fullInfo})
+    }
+    showModal = () => {
+        this.setState({ show: true });
+    };
+    
+    hideModal = () => {
+        this.setState({ show: false });
+    };
+    postData = async (url,data) => {
+        const res = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Authorization': `${window.localStorage.getItem('token')}`
+            }
+        });
+        return res.json();
+    } 
+    sendPost = async () => {
+
+        await this.postData(`https://inversedevs.herokuapp.com/post/${window.localStorage.getItem('id')}`, {sender : this.props.userData.username, content:this.state.postText})
+        .then(res => {console.log(res)});
     }
     render() {
         const online = window.navigator.onLine;
@@ -37,31 +62,19 @@ class ProfileInfo extends React.Component{
                 
                 <div className="profile-btns">
                     <button className="profile-readmore" onClick={this.onCheckInfo}>{this.state.fullInfo === false ? 'Показать подробнее' : 'Скрыть'}</button>
-                    <Modal
-                        onClose={() => this.setState({open:false})}
-                        onOpen={() => this.setState({open:true})}
-                        open={this.state.open}
-                        trigger={<button className="profile-create-post">Оставить запись</button>}
-                        >
-                        <Modal.Header>Пост</Modal.Header>
-                        <Modal.Content image>
-                            <Modal.Description>
-                            <form className="post-form" >
-                                <div className="post-input-container">
-                                    <textarea type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input"/>
-                                </div>
+                    <Modal  show={this.state.show} handleClose={this.hideModal}>
+                    <form className="post-form" >
+                                    <div className="post-create-img"></div>
+                                    <textarea onChange={this.handlePostTextChange} type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
+
                             </form>
-                            </Modal.Description>
-                        </Modal.Content>
-                        <Modal.Actions>
-                            <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({open:false}); this.props.addPost(this.props.posts)}}/>
-                            <label class="post-send add-file">
+                            <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); this.sendPost()}}/>
+                            <label className="post-send add-file">
                             <input type="file"  accept=".jpg, .png, .jpeg"/>
                             Прикрепить
-                            </label>    
-                            <button className="close-btn" onClick={() => this.setState({open:false})}>Закрыть</button>
-                        </Modal.Actions>
+                            </label>  
                     </Modal>
+                    <button className="profile-create-post" onClick={this.showModal}>Оставить запись</button>
                 </div>
             </div>
         );
