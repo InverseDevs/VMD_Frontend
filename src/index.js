@@ -27,6 +27,9 @@ class App extends React.Component{
                 <Route exact path="/">
                     {window.localStorage.getItem('token')  && window.localStorage.getItem('token') !== '' && window.localStorage.getItem('id') ? <Redirect to={`/profile/${window.localStorage.getItem('id')}`} /> : <LoginAppLogin  getUserToken={this.getUserToken} getUserData={this.getUserData}/>}
                 </Route>
+                <Route exact path="/login">
+                    <LoginAppLogin  getUserToken={this.getUserToken} getUserData={this.getUserData}/>
+                </Route>
                 <Route exact path="/changePass" component={LoginAppReset}/>
                 <Route exact path="/registration" component={RegistrationApp}/>
                 <Route exact path="/after-registration" component={AfterRegister}/>
