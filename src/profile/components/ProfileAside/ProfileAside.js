@@ -1,7 +1,11 @@
 import React from 'react';
 import './ProfileAside.css';
-import {BrowserRouter, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 class ProfileInfo extends React.Component{
+    clearStorage = () => {
+        window.localStorage.setItem('token', '');
+        window.localStorage.setItem('id', '');
+    }
     render() {
         return (
             <div className="profile-aside">
@@ -9,6 +13,7 @@ class ProfileInfo extends React.Component{
                 <Link to="/chat" ><button className="profile-chats">Чаты</button></Link>
                 <button className="profile-groups">Группы</button>
                 <button className="profile-music">Музыка</button>
+                <Link to="../../"><button className="profile-music" onClick={this.clearStorage}>Выйти</button></Link>
             </div>
         );
     }

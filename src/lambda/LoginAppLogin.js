@@ -9,7 +9,7 @@ class LoginAppLogin extends React.Component {
             email: '',
             password: '',
             error: '',
-
+            token: '',
         }
     }
     handleEmailChange= (e) => {
@@ -21,18 +21,27 @@ class LoginAppLogin extends React.Component {
     postData = async (url,data) => {
         const res = await fetch(url, {
             method: 'POST',
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+
+
         });
-        console.log(res.headers.get('Authorization'));
-        for (let [key, value] of res.headers) {
-            console.log(`${key} = ${value}`);
-          }
-        return await res.json();
+
+        this.setState({token: res.headers.get('Authorization')});
+        window.localStorage.setItem('token',res.headers.get('Authorization'));
+        this.props.getUserToken(this.state.token);
+        return await res;
+
     } 
     submitForm = async (e) => {
         e.preventDefault();
         this.setState({error: ''});
         await this.postData('https://inversedevs.herokuapp.com/authorization',{username: this.state.email, password: this.state.password})
+        .then(res => 
+            {
+                // console.log(res.headers);
+                // this.setState({token : res.headers.get('Authorization')})
+                return res.json()
+            })
         .then(data =>  {
             if (data.status !== undefined){
                 this.setState({error: data.status});
@@ -43,9 +52,11 @@ class LoginAppLogin extends React.Component {
         .then(data => {
                 if (this.state.error == ''){
                 this.props.getUserData(data);
+                window.localStorage.setItem('id',data.id);
                 this.props.history.push(`/profile/${data.id}`);
                 }
         })
+        
       }
       err_msg = () => {
         if (this.state.error == 'incorrect password'){
@@ -70,16 +81,16 @@ class LoginAppLogin extends React.Component {
                 <p id="title">VMD - Very Magic Duck</p>
                 <p id="subtitle">Самая утиная социальная сеть в мире!</p>
             </div>
-            <div id="form" class="flat-form">
-            <ul class="tabs">
+            <div id="form" className="flat-form">
+            <ul className="tabs">
                 <li>
-                    <Link to="/" class="active">Войти</Link>
+                    <Link to="/" className="active">Войти</Link>
                 </li>
                 <li>
                     <Link to="/changePass">Смена пароль</Link>
                 </li>
                 </ul>
-                <div id="login" class="form-action show">
+                <div id="login" className="form-action show">
                     <div id="form-header">
                     <img src={logo} alt="logo" id="form_logo"/>
                     <Link to="/registration" id="register">Регистрация</Link>
@@ -95,7 +106,7 @@ class LoginAppLogin extends React.Component {
                                 <input type="password" onChange={this.handlePasswordChange} id="login-pass" placeholder="Пароль:" required/>
                             </li>
                               <li>
-                               <input type="submit" value="Войти" class="button"/>
+                               <input type="submit" value="Войти" className="button"/>
                             </li>
 
                         </ul>
