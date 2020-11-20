@@ -64,7 +64,7 @@ class ProfilePost extends React.Component {
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <h6 className="post-time">{this.props.time}</h6>
                         <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
-                            <Comments token={this.props.token} sender={this.props.sender} Postid={this.props.Postid}/>
+                            <Comments comments={this.props.comments} token={this.props.token} sender={this.props.sender} Postid={this.props.Postid}/>
                     </ProfileCommentsModal>
                     </div>
                     <div className="user-img"></div>
@@ -84,7 +84,7 @@ class ProfilePost extends React.Component {
                 </div>
                 <div className="post-full-img"></div>
                 <h6 className="post-full-text">{this.props.content}</h6>
-                <PostComments token={this.props.token} sender={this.props.sender} id={this.props.id}/>
+                <PostComments comments={this.props.comments} token={this.props.token} sender={this.props.sender} Postid={this.props.Postid} id={this.props.id}/>
                 </div>
                     </ProfilePostModal>
             </div>

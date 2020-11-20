@@ -35,17 +35,17 @@ class ProfileInfo extends React.Component{
         return res.json();
     } 
     sendPost = async () => {
-
+        
         await this.postData(`https://inversedevs.herokuapp.com/post/${window.localStorage.getItem('id')}`, {sender : this.props.userData.username, content:this.state.postText})
         .then(res => {console.log(res)});
+        document.getElementById('textarea').value = '';
     }
     render() {
-        const online = window.navigator.onLine;
-        const status = online === true ? <h4 className="online">Онлайн</h4> : <h4 className="offline">Оффлайн</h4>
+        const status = this.props.userData.online === false ? <div className="offline"></div> : <div className="online"></div>
         const fullInfoPage = this.state.fullInfo === false ? null : <div>
-                                                                        <h3 className="age">Языки: </h3>
-                                                                        <h3 className="school">Телефон: </h3>
-                                                                        <h3 className="phone-number">Увлечения: </h3>
+                                                                        <h3 className="age">Языки: {this.props.userData.languages}</h3>
+                                                                        <h3 className="school">Телефон: {this.props.userData.phone}</h3>
+                                                                        <h3 className="phone-number">Увлечения: {this.props.userData.hobbies}</h3>
                                                                     </div>
         return (
             <div className="profile-info">
@@ -55,7 +55,7 @@ class ProfileInfo extends React.Component{
                 </div>
                 <div className="profile-info-footer">
                     <h3 className="profile-town">Город: {this.props.userData.birth_town}</h3>
-                    <h3 className="profile-study">Место учёбы: </h3>
+                    <h3 className="profile-study">Место учёбы: {this.props.userData.study_place}</h3>
                     <h3 className="profile-bday">День рождения: {this.props.userData.birth_date}</h3>
                     {fullInfoPage}
                 </div>
@@ -65,7 +65,7 @@ class ProfileInfo extends React.Component{
                     <Modal  show={this.state.show} handleClose={this.hideModal}>
                     <form className="post-form" >
                                     <div className="post-create-img"></div>
-                                    <textarea onChange={this.handlePostTextChange} type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
+                                    <textarea onChange={this.handlePostTextChange} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
 
                             </form>
                             <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); this.sendPost()}}/>

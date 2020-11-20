@@ -1,6 +1,7 @@
 import React from 'react';
 import './LoginAppReset.css';
-import logo from './logo_opacity.png';
+import logo from './logo.png';
+import duck from './duck.png';
 import {Link} from 'react-router-dom';
 class LoginAppReset extends React.Component {
     constructor(props) {
@@ -58,14 +59,14 @@ class LoginAppReset extends React.Component {
             <div id="small_ellipse_middle"></div>
             <div id="small_ellipse_bottom"></div>
             <div id="text">
-                <img src={logo} alt="logo" id="logo"/>
+                <img src={duck} alt="logo" id="logo"/>
                 <p id="title">VMD - Very Magic Duck</p>
-                <p id="subtitle">Мы не скрываем, что работаем на ФСБ</p>
+                <p id="subtitle">Самая утиная социальная сеть в мире!</p>
             </div>
             <div id="form" class="flat-form">
             <ul class="tabs">
                 <li>
-                    <Link to="/">Войти</Link>
+                    <Link to="/login">Войти</Link>
                 </li>
                 <li>
                     <Link to="/changePass" class="active">Смена пароль</Link>

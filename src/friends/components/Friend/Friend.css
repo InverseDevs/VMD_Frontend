@@ -1,0 +1,85 @@
+.friend{
+    margin-top: 10px;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99.99%, rgba(255, 255, 255, 0.0234375) 100%), #77BB59;
+	border-radius: 5px;
+}
+
+.friend-info{
+    display:flex;
+}
+.ava{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+    background: #C4C4C4;
+    
+}
+
+.friend-name{
+    display:flex;
+    margin:0;
+    margin-left: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+	width: 240px;
+	height: 30px;
+
+}
+.friend-online{
+    margin-left: 20px;
+    margin-top: 10px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: red;
+ }
+.friend-offline{
+    margin-left: 20px;
+    margin-top: 10px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #656565;
+}
+.friend-name a{
+    text-decoration: none;
+    font-family: 'Source Serif Pro', sans-serif;
+	color: #000000;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.write-message-btn{
+    width: 268px;
+    margin-left: 20px;
+    height: 50px;
+    background: #7CBC5F;
+	border-radius: 50px;
+	border: none;
+    font-family: 'Source Serif Pro', sans-serif;
+	font-size: 24px;
+	line-height: 28px;
+	text-align: center;
+	color: #FFFFFF;
+    outline: none;
+    background: #70B351;
+}
+.delete-friend{
+    width: 120px;
+    margin-top: 30px;
+    margin-left: 400px;
+    height: 50px;
+    background: #7CBC5F;
+	border-radius: 50px;
+	border: none;
+    font-family: 'Source Serif Pro', sans-serif;
+	font-size: 24px;
+	line-height: 28px;
+	text-align: center;
+	color: #FFFFFF;
+    outline: none;
+    background: #70B351;
+}

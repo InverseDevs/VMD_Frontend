@@ -1,11 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import './ProfileComment.css';
+import './ProfileInnerComment.css';
 import close from './close.png';
 import like from './heart.svg';
 import liked from './heart_clicked.svg';
-import ProfileInnerComment from '../ProfileInnerComment/ProfileInnerComment';
-class ProfileComment extends React.Component {
+class ProfileInnerComment extends React.Component {
     constructor(props){
         super(props);
         this.state={like:false};
@@ -32,11 +31,18 @@ class ProfileComment extends React.Component {
     
     })
      }
+     postDeleteData = async (url) => {
+      const res = await fetch(url, {
+          method: 'POST',
+          headers: {
+              'Authorization' : `${window.localStorage.getItem('token')}`
+          }
+      });
+      return await res.json();
+  } 
      deleteComment = async (e) => {
       e.preventDefault();
-      await this.postData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`,
-      {   userId: `${window.localStorage.getItem('id')}`
-       }).then(data => console.log(data)
+      await this.postDeleteData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`).then(data => console.log(data)
     
     )
      }
@@ -44,21 +50,8 @@ class ProfileComment extends React.Component {
         this.props.setSender(this.props.name);
         this.props.setCommentId(this.props.commentId);
     }
-    renderItems(comments){
-      if(comments){
-      return Object.values(comments).map(comment => {
-              return (
-                  <ProfileInnerComment commentId={comment.id} setCommentId={this.props.setCommentId} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender} date={comment.sent_time} />
-              )
-             
-
-      });
-    }
-  }
     render() {
-        const items = this.renderItems(this.props.innerComments);
         return (
-          <>
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-img"></div>
           {/* <img src={this.props.img} className="comment-img"/> */}
@@ -77,12 +70,8 @@ class ProfileComment extends React.Component {
 
           </div>
         </div>
-        <div className="inner-comments">
-        {items}
-        </div>
-        </>
         )
     }
 }
 
-export default ProfileComment;
+export default ProfileInnerComment;

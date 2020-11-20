@@ -1,6 +1,7 @@
 import React from 'react';
 import './LoginAppLogin.css';
-import logo from './duck_logo.png';
+import logo from './logo.png';
+import duck from './duck.png';
 import {Link, withRouter} from 'react-router-dom';
 class LoginAppLogin extends React.Component {
     constructor(props) {
@@ -25,12 +26,10 @@ class LoginAppLogin extends React.Component {
 
 
         });
-
         this.setState({token: res.headers.get('Authorization')});
         window.localStorage.setItem('token',res.headers.get('Authorization'));
         this.props.getUserToken(this.state.token);
         return await res;
-
     } 
     submitForm = async (e) => {
         e.preventDefault();
@@ -53,6 +52,7 @@ class LoginAppLogin extends React.Component {
                 if (this.state.error == ''){
                 this.props.getUserData(data);
                 window.localStorage.setItem('id',data.id);
+                window.localStorage.setItem('username', data.username)
                 this.props.history.push(`/profile/${data.id}`);
                 }
         })
@@ -76,8 +76,9 @@ class LoginAppLogin extends React.Component {
             <div id="small_ellipse_top"></div>
             <div id="small_ellipse_middle"></div>
             <div id="small_ellipse_bottom"></div>
+            <img src={duck} alt="logo" id="logo"/>
             <div id="text">
-                <img src={logo} alt="logo" id="logo"/>
+                
                 <p id="title">VMD - Very Magic Duck</p>
                 <p id="subtitle">Самая утиная социальная сеть в мире!</p>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './RegistrationApp.css';
-import logo  from './logo_opacity.png';
+import logo  from './logo.png';
 import { withRouter } from 'react-router-dom';
 class Registration extends React.Component{
     constructor(props) {
