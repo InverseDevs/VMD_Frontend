@@ -1,3 +1,4 @@
+import React from 'react';
 import './ProfileCommentsModal.css';
 const ProfileCommentsModal = ({ handleClose, show, children }) => {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
