@@ -1,4 +1,6 @@
+import React from 'react';
 import './ProfileSettingsModal.css';
+
 const ProfileSettingsModal = ({ handleClose, show, children }) => {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
   
