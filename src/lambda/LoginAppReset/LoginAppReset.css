@@ -68,17 +68,15 @@ body{
 }
 #logo{
     position: absolute;
-    width: 68px;
-    height: 60px;
-    left: 247px;
-    top: 439px;
+    left: 190px;
+    top: 239px;
 
 }
 #title{
     position: absolute;
     width: 550px;
     height: 28px;
-    left: 230px;
+    left: 215px;
     top: 475px;
     font-family: Roboto;
     font-style: normal;

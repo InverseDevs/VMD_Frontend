@@ -1,5 +1,5 @@
-import './ProfileModal.css';
-const ProfileModal = ({ handleClose, show, children }) => {
+import './ProfileSettingsModal.css';
+const ProfileSettingsModal = ({ handleClose, show, children }) => {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
   
     return (
@@ -12,4 +12,4 @@ const ProfileModal = ({ handleClose, show, children }) => {
     );
   };
 
-export default ProfileModal;
+export default ProfileSettingsModal;

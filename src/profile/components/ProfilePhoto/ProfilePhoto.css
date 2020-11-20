@@ -5,6 +5,7 @@
     width: 200px;
     height: 240px;
     background: #C4C4C4;
+    overflow: hidden;
 }
 
 .profile-btn{

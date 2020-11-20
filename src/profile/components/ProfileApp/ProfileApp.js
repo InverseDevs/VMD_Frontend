@@ -1,7 +1,8 @@
 import React from 'react';
 import ProfileContainer from '../ProfileContainer/ProfileContainer';
 import './ProfileApp.css';
-import logo from './logo_opacity.png';
+import logo from './logo.png';
+import {Redirect} from 'react-router-dom';
 class ProfileApp extends React.Component{
     constructor(props){
         super(props);
@@ -19,9 +20,13 @@ class ProfileApp extends React.Component{
         return await res.json();
     } 
     getUserData = async () => {
-        await this.getData(`https://inversedevs.herokuapp.com/api/users/${window.localStorage.getItem('id')}`)
+        if (window.location.pathname === '/profile/undefined%7D')
+        {
+            window.location.pathname = `/profile/${window.localStorage.getItem('id')}`
+        }
+        await this.getData(`https://inversedevs.herokuapp.com/api/users/${window.location.pathname.slice(9)}`)
         .then(data => {
-            this.setState({userData: data});   
+            this.setState({userData: data}) 
         });
     }
     rememberData = () => {
@@ -33,13 +38,17 @@ class ProfileApp extends React.Component{
         this.getUserData();
     };
     componentDidMount(){
+        
         this.rememberData();
+    }
+    changeLocation = () => {
+        window.location.pathname = `/profile/${window.localStorage.getItem('id')}`;
     }
     render(){
         return (
                     <div className="profile-page">
 
-                        <img src={logo} id="profile-logo"/>
+                        <img onClick={this.changeLocation} src={logo} id="profile-logo"/>
                         <div className="profile-big-ellipse" id="profile-big-1"></div>
                         <div className="profile-big-ellipse" id="profile-big-2"></div>
                         <div className="profile-ellipse" id="profile-1"></div>

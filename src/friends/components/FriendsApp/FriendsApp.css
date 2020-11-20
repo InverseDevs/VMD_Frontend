@@ -1,0 +1,179 @@
+
+.friends-app{
+	margin:0;
+	padding-top: 50px;
+	padding-bottom: 20px;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%), #92CE76;
+
+}
+#friends-logo{
+	margin-left: 400px;
+	margin-top: -50px;
+}
+.friends-app-window{
+	margin-left: 400px;
+
+	width: 960px;
+
+	height: 938px;
+	overflow-y:scroll;
+	background: #82bf66;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.friends-app-window::-webkit-scrollbar{
+    width: 0px;
+    background: none;
+}
+.friends-app-window::-webkit-scrollbar-thumb{
+    background:none;
+}
+.friends-app-window::-webkit-scrollbar-thumb:hover{
+    background: none;
+    border-radius: 7px;
+}
+
+#friends-left-ellipse{
+	position: absolute;
+	width: 440px;
+	height: 440px;
+	left: 1394px;
+	top: -350px;
+	border-radius: 50%;
+	border: 1px solid #2B6C34;
+	box-sizing: border-box;
+	z-index: 1;
+}
+
+#friends-right-ellipse{
+	position: absolute;
+	width: 440px;
+	height: 440px;
+	left: 1623px;
+	top: -12px;
+	border-radius: 50%;
+	border: 1px solid #2B6C34;
+	box-sizing: border-box;
+	z-index: 1;
+}
+
+#friends-small-ellipse-1{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 1394px;
+	top: -41px;
+	border-radius:50%;
+	background: #FFFFFF;
+	z-index: 2;
+}
+
+#friends-small-ellipse-2{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 1600px;
+	top: 40px;
+	border-radius:50%;
+	background: #FFFFFF;
+	z-index: 2;
+}
+
+#friends-small-ellipse-3{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 1577px;
+	top: 220px;
+	border-radius:50%;
+	background: #FFFFFF;
+	z-index: 2;
+}
+
+#friends-small-ellipse-4{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 1720px;
+	top: 378px;
+	border-radius:50%;
+	background: #FFFFFF;
+	z-index: 2;
+}
+.btn-group{
+    width: 100%;
+}
+.btn-group button {
+	border: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) -35.83%, rgba(255, 255, 255, 0.3) 64.17%), #7CBC5F;
+    padding: 14px 28px;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Roboto;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 28px;
+	text-align: center;
+	color: #FFFFFF;
+	outline: none;
+}
+
+.btn-group button:active{
+    background: #7CBC5F;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-group button:hover{
+
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-group button:focus{
+
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.all-friends-btn {
+
+    width: 33.3%;
+	height: 60px;
+	left: 0px;
+	top: 0px;
+}
+
+.online-friends-btn {
+
+    width: 33.4%;
+	height: 60px;
+	left: 100px;
+	top: 0px;
+}
+.search-input {
+	display:flex;
+}
+.search-input{
+	width: 860px;
+	height: 70px;
+	margin-left: 15px;
+	margin-top: 20px;
+	border: none;
+	font-size: 20px;
+	padding-bottom: 25px;
+	padding-left: 25px;
+	font-family: 'Source Serif Pro', sans-serif;
+	overflow:hidden;
+	outline:none;
+}
+.search-btn{
+	box-shadow: 1px 1px 3px inset;
+	width: 200px;
+    height: 45px;
+	margin-left: 50px;
+	margin-top: 30px;
+	font-family: 'Source Serif Pro', sans-serif;
+    font-size: 18px;
+    background: #7CBC5F;
+    border-radius: 50px;
+    border:none;
+    outline:none;
+}
