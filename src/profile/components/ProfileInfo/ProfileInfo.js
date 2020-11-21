@@ -36,7 +36,7 @@ class ProfileInfo extends React.Component{
     } 
     sendPost = async () => {
         
-        await this.postData(`https://inversedevs.herokuapp.com/post/${window.localStorage.getItem('id')}`, {sender : this.props.userData.username, content:this.state.postText})
+        await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.userData.id}`, {sender : this.props.userData.username, content:this.state.postText})
         .then(res => {console.log(res)});
         document.getElementById('textarea').value = '';
     }
