@@ -54,7 +54,6 @@ class ProfilePosts extends React.Component {
 
         const {posts} = this.state;
         const items = this.renderItems(posts);
-        console.log(posts)
         return(
         <div className="profile-posts">
             {items}
