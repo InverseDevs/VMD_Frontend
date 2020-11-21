@@ -47,24 +47,25 @@ sendComment = async (e) => {
     e.preventDefault();
     if (this.state.sender === ''){
     await this.postData(`https://inversedevs.herokuapp.com/comment/post/${this.props.Postid}`,
-    {   sender: this.props.sender,
+    {   sender: window.localStorage.getItem('username'),
         content: this.state.comment
      }).then(data => console.log(data))
     }
      else{
         await this.postData(`https://inversedevs.herokuapp.com/comment/comment/${this.state.commentId}`,
-        {   sender: this.props.sender,
+        {   sender: window.localStorage.getItem('username'),
             content: this.state.comment
          }).then(data => console.log(data))
      }
      document.getElementById('post-textarea').value = '';
    }
    renderItems(comments){
+    if (comments){
     return Object.values(comments).map(comment => {
             return (
                 <ProfileComment commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender} date={comment.sent_time} />
             )
-    });
+    })};
 }
   render() {
     const items = this.renderItems(this.props.comments);  
