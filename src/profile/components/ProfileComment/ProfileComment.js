@@ -8,7 +8,9 @@ import ProfileInnerComment from '../ProfileInnerComment/ProfileInnerComment';
 class ProfileComment extends React.Component {
     constructor(props){
         super(props);
-        this.state={like:false};
+        this.state={like:false,comment: '',
+        sender: '',
+        innerPressed: false};
     }
     postData = async (url,data) => {
       const res = await fetch(url, {
@@ -20,7 +22,9 @@ class ProfileComment extends React.Component {
       });
       return await res.json();
   } 
-  
+  getInnerPressed = (state)=>{
+    this.setState({innerPressed: state})
+  }
   likeComment = async (e) => {
       e.preventDefault();
       await this.postData(`https://inversedevs.herokuapp.com/like/comment/${this.props.commentId}`,
@@ -41,14 +45,20 @@ class ProfileComment extends React.Component {
     )
      }
     onUserClick = ()=>{
+      if (this.state.innerPressed === false){
         this.props.setSender(this.props.name);
         this.props.setCommentId(this.props.commentId);
+      }
+      else{
+        this.props.setSender(this.state.sender);
+        this.props.setCommentId(this.props.commentId)
+      }
     }
     renderItems(comments){
       if(comments){
       return Object.values(comments).map(comment => {
               return (
-                  <ProfileInnerComment commentId={comment.id} setCommentId={this.props.setCommentId} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender} date={comment.sent_time} />
+                  <ProfileInnerComment getInnerPressed={this.getInnerPressed} commentId={comment.id} setCommentId={this.props.setCommentId} comments={comment.comments} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender} date={comment.sent_time} />
               )
              
 
@@ -60,6 +70,7 @@ class ProfileComment extends React.Component {
         return (
           <>
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
+          <div className="comment-container">
           <div className="comment-img"></div>
           {/* <img src={this.props.img} className="comment-img"/> */}
           <div className="comment-body">
@@ -77,8 +88,10 @@ class ProfileComment extends React.Component {
 
           </div>
         </div>
+        </div>
         <div className="inner-comments">
         {items}
+        {this.state.innerComms}
         </div>
         </>
         )

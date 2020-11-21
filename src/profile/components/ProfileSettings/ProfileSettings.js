@@ -69,13 +69,13 @@ sendInfo = async () => {
       return (
         <div className="settings">
             <h6 className="modal-title">Настройки</h6>
-            <input onChange={this.handleNameChange} id="name-f" type="text" className="set-field" placeholder="Имя"/>
-            <input onChange={this.handleTownChange} id="town-f" type="text" className="set-field" placeholder="Город"/>
-            <input onChange={this.handleStudyChange} id="study-f" type="text" className="set-field" placeholder="Место учёбы"/>
-            <input onChange={this.handleBirthChange} id="birth-f" type="text" className="set-field" placeholder="День рождения"/>
-            <input onChange={this.handleLangChange} id="lang-f" type="text" className="set-field" placeholder="Языки"/>
-            <input onChange={this.handlePhoneChange} id="phone-f" type="text" className="set-field" placeholder="Телефон"/>
-            <textarea onChange={this.handleHobbyChange} id="hobby-f" className="hobby-field" placeholder="Хобби"/>
+            <input onChange={this.handleNameChange} id="name-f" type="text" className="set-field" placeholder="Имя" value={`${this.props.userData.name}`}/>
+            <input onChange={this.handleTownChange} id="town-f" type="text" className="set-field" placeholder="Город" value={`${this.props.userData.birth_town}`}/>
+            <input onChange={this.handleStudyChange} id="study-f" type="text" className="set-field" placeholder="Место учёбы" value={`${this.props.userData.study_place}`}/>
+            <input onChange={this.handleBirthChange} id="birth-f" type="text" className="set-field" placeholder="День рождения" value={`${this.props.userData.birth_date}`}/>
+            <input onChange={this.handleLangChange} id="lang-f" type="text" className="set-field" placeholder="Языки" value={`${this.props.userData.languages}`}/>
+            <input onChange={this.handlePhoneChange} id="phone-f" type="text" className="set-field" placeholder="Телефон" value={`${this.props.userData.phone}`}/>
+            <textarea onChange={this.handleHobbyChange} id="hobby-f" className="hobby-field" placeholder="Хобби" value={`${this.props.userData.hobbies}`}/>
             <button onClick={this.sendInfo} className="send-info-btn">Отправить</button>
         </div>
       )

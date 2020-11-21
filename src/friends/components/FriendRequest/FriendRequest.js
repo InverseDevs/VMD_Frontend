@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-class User extends React.Component {
+class FriendRequest extends React.Component {
 	constructor(props) {
         super(props);
     }
@@ -14,9 +14,9 @@ class User extends React.Component {
         });
         return res.json();
     } 
-    addFriend = async (e) => {
+    AddFriend = async (e) => {
         e.preventDefault();
-        await this.postData(`https://inversedevs.herokuapp.com/friends/${this.props.id}`, {id: window.localStorage.getItem('id')})
+        await this.postData(`https://inversedevs.herokuapp.com/friends/accept/${this.props.id}`, {id: window.localStorage.getItem('id')})
         .then(res => {console.log(res)
             
         });
@@ -24,22 +24,22 @@ class User extends React.Component {
     render(){
         const status = this.props.online === false || this.props.online === "false" ? <div className="friend-offline"></div> : <div className="friend-online"></div>
         return (
-            
 				<div className="friend">
                     <div className="friend-info">
                         <div className="ava"></div>
                         <div className="ava-devisor">
                         <div className="friend-name">
-                            <Link to={`/profile/${this.props.id}`} >{this.props.name}</Link>
+                            <Link to={`/profile/${this.props.id}`}>{this.props.name}</Link>
                             {status}
                         </div>
                         <button type="button" className="write-message-btn">Написать сообщение</button>
                     </div>
-                    <button onClick={this.addFriend} type="button" className="delete-friend">Добавить</button>
+                    <button type="button" onClick={this.AddFriend} className="add-friend">Добавить</button>
+                    <button type="button" onClick={this.AddFriend} className="refuse-friend">Отклонить</button>
                     </div>
                     
 				</div>
         )
     }
 }
-export default User;
+export default FriendRequest;

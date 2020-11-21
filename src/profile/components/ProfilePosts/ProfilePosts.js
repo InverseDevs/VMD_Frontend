@@ -25,8 +25,8 @@ class ProfilePosts extends React.Component {
         }
         await this.getData(`https://inversedevs.herokuapp.com/posts/${window.location.pathname.slice(9)}`)
         .then(data => {
-            this.setState({posts: data}); 
-            
+            this.setState({posts: data}
+               ); 
         })
        
     }
@@ -38,7 +38,7 @@ class ProfilePosts extends React.Component {
     componentDidUpdate(){
         if (window.localStorage.getItem('id') != ''){
     //    setInterval(() =>  this.getPosts(), 10000);
-            // this.getPosts();
+            this.getPosts();
         }
         
     }
@@ -51,8 +51,10 @@ class ProfilePosts extends React.Component {
     }
     
     render() {
+
         const {posts} = this.state;
         const items = this.renderItems(posts);
+        console.log(posts)
         return(
         <div className="profile-posts">
             {items}
