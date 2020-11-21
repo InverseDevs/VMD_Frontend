@@ -53,6 +53,11 @@ class FriendsApp extends React.Component {
 		this.getUsers();
 		this.getFriends();
 	}
+	componentDidUpdate(){
+		this.getUsers();
+		this.getFriends();
+	}
+
 	searchChange = (e) => {this.setState({search:e.target.value})};
 	checkId = (id ) => {
 		return window.localStorage.getItem('id') === id;
