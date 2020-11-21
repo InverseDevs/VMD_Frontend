@@ -77,7 +77,6 @@ class ProfileComments extends React.Component {
     }
     render() {
         const items = this.renderItems(this.props.comments);
-        console.log(items)
         return (
             <div className="comments-section">
                 <p className="comments-header">Комментарии</p>
