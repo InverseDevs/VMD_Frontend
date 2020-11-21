@@ -47,17 +47,26 @@ class ProfileComments extends React.Component {
         e.preventDefault();
         if (this.state.sender === ''){
         await this.postData(`https://inversedevs.herokuapp.com/comment/post/${this.props.Postid}`,
-        {   sender: this.props.sender,
+        {   sender: window.localStorage.getItem('username'),
             content: this.state.comment
-         }).then(data => console.log(data))
+         }).then(data => {
+            console.log(data)
+            document.getElementById('comments-textarea').value = '';
+        this.setState({valChanged:0})}
+            )
         }
          else{
+            console.log(this.state.sender)
+            console.log(window.localStorage.getItem('name'))
             await this.postData(`https://inversedevs.herokuapp.com/comment/comment/${this.state.commentId}`,
-            {   sender: this.props.sender,
+            {   sender: window.localStorage.getItem('username'),
                 content: this.state.comment
-             }).then(data => console.log(data))
+             }).then(data => {console.log(data)
+                document.getElementById('comments-textarea').value = '';
+            this.setState({valChanged: 0})})
          }
          document.getElementById('comments-textarea').value = '';
+         
        }
        renderItems(comments){
         return Object.values(comments).map(comment => {
@@ -68,6 +77,7 @@ class ProfileComments extends React.Component {
     }
     render() {
         const items = this.renderItems(this.props.comments);
+        console.log(items)
         return (
             <div className="comments-section">
                 <p className="comments-header">Комментарии</p>

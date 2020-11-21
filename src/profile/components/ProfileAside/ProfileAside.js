@@ -33,6 +33,8 @@ class ProfileInfo extends React.Component{
         .then(res => {console.log(res)});
         window.localStorage.setItem('token', '');
         window.localStorage.setItem('id', '');
+        window.localStorage.setItem('username','');
+        window.localStorage.setItem('name','')
         
     }
     render() {
@@ -43,7 +45,7 @@ class ProfileInfo extends React.Component{
                 <button className="profile-groups">Группы</button>
                 <button className="profile-music">Музыка</button>
                 <ProfileSettingsModal show={this.state.show} handleClose={this.hideModal}>
-                    <ProfileSettings getShow={this.getShow} />
+                    <ProfileSettings userData={this.props.userData} getShow={this.getShow} />
                 </ProfileSettingsModal>
                 <button className="profile-music" onClick={this.showModal}>Настройки</button>
                 <Link to="/login"><button className="profile-music" onClick={this.clearStorage}>Выйти</button></Link>

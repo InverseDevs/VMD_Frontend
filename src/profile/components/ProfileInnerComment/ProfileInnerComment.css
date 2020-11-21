@@ -11,7 +11,6 @@
     max-height: 20px;
 }
 .comment{
-    display:flex;
     font-family: 'Source Serif Pro', sans-serif;
     margin-bottom: 20px;
 }
@@ -43,7 +42,6 @@
     margin:0;
 }
 .secondary-comment{
-    display:flex;
     font-family: 'Source Serif Pro', sans-serif;
     margin-bottom: 20px;
     margin-left: 30px;

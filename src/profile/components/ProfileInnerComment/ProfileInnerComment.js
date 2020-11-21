@@ -49,10 +49,24 @@ class ProfileInnerComment extends React.Component {
     onUserClick = ()=>{
         this.props.setSender(this.props.name);
         this.props.setCommentId(this.props.commentId);
+        this.props.getInnerPressed(true)
     }
+    renderItems(comments){
+      if(comments){
+      return Object.values(comments).map(comment => {
+              return (
+                  <ProfileInnerComment commentId={comment.id} setCommentId={this.props.setCommentId} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender} date={comment.sent_time} />
+              )
+             
+
+      });
+    }
+  }
     render() {
+      const items = this.renderItems(this.props.comments);
         return (
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
+          <div className="comment-container">
           <div className="comment-img"></div>
           {/* <img src={this.props.img} className="comment-img"/> */}
           <div className="comment-body">
@@ -67,8 +81,9 @@ class ProfileInnerComment extends React.Component {
             </div>
             <p className="comment-text">{this.props.text}</p>
             <p onClick={this.onUserClick} className="comment-reply">Ответить</p>
-
+            </div>
           </div>
+          {items}
         </div>
         )
     }
