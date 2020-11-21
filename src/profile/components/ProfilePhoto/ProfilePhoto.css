@@ -7,7 +7,14 @@
     background: #C4C4C4;
     overflow: hidden;
 }
-
+.profile-photo-ungray{
+position:relative;
+    top: 40px;
+    left: 10px;
+    width: 200px;
+    height: 240px;
+    overflow: hidden;
+}
 .profile-btn{
     position:relative;
     width: 140px;
