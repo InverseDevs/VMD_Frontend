@@ -27,6 +27,7 @@ class ProfileApp extends React.Component{
         await this.getData(`https://inversedevs.herokuapp.com/api/users/${window.location.pathname.slice(9)}`)
         .then(data => {
             this.setState({userData: data}) 
+            window.localStorage.setItem('name',data.name)
         });
     }
     rememberData = () => {
@@ -40,6 +41,9 @@ class ProfileApp extends React.Component{
     componentDidMount(){
         
         this.rememberData();
+    }
+    componentDidUpdate(){
+        this.getUserData();
     }
     changeLocation = () => {
         window.location.pathname = `/profile/${window.localStorage.getItem('id')}`;

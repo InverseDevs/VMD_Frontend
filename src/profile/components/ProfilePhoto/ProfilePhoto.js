@@ -6,7 +6,7 @@ class ProfilePhoto extends React.Component{
         super(props);
         this.state={
             photo: null,
-
+            dataChanged: false,
         };
     }
     getFile = () => {
@@ -64,16 +64,19 @@ class ProfilePhoto extends React.Component{
 
         await this.postData(`https://inversedevs.herokuapp.com/avatar/${window.localStorage.getItem('id')}`, {avatar: this.state.photo})
         .then(res => {console.log(res)});
+        this.setState({dataChanged:true});
+        this.props.getChanged(this.dataChanged);
+        this.setState({dataChanged: false});
     }
     render() {
-
         return (
             <div className="profile-photo-container">
-                {this.props.userData.avatar ? <img src={this.props.userData.avatar} className="profile-photo" id="photo"/> : <div className="profile-photo" id="photo"></div>}
-                <label className="profile-btn">
+                {this.props.userData.avatar ? <img src={this.props.userData.avatar} className="profile-photo-ungray" id="photo"/> : <div className="profile-photo" id="photo"></div>}
+                
+                {this.props.userData.id == window.localStorage.getItem('id') ? <label className="profile-btn">
                     <input type="file" id="photo-input" onChange={this.getFile} accept=".jpg, .png, .jpeg"/>
                     Изменить
-                </label>
+                </label> : null}
             </div>
         );
     }

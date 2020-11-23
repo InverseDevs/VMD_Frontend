@@ -8,8 +8,30 @@ class ProfileInfo extends React.Component{
         fullInfo: false,
         show: false,
         postText: '',
+        photo: '',
+        dataChanged: false,
     }
 
+}
+getFile = () => {
+    var file = document.getElementById('post-photo-input').files[0];
+    var img = document.createElement("img");
+    img.file = file;
+    img.width = 540;
+    img.height = 270;
+    document.getElementById('post-create-img').appendChild(img);
+    var reader = new FileReader();
+    reader.onload = (function(aImg) { 
+        return function(e) { 
+            aImg.src = e.target.result;
+    }; 
+    })(img);
+    reader.onloadend = () => {
+        this.setState({photo: reader.result})
+      }
+      document.getElementById('post-create-img').appendChild(img);
+    reader.readAsDataURL(file);
+  
 }
     handlePostTextChange= (e) => {
         this.setState({postText:e.target.value});
@@ -23,6 +45,7 @@ class ProfileInfo extends React.Component{
     
     hideModal = () => {
         this.setState({ show: false });
+        document.getElementById('post-create-img').parentNode.removeChild(document.getElementById('post-create-img'));
     };
     postData = async (url,data) => {
         const res = await fetch(url, {
@@ -36,9 +59,12 @@ class ProfileInfo extends React.Component{
     } 
     sendPost = async () => {
         
-        await this.postData(`https://inversedevs.herokuapp.com/post/${window.localStorage.getItem('id')}`, {sender : this.props.userData.username, content:this.state.postText})
+        await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.userData.id}`, {sender : this.props.userData.username, content:this.state.postText, picture: this.state.photo})
         .then(res => {console.log(res)});
         document.getElementById('textarea').value = '';
+        this.setState({dataChanged:true})
+        this.props.getChanged(this.state.dataChanged);
+        this.setState({dataChanged:false});
     }
     render() {
         const status = this.props.userData.online === false ? <div className="offline"></div> : <div className="online"></div>
@@ -64,13 +90,17 @@ class ProfileInfo extends React.Component{
                     <button className="profile-readmore" onClick={this.onCheckInfo}>{this.state.fullInfo === false ? 'Показать подробнее' : 'Скрыть'}</button>
                     <Modal  show={this.state.show} handleClose={this.hideModal}>
                     <form className="post-form" >
-                                    <div className="post-create-img"></div>
+                                    <div id="post-img-container">
+                                        <div className="post-create-img" id="post-create-img"></div> 
+                                    </div>
                                     <textarea onChange={this.handlePostTextChange} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
 
                             </form>
-                            <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); this.sendPost()}}/>
+                            <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); this.sendPost();
+                            document.getElementById('post-create-img').parentNode.removeChild(document.getElementById('post-create-img'));
+                            }}/>
                             <label className="post-send add-file">
-                            <input type="file"  accept=".jpg, .png, .jpeg"/>
+                            <input onChange={this.getFile} type="file" id="post-photo-input" accept=".jpg, .png, .jpeg"/>
                             Прикрепить
                             </label>  
                     </Modal>

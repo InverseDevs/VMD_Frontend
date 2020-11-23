@@ -49,16 +49,40 @@ class ProfileInnerComment extends React.Component {
     onUserClick = ()=>{
         this.props.setSender(this.props.name);
         this.props.setCommentId(this.props.commentId);
+        this.props.getInnerPressed(true)
     }
+    renderItems(comments){
+      if(comments){
+      return Object.values(comments).map(comment => {
+              return (
+                  <ProfileInnerComment commentId={comment.id} setCommentId={this.props.setCommentId} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender} date={comment.sent_time} />
+              )
+             
+
+      });
+    }
+  }
+  checkLike = (likes) => {
+    likes = Object.values(likes);
+    for (let i = 0; i < likes.length; ++i){
+        if (likes[i].id == window.localStorage.getItem('id')){
+            return true
+        }  
+    }
+    return false
+  }
     render() {
+      const items = this.renderItems(this.props.comments);
         return (
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
+          <div className="comment-container">
           <div className="comment-img"></div>
           {/* <img src={this.props.img} className="comment-img"/> */}
           <div className="comment-body">
             <div className="comment-info">
             <Link to="/" className="comment-profile-link">{this.props.name}</Link>
-            <button className="like" onClick={this.likeComment}><img className="post-like" src={this.state.like === true? liked : like}/></button>
+            <div className="like-number-comms">{Object.values(this.props.likes).length}</div>
+            <button className="like" onClick={this.likeComment}><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : liked}/></button>
             <p className="comment-date">
               {this.props.date}
             </p>
@@ -67,8 +91,9 @@ class ProfileInnerComment extends React.Component {
             </div>
             <p className="comment-text">{this.props.text}</p>
             <p onClick={this.onUserClick} className="comment-reply">Ответить</p>
-
+            </div>
           </div>
+          {items}
         </div>
         )
     }
