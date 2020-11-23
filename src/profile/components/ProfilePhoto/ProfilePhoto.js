@@ -72,8 +72,10 @@ class ProfilePhoto extends React.Component{
         return (
             <div className="profile-photo-container">
                 {this.props.userData.avatar ? <img src={this.props.userData.avatar} className="profile-photo-ungray" id="photo"/> : <div className="profile-photo" id="photo"></div>}
+
                 
                 {this.props.userData.id == window.localStorage.getItem('id') ? <label className="profile-btn">
+
                     <input type="file" id="photo-input" onChange={this.getFile} accept=".jpg, .png, .jpeg"/>
                     Изменить
                 </label> : null}

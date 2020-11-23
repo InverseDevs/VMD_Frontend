@@ -59,6 +59,7 @@ class ProfileComment extends React.Component {
       return Object.values(comments).map(comment => {
               return (
                   <ProfileInnerComment getInnerPressed={this.getInnerPressed} commentId={comment.id} setCommentId={this.props.setCommentId} comments={comment.comments} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.name} date={comment.sent_time} />
+
               )
              
 

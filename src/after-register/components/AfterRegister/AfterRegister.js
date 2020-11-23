@@ -41,8 +41,8 @@ class AfterRegister extends React.Component {
             ></div>
             <img src={logo} id="thanks-logo"/>
             <p id="thanks-title">Вас приветствует команда VMD!</p>
-            <p id="thanks-subtitle" >Спасибо за прохождение регистрации
-            Подтвердите регистрацию на почте</p>
+            <p id="thanks-subtitle" >Спасибо за прохождение регистрации</p>
+
             <Link id="to-login" to="/login"n><button id="thanks-btn">Продолжить</button></Link>
 
     </div>  

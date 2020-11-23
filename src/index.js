@@ -34,7 +34,7 @@ class App extends React.Component{
 
                 <Route exact path="/changePass" component={LoginAppReset}/>
                 <Route exact path="/registration" component={RegistrationApp}/>
-                <Route exact path="/after-registration" component={AfterRegister}/>
+                <Route exact path="/after-registration/:id" component={AfterRegister}/>
                 <Route exact path="/chat">
                 <ChatApp userData={this.state.userData}/>
                 </Route>
