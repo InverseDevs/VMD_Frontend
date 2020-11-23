@@ -21,6 +21,15 @@ class FriendRequest extends React.Component {
             
         });
     }
+
+    DeclineFriend = async (e) => {
+        e.preventDefault();
+        await this.postData(`https://inversedevs.herokuapp.com/friends/decline/${this.props.id}`, {id: window.localStorage.getItem('id')})
+        .then(res => {console.log(res)
+            
+        });
+    }
+
     render(){
         const status = this.props.online === false || this.props.online === "false" ? <div className="friend-offline"></div> : <div className="friend-online"></div>
         return (
@@ -34,8 +43,9 @@ class FriendRequest extends React.Component {
                         </div>
                         <button type="button" className="write-message-btn">Написать сообщение</button>
                     </div>
-                    <button type="button" onClick={this.AddFriend} className="add-friend">Добавить</button>
-                    <button type="button" onClick={this.AddFriend} className="refuse-friend">Отклонить</button>
+
+                    <button type="button" onClick={this.DeclineFriend} className="refuse-friend">Отклонить</button>
+
                     </div>
                     
 				</div>

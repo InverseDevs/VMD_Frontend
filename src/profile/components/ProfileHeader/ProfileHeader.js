@@ -10,8 +10,8 @@ class ProfileHeader extends React.Component{
     render() {
         return (
             <div className="profile-header">
-                <ProfilePhoto userData={this.props.userData}/>
-                <ProfileInfo token={this.props.token} userData={this.props.userData} />
+                <ProfilePhoto getChanged={this.props.getChanged} userData={this.props.userData}/>
+                <ProfileInfo getChanged={this.props.getChanged} token={this.props.token} userData={this.props.userData} />
             </div>
         );
     }

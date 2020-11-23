@@ -72,4 +72,8 @@
 }
 .comment-container{
     display: flex;
+
+.like-number-comms{
+    margin-left: 10px;
+
 }

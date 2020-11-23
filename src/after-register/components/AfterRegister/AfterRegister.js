@@ -15,7 +15,6 @@ class AfterRegister extends React.Component {
     verificateUser = async () => {
 
         const id = window.location.pathname.slice(20)
-        console.log(id);
         await this.postData(`https://inversedevs.herokuapp.com/verification/${id}`)
         .then(res => {console.log(res)
             
@@ -43,6 +42,7 @@ class AfterRegister extends React.Component {
             <img src={logo} id="thanks-logo"/>
             <p id="thanks-title">Вас приветствует команда VMD!</p>
             <p id="thanks-subtitle" >Спасибо за прохождение регистрации</p>
+
             <Link id="to-login" to="/login"n><button id="thanks-btn">Продолжить</button></Link>
 
     </div>  

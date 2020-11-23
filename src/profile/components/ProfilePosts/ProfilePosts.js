@@ -6,6 +6,7 @@ class ProfilePosts extends React.Component {
         super(props);
         this.state = {
             posts: [],
+            dataChanged: false,
         }
     }
     getData = async (url) => {
@@ -40,12 +41,12 @@ class ProfilePosts extends React.Component {
     //    setInterval(() =>  this.getPosts(), 10000);
             this.getPosts();
         }
-        
+    
     }
     renderItems(posts){
         return Object.values(posts).map(post => {
                 return (
-                    <ProfilePost comments={post.comments} userId={window.localStorage.getItem('id')} token={window.localStorage.getItem('token')} Postid={post.id} key={post.id} sender={post.sender} content={post.content} time={post.sent_time}/>
+                    <ProfilePost photo={post.picture} likes={post.likes} comments={post.comments} userId={window.localStorage.getItem('id')} token={window.localStorage.getItem('token')} Postid={post.id} key={post.id} sender={post.name} content={post.content} time={post.sent_time}/>
                 )
         });
     }
