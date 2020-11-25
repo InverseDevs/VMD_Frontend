@@ -22,9 +22,8 @@ class Friend extends React.Component {
             
         });
     }
-    createChat = async (e) => {
+    createChat = async () => {
      
-            e.preventDefault();
             let ids = [];
             ids.push(window.localStorage.getItem('id'));
             ids.push(this.props.id);
