@@ -39,7 +39,7 @@ class ChatWindow extends React.Component{
               ref={ (client) => { this.clientRef = client }}
               onConnect={this.onConnected}
               onDisconnect={console.log('disconnected!')}
-              autoReconnect
+              autoReconnect={true}
               onMessage={msg => this.onMessageReceived(msg)}
               debug={false}
             />
