@@ -26,7 +26,7 @@ class ChatWindow extends React.Component{
         console.log(this.state.messages)
       }
       sendMessage = (msg) => {
-        this.clientRef.sendMessage('/app/user-all', JSON.stringify({name: "user",
+        this.clientRef.sendMessage('/app/user-all', JSON.stringify({chat_id: 1, sender_id:1,
             message: msg
         }));
     };
