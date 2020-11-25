@@ -30,8 +30,9 @@ class ChatWindow extends React.Component{
             message: msg
         }));
     };
-    componentDidUpdate(){
-    this.clientRef.connect();
+    onDisconnected = () => {
+      console.log("Disconnected!")
+         this.clientRef.connect();
     }
     render(){
     return(
@@ -41,7 +42,7 @@ class ChatWindow extends React.Component{
               topics={['/topic/user']}
               ref={ (client) => { this.clientRef = client }}
               onConnect={this.onConnected}
-              onDisconnect={console.log("Disconnected!")}
+              onDisconnect={this.onDisconnected}
               onMessage={msg => this.onMessageReceived(msg)}
               debug={false}
             />
