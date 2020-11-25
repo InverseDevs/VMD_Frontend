@@ -36,7 +36,7 @@ class Chat extends React.Component {
                             </div>
                         </div>
                 </div>
-                <ChatInput onMessageSubmit={this.onMessageSubmit}/>
+                <ChatInput sendMessage={this.props.sendMessage} onMessageSubmit={this.onMessageSubmit}/>
             </div>
         );
     }
