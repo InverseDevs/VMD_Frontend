@@ -30,6 +30,7 @@ class ChatWindow extends React.Component{
             <SockJsClient
               url={SOCKET_URL}
               topics={['/topic/user']}
+              ref={ (client) => { this.clientRef = client }}
               onConnect={this.onConnected}
               onDisconnect={console.log("Disconnected!")}
               onMessage={msg => this.onMessageReceived(msg)}
