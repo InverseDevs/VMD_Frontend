@@ -30,6 +30,9 @@ class ChatWindow extends React.Component{
             message: msg
         }));
     };
+    componentDidUpdate(){
+    this.clientRef.connect();
+    }
     render(){
     return(
         <div className="chat-window">
