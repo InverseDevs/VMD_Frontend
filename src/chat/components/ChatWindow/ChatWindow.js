@@ -20,7 +20,7 @@ class ChatWindow extends React.Component{
     
       onMessageReceived = (msg) => {
         console.log('New Message Received!!', msg);
-        this.setMessages(this.state.messages.concat(msg));
+        this.setState({messages: this.state.messages.push(msg)});
         console.log(this.state.messages)
       }
       sendMessage = (msg) => {
