@@ -10,6 +10,9 @@ const SOCKET_URL = 'https://inversedevs.herokuapp.com/websocket-chat';
 class ChatWindow extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            messages: [],
+        }
     }
     onConnected = () => {
         console.log("Connected!!")
@@ -18,6 +21,7 @@ class ChatWindow extends React.Component{
       onMessageReceived = (msg) => {
         console.log('New Message Received!!', msg);
         this.setMessages(this.state.messages.concat(msg));
+        console.log(this.state.messages)
       }
       sendMessage = (msg) => {
         this.clientRef.sendMessage('/app/user-all', JSON.stringify({
