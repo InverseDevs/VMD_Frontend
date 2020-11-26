@@ -21,7 +21,7 @@ class ChatGroup extends React.Component {
     return(
         <div className="chat-group">
             <div onClick={this.props.addTab} className="group-image"></div>
-            <p className="group-name">{this.state.user.name}</p>
+            <p className="group-name"></p>
         </div>
     );
 }
