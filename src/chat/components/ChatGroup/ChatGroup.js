@@ -11,7 +11,7 @@ class ChatGroup extends React.Component {
             user = user.filter(user => user != null);
             if (user.length == 1)
             {
-                return Object.assing({},user)
+                return Object.assing({},...user)
             }
         
     }
