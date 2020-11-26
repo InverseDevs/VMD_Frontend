@@ -11,15 +11,13 @@ class ChatGroup extends React.Component {
             user = user.filter(user => user != null);
             if (user.length == 1)
             {
-                console.log('user',user)
-                console.log('spread',...user)
+                return ...user
 
             }
         
     }
     render(){
     let user = this.extractUser(this.props.users);
-    console.log(user)
     return(
         <div className="chat-group">
             <div onClick={this.props.addTab} className="group-image"></div>
