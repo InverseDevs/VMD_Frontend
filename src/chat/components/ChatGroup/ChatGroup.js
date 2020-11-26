@@ -8,6 +8,7 @@ class ChatGroup extends React.Component {
     }
     extractUser = (users) => {
         console.log(users)
+        let user = users.find(user => user.id !== window.localStorage.getItem('id');
     }
     componentDidMount() {
         this.extractUser(this.props.users);
