@@ -40,14 +40,13 @@ createChat = async () => {
     ids.push(this.props.id);
     await this.postData('https://inversedevs.herokuapp.com/chat/create', {users: ids})
     .then(res => console.log(res));
-    this.props.getShow(false);
 
 }
 componentDidMount(){
     this.getFriends();
 }
 renderFriends(friends) {
-    return Object.values(friends).map((friend,id) => <Friend onClick={this.createChat} online={friend.online} key={id} name={friend.name} id={friend.id}/>)
+    return Object.values(friends).map((friend,id) => <Friend getShow={this.props.getShow} onClick={this.createChat} online={friend.online} key={id} name={friend.name} id={friend.id}/>)
 }
   render()
   {
