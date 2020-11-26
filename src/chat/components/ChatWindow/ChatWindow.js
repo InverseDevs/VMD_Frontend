@@ -5,15 +5,22 @@ import ChatInfo from '../ChatInfo/ChatInfo';
 import Chat from '../Chat/Chat';
 import SockJsClient from 'react-stomp';
 
+import ChatAddModal from '../ChatAddModal/ChatAddModal';
+import ChatAddForm from '../ChatAddForm/ChatAddForm';
 const SOCKET_URL = 'https://inversedevs.herokuapp.com/websocket-chat';
+
 
 class ChatWindow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             messages: [],
+
+            show: false,
         }
     }
+   
+
     onConnected = () => {
         console.log("Connected!!")
       }
@@ -32,6 +39,7 @@ class ChatWindow extends React.Component{
     };
     render(){
     return(
+        
         <div className="chat-window">
             {/* <SockJsClient
               url={SOCKET_URL}
@@ -45,6 +53,10 @@ class ChatWindow extends React.Component{
             /> */}
             <TabList tabs={this.props.tabs} closeTab={this.props.closeTab}/>
             <ChatInfo />
+
+            <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
+                    <ChatAddForm getShow={this.props.getShow}/>
+
             <Chat sendMessage={this.sendMessage}/>
         </div>
     );
