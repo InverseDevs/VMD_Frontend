@@ -29,6 +29,9 @@ class Friend extends React.Component {
             ids.push(this.props.id);
             await this.postData('https://inversedevs.herokuapp.com/chat/create', {users: ids})
             .then(res => console.log(res));
+	    if (this.props.getShow){
+		this.props.getShow(false);    
+	    }
     }
     render(){
         const status = this.props.online === false || this.props.online === "false" ? <div className="friend-offline"></div> : <div className="friend-online"></div>
