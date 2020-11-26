@@ -41,7 +41,7 @@ class ChatWindow extends React.Component{
     return(
         
         <div className="chat-window">
-            {/* <SockJsClient
+            { <SockJsClient
               url={SOCKET_URL}
               topics={['/topic/user']}
               ref={ (client) => { this.clientRef = client }}
@@ -50,7 +50,7 @@ class ChatWindow extends React.Component{
               autoReconnect={true}
               onMessage={msg => this.onMessageReceived(msg)}
               debug={false}
-            /> */}
+            /> }
             <TabList tabs={this.props.tabs} closeTab={this.props.closeTab}/>
             <ChatInfo />
 
