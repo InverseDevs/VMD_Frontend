@@ -13,9 +13,6 @@ class ChatGroup extends React.Component {
             
         }
     }
-    getUser = (users) => {
-       
-    }
     componentDidMount() {
         this.extractUser(this.props.users);
     }
