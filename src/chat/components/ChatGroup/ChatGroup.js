@@ -12,7 +12,7 @@ class ChatGroup extends React.Component {
             if (user.length == 1)
             {
                 console.log(Object.values(user));
-                return {...user};
+                return Object.assing({},user)[0]
             }
         
     }
