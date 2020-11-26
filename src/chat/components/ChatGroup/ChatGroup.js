@@ -8,7 +8,7 @@ class ChatGroup extends React.Component {
     }
     extractUser = (users) => {
             console.log(Object.values(users))
-        }
+        
     }
     componentDidMount() {
         this.extractUser(this.props.users);
