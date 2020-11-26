@@ -10,8 +10,9 @@ class ChatGroup extends React.Component {
             let user = Object.values(users).map(user => user.id != window.localStorage.getItem('id') ? user : null);
             user = user.filter(user => user != null);
             if (user.length == 1)
-            {
-                return ...user
+            {   
+                
+                return {...user}
 
             }
         
