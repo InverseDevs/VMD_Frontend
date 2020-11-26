@@ -19,11 +19,11 @@ class ChatGroup extends React.Component {
     }
     render(){
     let user = this.extractUser(this.props.users);
-    console.log(user)
+    console.log(user.0.name)
     return(
         <div className="chat-group">
             <div onClick={this.props.addTab} className="group-image"></div>
-            <p className="group-name">{user != undefined ? user.name : null}</p>
+            <p className="group-name"></p>
         </div>
     );
 }
