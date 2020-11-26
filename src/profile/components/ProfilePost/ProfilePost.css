@@ -1,6 +1,6 @@
 .profile-post{
     width: 625px;
-    height: 520px;
+    max-height: 520px;
     margin-left: 40px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99.99%, rgba(255, 255, 255, 0.0234375) 100%), #77BB59;
     border-radius: 5px;
@@ -17,15 +17,33 @@
     justify-content:space-between;
     margin-left: 40px;
     margin-right:40px;
-    margin-bottom:25px;
 }
 .profile-post-header-left{
     display:flex;
 }
+.like-number{
+    margin-top: 35px;
+    margin-right: 10px;
+    font-family: 'Source Serif Pro', sans-serif;
+
+}
+.post-author{
+    margin-top: 25px;
+    margin-left: -15px;
+    margin-right: 15px;
+    font-family: 'Source Serif Pro', sans-serif;
+
+}
+.post-full-author{
+    margin-top: 35px;
+    margin-left: 400px;
+    font-family: 'Source Serif Pro', sans-serif;
+
+}
 .profile-post-like{
     width: 40px;
     height: 40px;
-    margin-top:15px;
+    margin-top:25px;
     background: #7CBC5F;
     border-radius:50%;
     border:none;
@@ -41,8 +59,8 @@
 .profile-post-comments{
     width: 120px;
     height: 40px;
-    margin-left:29px;
-    margin-top:15px;
+    margin-left:10px;
+    margin-top:25px;
     background: #7CBC5F;
     border-radius: 50px;
     border:none;
@@ -65,14 +83,12 @@
     height: 270px;
     margin-left: 40px;
     margin-bottom: 20px;
-    background: #C4C4C4;
 }
 .post-full-img{
     width: 875px;
     height: 270px;
     margin-left: 40px;
     margin-bottom: 20px;
-    background: #C4C4C4;
 }
 .post-text{
     font-size: 14px;
@@ -80,6 +96,7 @@
     margin-left:40px;
     max-width: 540px;
     max-height: 45px;
+    margin-top:0;
     overflow-y:hidden;
 }
 .post-full-text{
@@ -94,6 +111,7 @@
     height: 30px;
     margin-top:-15px;
     margin-left: 240px;
+    margin-bottom: 20px;
     background: #7CBC5F;
     border-radius: 50px;
     border:none;
@@ -127,6 +145,13 @@
     color: rgb(150, 150, 150);
     margin-left: 30px;
     font-size: 18px;
-    margin-top:23px;
+    margin-top:25px;
+    font-family: 'Source Serif Pro', sans-serif;
+}
+.post-full-time{
+    color: rgb(150, 150, 150);
+    margin-left: 30px;
+    font-size: 18px;
+    margin-top:30px;
     font-family: 'Source Serif Pro', sans-serif;
 }

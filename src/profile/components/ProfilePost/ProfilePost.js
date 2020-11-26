@@ -38,7 +38,7 @@ class ProfilePost extends React.Component {
         {
             userId: window.localStorage.getItem('id')
          })
-         .then(data => {if (data.status === 'added' || data.status === 'removed'){this.setState({liked: !this.state.liked})}})
+         .then(data => console.log(data))
     }
     showCommentsModal = () => {
         this.setState({ showComments: true });
@@ -54,35 +54,48 @@ class ProfilePost extends React.Component {
       hidePostModal = () => {
         this.setState({ showPost: false });
       };
+      checkLike = (likes) => {
+        likes = Object.values(likes);
+        for (let i = 0; i < likes.length; ++i){
+            if (likes[i].id == window.localStorage.getItem('id')){
+                return true
+            }  
+        }
+        return false
+      }
     render() {
         return(
             <div className="profile-post">
                 <div className="profile-post-header">
                     <div className="profile-post-header-left">
-                        <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={this.state.liked === false ? like : likeClicked}/></button>
+                        <div className="like-number">{Object.values(this.props.likes).length}</div>
+                        <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : likeClicked}/></button>
                         <button onClick={this.showCommentsModal} className="profile-post-comments">Комментарии</button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <h6 className="post-time">{this.props.time}</h6>
+                        <div className="post-author">{this.props.sender}</div>
                         <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
                             <Comments comments={this.props.comments} token={this.props.token} sender={this.props.sender} Postid={this.props.Postid}/>
                     </ProfileCommentsModal>
                     </div>
                     <div className="user-img"></div>
                 </div>
-                <div className="post-img"></div>
+                {this.props.photo !== ''  ? <img src={this.props.photo} className="post-img"/> : null}
                 <h6 className="post-text">{this.props.content}</h6>
                 <button className="post-readmore" onClick={this.showPostModal}>Подробнее</button>
                 <ProfilePostModal show={this.state.showPost} handleClose={this.hidePostModal}>
                         <div className="profile-full-post">
                 <div className="profile-post-header">
                     <div className="profile-post-header-left">
-                        <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={this.state.liked === false ? like : likeClicked}/></button>
+                        <div className="like-number">{Object.values(this.props.likes).length}</div>
+                        <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : likeClicked}/></button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
-                        <h6 className="post-time">{this.props.time}</h6>
+                        <h6 className="post-full-time">{this.props.time}</h6>
+                        <div className="post-full-author">{this.props.sender}</div>
                     </div>
                     <div className="user-full-img"></div>
                 </div>
-                <div className="post-full-img"></div>
+                {this.props.photo !== '' || this.props.photo !== undefined ? <img src={this.props.photo} className="post-img"/> : null}
                 <h6 className="post-full-text">{this.props.content}</h6>
                 <PostComments comments={this.props.comments} token={this.props.token} sender={this.props.sender} Postid={this.props.Postid} id={this.props.id}/>
                 </div>

@@ -50,7 +50,9 @@ class Chats extends React.Component {
                     </div>
                 </div>
             </SimpleBarReact>
+
             <ChatAdd show={this.props.show} getShow={this.props.getShow} />
+
         </div>
     );
 }

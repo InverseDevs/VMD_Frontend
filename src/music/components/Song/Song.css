@@ -1,0 +1,23 @@
+.song{
+    width: 700px;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    outline: none;
+}
+.song-info{
+    display:flex;
+    margin-bottom: -5px;
+}
+.song::-webkit-media-controls-panel{
+    background: #7CBC5F;
+    outline: none;
+}
+.song-author{
+    font-size: 20px;
+    margin-left: 40px;
+}
+.song-name{
+    font-size: 20px;
+    margin-left: 5px;
+}

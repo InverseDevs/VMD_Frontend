@@ -5,14 +5,18 @@ import './ProfileContainer.css';
 class ProfileContainer extends React.Component {
     constructor(props){
         super(props);
-        
+        this.state={
+            dataChanged:false,
         }
-    
+    }
+    getChanged = (bool) => {
+        this.setState({dataChanged: bool})
+    }
     render() {
         return(
         <div className="profile-container">
-            <ProfileHeader  token={window.localStorage.getItem('token')} userData={this.props.userData} />
-            <ProfileFooter token={window.localStorage.getItem('token')} userData={this.props.userData}/>
+            <ProfileHeader getChanged={this.getChanged} token={window.localStorage.getItem('token')} userData={this.props.userData} />
+            <ProfileFooter dataChanged={this.state.dataChanged} token={window.localStorage.getItem('token')} userData={this.props.userData}/>
         </div>
     );}
 }

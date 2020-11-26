@@ -62,6 +62,17 @@ class ProfileInnerComment extends React.Component {
       });
     }
   }
+
+  checkLike = (likes) => {
+    likes = Object.values(likes);
+    for (let i = 0; i < likes.length; ++i){
+        if (likes[i].id == window.localStorage.getItem('id')){
+            return true
+        }  
+    }
+    return false
+  }
+
     render() {
       const items = this.renderItems(this.props.comments);
         return (
@@ -72,7 +83,8 @@ class ProfileInnerComment extends React.Component {
           <div className="comment-body">
             <div className="comment-info">
             <Link to="/" className="comment-profile-link">{this.props.name}</Link>
-            <button className="like" onClick={this.likeComment}><img className="post-like" src={this.state.like === true? liked : like}/></button>
+            <div className="like-number-comms">{Object.values(this.props.likes).length}</div>
+            <button className="like" onClick={this.likeComment}><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : liked}/></button>
             <p className="comment-date">
               {this.props.date}
             </p>

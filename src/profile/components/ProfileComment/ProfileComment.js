@@ -58,12 +58,22 @@ class ProfileComment extends React.Component {
       if(comments){
       return Object.values(comments).map(comment => {
               return (
-                  <ProfileInnerComment getInnerPressed={this.getInnerPressed} commentId={comment.id} setCommentId={this.props.setCommentId} comments={comment.comments} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender} date={comment.sent_time} />
+                  <ProfileInnerComment getInnerPressed={this.getInnerPressed} commentId={comment.id} setCommentId={this.props.setCommentId} comments={comment.comments} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.name} date={comment.sent_time} />
+
               )
              
 
       });
     }
+  }
+  checkLike = (likes) => {
+    likes = Object.values(likes);
+    for (let i = 0; i < likes.length; ++i){
+        if (likes[i].id == window.localStorage.getItem('id')){
+            return true
+        }  
+    }
+    return false
   }
     render() {
         const items = this.renderItems(this.props.innerComments);
@@ -76,7 +86,8 @@ class ProfileComment extends React.Component {
           <div className="comment-body">
             <div className="comment-info">
             <Link to="/" className="comment-profile-link">{this.props.name}</Link>
-            <button className="like" onClick={this.likeComment}><img className="post-like" src={this.state.like === true? liked : like}/></button>
+            <div className="like-number-comms">{Object.values(this.props.likes).length}</div>
+            <button className="like" onClick={this.likeComment}><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : liked}/></button>
             <p className="comment-date">
               {this.props.date}
             </p>

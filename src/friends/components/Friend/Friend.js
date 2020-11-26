@@ -22,6 +22,14 @@ class Friend extends React.Component {
             
         });
     }
+    createChat = async () => {
+     
+            let ids = [];
+            ids.push(window.localStorage.getItem('id'));
+            ids.push(this.props.id);
+            await this.postData('https://inversedevs.herokuapp.com/chat/create', {users: ids})
+            .then(res => console.log(res));
+    }
     render(){
         const status = this.props.online === false || this.props.online === "false" ? <div className="friend-offline"></div> : <div className="friend-online"></div>
         return (
@@ -33,7 +41,7 @@ class Friend extends React.Component {
                             <Link to={`/profile/${this.props.id}`}>{this.props.name}</Link>
                             {status}
                         </div>
-                        <button type="button" className="write-message-btn">Написать сообщение</button>
+                        <Link to="/chat"><button type="button" onClick={this.createChat} className="write-message-btn">Написать сообщение</button></Link>
                     </div>
                     <button type="button" onClick={this.deleteFriend} className="delete-friend">Удалить</button>
                     </div>

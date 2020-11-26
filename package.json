@@ -8,6 +8,9 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.2.0",
     "simplebar-react": "^2.3.0",
+    "axios" : "^0.21.0",
+    "react-stomp" : "^5.0.0",
+    "react-audio-player" : "^0.14.0",
     "react-scripts": "^3.0.1"
   },
   "scripts": {

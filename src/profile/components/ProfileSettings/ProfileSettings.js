@@ -13,13 +13,9 @@ class ProfileSettings extends React.Component {
         lang: '',
         phone: '',
         hobby: '',
-        nc: false,
-        tc:false,
-        sc:false,
-        bc:false,
-        lc:false,
-        pc:false,
-        hc:false,
+
+        changed: false,
+
     }
   }
   handleNameChange= (e) => {
@@ -69,44 +65,23 @@ sendInfo = async () => {
   document.getElementById('lang-f').value = '';
   document.getElementById('phone-f').value = '';
   document.getElementById('hobby-f').value = '';
-  this.setState({nc:false})
-  this.setState({tc:false})
-  this.setState({sc:false})
-  this.setState({bc:false})
-  this.setState({lc:false})
-  this.setState({pc:false})
-  this.setState({hc:false})
+  this.setState({changed: false})
   this.props.getShow(false);
 }
-
-  componentDidUpdate(){
-    if (document.getElementById('name-f').value !== this.props.userData.name && this.state.nc !== true){
+  fillGaps = () => {
       this.props.userData.name ? document.getElementById('name-f').value = `${this.props.userData.name}` : document.getElementById('name-f').value = '';
-      this.setState({nc:true})
-    }
-    if (document.getElementById('town-f').value !== this.props.userData.birth_town && this.state.tc !== true){
       this.props.userData.birth_town ? document.getElementById('town-f').value = `${this.props.userData.birth_town}` : document.getElementById('town-f').value = '';
-      this.setState({tc:true})
-    }
-    if (document.getElementById('study-f').value !== this.props.userData.study_place && this.state.sc !== true){
       this.props.userData.study_place ? document.getElementById('study-f').value =  `${this.props.userData.study_place}` : document.getElementById('study-f').value = '';
-      this.setState({sc:true})
-    }
-    if (document.getElementById('birth-f').value !== this.props.userData.birth_date && this.state.bc !== true){
       this.props.userData.birth_date ? document.getElementById('birth-f').value =  `${this.props.userData.birth_date}`: document.getElementById('birth-f').value = '';
-      this.setState({bc:true})
-    }
-    if (document.getElementById('lang-f').value !== this.props.userData.languages && this.state.lc !== true){
       this.props.userData.languages ? document.getElementById('lang-f').value =  `${this.props.userData.languages}`: document.getElementById('lang-f').value = '';
-      this.setState({lc:true})
-    }
-    if (document.getElementById('phone-f').value !== this.props.userData.phone && this.state.pc !== true){
       this.props.userData.phone ? document.getElementById('phone-f').value =  `${this.props.userData.phone}`: document.getElementById('phone-f').value = '';
-      this.setState({pc:true})
-    }
-    if (document.getElementById('hobby-f').value !== this.props.userData.hobbies && this.state.hc !== true){
       this.props.userData.hobbies ? document.getElementById('hobby-f').value =  `${this.props.userData.hobbies}`: document.getElementById('hobby-f').value = '';
-      this.setState({hc:true})
+  }
+  
+  componentDidUpdate(){
+    if (this.state.changed === false){
+    setTimeout(this.fillGaps, 1000);
+    this.setState({changed: true})
     }
   }
   render()

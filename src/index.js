@@ -7,6 +7,7 @@ import LoginAppReset from './lambda/LoginAppReset/LoginAppReset';
 import RegistrationApp from './registration/components/RegistrationApp/RegistrationApp';
 import AfterRegister from './after-register/components/AfterRegister/AfterRegister';
 import FriendsApp from './friends/components/FriendsApp/FriendsApp';
+import MusicApp from './music/components/MusicApp/MusicApp';
 import {BrowserRouter, Route, Redirect} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 class App extends React.Component{
@@ -39,6 +40,7 @@ class App extends React.Component{
                 <ChatApp userData={this.state.userData}/>
                 </Route>
                 <Route exact path="/friends" component={FriendsApp} />
+                <Route exact path="/music" component={MusicApp} />
                 <Route exact path="/profile/:id">
                     <ProfileApp token={window.localStorage.getItem('token')}/>
                 </Route>

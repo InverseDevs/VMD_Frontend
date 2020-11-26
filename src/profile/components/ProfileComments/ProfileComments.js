@@ -48,9 +48,10 @@ class ProfileComments extends React.Component {
         if (this.state.sender === ''){
         await this.postData(`https://inversedevs.herokuapp.com/comment/post/${this.props.Postid}`,
         {   sender: window.localStorage.getItem('username'),
-            content: this.state.comment
+            content: this.state.comment,
+            picture: '',
          }).then(data => {
-            console.log(data)
+
             document.getElementById('comments-textarea').value = '';
         this.setState({valChanged:0})}
             )
@@ -60,8 +61,10 @@ class ProfileComments extends React.Component {
             console.log(window.localStorage.getItem('name'))
             await this.postData(`https://inversedevs.herokuapp.com/comment/comment/${this.state.commentId}`,
             {   sender: window.localStorage.getItem('username'),
-                content: this.state.comment
-             }).then(data => {console.log(data)
+                content: this.state.comment,
+                picture: '',
+             }).then(data => {
+
                 document.getElementById('comments-textarea').value = '';
             this.setState({valChanged: 0})})
          }
@@ -69,11 +72,12 @@ class ProfileComments extends React.Component {
          
        }
        renderItems(comments){
+        if (comments){
         return Object.values(comments).map(comment => {
                 return (
-                    <ProfileComment commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender} date={comment.sent_time} />
+                    <ProfileComment name={comment.name} commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} date={comment.sent_time} />
                 )
-        });
+        })};
     }
     render() {
         const items = this.renderItems(this.props.comments);
