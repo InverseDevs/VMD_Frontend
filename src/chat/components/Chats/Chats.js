@@ -40,7 +40,6 @@ class Chats extends React.Component {
 }
     render(){
     const groups = this.renderGroups(this.state.groups);
-    console.log(this.state.groups)
     return (
         
         <div className="chats">
