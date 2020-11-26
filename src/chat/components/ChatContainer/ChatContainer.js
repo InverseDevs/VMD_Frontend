@@ -23,8 +23,9 @@ class ChatContainer extends React.Component {
     };
     addTab = (name) => {
         let tabs = this.state.tabs;
-        tab = {'name' : name};
+        let tab = {'name' : name};
         tabs.push(tab);
+        this.setState({tabs: tabs});
     }
 
     render() {
