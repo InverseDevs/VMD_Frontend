@@ -9,7 +9,11 @@ class ChatGroup extends React.Component {
     extractUser = (users) => {
             let user = Object.values(users).map(user => user.id != window.localStorage.getItem('id') ? user : null);
             user = user.filter(user => user != null);
-            console.log(user)
+            if (user.length == 1)
+            {
+                console.log(Object.values(user));
+                return Object.values(user);
+            }
         
     }
     componentDidMount() {
