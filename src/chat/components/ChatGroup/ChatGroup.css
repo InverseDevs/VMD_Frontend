@@ -21,4 +21,6 @@
 }
 .user-pic{
     overflow:hidden;
+    max-width: 160px;
+    max-height: 160px;
 }
