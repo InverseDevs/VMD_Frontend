@@ -12,8 +12,8 @@ class ChatGroup extends React.Component {
             if (user.length == 1)
             {
                 console.log('user',user)
-                console.log('spread',user)
-                console.log('assign',Object.assign({},user))
+                console.log('spread',...user)
+
             }
         
     }
