@@ -7,7 +7,9 @@ class ChatGroup extends React.Component {
         this.state = {user: null};
     }
     extractUser = (users) => {
-            console.log(Object.values(users).map(user => user.id != window.localStorage.getItem('id') ? user : null));
+            let user = Object.values(users).map(user => user.id != window.localStorage.getItem('id') ? user : null);
+            user = user.filter(user => user != null);
+            console.log(user)
         
     }
     componentDidMount() {
