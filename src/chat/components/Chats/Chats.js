@@ -32,7 +32,7 @@ class Chats extends React.Component {
        
     }
     renderGroups = (groups)=>{
-        return Object.values(groups).map((group,i) => <ChatGroup key={i} id={group.chat_id} users={group.users}/> );
+        return Object.values(groups).map((group,i) => <ChatGroup getInfo={this.props.getInfo} key={i} id={group.chat_id} users={group.users}/> );
     }
     componentDidMount() {
         this.getChats();
