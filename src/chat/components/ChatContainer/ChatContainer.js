@@ -5,7 +5,7 @@ import Chats from '../Chats/Chats';
 
 class ChatContainer extends React.Component {
     state = {
-        tabs_number: 0,
+        tabs: [],
         groups_number: 0,
         show: false,
         chatInfo: {},
@@ -16,21 +16,22 @@ class ChatContainer extends React.Component {
     getShow = (state) => {
         this.setState({show: state})
     }
-    addTab = () => {
-        this.setState(({tabs_number}) => ({
-            tabs_number: tabs_number+1,
-        }))};
-    closeTab = () => {
-        this.setState(({tabs_number}) => ({
-            tabs_number: tabs_number-1,
-        }))
+    closeTab = (name) => {
+        let tabs = this.state.tabs;
+        tabs = tabs.filter(tab => tab.name != name);
+        this.setState({tabs: tabs})
     };
+    addTab = (name) => {
+        let tabs = this.state.tabs;
+        tab = {'name' : name};
+        tabs.push(tab);
+    }
 
     render() {
         return(
         <div className="chat-container">
         <Chats getInfo={this.getInfo} show={this.state.show} groups={this.state.groups_number} getShow={this.getShow} addTab={this.addTab}/>
-        <ChatWindow chatInfo={this.state.chatInfo} getShow={this.getShow} show={this.state.show} tabs={this.state.tabs_number} closeTab={this.closeTab}/>
+        <ChatWindow chatInfo={this.state.chatInfo} getShow={this.getShow} show={this.state.show} tabs={this.state.tabs} closeTab={this.closeTab}/>
         </div>
     );}
 }
