@@ -1,18 +1,34 @@
 import React from 'react';
 import './ChatInput.css';
-const ChatInput = ({addMessage,handleMessageChange,onMessageSubmit}) => {
-    return(
+
+
+class ChatInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            messages: [],
+            typedMessage: "",
+        }
+    }   
+    sendMsg = (e) => {
+        e.preventDefault();
+        this.props.sendMessage(this.state.typedMessage);
+    }
+    render()
+{    return(
         <div className="chat-input">
-            <form className="chat-form" onSubmit={onMessageSubmit}>
+            <form className="chat-form" onSubmit={this.props.onMessageSubmit}>
                 <div className="chat-input-container">
-                    <textarea type="text" placeholder="Type text here..."  onChange={handleMessageChange} className="msg-input"/>
+                    <textarea type="text" placeholder="Type text here..." onChange={(event) => {
+                                               this.setState({typedMessage: event.target.value});
+                                           }} className="msg-input"/>
                 </div>
-                <div onClick={addMessage} className="send-btn">
-                    <input type="submit" className="msg-send" value=""/>
+                <div className="send-btn">
+                    <input onClick={this.sendMsg} type="submit" className="msg-send" value=""/>
                 </div>
             </form>
         </div>
-    );
+    );}
 }
 
 
