@@ -27,7 +27,7 @@ class Chats extends React.Component {
         await this.getData(`https://inversedevs.herokuapp.com/chats/${window.localStorage.getItem('id')}`)
         .then(data => {
             console.log(data);
-            this.setState({groups:data})
+            this.setState({groups:data.chats})
         })
        
     }
