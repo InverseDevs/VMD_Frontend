@@ -41,7 +41,22 @@ class MessageTo extends React.Component {
                 <p className="msg-to">{this.props.message}</p>
             </div>
         </div>
-    );}}
+    );}else{
+      return (
+          <div className="message-to">
+            <div className="user-to-info">
+                <p className="user-to-name"></p>
+                <div className="user-to-img"></div>
+            </div>
+            <div className="message-to-container">
+                <p className="msg-to"></p>
+            </div>
+        </div>
+          )
+    }
+    
+    }
+    
 }
 
 
