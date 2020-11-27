@@ -10,9 +10,13 @@
 }
 .message-from-container{
     margin-left: 110px;
-    width: 380px;
+   max-width: 380px;
+    padding-right: 22px;
     min-height: 70px;
-    padding-bottom: 21px;
+    padding-bottom:21px;
+    word-wrap: break-word;
+    padding-left: 22px;
+    padding-top:21px;
     border: 1px solid #48BF4A;
     box-sizing: border-box;
     border-radius: 50px;
@@ -27,6 +31,11 @@
     width: 50px;
     height: 50px;
     background: #C4C4C4;
+    border-radius: 50%;
+}
+.user-from-img-exist{
+     width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
 .user-from-avatar{
