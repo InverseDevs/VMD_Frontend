@@ -34,7 +34,7 @@ class MessageFrom extends React.Component {
             <div className="message-from">
                 <div className="user-from-info">
                     <div className="user-from-img"></div>
-                    <p className="user-from-name">{this.state.userInfo.name}</p>
+                    <p className="user-from-name">name</p>
                 </div>
                 <div className="message-from-container">
                     <p className="msg-from">{this.props.message}</p>
