@@ -8,9 +8,12 @@ class Tab extends React.Component {
     close = () => {
         this.props.closeTab(this.props.name);
     }
+    setInfo = () => {
+        this.props.getInfo(this.props.chatInfo);   
+    }
     render(){
     return(
-        <div className="tab">
+        <div onClick={this.setInfo} className="tab">
                 <p className="chat-name">{this.props.name}</p>
                 <div onClick={this.close} className="close-div">
                     <img src={close} className="close-icon" />
