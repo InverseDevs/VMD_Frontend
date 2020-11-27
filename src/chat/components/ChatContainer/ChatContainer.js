@@ -40,6 +40,7 @@ class ChatContainer extends React.Component {
         }
         this.setState({tabs: tabs});
         window.localStorage.setItem('tabs',[...this.state.tabs]);   
+        console.log(window.localStorage.getItem('tabs'))
     }
     render() {
         return(
