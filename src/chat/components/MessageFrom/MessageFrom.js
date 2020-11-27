@@ -30,11 +30,12 @@ class MessageFrom extends React.Component {
     this.getUserInfo();
 }
     render() {
+        let user = this.state.userInfo;
         return(
             <div className="message-from">
                 <div className="user-from-info">
-                    <div className="user-from-img"></div>
-                    <p className="user-from-name">name</p>
+                    <div className="user-from-img">{user.avatar != '' ? <img src={user.avatar} className="user-from-avatar" alt="user-from"/> : null }</div>
+                    <p className="user-from-name">{user.name}</p>
                 </div>
                 <div className="message-from-container">
                     <p className="msg-from">{this.props.message}</p>
