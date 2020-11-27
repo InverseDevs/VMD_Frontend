@@ -26,12 +26,12 @@ class ChatInput extends React.Component {
         <div className="chat-input">
             <form className="chat-form" onSubmit={this.props.onMessageSubmit}>
                 <div className="chat-input-container">
-                    <textarea type="text" id="message-area" placeholder="Type text here..." onChange={(event) => {
+                    <textarea onKeyPress={this.handleKeyPress} type="text" id="message-area" placeholder="Type text here..." onChange={(event) => {
                                                this.setState({typedMessage: event.target.value});
                                            }} className="msg-input" autofocus/>
                 </div>
                 <div className="send-btn">
-                    <input onClick={this.sendMsg} onKeyPress={this.handleKeyPress} type="submit" className="msg-send" value=""/>
+                    <input onClick={this.sendMsg}  type="submit" className="msg-send" value=""/>
                 </div>
             </form>
         </div>
