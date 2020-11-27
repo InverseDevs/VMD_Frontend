@@ -17,6 +17,9 @@ class ChatGroup extends React.Component {
     }
     makeInfo = () => {
         let user = this.extractUser(this.props.users);
+        console.log(user.name)
+        console.log(user.avatar)
+        console.log(this.props.id)
         this.props.getInfo(user.name,user.avatar, this.props.id)
         this.props.addTab(user.name)
     }
