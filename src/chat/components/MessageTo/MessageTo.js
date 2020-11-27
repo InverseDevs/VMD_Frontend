@@ -32,7 +32,7 @@ class MessageTo extends React.Component {
     return(
         <div className="message-to">
             <div className="user-to-info">
-                <p className="user-to-name">{this.state.userInfo.name}</p>
+                <p className="user-to-name">name</p>
                 <div className="user-to-img"></div>
             </div>
             <div className="message-to-container">
