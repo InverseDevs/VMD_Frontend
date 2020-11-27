@@ -13,7 +13,8 @@
 .message-to-container{
     margin-left: 430px;
     width: 380px;
-    height: 70px;
+    min-height: 70px;
+    padding-bottom:21px;
     border: 1px solid #48BF4A;
     box-sizing: border-box;
     border-radius: 50px;
@@ -21,6 +22,7 @@
 .msg-to{
     margin-left: 22px;
     margin-top: 21px;
+    max-width: 336px;
     font-family: 'Source Serif Pro', sans-serif;
 }
  .user-to-img{
