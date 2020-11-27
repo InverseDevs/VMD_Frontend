@@ -35,11 +35,11 @@ class MessageFrom extends React.Component {
         return(
             <div className="message-from">
                 <div className="user-from-info">
-                    <div className="user-from-img">{user.avatar != '' ? <img src={user.avatar} className="user-from-avatar" alt="user-from"/> : null }</div>
+                    <div className={user.avatar != '' ? "user-from-img-exist" : "user-from-img"}>{user.avatar != '' ? <img src={user.avatar} className="user-from-avatar" alt="user-from"/> : null }</div>
                     <p className="user-from-name">{user.name}</p>
                 </div>
                 <div className="message-from-container">
-                    <p className="msg-from">{this.props.message}</p>
+                   {this.props.message}
                 </div>
             </div>
         );
