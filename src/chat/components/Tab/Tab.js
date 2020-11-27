@@ -6,12 +6,12 @@ class Tab extends React.Component {
         super(props);
     }
     close = () => {
-        this.props.closeTab(this.props.tabInfo.name);
+        this.props.closeTab(this.props.name);
     }
     render(){
     return(
         <div className="tab">
-                <p className="chat-name">{this.props.tabInfo.name}</p>
+                <p className="chat-name">{this.props.name}</p>
                 <div onClick={this.close} className="close-div">
                     <img src={close} className="close-icon" />
                 </div>
