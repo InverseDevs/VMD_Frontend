@@ -6,7 +6,7 @@ class TabList extends React.Component {
         super(props);
     }
     renderTabs = (tabs) => {
-        return Object.values(tabs).map((tab,i) => <Tab key={i} closeTab={this.props.closeTab} tabInfo={tab.info} />)
+        return Object.values(tabs).map((tab,i) => <Tab key={i} closeTab={this.props.closeTab} name={tab.name} />)
     }
     render(){
     const tabs = this.renderTabs(this.props.tabs);
