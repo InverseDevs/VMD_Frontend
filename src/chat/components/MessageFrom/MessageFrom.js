@@ -43,6 +43,18 @@ class MessageFrom extends React.Component {
                 </div>
             </div>
         );
+        }else {
+         return (
+            <div className="message-from">
+                <div className="user-from-info">
+                    <div className="user-from-img"></div>
+                    <p className="user-from-name"></p>
+                </div>
+                <div className="message-from-container">
+                    <p className="msg-from"></p>
+                </div>
+            </div>
+             )
         }
     }
 }
