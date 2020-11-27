@@ -43,7 +43,7 @@ class FriendRequest extends React.Component {
                         </div>
                         <button type="button" className="write-message-btn">Написать сообщение</button>
                     </div>
-
+		    <button type="button" onClick={this.AddFriend} className="add-friend">Принять</button>
                     <button type="button" onClick={this.DeclineFriend} className="refuse-friend">Отклонить</button>
 
                     </div>
