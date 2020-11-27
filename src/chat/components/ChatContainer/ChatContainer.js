@@ -41,7 +41,7 @@ class ChatContainer extends React.Component {
         return(
         <div className="chat-container">
         <Chats getInfo={this.getInfo} show={this.state.show}  getShow={this.getShow} addTab={this.addTab}/>
-        <ChatWindow chatInfo={this.state.chatInfo} getShow={this.getShow} show={this.state.show} tabs={this.state.tabs} closeTab={this.closeTab}/>
+        <ChatWindow chatInfo={this.state.chatInfo} getInfo={this.getInfo} getShow={this.getShow} show={this.state.show} tabs={this.state.tabs} closeTab={this.closeTab}/>
         </div>
     );}
 }
