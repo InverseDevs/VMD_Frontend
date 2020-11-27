@@ -49,7 +49,7 @@ class MessageTo extends React.Component {
                 <div className="user-to-img"></div>
             </div>
             <div className="message-to-container">
-                <p className="msg-to"></p>
+                <div className="msg-to"></div>
             </div>
         </div>
           )
