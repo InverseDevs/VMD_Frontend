@@ -30,6 +30,7 @@ class MessageTo extends React.Component {
 }
     render(){
         let user = this.state.userInfo;
+        if (user != null) {
     return(
         <div className="message-to">
             <div className="user-to-info">
@@ -40,7 +41,7 @@ class MessageTo extends React.Component {
                 <p className="msg-to">{this.props.message}</p>
             </div>
         </div>
-    );}
+    );}}
 }
 
 
