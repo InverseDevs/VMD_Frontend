@@ -9,7 +9,7 @@ class Tab extends React.Component {
         this.props.closeTab(this.props.name);
     }
     setInfo = () => {  
-        this.props.getInfo(this.props.chatInfo.name,this.props.chatInfo.img,this.props.chatInfo.id)
+        this.props.getInfo(this.props.name,this.props.avatar,this.props.id)
     }
     render(){
     return(
