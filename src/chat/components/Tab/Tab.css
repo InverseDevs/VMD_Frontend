@@ -2,6 +2,7 @@
 .tab {
     display: flex;
     flex-direction: row;
+    justify-content:space-between;
     background: #7CBC5F;
     max-height: 43px;
     color: white;
@@ -10,20 +11,20 @@
 }
 
 .chat-name{
-    margin-left: 13%;
+    //margin-left: 13%;
     margin-top: 6%;
 }
 .close-div{
     width: 30px;
     height: 30px;
     margin-top: 4%;
-    margin-left: 15%;
+    //margin-left: 15%;
     background: #C4C4C4;
     border-radius: 50%;
 }
 
 .close-icon{
-    margin-left: 24%;
+    //margin-left: 24%;
     margin-top: 23%;
 }
 
