@@ -27,6 +27,7 @@ class MessageTo extends React.Component {
     }
     componentDidMount() {
     this.getUserInfo();
+            console.log(this.state.userInfo)
 }
     render(){
     return(
