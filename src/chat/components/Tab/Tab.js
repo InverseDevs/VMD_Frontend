@@ -13,8 +13,8 @@ class Tab extends React.Component {
     }
     render(){
     return(
-        <div onClick={this.setInfo} className="tab">
-                <p className="chat-name">{this.props.name}</p>
+        <div  className="tab">
+                <p onClick={this.setInfo} className="chat-name">{this.props.name}</p>
                 <div onClick={this.close} className="close-div">
                     <img src={close} className="close-icon" />
                 </div>
