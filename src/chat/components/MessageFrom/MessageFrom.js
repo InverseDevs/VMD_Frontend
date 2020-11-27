@@ -31,6 +31,7 @@ class MessageFrom extends React.Component {
 }
     render() {
         let user = this.state.userInfo;
+        if (user != null) {
         return(
             <div className="message-from">
                 <div className="user-from-info">
@@ -42,6 +43,7 @@ class MessageFrom extends React.Component {
                 </div>
             </div>
         );
+        }
     }
 }
 
