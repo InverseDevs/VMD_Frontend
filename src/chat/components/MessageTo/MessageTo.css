@@ -12,7 +12,8 @@
 }
 .message-to-container{
     margin-left: 430px;
-    width: 380px;
+    max-width: 380px;
+    padding-right: 22px;
     min-height: 70px;
     padding-bottom:21px;
     border: 1px solid #48BF4A;
