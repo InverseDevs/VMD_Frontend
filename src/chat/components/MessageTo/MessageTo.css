@@ -23,6 +23,7 @@
 .msg-to{
     margin-left: 22px;
     margin-top: 21px;
+    overflow:hidden;
     max-width: 336px;
     font-family: 'Source Serif Pro', sans-serif;
 }
