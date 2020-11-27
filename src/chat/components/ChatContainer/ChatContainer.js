@@ -23,7 +23,7 @@ class ChatContainer extends React.Component {
         let tabs = this.state.tabs;
         tabs = tabs.filter(tab => tab.name != name);
         this.setState({tabs: tabs})
-        window.localStorage.setItem('tabs',this.state.tabs);   
+        window.localStorage.setItem('tabs',[...this.state.tabs]);   
     };
     addTab = (name,avatar,id) => {
         let tabs = this.state.tabs;
@@ -39,7 +39,7 @@ class ChatContainer extends React.Component {
             tabs.push(tab)   
         }
         this.setState({tabs: tabs});
-        window.localStorage.setItem('tabs',this.state.tabs);   
+        window.localStorage.setItem('tabs',[...this.state.tabs]);   
     }
     render() {
         return(
