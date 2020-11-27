@@ -8,8 +8,8 @@ class Tab extends React.Component {
     close = () => {
         this.props.closeTab(this.props.name);
     }
-    setInfo = () => {
-        console.log(this.props.chatInfo);   
+    setInfo = () => {  
+        this.props.getInfo(this.props.chatInfo.name,this.props.chatInfo.img,this.props.chatInfo.id)
     }
     render(){
     return(
