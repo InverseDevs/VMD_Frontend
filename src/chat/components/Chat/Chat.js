@@ -23,7 +23,7 @@ class Chat extends React.Component {
         this.el.scrollIntoView({behavior:"smooth"});
     }
     renderMessages = (messages) => {
-        return Object.values(messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessagesTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
+        return Object.values(messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
     }
     render(){
         const messages = this.renderMessages(this.props.messages);
