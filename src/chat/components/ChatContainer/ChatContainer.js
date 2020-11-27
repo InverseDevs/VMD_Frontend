@@ -6,10 +6,13 @@ import Chats from '../Chats/Chats';
 class ChatContainer extends React.Component {
     state = {
         tabs: [],
-        groups_number: 0,
         show: false,
         chatInfo: null,
+        messages: [],
     };
+    getMessages = (messages) => {
+        this.setState({messages: messages});
+    }
     getInfo = (chatName, chatImg, chatId) => {
         this.setState({chatInfo: {'name':chatName, 'img':chatImg, 'id':chatId}})
     }
@@ -40,8 +43,8 @@ class ChatContainer extends React.Component {
     render() {
         return(
         <div className="chat-container">
-        <Chats getInfo={this.getInfo} show={this.state.show}  getShow={this.getShow} addTab={this.addTab}/>
-        <ChatWindow chatInfo={this.state.chatInfo} getInfo={this.getInfo} getShow={this.getShow} show={this.state.show} tabs={this.state.tabs} closeTab={this.closeTab}/>
+        <Chats getInfo={this.getInfo} getMessages={this.getMessages} show={this.state.show}  getShow={this.getShow} addTab={this.addTab}/>
+        <ChatWindow messages={this.state.messages} getMessages={this.getMessages} chatInfo={this.state.chatInfo} getInfo={this.getInfo} getShow={this.getShow} show={this.state.show} tabs={this.state.tabs} closeTab={this.closeTab}/>
         </div>
     );}
 }

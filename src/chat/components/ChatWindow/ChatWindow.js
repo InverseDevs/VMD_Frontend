@@ -14,7 +14,7 @@ class ChatWindow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            messages: [],
+            messages: this.props.messages,
 
             show: false,
         }
@@ -50,7 +50,7 @@ class ChatWindow extends React.Component{
               onMessage={msg => this.onMessageReceived(msg)}
               debug={false}
             /> }
-            <TabList chatInfo={this.props.chatInfo} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
+            <TabList chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
             <ChatInfo chatInfo={this.props.chatInfo}/>
 
             <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
