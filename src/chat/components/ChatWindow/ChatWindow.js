@@ -30,10 +30,9 @@ class ChatWindow extends React.Component{
         let messages = this.state.messages;
         messages.push(msg);
         this.setState({messages: messages});
-        console.log(this.state.messages)
       }
       sendMessage = (msg) => {
-        this.clientRef.sendMessage('/app/user-all', JSON.stringify({chat_id: 1, sender_id:1,
+        this.clientRef.sendMessage('/app/user-all', JSON.stringify({chat_id: this.props.chatInfo.id, sender_id:window.localStorage.getItem('id'),
             message: msg
         }));
     };
@@ -57,7 +56,7 @@ class ChatWindow extends React.Component{
             <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
                     <ChatAddForm getShow={this.props.getShow}/>
             </ChatAddModal>
-            <Chat sendMessage={this.sendMessage}/>
+            <Chat sendMessage={this.sendMessage} messages={this.state.messages}/>
         </div>
     );
 }
