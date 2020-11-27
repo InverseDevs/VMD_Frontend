@@ -14,9 +14,9 @@ class ChatInfo extends React.Component{
             </div>
         )
     }
-    else{
+    else{ return (
         <div className="chat-info">
-    </div>
+    </div>)
     }
 }
 }
