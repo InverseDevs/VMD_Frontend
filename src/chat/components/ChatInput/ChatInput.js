@@ -13,6 +13,7 @@ class ChatInput extends React.Component {
     sendMsg = (e) => {
         e.preventDefault();
         this.props.sendMessage(this.state.typedMessage);
+        this.setState({typedMessage: ''});
     }
     render()
 {    return(
