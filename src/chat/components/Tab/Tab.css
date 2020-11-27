@@ -11,20 +11,20 @@
 }
 
 .chat-name{
-    //margin-left: 13%;
+    margin-left: 5px;
     margin-top: 6%;
 }
 .close-div{
     width: 30px;
     height: 30px;
     margin-top: 4%;
-    //margin-left: 15%;
+    margin-right: 5px;
     background: #C4C4C4;
     border-radius: 50%;
 }
 
 .close-icon{
-    //margin-left: 24%;
+    margin-left:3px;
     margin-top: 23%;
 }
 
