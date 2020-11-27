@@ -16,6 +16,11 @@ class ChatInput extends React.Component {
         this.setState({typedMessage: ''})
         document.getElementById('message-area').value = '';
     }
+    handleKeyPress = (event) => {
+  if(event.key === 'Enter'){
+    this.sendMsg(event);
+         }
+    }   
     render()
 {    return(
         <div className="chat-input">
@@ -23,10 +28,10 @@ class ChatInput extends React.Component {
                 <div className="chat-input-container">
                     <textarea type="text" id="message-area" placeholder="Type text here..." onChange={(event) => {
                                                this.setState({typedMessage: event.target.value});
-                                           }} className="msg-input"/>
+                                           }} className="msg-input" autofocus/>
                 </div>
                 <div className="send-btn">
-                    <input onClick={this.sendMsg} type="submit" className="msg-send" value=""/>
+                    <input onClick={this.sendMsg} onKeyPress={this.handleKeyPress} type="submit" className="msg-send" value=""/>
                 </div>
             </form>
         </div>
