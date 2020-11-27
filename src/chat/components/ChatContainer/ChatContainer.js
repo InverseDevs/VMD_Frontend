@@ -21,9 +21,9 @@ class ChatContainer extends React.Component {
         tabs = tabs.filter(tab => tab.name != name);
         this.setState({tabs: tabs})
     };
-    addTab = (name,avatar) => {
+    addTab = (name,avatar,id) => {
         let tabs = this.state.tabs;
-        let tab = {'name' : name, 'avatar':avatar};
+        let tab = {'name' : name, 'avatar':avatar,'id':id};
         let check = true;
         for (let i = 0; i < tabs.length; ++i)
         {
