@@ -22,8 +22,11 @@ class Chat extends React.Component {
     scrollToBottom = () => {
         this.el.scrollIntoView({behavior:"smooth"});
     }
-
+    renderMessages = (messages) => {
+        return Object.values(messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessagesTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
+    }
     render(){
+        const messages = this.renderMessages(this.props.messages);
         return(
             
             <div className="chat-container">
@@ -33,6 +36,7 @@ class Chat extends React.Component {
                             
                             <div style={{ float:"left", clear: "both" }}
                             ref={el => {this.el=el;}}>
+                                {messages}
                             </div>
                         </div>
                 </div>
