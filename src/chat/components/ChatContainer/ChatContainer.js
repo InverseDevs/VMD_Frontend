@@ -8,7 +8,7 @@ class ChatContainer extends React.Component {
         tabs: [],
         groups_number: 0,
         show: false,
-        chatInfo: {},
+        chatInfo: null,
     };
     getInfo = (chatName, chatImg, chatId) => {
         this.setState({chatInfo: {'name':chatName, 'img':chatImg, 'id':chatId}})
@@ -31,7 +31,7 @@ class ChatContainer extends React.Component {
     render() {
         return(
         <div className="chat-container">
-        <Chats getInfo={this.getInfo} show={this.state.show} groups={this.state.groups_number} getShow={this.getShow} addTab={this.addTab}/>
+        <Chats getInfo={this.getInfo} show={this.state.show}  getShow={this.getShow} addTab={this.addTab}/>
         <ChatWindow chatInfo={this.state.chatInfo} getShow={this.getShow} show={this.state.show} tabs={this.state.tabs} closeTab={this.closeTab}/>
         </div>
     );}
