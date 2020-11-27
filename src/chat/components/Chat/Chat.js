@@ -33,10 +33,10 @@ class Chat extends React.Component {
                 <div className="chat" id="slider-container">
                     
                         <div className="messages-container" id="for-slider" >
-                            
+                            {messages}
                             <div style={{ float:"left", clear: "both" }}
                             ref={el => {this.el=el;}}>
-                                {messages}
+                                
                             </div>
                         </div>
                 </div>
