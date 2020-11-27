@@ -32,8 +32,11 @@ class Chats extends React.Component {
        
     }
     renderGroups = (groups)=>{
-        console.log(groups)
-        return Object.values(groups).map((group,i) => <ChatGroup addTab={this.props.addTab} getInfo={this.props.getInfo} key={i} id={group.chat_id} users={group.users}/> );
+        let group = Object.values(groups);
+        let s = new Set(group);
+        let gr = [...s];
+        
+        return gr.map((group,i) => <ChatGroup addTab={this.props.addTab} getInfo={this.props.getInfo} key={i} id={group.chat_id} users={group.users}/> );
     }
     componentDidMount() {
         this.getChats();
