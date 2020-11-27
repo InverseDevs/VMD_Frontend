@@ -31,12 +31,16 @@ class Chats extends React.Component {
         })
        
     }
+    checkUsers = (groups,users) => {
+           for (let i = 0; i < groups.length; ++i){
+                if (groups[i].users == users){
+                 return true;   
+                }
+           }
+        return false;
+    }
     renderGroups = (groups)=>{
-        let group = Object.values(groups);
-        let s = new Set(group);
-        let gr = [...s];
-        
-        return gr.map((group,i) => <ChatGroup addTab={this.props.addTab} getInfo={this.props.getInfo} key={i} id={group.chat_id} users={group.users}/> );
+        return Object.values(groups).map((group,i) => this.checkUsers(groups,group.users) == false ? <ChatGroup addTab={this.props.addTab} getInfo={this.props.getInfo} key={i} id={group.chat_id} users={group.users}/> : null );
     }
     componentDidMount() {
         this.getChats();
