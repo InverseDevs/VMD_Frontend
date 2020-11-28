@@ -11,6 +11,7 @@ class Tab extends React.Component {
     setInfo = () => {  
         this.props.getInfo(this.props.name,this.props.avatar,this.props.id)
         this.props.getMessages([]);
+        console.log('hello')
     }
     render(){
     return(
