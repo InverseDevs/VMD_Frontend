@@ -14,6 +14,7 @@ class Tab extends React.Component {
         console.log('hello')
     }
     render(){
+    console.log('hello world')
     return(
         <div  className="tab">
                 <p onClick={this.setInfo} className="chat-name">{this.props.name}</p>
