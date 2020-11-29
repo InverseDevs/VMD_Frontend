@@ -36,6 +36,7 @@ class ChatWindow extends React.Component{
         }));
     };
     render(){
+        return (
         <div className="chat-window">
             { <SockJsClient
               url={SOCKET_URL}
