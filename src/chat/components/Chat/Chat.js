@@ -11,6 +11,7 @@ class Chat extends React.Component {
             first_idx : 0,
             second_idx : 50,
             messages: [],
+            firstLoad: false,
         }
 
     }
@@ -58,7 +59,10 @@ class Chat extends React.Component {
     }
     componentDidUpdate(){
         this.scrollToBottom()
-        this.getMessages();
+        if (this.props.chatId != null && this.state.firstLoad != true){
+            this.getMessages();
+            this.setState({firstLoad:true})
+        }
     }
     scrollToBottom = () => {
         this.el.scrollIntoView({behavior:"smooth"});
