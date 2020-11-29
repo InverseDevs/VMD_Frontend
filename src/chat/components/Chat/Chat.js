@@ -38,7 +38,7 @@ class Chat extends React.Component {
             }
             this.setState({messages: messages})
             
-            console.log(this.state.messages)
+            console.log(this.state.messages[0])
         })
        
     }
@@ -70,7 +70,7 @@ class Chat extends React.Component {
         return Object.values(messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
     }
     render(){
-        const messages = this.props.messages != null ? this.renderMessages(this.state.messages[0].concat(this.props.messages)) : this.renderMessages(this.state.messages[0]);
+        const messages = this.props.messages != null ? this.renderMessages(this.state.messages.concat(this.props.messages)) : this.renderMessages(this.state.messages);
         console.log(messages)
             return(
             
