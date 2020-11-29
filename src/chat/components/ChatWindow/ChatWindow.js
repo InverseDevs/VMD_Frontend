@@ -55,7 +55,7 @@ class ChatWindow extends React.Component{
             <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
                     <ChatAddForm getShow={this.props.getShow}/>
             </ChatAddModal>
-            <Chat sendMessage={this.sendMessage} messages={this.props.messages}/>
+            <Chat chatId={this.props.chatInfo.id} sendMessage={this.sendMessage} messages={this.props.messages}/>
         </div>
     );
 }
