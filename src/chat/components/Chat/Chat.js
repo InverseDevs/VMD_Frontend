@@ -26,8 +26,7 @@ class Chat extends React.Component {
         return Object.values(messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
     }
     render(){
-        const messages = this.renderMessages(this.props.messages);
-        this.top.scrollTop == 0 ? alert('yes') : alert('no')
+        const messages = this.renderMessages(this.props.messages)
         return(
             
             <div className="chat-container">
