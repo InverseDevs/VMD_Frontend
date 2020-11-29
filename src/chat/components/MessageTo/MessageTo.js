@@ -9,7 +9,7 @@ class MessageTo extends React.Component {
     }
     getData = async (url) => {
         const res = await fetch(url, {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Authorization' : `${window.localStorage.getItem('token')}`
             }
