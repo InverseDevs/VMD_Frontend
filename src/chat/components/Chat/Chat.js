@@ -70,7 +70,7 @@ class Chat extends React.Component {
     }
     render(){
         console.log(this.props.messages)
-        const messages = this.state.messages != [] ? this.props.messages != null ? this.renderMessages(this.state.messages[0].concat(this.props.messages)) : this.renderMessages(this.state.messages[0]) : null;
+        //const messages = this.state.messages != [] ? this.props.messages != null ? this.renderMessages(this.state.messages[0].concat(this.props.messages)) : this.renderMessages(this.state.messages[0]) : null;
             return(
             
             <div className="chat-container">
