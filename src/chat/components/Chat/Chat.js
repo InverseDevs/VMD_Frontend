@@ -74,7 +74,10 @@ class Chat extends React.Component {
          for (let i in Object.values(this.state.messages)[0]){
             mes.push(Object.values(this.state.messages)[0][i])                  
          }
-         console.log(this.props.messages)
+         for (let i = 0; i < this.props.messages.length; ++i)
+          {
+               mes.push(this.props.messages[i])                  
+          }
          mes = this.renderMessages(mes)
         //const messages = this.state.messages != [] ? this.props.messages != null ? this.renderMessages(Object.values(this.state.messages)[0].concat(this.props.messages[0])) : this.renderMessages(Object.values(this.state.messages)[0]) : null;
             return(
