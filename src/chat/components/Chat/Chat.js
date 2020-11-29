@@ -39,7 +39,7 @@ class Chat extends React.Component {
                 this.setState({second_idx: this.state.second_idx + 10})
             }
             this.setState({messages: this.state.messages.concat(messages)})
-            
+            console.log(this.state.messages)
         })
        
     }
