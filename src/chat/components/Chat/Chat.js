@@ -71,7 +71,8 @@ class Chat extends React.Component {
     }
     render(){
         const messages = this.props.messages != null ? this.renderMessages(this.state.messages.concat(this.props.messages)) : this.renderMessages(this.state.messages);
-        return(
+        console.log(messages)
+            return(
             
             <div className="chat-container">
                 <div onChange={this.onScrollBarChange} ref={this.top} className="chat" id="slider-container">
