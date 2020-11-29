@@ -7,22 +7,52 @@ import ChatInput from '../ChatInput/ChatInput';
 class Chat extends React.Component {
     constructor(props){
         super(props);
+        this.state={
+            first_idx : 0,
+            second_idx : 50,
+            messages: [],
+        }
+
+    }
+    getData = async (url,data) => {
+        const res = await fetch(url, {
+            method: 'GET',
+            body: JSON.stringify(data),
+            headers: {
+                'Authorization' : `${window.localStorage.getItem('token')}`
+            }
+
+        });
+        return await res.json();
+    } 
+    getMessages = async () => {
+        let messages = this.state.messages
+        await this.getData(`https://inversedevs.herokuapp.com/chats/${this.props.chatId}`, {first_idx : this.state.first_idx, last_idx: this.state.second_idx})
+        .then(data => {
+            messages = messages.append(data)
+            this.setState({messages: messages})
+            this.setState({first_idx: this.state.first_idx + 50})
+            this.setState({second_idx: this.state.second_idx + 50})
+            console.log(this.state.messages)
+        })
+       
     }
     onMessageSubmit = (event) => {
 
         event.preventDefault();
     }
-    checkHeight = ()=>{
-        if (document.getElementById('slider-container').scrollTop == 0){
-            console.log('reach top')
+    onScrollBarChange = () => {
+        if (this.top.scrollTop == 0){
+            this.getMessages();
         }
     }
+
     componentDidMount() {
         this.scrollToBottom();
+        this.getMessages();
     }
     componentDidUpdate(){
         this.scrollToBottom()
-        
     }
     scrollToBottom = () => {
         this.el.scrollIntoView({behavior:"smooth"});
@@ -31,11 +61,11 @@ class Chat extends React.Component {
         return Object.values(messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
     }
     render(){
-        const messages = this.renderMessages(this.props.messages);
+        const messages = this.renderMessages(this.state.messages.append(this.props.messages));
         return(
             
             <div className="chat-container">
-                <div onScroll={this.checkHeight} ref={this.top} className="chat" id="slider-container">
+                <div onChange={this.onScrollBarChange} ref={this.top} className="chat" id="slider-container">
                         <div  className="messages-container" id="for-slider" >
                             {messages}
                             <div style={{ float:"left", clear: "both" }}
