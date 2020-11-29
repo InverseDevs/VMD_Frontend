@@ -12,6 +12,11 @@ class Chat extends React.Component {
 
         event.preventDefault();
     }
+    onScrollBarChange = () => {
+        if (this.top.scrollTop == 0){
+            console.log('reach top')
+        }
+    }
 
     componentDidMount() {
         this.scrollToBottom();
@@ -26,12 +31,12 @@ class Chat extends React.Component {
         return Object.values(messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
     }
     render(){
-        const messages = this.renderMessages(this.props.messages)
+        const messages = this.renderMessages(this.props.messages);
         return(
             
             <div className="chat-container">
-                <div className="chat" id="slider-container">
-                            <div ref={this.top} className="messages-container" id="for-slider" >
+                <div onChange={this.onScrollBarChange} ref={this.top} className="chat" id="slider-container">
+                        <div  className="messages-container" id="for-slider" >
                             {messages}
                             <div style={{ float:"left", clear: "both" }}
                             ref={el => {this.el=el;}}>
