@@ -35,6 +35,7 @@ class ChatWindow extends React.Component{
         }));
     };
     render(){
+        if (this.props.chatInfo.id != null){ 
         return (
         <div className="chat-window">
             { <SockJsClient
@@ -55,6 +56,16 @@ class ChatWindow extends React.Component{
             <Chat chatId={this.props.chatInfo.id !== null ? this.props.chatInfo.id : null} sendMessage={this.sendMessage} messages={this.props.messages}/>
         </div>
     );
+            }
+            else{
+                return(
+                    <div className="preload-container">
+                        <div className="preload-message">
+                            Выберите чат
+                        </div>
+                    </div>
+                )
+            }
 }
 }
 
