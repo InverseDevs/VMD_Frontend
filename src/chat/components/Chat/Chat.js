@@ -26,6 +26,7 @@ class Chat extends React.Component {
         return await res.json();
     } 
     getMessages = async () => {
+        console.log(this.props.chatId)
         let messages = this.state.messages
         await this.getData(`https://inversedevs.herokuapp.com/chat/messages/${this.props.chatId}`, {first_idx : this.state.first_idx, last_idx: this.state.second_idx})
         .then(data => {
