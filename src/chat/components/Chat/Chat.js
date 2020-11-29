@@ -40,7 +40,6 @@ class Chat extends React.Component {
                 this.setState({second_idx: this.state.second_idx + 10})
             }
             this.setState({messages: this.state.messages.concat(messages)})
-            console.log(this.state.messages)
         })
        
     }
@@ -76,7 +75,6 @@ class Chat extends React.Component {
          const mes = null;
                            
          const messages = this.renderMessages(this.state.messages)
-         console.log(messages)
          //for (let i in Object.values(this.state.messages)[0]){
           //  mes.push(Object.values(this.state.messages)[0][i])                  
          //}
@@ -91,7 +89,7 @@ class Chat extends React.Component {
             <div className="chat-container">
                 <div onScroll={this.onScrollBarChange} ref={this.top} className="chat" id="slider-container">
                         <div  className="messages-container" id="for-slider" >
-                            {mes}
+                            {messages}
                             <div style={{ float:"left", clear: "both" }}
                             ref={el => {this.el=el;}}>
                                 
