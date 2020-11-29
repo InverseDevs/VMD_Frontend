@@ -16,7 +16,7 @@ class Chat extends React.Component {
     }
     getData = async (url,data) => {
         const res = await fetch(url, {
-            method: 'GET',
+            method: 'POST',
             body: JSON.stringify(data),
             headers: {
                 'Authorization' : `${window.localStorage.getItem('token')}`
