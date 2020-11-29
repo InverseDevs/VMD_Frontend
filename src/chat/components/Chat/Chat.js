@@ -33,8 +33,7 @@ class Chat extends React.Component {
         .then(data => {
             if (data.status != 'no messages'){              
                 console.log('new',data.messages)
-                console.log('idx1',this.state.first_idx)
-                console.log('idx2',this.state.second_idx)
+                console.log('old', this.state.messages)
                 messages = messages.concat(data.messages)
                 this.setState({first_idx: this.state.first_idx + 10})
                 this.setState({second_idx: this.state.second_idx + 10})
