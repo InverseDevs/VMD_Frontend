@@ -27,7 +27,7 @@ class Chat extends React.Component {
     }
     render(){
         const messages = this.renderMessages(this.props.messages)
-        this.top.scrollTop() == 0 ? alert('yes') : null
+        console.log(this.top.scrollTop() == 0 ? 'yes' : null)
         return(
             
             <div className="chat-container">
