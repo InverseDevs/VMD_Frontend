@@ -7,7 +7,7 @@ class ChatContainer extends React.Component {
     state = {
         tabs: [],
         show: false,
-        chatInfo: null,
+        chatInfo: {'name': null, 'img':null, 'id': null},
         messages: [],
     };
     getMessages = (messages) => {
