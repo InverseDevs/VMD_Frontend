@@ -34,8 +34,8 @@ class Chat extends React.Component {
                 <div className="chat" id="slider-container">
                     
                         <div className="messages-container" id="for-slider" >
-                                           <div style={{ float:"left", clear: "both" }}
-                            ref={top => {this.top=top;}}>
+                            <div style={{ float:"left", clear: "both" }}
+                            ref={this.top}>
                                 
                             </div>
                             {messages}
