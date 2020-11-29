@@ -27,16 +27,12 @@ class Chat extends React.Component {
     }
     render(){
         const messages = this.renderMessages(this.props.messages)
+        this.top.scrollTop() == 0 ? alert('yes') : null
         return(
             
             <div className="chat-container">
                 <div className="chat" id="slider-container">
-                    
-                        <div className="messages-container" id="for-slider" >
-                            <div style={{ float:"left", clear: "both" }}
-                            ref={this.top}>
-                                
-                            </div>
+                            <div ref={this.top} className="messages-container" id="for-slider" >
                             {messages}
                             <div style={{ float:"left", clear: "both" }}
                             ref={el => {this.el=el;}}>
