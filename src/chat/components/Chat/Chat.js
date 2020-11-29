@@ -69,9 +69,9 @@ class Chat extends React.Component {
         return Object.values(messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
     }
     render(){
-        console.log('state',this.state.messages != [] ? Object.values(this.state.messages)[0] : 'loading')               
+        console.log('state',this.state.messages[0] != undefined ? Object.values(this.state.messages)[0] : 'loading')               
         console.log('props',this.props.messages)
-        console.log('state+props', this.state.messages != [] ? Object.values(this.state.messages)[0].concat(this.props.messages[0]) : 'loading')
+        console.log('state+props', this.state.messages[0] != undefined ? Object.values(this.state.messages)[0].concat(this.props.messages[0]) : 'loading')
         const messages = this.state.messages != [] ? this.props.messages != null ? this.renderMessages(this.state.messages.concat(this.props.messages)) : this.renderMessages(this.state.messages) : null;
             return(
             
