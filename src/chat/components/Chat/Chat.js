@@ -29,7 +29,7 @@ class Chat extends React.Component {
         let messages = this.state.messages
         await this.getData(`https://inversedevs.herokuapp.com/chats/${this.props.chatId}`, {first_idx : this.state.first_idx, last_idx: this.state.second_idx})
         .then(data => {
-            messages = messages.append(data)
+            messages = messages.concat(data)
             this.setState({messages: messages})
             this.setState({first_idx: this.state.first_idx + 50})
             this.setState({second_idx: this.state.second_idx + 50})
@@ -61,7 +61,7 @@ class Chat extends React.Component {
         return Object.values(messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
     }
     render(){
-        const messages = this.renderMessages(this.state.messages.append(this.props.messages));
+        const messages = this.renderMessages(this.state.messages.concat(this.props.messages));
         return(
             
             <div className="chat-container">
