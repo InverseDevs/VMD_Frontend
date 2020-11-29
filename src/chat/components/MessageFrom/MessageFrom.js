@@ -21,7 +21,6 @@ class MessageFrom extends React.Component {
     getUserInfo = async () => {
         await this.getData(`https://inversedevs.herokuapp.com/api/users/${this.props.sender_id}`)
         .then(data => {
-            console.log(data);
             this.setState({userInfo:data})
         })
        
