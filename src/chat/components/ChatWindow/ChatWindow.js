@@ -25,7 +25,6 @@ class ChatWindow extends React.Component{
       }
     
       onMessageReceived = (msg) => {
-        console.log('New Message Received!!', msg);
         let messages = this.props.messages;
         messages.push(msg);
         this.props.getMessages(messages);
