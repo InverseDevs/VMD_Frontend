@@ -27,18 +27,18 @@ class Chat extends React.Component {
         return await res.json();
     } 
      getMessages = async () => {
-        let messages = this.state.messages
+        let messages = []
         
         await this.getData(`https://inversedevs.herokuapp.com/chat/messages/${this.props.chatId}`, {first_idx : this.state.first_idx, last_idx: this.state.second_idx})
         .then(data => {
             if (data.status != 'no messages'){              
-                console.log('new',data.messages)
-                console.log('old', this.state.messages)
-                messages = messages.concat(data.messages)
+                for (let i = 0; i < data.messages.length; ++i){
+                    messages.push(data.messages[i])   
+                }
                 this.setState({first_idx: this.state.first_idx + 10})
                 this.setState({second_idx: this.state.second_idx + 10})
             }
-            this.setState({messages: messages})
+            this.setState({messages: this.state.messages.concat(messages)})
             
         })
        
