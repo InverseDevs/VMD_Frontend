@@ -9,7 +9,7 @@ class Chat extends React.Component {
         super(props);
         this.state={
             first_idx : 0,
-            second_idx : 50,
+            second_idx : 10,
             messages: [],
             firstLoad: false,
         }
@@ -33,8 +33,8 @@ class Chat extends React.Component {
         .then(data => {
             if (data.status != 'no messages'){
                 messages = messages.concat(data.messages)
-                this.setState({first_idx: this.state.first_idx + 50})
-                this.setState({second_idx: this.state.second_idx + 50})
+                this.setState({first_idx: this.state.first_idx + 10})
+                this.setState({second_idx: this.state.second_idx + 10})
             }
             this.setState({messages: messages})
             
