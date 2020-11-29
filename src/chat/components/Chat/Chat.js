@@ -75,14 +75,14 @@ class Chat extends React.Component {
          for (let i in Object.values(this.state.messages)[0]){
             mes.push(Object.values(this.state.messages)[0][i])                  
          }
-         console.log(this.renderMessages(mes))
+         mes = this.renderMessages(mes)
         //const messages = this.state.messages != [] ? this.props.messages != null ? this.renderMessages(Object.values(this.state.messages)[0].concat(this.props.messages[0])) : this.renderMessages(Object.values(this.state.messages)[0]) : null;
             return(
             
             <div className="chat-container">
                 <div onChange={this.onScrollBarChange} ref={this.top} className="chat" id="slider-container">
                         <div  className="messages-container" id="for-slider" >
-                            {messages}
+                            {mes}
                             <div style={{ float:"left", clear: "both" }}
                             ref={el => {this.el=el;}}>
                                 
