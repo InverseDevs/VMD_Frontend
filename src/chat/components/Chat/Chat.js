@@ -12,15 +12,17 @@ class Chat extends React.Component {
 
         event.preventDefault();
     }
-
+    checkHeight = ()=>{
+        if (document.getElementById('slider-container').scrollTop == 0){
+            console.log('reach top')
+        }
+    }
     componentDidMount() {
         this.scrollToBottom();
     }
     componentDidUpdate(){
         this.scrollToBottom()
-        if (document.getElementById('slider-container').scrollTop == 0){
-            console.log('reach top')
-        }
+        
     }
     scrollToBottom = () => {
         this.el.scrollIntoView({behavior:"smooth"});
@@ -33,7 +35,7 @@ class Chat extends React.Component {
         return(
             
             <div className="chat-container">
-                <div ref={this.top} className="chat" id="slider-container">
+                <div onScroll={this.checkHeight} ref={this.top} className="chat" id="slider-container">
                         <div  className="messages-container" id="for-slider" >
                             {messages}
                             <div style={{ float:"left", clear: "both" }}
