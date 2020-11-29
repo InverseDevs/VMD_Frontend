@@ -41,8 +41,7 @@ class ChatWindow extends React.Component{
               url={SOCKET_URL}
               topics={['/topic/user']}
               ref={ (client) => { this.clientRef = client }}
-              onConnect={this.onConnected}
-              onDisconnect={console.log('disconnected!')}
+            
               autoReconnect={true}
               onMessage={msg => this.onMessageReceived(msg)}
               debug={false}
