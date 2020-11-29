@@ -71,6 +71,7 @@ class Chat extends React.Component {
     render(){
         console.log('state',this.state.messages != [] ? Object.values(this.state.messages)[0] : 'loading')               
         console.log('props',this.props.messages)
+        console.log('state+props', Object.values(this.state.messages)[0].concat(this.props.messages[0]))
         const messages = this.state.messages != [] ? this.props.messages != null ? this.renderMessages(this.state.messages.concat(this.props.messages)) : this.renderMessages(this.state.messages) : null;
             return(
             
