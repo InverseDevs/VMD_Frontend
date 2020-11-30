@@ -13,6 +13,7 @@ class Chat extends React.Component {
             messages: [],
             firstLoad: false,
             chatId: null,
+            load: false,
         }
 
     }
@@ -63,12 +64,18 @@ class Chat extends React.Component {
             this.getMessages();
             this.setState({firstLoad:true})
         }
+        
         if (this.state.chatId != this.props.chatId){
+            this.setState({load: true})
             this.setState({messages: []})
             this.setState({first_idx: 0})
             this.setState({second_idx: 10})
             this.setState({chatId: this.props.chatId})
             this.getMessages();
+        }
+        if (this.state.messages == [] && this.state.load == false){
+            this.getMessages();
+            this.setState({load: true})
         }
     }
     scrollToBottom = () => {
