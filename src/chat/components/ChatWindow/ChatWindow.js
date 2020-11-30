@@ -59,17 +59,16 @@ class ChatWindow extends React.Component{
             }
             else{
                 return(
-                    <div className="preload-window">
-                         <TabList chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
                         <div className="preload-container">
                             <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
                                 <ChatAddForm getShow={this.props.getShow}/>
                             </ChatAddModal>
+                            <TabList chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
                             <div className="preload-message">
                                 Выберите чат
                             </div>
                         </div>
-                    </div>
+
                 )
             }
 }
