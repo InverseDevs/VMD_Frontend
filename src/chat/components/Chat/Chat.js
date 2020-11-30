@@ -100,7 +100,7 @@ class Chat extends React.Component {
             }
         }
         console.log('new',new_messages);
-        return new_messages.sender_id != undefined ? new_messages.map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> ) : null;                    
+        return new_messages.sender_id != undefined ? Object.values(new_messages).map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> ) : null;                    
      }
     render(){
          const mes = null;
