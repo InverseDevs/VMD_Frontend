@@ -7,7 +7,8 @@ class TabList extends React.Component {
     }
     renderTabs = (tabs) => {
         let new_tabs = []
-        for (let i = 0; i < tabs.length;++i){
+        new_tabs.push(tabs[0])
+        for (let i = 1; i < tabs.length;++i){
             for (let j = 0; j < new_tabs.length; ++j){
                 if (tabs[i].id == new_tabs[j].id){
                     continue;   
