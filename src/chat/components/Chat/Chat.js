@@ -82,7 +82,7 @@ class Chat extends React.Component {
         this.el.scrollIntoView({behavior:"smooth"});
     }
     renderMessages = (messages) => {
-
+        console.log(messages)
         let new_messages = [];
         new_messages.push(messages[0]);
         let found = false;
