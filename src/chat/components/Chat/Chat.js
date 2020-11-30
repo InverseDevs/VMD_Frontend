@@ -63,7 +63,7 @@ class Chat extends React.Component {
             this.getMessages();
             this.setState({firstLoad:true})
         }
-        if (this.state.chatId != this.props.chatId){
+        if (this.state.chatId != this.props.chatId && this.state.messages == []){
             this.setState({messages: []})
             this.setState({first_idx: 0})
             this.setState({second_idx: 10})
