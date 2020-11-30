@@ -11,7 +11,7 @@ class TabList extends React.Component {
     render(){
     console.log('came',this.props.tabs)
     console.log('old',JSON.parse(window.localStorage.getItem('tabs')))
-    const tabs = this.props.tabs != [] ? this.renderTabs(this.props.tabs) :this.renderTabs(Object.assign({},JSON.parse(window.localStorage.getItem('tabs'))));
+    const tabs = this.props.tabs != [] ? this.renderTabs(JSON.parse(window.localStorage.getItem('tabs')).concat(this.props.tabs)) :this.renderTabs(JSON.parse(window.localStorage.getItem('tabs')));
     return (
         <div className="tab-list">
             {tabs}
