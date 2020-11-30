@@ -71,20 +71,8 @@ class Chat extends React.Component {
         return messages.map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
     }
     render(){
-         //let mes = []
          const mes = null;
-         console.log(this.props.messages)
-         console.log(this.state.messages)
          const messages = this.renderMessages(this.state.messages.concat(this.props.messages))
-         //for (let i in Object.values(this.state.messages)[0]){
-          //  mes.push(Object.values(this.state.messages)[0][i])                  
-         //}
-         //for (let i = 0; i < this.props.messages.length; ++i)
-          //{
-           //    mes.push(this.props.messages[i])                  
-         // }
-         //mes = this.renderMessages(mes)
-        //const messages = this.state.messages != [] ? this.props.messages != null ? this.renderMessages(Object.values(this.state.messages)[0].concat(this.props.messages[0])) : this.renderMessages(Object.values(this.state.messages)[0]) : null;
             return(
             
             <div className="chat-container">
