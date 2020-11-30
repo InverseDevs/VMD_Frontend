@@ -34,7 +34,7 @@ class MessageTo extends React.Component {
     return(
         <div className="message-to">
             <div className="user-to-info">
-                <Link to=`/profile/${this.props.sender_id}`><p className="user-to-name">{user.name}</p></Link>
+                <Link to={`/profile/${this.props.sender_id}`}><p className="user-to-name">{user.name}</p></Link>
                 <div className={user.avatar != '' ? "user-to-img-exist" : "user-to-img"}>{user.avatar != '' ? <img src={user.avatar} className="user-to-avatar" alt="user-to"/> : null }</div>
             </div>
             <div className="message-to-container">
