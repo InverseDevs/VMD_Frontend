@@ -11,14 +11,15 @@
 }
 .preload-container{
     position: absolute;
+    display:inline-block;
     width: 920px;
     height: 900px;
     left: 260px;
     top: 70px;
     margin-left: 20%;
-    background: #FFFFFF;
+    text-align:center;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%), #7CBC5F;
 }
 .preload-message{
-    margin-left: 200px;
-    margin-top: 400px;
+        
 }
