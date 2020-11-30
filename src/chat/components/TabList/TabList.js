@@ -6,7 +6,19 @@ class TabList extends React.Component {
         super(props);
     }
     renderTabs = (tabs) => {
-        console.log(tabs)
+        let new_tabs = []
+        for (let i = 0; i < tabs.length;++i){
+            for (let j = 0; j < new_tabs.length; ++j){
+                if (tabs[i].id == new_tabs[j].id){
+                    continue;   
+                }else{
+                    new_tabs.push(tabs[i])
+                }
+            }
+            
+        }
+        console.log('new',new_tabs)
+        console.log('old',tabs)
         return Object.values(tabs).map((tab,i) => <Tab key={i} getMessages={this.props.getMessages} getInfo={this.props.getInfo} chatInfo={this.props.chatInfo} closeTab={this.props.closeTab} name={tab.name} avatar={tab.avatar} id={tab.id}/>)
     }
     render(){
