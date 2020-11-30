@@ -6,6 +6,7 @@ class TabList extends React.Component {
         super(props);
     }
     renderTabs = (tabs) => {
+        let found = false;
         let new_tabs = []
         new_tabs.push(tabs[0])
         for (let i = 1; i < tabs.length;++i){
