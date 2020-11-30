@@ -16,7 +16,7 @@ class ChatInfo extends React.Component{
         return await res.json();
     } 
      deleteChat = async () => {
-        await this.getData(`https://inversedevs.herokuapp.com/chat/delete/${this.props.chatId}`)
+        await this.getData(`https://inversedevs.herokuapp.com/chat/delete/${this.props.chatInfo.id}`)
        
     }
     render(){
