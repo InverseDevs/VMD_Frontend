@@ -12,6 +12,7 @@ class Chat extends React.Component {
             second_idx : 10,
             messages: [],
             firstLoad: false,
+            chatId: null,
         }
 
     }
@@ -28,7 +29,7 @@ class Chat extends React.Component {
     } 
      getMessages = async () => {
         let messages = []
-        
+        this.setState({chatId:this.props.chatId})
         await this.getData(`https://inversedevs.herokuapp.com/chat/messages/${this.props.chatId}`, {first_idx : this.state.first_idx, last_idx: this.state.second_idx})
         .then(data => {
             if (data.status != 'no messages'){              
@@ -62,6 +63,10 @@ class Chat extends React.Component {
         if (this.props.chatId != null && this.state.firstLoad != true){
             this.getMessages();
             this.setState({firstLoad:true})
+        }
+        if (this.state.chatId != this.props.chatId){
+            this.setState({messages: []})
+            this.setState({chatId: this.props.chatId})
         }
     }
     scrollToBottom = () => {
