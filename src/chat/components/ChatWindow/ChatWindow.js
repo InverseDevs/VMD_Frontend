@@ -60,6 +60,9 @@ class ChatWindow extends React.Component{
             else{
                 return(
                     <div className="preload-container">
+                        <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
+                            <ChatAddForm getShow={this.props.getShow}/>
+                        </ChatAddModal>
                         <div className="preload-message">
                             Выберите чат
                         </div>
