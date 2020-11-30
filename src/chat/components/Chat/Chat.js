@@ -82,6 +82,7 @@ class Chat extends React.Component {
         this.el.scrollIntoView({behavior:"smooth"});
     }
     renderMessages = (messages) => {
+        if (messages != []){
         let new_messages = [];
         new_messages.push(messages[0]);
         let found = false;
@@ -100,7 +101,11 @@ class Chat extends React.Component {
         }
 
         return new_messages != [] ? new_messages.map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> ) : null;
-    }
+         }
+       else{
+       return null
+       }                        
+     }
     render(){
          const mes = null;
          const messages = this.renderMessages(this.state.messages.concat(this.props.messages))
