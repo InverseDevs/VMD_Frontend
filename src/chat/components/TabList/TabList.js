@@ -9,7 +9,7 @@ class TabList extends React.Component {
         let new_tabs = []
         new_tabs.push(tabs[0])
         for (let i = 1; i < tabs.length;++i){
-            if (!new_tabs.includes(tabs[i])){
+            if (new_tabs.indexOf(tabs[i]) == -1){
                     new_tabs.push(tabs[i])
                 }
         }
