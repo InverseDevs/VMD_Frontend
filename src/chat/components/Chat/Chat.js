@@ -82,7 +82,23 @@ class Chat extends React.Component {
         this.el.scrollIntoView({behavior:"smooth"});
     }
     renderMessages = (messages) => {
-        return messages.map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
+        let new_messages = [];
+        new_messages.push(messages[0]);
+        let found = false;
+        for (let i = 1; i < messages.length; ++i){
+            found = false;
+            for (let j = 0; j < new_messages.length; ++j){
+                if (messages[i].sent_time == new_messages[j].sent_time && messages[i].sender_id == new_messages[j].sender_id){
+                    found = true   
+                }
+            }   
+            if (found == true){
+                continue;   
+            }else{
+                new_messages.push(messages[i])
+            }
+        }
+        return new_messages.map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> )
     }
     render(){
          const mes = null;
