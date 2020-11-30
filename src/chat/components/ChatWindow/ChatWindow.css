@@ -22,5 +22,6 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%), #7CBC5F;
 }
 .preload-message{
-        
+    font-family: 'Source Serif Pro', sans-serif;
+    font-size: 20px;
 }
