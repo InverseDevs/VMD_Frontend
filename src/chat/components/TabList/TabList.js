@@ -9,9 +9,18 @@ class TabList extends React.Component {
         let new_tabs = []
         new_tabs.push(tabs[0])
         for (let i = 1; i < tabs.length;++i){
-            if (new_tabs.indexOf(tabs[i]) == -1){
-                    new_tabs.push(tabs[i])
-                }
+            found = false
+            for (let j = 0; j < new_tabs.length; ++j){
+                   if (new_tabs[j].id == tabs[i].id){
+                        found = true   
+                   }
+            }
+            if (found == true){
+                continue;   
+            }
+            else{
+               new_tabs.push(tabs[i])
+            }
         }
         console.log('new',new_tabs)
         console.log('old',tabs)
