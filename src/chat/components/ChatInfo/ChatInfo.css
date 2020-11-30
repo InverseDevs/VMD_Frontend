@@ -32,12 +32,12 @@
     line-height: 28px;
     color: white;
     margin-top: 1.8%;
-    margin-left: 33%;
     font-family: 'Source Serif Pro', sans-serif;
 }
 .delete-chat{
     width: 200px;
     height: 40px;
+    margin-right: 20px;
     background: #7CBC5F;
     border-radius: 50px;
     border:none;
