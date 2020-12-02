@@ -15,6 +15,12 @@
     margin-left: 32px;
     background: #C4C4C4;
 }
+.groups-image-exists{
+    width: 200px;
+    height: 240px;
+    margin-top: 6px;
+    margin-left: 32px;
+}
 .middle-header{
     margin-left:-50px;
 }
