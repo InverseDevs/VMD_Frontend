@@ -13,7 +13,7 @@ class GroupsApp extends React.Component {
     }
  
     componentDidMount(){
-            let id = window.location.pathname;
+            let id = window.location.pathname.splice(8);
             console.log(id)
             this.setState({groupId:id})
     }
