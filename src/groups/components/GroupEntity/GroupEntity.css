@@ -1,5 +1,6 @@
 .group-entity{
     display:flex;
+    justify-content: space-between;
     width: 720px;
     margin-bottom: 20px;
     height: 100px;
@@ -22,8 +23,8 @@
     margin-top: 10px;
     margin-left: 20px;
     border-radius: 50%;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 80px;
+    max-height: 80px;
     overflow:hidden;
 }
 .group-name{
