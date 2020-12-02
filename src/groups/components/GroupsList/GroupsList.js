@@ -57,6 +57,8 @@ class GroupsList extends Component {
     getGroups = async () => {
         await this.getData(`https://inversedevs.herokuapp.com/group/getGroupsByUser/${window.localStorage.getItem('id')}`)
         .then(data => {
+		console.log(data);
+		console.log('groups',data.groups)
 			this.setState({groups: data.groups}); 
         })
        
