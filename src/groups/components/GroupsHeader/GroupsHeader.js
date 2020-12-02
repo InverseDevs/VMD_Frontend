@@ -136,7 +136,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                     <button onClick={this.showParticipants}  className="group-participants">Учатники</button>
                 </div>
                 <div className="middle-header">
-                    <div className="group-name">
+                    <div className="group-header-name">
                         {this.props.name}
                     </div>
                     <div className="groups-image">
