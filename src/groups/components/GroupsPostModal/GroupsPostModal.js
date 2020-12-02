@@ -7,7 +7,6 @@ class GroupsPostModal extends Component {
         this.state={
             photo: '',
             postText: '',
-            
         }
     }
     handleText = (event) => {
@@ -51,6 +50,7 @@ class GroupsPostModal extends Component {
         reader.readAsDataURL(file);
       
     }
+   
     render() { 
         return (
             <div className="post-create-modal">
@@ -61,7 +61,7 @@ class GroupsPostModal extends Component {
                                     <textarea onChange={this.handleText} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
 
                             </form>
-                            <input onClick={this.sendPost} type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); }}/>
+                            <input onClick={this.sendPost} type="submit" className="post-send" value="Отправить"}/>
                             <label className="post-send add-file">
                             <input onChange={this.getFile} type="file" id="post-photo-input" accept=".jpg, .png, .jpeg"/>
                             Прикрепить
