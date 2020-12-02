@@ -18,6 +18,9 @@ class GroupsHeader extends React.Component {
         groupPhoto: '',
         }
     }
+    getClosePost = () => {
+           this.setState({show_post: false});
+    }
     joinGroup = async() => {
         await this.postData(`https://inversedevs.herokuapp.com/group/join/${this.props.id}`, {user_id: window.localStorage.getItem('id')})
         .then(data => console.log(data))
@@ -146,7 +149,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                 </label>
                         <button className="groups-join">Вступить</button>
                         <GroupsModal show={this.state.show_post} handleClose={this.hidePost}>
-                            <GroupsPostModal id={this.props.id}/>
+                            <GroupsPostModal id={this.props.id} getClosePost={this.getClosePost}/>
                         </GroupsModal>
                         
                         <button onClick={this.showPost} className="groups-send-post">Оставить запись</button>
