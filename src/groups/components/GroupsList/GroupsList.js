@@ -12,6 +12,9 @@ class GroupsList extends Component {
             name: '',
             namedLink: '',
         }
+    }	
+    handleSearch = (event) => {
+    	this.setState({search: event.target.value});
     }
     handleNameChange= (event) => {
         this.setState({name: event.target.value});
@@ -82,7 +85,7 @@ class GroupsList extends Component {
         const items = this.renderGroups(this.state.groups);
         return (
             <div className="groups-container">
-                <input type="text" id="groups-list-search" className="groups-list-search" /> 
+                <input onChange={this.handleSearch} type="text" id="groups-list-search" className="groups-list-search" /> 
                 <GroupsModal show={this.state.show} handleClose={this.handleClose}>
                     <div className="group-form">
                         <input onChange={this.handleNameChange} id="group-name" className="group-form-field" placeholder="Название группы"/>
