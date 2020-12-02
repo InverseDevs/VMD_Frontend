@@ -5,10 +5,14 @@ class GroupsPosts extends Component {
     constructor(props) {
         super(props);
     }
+    renderPosts =(posts)=>{
+        return Object.values(posts).map((post,i)=><GroupPost key={i} sender={post.sender} content={post.content} sent_time={post.sent_time}
+                                        likes={post.likes} comments={post.comments} />)
+    }
     render() { 
+        const items = this.renderPosts(this.props.posts);
         return ( <div className="group-posts">
-            <GroupsPost/>
-            <GroupsPost/>
+                {items}
     </div> );
     }
 }
