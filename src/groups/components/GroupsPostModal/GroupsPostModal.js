@@ -4,6 +4,49 @@ import './GroupsPostModal.css';
 class GroupsPostModal extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            photo: '',
+            postText: '',
+            
+        }
+    }
+    handleText = (event) => {
+        this.setState({postText:event.target.value});   
+    }
+    postData = async (url,data) => {
+        const res = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Authorization': `${window.localStorage.getItem('token')}`
+            }
+        });
+        return res.json();
+    } 
+    sendPost = async () => {
+        
+        await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.id}`, {sender : window.localStorage.getItem('username'), 
+                                                                                        content:this.state.postText, picture: this.state.photo,type: 'group' })
+        .then(res => {console.log(res)});
+        document.getElementById('textarea').value = '';
+    }
+    getFile = () => {
+        var file = document.getElementById('post-photo-input').files[0];
+        var img = document.createElement("img");
+        img.file = file;
+        img.width = 540;
+        img.height = 270;
+        var reader = new FileReader();
+        reader.onload = (function(aImg) { 
+            return function(e) { 
+                aImg.src = e.target.result;
+        }; 
+        })(img);
+        reader.onloadend = () => {
+            this.setState({photo: reader.result})
+          }
+        reader.readAsDataURL(file);
+      
     }
     render() { 
         return (
@@ -12,10 +55,10 @@ class GroupsPostModal extends Component {
                                     <div id="post-img-container">
                                         <div className="post-create-img" id="post-create-img"></div> 
                                     </div>
-                                    <textarea  id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
+                                    <textarea onChange={this.handleText} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
 
                             </form>
-                            <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); }}/>
+                            <input onClick={this.sendPost} type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); }}/>
                             <label className="post-send add-file">
                             <input type="file" id="post-photo-input" accept=".jpg, .png, .jpeg"/>
                             Прикрепить
