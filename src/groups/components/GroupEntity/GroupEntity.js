@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import './GroupEntity.css';
 
 class GroupEntity extends Component {
@@ -16,7 +17,7 @@ class GroupEntity extends Component {
                 <div className="group-name">
                     {this.props.name}
                 </div>
-                <button onClick={this.groupOpen} className="group-btn">Перейти</button>
+                <Link to={`/groups/${this.props.id}`}/><button onClick={this.groupOpen} className="group-btn">Перейти</button></Link>
             </div>
          );
     }
