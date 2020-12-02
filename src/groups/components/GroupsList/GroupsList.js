@@ -65,8 +65,10 @@ class GroupsList extends Component {
         this.getGroups();
     }
     renderGroups = (groups) => {
-        let new_groups = groups.filter(group => this.state.search != '' ? group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search) : group);
-        return Object.values(new_groups).map((group,id) => 
+        if (groups != []){
+	    let new_groups = groups.filter(group => this.state.search != '' ? group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search) : group);
+	}
+		return Object.values(new_groups).map((group,id) => 
         <GroupEntity key={id} name={group.name} id={group.id} 
         setGroupClick={this.props.setGroupClick} getGroupInfo={this.props.getGroupInfo}/>)
     }
