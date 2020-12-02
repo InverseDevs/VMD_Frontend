@@ -30,6 +30,7 @@ class GroupsContainer extends React.Component {
         this.getGroup();
     }
     render() { 
+	    if (this.state.groupInfo != null){
         return ( 
             <div className="groups-container">
                 
@@ -38,6 +39,11 @@ class GroupsContainer extends React.Component {
                 <GroupsFooter posts={this.state.groupInfo.posts}/>
             </div>
          );
+	    }
+	    else{
+		return (<div className="groups-container">
+			</div>)
+	    }
     }
 }
  
