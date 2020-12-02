@@ -98,7 +98,7 @@ class GroupsList extends Component {
 
             <div className="groups-entities">
                 {items}
-                <GroupEntity setGroupClick={this.props.setGroupClick} getGroupInfo={this.props.getGroupInfo}/>
+            
             </div>
         </div> </div>);
     }
