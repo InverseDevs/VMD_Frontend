@@ -30,12 +30,14 @@ class GroupsPostModal extends Component {
         .then(res => {console.log(res)});
         document.getElementById('textarea').value = '';
     }
+   
     getFile = () => {
         var file = document.getElementById('post-photo-input').files[0];
         var img = document.createElement("img");
         img.file = file;
         img.width = 540;
         img.height = 270;
+        document.getElementById('post-create-img').appendChild(img);
         var reader = new FileReader();
         reader.onload = (function(aImg) { 
             return function(e) { 
@@ -45,6 +47,7 @@ class GroupsPostModal extends Component {
         reader.onloadend = () => {
             this.setState({photo: reader.result})
           }
+          document.getElementById('post-create-img').appendChild(img);
         reader.readAsDataURL(file);
       
     }
@@ -60,7 +63,7 @@ class GroupsPostModal extends Component {
                             </form>
                             <input onClick={this.sendPost} type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); }}/>
                             <label className="post-send add-file">
-                            <input type="file" id="post-photo-input" accept=".jpg, .png, .jpeg"/>
+                            <input onChange={this.getFile} type="file" id="post-photo-input" accept=".jpg, .png, .jpeg"/>
                             Прикрепить
                             </label>  
             </div>
