@@ -129,8 +129,8 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                     <div className="group-header-name">
                         {this.props.name}
                     </div>
-                    <div className="groups-image">
-                        
+                    <div className={this.props.avatar != ''? "groups-image-exists" : "groups-image"}>
+                            {this.props.avatar != ''? <img src={this.props.avatar} className="group-avatar" alt="group-avatar"/> : null}
                     </div>
                     <div className="group-buttons">
                     <label className="groups-change-avatar">
