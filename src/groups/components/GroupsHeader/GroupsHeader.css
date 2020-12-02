@@ -75,6 +75,7 @@ input[type="file"] {
     height:30px;
     text-align:center;
     padding-top:10px;
+    font-size: 18px;
 }
 .search-input {
 	display:flex;
