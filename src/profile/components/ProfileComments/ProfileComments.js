@@ -51,7 +51,6 @@ class ProfileComments extends React.Component {
             content: this.state.comment,
             picture: '',
          }).then(data => {
-
             document.getElementById('comments-textarea').value = '';
         this.setState({valChanged:0})}
             )
@@ -64,7 +63,6 @@ class ProfileComments extends React.Component {
                 content: this.state.comment,
                 picture: '',
              }).then(data => {
-
                 document.getElementById('comments-textarea').value = '';
             this.setState({valChanged: 0})})
          }

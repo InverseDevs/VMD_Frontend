@@ -48,19 +48,15 @@ sendComment = async (e) => {
     if (this.state.sender === ''){
     await this.postData(`https://inversedevs.herokuapp.com/comment/post/${this.props.Postid}`,
     {   sender: window.localStorage.getItem('username'),
-
         content: this.state.comment,
         picture: '',
-
      }).then(data => console.log(data))
     }
      else{
         await this.postData(`https://inversedevs.herokuapp.com/comment/comment/${this.state.commentId}`,
         {   sender: window.localStorage.getItem('username'),
-
             content: this.state.comment,
             picture: '',
-
          }).then(data => console.log(data))
      }
      document.getElementById('post-textarea').value = '';

@@ -8,6 +8,8 @@ import RegistrationApp from './registration/components/RegistrationApp/Registrat
 import AfterRegister from './after-register/components/AfterRegister/AfterRegister';
 import FriendsApp from './friends/components/FriendsApp/FriendsApp';
 import MusicApp from './music/components/MusicApp/MusicApp';
+import GroupsApp from './groups/components/GroupsApp/GroupsApp';
+
 import {BrowserRouter, Route, Redirect} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 class App extends React.Component{
@@ -44,6 +46,8 @@ class App extends React.Component{
                 <Route exact path="/profile/:id">
                     <ProfileApp token={window.localStorage.getItem('token')}/>
                 </Route>
+                <Route exact path="/groups" component={GroupsApp}/>
+                <Route exact path="/groups/:id" component={GroupsApp}/>
             </BrowserRouter>
         );
     }

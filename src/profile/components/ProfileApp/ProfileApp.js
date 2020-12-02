@@ -24,6 +24,7 @@ class ProfileApp extends React.Component{
         {
             window.location.pathname = `/profile/${window.localStorage.getItem('id')}`
         }
+        
         await this.getData(`https://inversedevs.herokuapp.com/api/users/${window.location.pathname.slice(9)}`)
         .then(data => {
             this.setState({userData: data}) 

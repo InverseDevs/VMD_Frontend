@@ -13,9 +13,7 @@ class ProfileSettings extends React.Component {
         lang: '',
         phone: '',
         hobby: '',
-
         changed: false,
-
     }
   }
   handleNameChange= (e) => {
@@ -82,7 +80,7 @@ sendInfo = async () => {
     if (this.state.changed === false){
     setTimeout(this.fillGaps, 1000);
     this.setState({changed: true})
-    }
+  }
   }
   render()
   {

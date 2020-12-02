@@ -47,6 +47,7 @@ getFile = () => {
         this.setState({ show: false });
         document.getElementById('post-create-img').parentNode.removeChild(document.getElementById('post-create-img'));
     };
+ 
     postData = async (url,data) => {
         const res = await fetch(url, {
             method: 'POST',
@@ -57,9 +58,11 @@ getFile = () => {
         });
         return res.json();
     } 
+
     sendPost = async () => {
         
         await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.userData.id}`, {sender : window.localStorage.getItem('username'), content:this.state.postText, picture: this.state.photo, type: 'user'})
+
 
         .then(res => {console.log(res)});
         document.getElementById('textarea').value = '';
