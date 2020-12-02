@@ -76,7 +76,7 @@ class GroupsList extends Component {
 					   group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search) );
 			return Object.values(new_groups).map((group,id) => 
         <GroupEntity key={id} name={group.name} id={group.id} 
-        setGroupClick={this.props.setGroupClick} getGroupInfo={this.props.getGroupInfo}/>)
+        />)
 	}else{
 		return null						    
 	}
