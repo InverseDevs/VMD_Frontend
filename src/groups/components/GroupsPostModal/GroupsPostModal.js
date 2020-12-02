@@ -28,6 +28,7 @@ class GroupsPostModal extends Component {
                                                                                         content:this.state.postText, picture: this.state.photo,type: 'group' })
         .then(res => {console.log(res)});
         document.getElementById('textarea').value = '';
+        this.props.getClosePost();
     }
    
     getFile = () => {
