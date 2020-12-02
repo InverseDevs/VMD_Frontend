@@ -61,7 +61,9 @@ getFile = () => {
 
     sendPost = async () => {
         
-        await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.userData.id}`, {sender : this.props.userData.username, content:this.state.postText, picture: this.state.photo})
+        await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.userData.id}`, {sender : window.localStorage.getItem('username'), content:this.state.postText, picture: this.state.photo, type: 'user'})
+
+
         .then(res => {console.log(res)});
         document.getElementById('textarea').value = '';
         this.setState({dataChanged:true})
