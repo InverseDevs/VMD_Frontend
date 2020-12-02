@@ -27,6 +27,7 @@ class GroupsList extends Component {
         .then(data => console.log(data))
         document.getElementById('group-name').value = '';
         document.getElementById('group-named-link').value = '';
+	this.setState({show: false})
     }
     postData = async (url,data) => {
         const res = await fetch(url, {
