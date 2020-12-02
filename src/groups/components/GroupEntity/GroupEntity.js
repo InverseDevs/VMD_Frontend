@@ -10,7 +10,7 @@ class GroupEntity extends Component {
     render() { 
         return ( 
             <div className="group-entity">
-                <div className="group-avatar"></div>
+                <div className={this.props.avatar != '' ? "group-avatar-exists" : "group-avatar"}>{this.props.avatar != '' ? <img src={this.props.avatar} className="group-picture alt="group-picture} /> : null</div>
                 <div className="group-name">
                     {this.props.name}
                 </div>
