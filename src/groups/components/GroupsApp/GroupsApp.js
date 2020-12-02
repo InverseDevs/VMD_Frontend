@@ -12,12 +12,10 @@ class GroupsApp extends React.Component {
         }
     }
  
-    componentDidUpdate(){
-        while(this.state.groupId == null){
+    componentDidMount(){
             let id = window.location.pathname;
             console.log(id)
             this.setState({groupId:id})
-        }
     }
     render() { 
         return ( 
