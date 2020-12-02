@@ -97,7 +97,9 @@ class GroupsHeader extends React.Component {
         this.setState({ show_post: false });
     };
     renderMembers =(members) => {
-        let new_members = members.filter(member =>this.state.searchMembers != ''? member.name.includes(this.state.searchMembers) || member.name.toLowerCase().includes(this.state.searchMember) : member)
+        
+     
+        let new_members = Object.values(members).filter(member =>this.state.searchMembers != ''? member.name.includes(this.state.searchMembers) || member.name.toLowerCase().includes(this.state.searchMember) : member)
         return Object.values(new_members).map((member,idx) => <GroupParticipants key={idx} avatar={member.avatar} name={member.name} status={member.online}/>)
     }
     renderBanned = (banned) => {
