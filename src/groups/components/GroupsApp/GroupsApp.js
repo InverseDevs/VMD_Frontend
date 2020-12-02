@@ -13,9 +13,11 @@ class GroupsApp extends React.Component {
     }
  
     componentDidMount(){
-            let id = window.location.pathname.splice(8);
-            console.log(id)
-            this.setState({groupId:id})
+            if (!window.location.pathname == '/groups'){
+                let id = window.location.pathname.splice(8);
+                console.log(id)
+                this.setState({groupId:id})
+            }
     }
     render() { 
         return ( 
