@@ -42,7 +42,7 @@ class ProfileInfo extends React.Component{
             <div className="profile-aside">
                 <Link to="/friends"><button className="profile-friends">Друзья</button></Link>
                 <Link to="/chat" ><button className="profile-chats">Чаты</button></Link>
-                <button className="profile-groups">Группы</button>
+                <Link to="/groups"><button className="profile-groups">Группы</button></Link>
                 <Link to="/music"><button className="profile-music">Музыка</button></Link>
                 <ProfileSettingsModal show={this.state.show} handleClose={this.hideModal}>
                     <ProfileSettings userData={this.props.userData} getShow={this.getShow} />

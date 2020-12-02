@@ -1,0 +1,40 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 3;
+  }
+  
+  .modal-main {
+    position:fixed;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99.99%, rgba(255, 255, 255, 0.0234375) 100%), #77BB59;
+    width: 955px;
+    height: 800px;
+    padding-top: 50px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index:7;
+    border-radius:50px;
+  }
+  
+  .display-block {
+    display: block;
+    z-index: 6;
+  }
+  
+  .display-none {
+    display: none;
+  }
+  .modal-hide{
+      width: 14000px;
+      height: 40000px;
+      position: fixed;
+      top: -1000px;
+      left: -1000px;
+      opacity: 0;
+      z-index:5;
+  }

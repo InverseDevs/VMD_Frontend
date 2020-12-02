@@ -62,7 +62,6 @@ class ProfileInnerComment extends React.Component {
       });
     }
   }
-
   checkLike = (likes) => {
     likes = Object.values(likes);
     for (let i = 0; i < likes.length; ++i){
@@ -72,7 +71,6 @@ class ProfileInnerComment extends React.Component {
     }
     return false
   }
-
     render() {
       const items = this.renderItems(this.props.comments);
         return (
