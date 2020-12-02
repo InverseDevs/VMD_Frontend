@@ -21,8 +21,9 @@
     font-size:20px;
     margin-left: 10px;
     margin-top: 35px;
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 400px;
+    max-width: 400px;
+    overflow-x:hidden;
 }
 .group-btn{
     outline:none;
