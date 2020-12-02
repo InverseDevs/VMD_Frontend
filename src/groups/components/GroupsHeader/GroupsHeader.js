@@ -112,6 +112,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
     console.log('ban',banned)
             if (banned != []){
         let new_banned = Object.values(banned).filter(ban => this.state.searchBanned != '' ? ban.name.includes(this.state.searchBanned) || ban.name.toLowerCase().includes(this.state.searchBanned) : ban)
+        console.log('newban',new_banned);
         return Object.values(new_banned).map((ban,idx) => <GroupBanned key={idx} avatar={ban.avatar} name={ban.name} status={ban.online} />)
                                              }
         else{
