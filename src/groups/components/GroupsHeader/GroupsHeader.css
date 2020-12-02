@@ -2,8 +2,8 @@
     display:flex;
     justify-content: space-evenly;
 }
-.group-name{
-    margin-top:-25px;
+.group-header-name{
+    margin-top:10px;
     font-size: 24px;
     margin-left: 100px;
 }
