@@ -47,7 +47,7 @@ class ProfileInfo extends React.Component{
                 <ProfileSettingsModal show={this.state.show} handleClose={this.hideModal}>
                     <ProfileSettings userData={this.props.userData} getShow={this.getShow} />
                 </ProfileSettingsModal>
-                <button className="profile-music" onClick={this.showModal}>Настройки</button>
+            {this.props.userData.id == window.localStorage.getItem('id') ? <button className="profile-music" onClick={this.showModal}>Настройки</button> : null}
                 <Link to="/login"><button className="profile-music" onClick={this.clearStorage}>Выйти</button></Link>
             </div>
         );
