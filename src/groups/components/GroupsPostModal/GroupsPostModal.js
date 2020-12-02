@@ -61,7 +61,7 @@ class GroupsPostModal extends Component {
                                     <textarea onChange={this.handleText} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
 
                             </form>
-                            <input onClick={this.sendPost} type="submit" className="post-send" value="Отправить"}/>
+                            <button onClick={this.sendPost} type="submit" className="post-send" >Отправить</button>
                             <label className="post-send add-file">
                             <input onChange={this.getFile} type="file" id="post-photo-input" accept=".jpg, .png, .jpeg"/>
                             Прикрепить
