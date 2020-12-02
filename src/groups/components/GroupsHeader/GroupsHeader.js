@@ -14,7 +14,6 @@ class GroupsHeader extends React.Component {
             searchMembers: '',
             searchBanned: '',
             postText: '',
-        postPhoto: '',
         groupPhoto: '',
         }
     }
@@ -43,22 +42,13 @@ class GroupsHeader extends React.Component {
         });
         return res.json();
     } 
-    sendPost = async () => {
-        
-        await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.userData.id}`, {sender : this.props.userData.username, content:this.state.postText, picture: this.state.photo})
-        .then(res => {console.log(res)});
-        document.getElementById('textarea').value = '';
-        this.setState({dataChanged:true})
-        this.props.getChanged(this.state.dataChanged);
-        this.setState({dataChanged:false});
-    }
+    
     getFile = () => {
-        var file = document.getElementById('post-photo-input').files[0];
+        var file = document.getElementById('photo-input').files[0];
         var img = document.createElement("img");
         img.file = file;
-        img.width = 540;
-        img.height = 270;
-        document.getElementById('post-create-img').appendChild(img);
+        img.width = 200;
+        img.height = 240;
         var reader = new FileReader();
         reader.onload = (function(aImg) { 
             return function(e) { 
@@ -66,9 +56,9 @@ class GroupsHeader extends React.Component {
         }; 
         })(img);
         reader.onloadend = () => {
-            this.setState({photo: reader.result})
+            this.setState({groupPhoto: reader.result})
+            this.avatarGroup();
           }
-          document.getElementById('post-create-img').appendChild(img);
         reader.readAsDataURL(file);
       
     }
