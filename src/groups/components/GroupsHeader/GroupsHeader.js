@@ -109,8 +109,11 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                                              }
                                              }
     checkMember = (members)=>{
+            console.log(members)
         for (let i = 0; i < members.length; ++i){
+            console.log(members[i])
             if (members[i].id == window.localStorage.getItem('id')){
+                
                 return true   
             }
             return false
