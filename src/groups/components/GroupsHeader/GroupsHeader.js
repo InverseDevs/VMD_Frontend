@@ -122,6 +122,9 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
      componentDidMount(){
       let check = this.checkMember(Object.values(this.props.members));
       this.setState({isMember: check})
+      if (Object.values(this.props.members).length == 0){
+        this.setState({isMember: false})   
+      }
      }
     render() { 
 
