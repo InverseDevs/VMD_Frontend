@@ -109,9 +109,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                                              }
                                              }
     checkMember = (members)=>{
-            console.log(members)
         for (let i = 0; i < members.length; ++i){
-            console.log(members[i])
             if (members[i].id == window.localStorage.getItem('id')){
                 
                 return true   
@@ -120,11 +118,14 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
         }
      }
      componentDidMount(){
-      let check = this.checkMember(Object.values(this.props.members));
-      this.setState({isMember: check})
+      
       if (Object.values(this.props.members).length == 0){
         this.setState({isMember: false})   
+      }else{
+         let check = this.checkMember(Object.values(this.props.members));
+      this.setState({isMember: check}) 
       }
+     
      }
     render() { 
 
