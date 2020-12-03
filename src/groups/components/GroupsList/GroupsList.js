@@ -94,21 +94,19 @@ class GroupsList extends Component {
 	let new_all = Object.values(all).filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search));
 	let groups = [];
 	let check = false;
-	console.log(Object.values(yourGroups))
-	console.log(new_all);
 	for (let i = 0; i <  Object.values(yourGroups).length;++i){
 		
 		for (let j = 0; j < new_all.length; ++j){
 			if (new_all[j].id == Object.values(yourGroups)[i].id){
-				check = true
+				check = true;
 			}
 		}
 		if (check == true){
+			check = false;
 			continue;	
 		}
 		else{
 			groups.push(Object.values(yourGroups)[i])
-			check = false
 		}
 	
 	}
