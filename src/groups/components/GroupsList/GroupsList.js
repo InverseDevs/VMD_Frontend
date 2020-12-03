@@ -98,7 +98,7 @@ class GroupsList extends Component {
 						  else{
 						  	return null
 						  }			  
-	}
+	
 }
     render() { 
         const items = this.renderGroups(this.state.groups);
