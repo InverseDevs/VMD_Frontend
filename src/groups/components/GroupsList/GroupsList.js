@@ -93,7 +93,7 @@ class GroupsList extends Component {
 	if (all != [] ){
 	let new_all = Object.values(all).filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search));
 		return Object.values(new_all).map((group,id)=> 
-	<GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}/>
+	<GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}/>)
 						  }
 						  else{
 						  	return null
