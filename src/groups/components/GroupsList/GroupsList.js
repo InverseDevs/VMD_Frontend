@@ -11,6 +11,7 @@ class GroupsList extends Component {
             show: false,
             name: '',
             namedLink: '',
+		allGroups: [],
         }
     }	
     handleSearch = (event) => {
@@ -65,8 +66,16 @@ class GroupsList extends Component {
         })
        
     }
+    getAllGroups = async () => {
+        await this.getData(`https://inversedevs.herokuapp.com/group/all`)
+        .then(data => {
+			this.setState({allGroups: data.groups}); 
+        })
+       
+    }
     componentDidMount(){
         this.getGroups();
+	 this.getAllGroups();
     }
     renderGroups = (groups) => {
         if (groups != []){
@@ -80,8 +89,20 @@ class GroupsList extends Component {
 	}
 	
     }
+    renderAll = (all)=>{
+	if (all != [] ){
+	let new_all = Object.values(all).filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search));
+		return Object.values(new_all).map((group,id)=> 
+	<GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}/>
+						  }
+						  else{
+						  	return null
+						  }			  
+	}
+}
     render() { 
         const items = this.renderGroups(this.state.groups);
+        const groups = this.renderAll(this.state.allGroups);
         return (
             <div className="groups-container">
                 <input onChange={this.handleSearch} type="text" id="groups-list-search" className="groups-list-search" /> 
@@ -97,7 +118,7 @@ class GroupsList extends Component {
 
             <div className="groups-entities">
                 {items}
-            
+		{groups}
             </div>
         </div> </div>);
     }
