@@ -121,7 +121,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
       this.setState({isMember: check})
      }
     render() { 
-        console.log(member);
+
         const members = this.renderMembers(this.props.members);
         const banned = this.renderBanned(this.props.banned);
         return ( 
