@@ -93,8 +93,24 @@ class GroupsList extends Component {
 	if (all != [] ){
 	let new_all = Object.values(all).filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search));
 	let groups = [];
-	console.log(yourGroups);
-		return Object.values(new_all).map((group,id)=> 
+	let check = false;
+	for (let i = 0; i <  Object.values(yourGroups).length;++i){
+		
+		for (let j = 0; j < new_all.length; ++j){
+			if (new_all[j].id == Object.values(yourGroups)[i].id){
+				check = true
+			}
+		}
+		if (check == true){
+			continue;	
+		}
+		else{
+			groups.push(Object.values(yourGroups)[i])
+			check = false
+		}
+	
+	}
+		return Object.values(groups).map((group,id)=> 
 	<GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}/>)
 						  }
 						  else{
