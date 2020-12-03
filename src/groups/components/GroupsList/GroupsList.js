@@ -91,27 +91,27 @@ class GroupsList extends Component {
     }
     renderAll = (all,yourGroups)=>{
 	if (all != [] ){
-	let new_all = Object.values(all).filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search));
-	let groups = [];
+	let arr = [];
 	let check = false;
-	for (let i = 0; i <  Object.values(yourGroups).length;++i){
-		
-		for (let j = 0; j < new_all.length; ++j){
-			if (new_all[j].id == Object.values(yourGroups)[i].id){
-				check = true;
+	for (let i = 0; i < all.length; ++i){
+		for (let j = 0; j < yourGroups.length;++j){
+			if (all[i].id == yourGroups[j].id){
+				check = true;	
 			}
 		}
 		if (check == true){
 			check = false;
-			continue;	
+			continue;
 		}
 		else{
-			groups.push(Object.values(yourGroups)[i])
+			arr.push(all[i]);
 		}
-	
 	}
-		return Object.values(groups).map((group,id)=> 
+	arr = arr.filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search))
+		return Object.values(arr).map((group,id)=> 
 	<GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}/>)
+	
+	
 						  }
 						  else{
 						  	return null
@@ -120,7 +120,7 @@ class GroupsList extends Component {
 }
     render() { 
         const items = this.renderGroups(this.state.groups);
-        const groups = this.renderAll(this.state.allGroups, this.state.groups);
+        const groups = this.renderAll(Object.values(this.state.allGroups), Object.values(this.state.groups));
         return (
             <div className="groups-container">
                 <input onChange={this.handleSearch} type="text" id="groups-list-search" className="groups-list-search" /> 
