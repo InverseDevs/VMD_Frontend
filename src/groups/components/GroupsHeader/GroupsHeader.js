@@ -108,14 +108,9 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                                              }
                                              }
     checkMember = (members)=>{
-        for (let i in members){
-            console.log(i)
-           if (i.id == window.localStorage.getItem('id')){
-                
-                return true   
-           }
+        for (let i = 0; i < members.length; ++i){
+            console.log(members[i]);   
         }
-        return false
      }
     render() { 
         const member = this.checkMember(Object.values(this.props.members));
