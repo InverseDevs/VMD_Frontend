@@ -89,9 +89,11 @@ class GroupsList extends Component {
 	}
 	
     }
-    renderAll = (all)=>{
+    renderAll = (all,yourGroups)=>{
 	if (all != [] ){
 	let new_all = Object.values(all).filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search));
+	let groups = [];
+	console.log(yourGroups);
 		return Object.values(new_all).map((group,id)=> 
 	<GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}/>)
 						  }
@@ -102,7 +104,7 @@ class GroupsList extends Component {
 }
     render() { 
         const items = this.renderGroups(this.state.groups);
-        const groups = this.renderAll(this.state.allGroups);
+        const groups = this.renderAll(this.state.allGroups, this.state.groups);
         return (
             <div className="groups-container">
                 <input onChange={this.handleSearch} type="text" id="groups-list-search" className="groups-list-search" /> 
