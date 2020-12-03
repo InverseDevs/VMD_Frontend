@@ -15,6 +15,7 @@ class GroupsHeader extends React.Component {
             searchBanned: '',
             postText: '',
         groupPhoto: '',
+            isMember: false,
         }
     }
     getClosePost = () => {
@@ -115,8 +116,11 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
             return false
         }
      }
+     componentDidMount(){
+      let check = this.checkMember(Object.values(this.props.members));
+      this.setState({isMember: check})
+     }
     render() { 
-        let member = this.checkMember(Object.values(this.props.members));
         console.log(member);
         const members = this.renderMembers(this.props.members);
         const banned = this.renderBanned(this.props.banned);
@@ -147,7 +151,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                     <input type="file" id="photo-input" onChange={this.getFile} accept=".jpg, .png, .jpeg"/>
                     Изменить
                 </label>
-                        <button onClick={member == false ? this.joinGroup : this.leaveGroup} className="groups-join">{member == false ? 'Вступить' : 'Выйти'}</button>
+                        <button onClick={this.state.isMember == false ? this.joinGroup : this.leaveGroup} className="groups-join">{this.state.isMember == false ? 'Вступить' : 'Выйти'}</button>
                         <GroupsModal show={this.state.show_post} handleClose={this.hidePost}>
                             <GroupsPostModal id={this.props.id} getClosePost={this.getClosePost}/>
                         </GroupsModal>
