@@ -107,8 +107,16 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
     return null;
                                              }
                                              }
+    checkMember = (members)=>{
+        for (let i in members){
+           if (i.id == window.localStorage.getItem('id')){
+                return true   
+           }
+        }
+        return false
+     }
     render() { 
-        console.log(Object.values(this.props.members));
+        const member = this.checkMember(Object.values(this.props.members));
         const members = this.renderMembers(this.props.members);
         const banned = this.renderBanned(this.props.banned);
         return ( 
@@ -138,7 +146,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                     <input type="file" id="photo-input" onChange={this.getFile} accept=".jpg, .png, .jpeg"/>
                     Изменить
                 </label>
-                        <button className="groups-join">Вступить</button>
+                        <button onClick={member == false ? this.joinGroup : this.leaveGroup} className="groups-join">{member == false ? Вступить : Выйти}</button>
                         <GroupsModal show={this.state.show_post} handleClose={this.hidePost}>
                             <GroupsPostModal id={this.props.id} getClosePost={this.getClosePost}/>
                         </GroupsModal>
