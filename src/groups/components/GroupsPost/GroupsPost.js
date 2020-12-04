@@ -28,13 +28,13 @@ class GroupsPost extends Component {
     
     deletePost = async () => {
 
-        await this.postData(`https://inversedevs.herokuapp.com/post/delete/${this.props.Postid}`,
+        await this.postData(`https://inversedevs.herokuapp.com/post/delete/${this.props.id}`,
         {sender: this.props.sender,
             content: this.props.content
          })
        }
     likePressed = async () => {
-        await this.postData(`https://inversedevs.herokuapp.com/like/post/${this.props.Postid}`,
+        await this.postData(`https://inversedevs.herokuapp.com/like/post/${this.props.id}`,
         {
             userId: window.localStorage.getItem('id')
          })
