@@ -9,11 +9,11 @@ class GroupParticipants extends Component {
         const status = this.props.online === false || this.props.online === "false" ? <div className="friend-offline"></div> : <div className="friend-online"></div>
         return (
             
-				<div className="friend">
+				<div className="friend participant">
                     <div className="friend-info">
-                        <div className="ava">{this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar"/> : null }</div>
+                        <div className="ava participant-photo">{this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar"/> : null }</div>
                         <div className="ava-devisor">
-                        <div className="friend-name">
+                        <div className="friend-name participant-name">
                             {this.props.name}
                             {status}
                         </div>
