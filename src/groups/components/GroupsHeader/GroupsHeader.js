@@ -150,9 +150,8 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                     <div className="group-header-name">
                         {this.props.name}
                     </div>
-                    <div className={this.props.avatar != ''? "groups-header-image-exists" : "groups-header-image"}>
-                            {this.props.avatar != ''? <img src={this.props.avatar} className="group-header-image-exists" alt="group-avatar"/> : null}
-                    </div>
+                            {this.props.avatar != ''? <img src={this.props.avatar} className="group-header-image-exists" alt="group-avatar"/> : <div className="grops-header-image"></div>}
+
                     <div className="group-buttons">
                     <label className="groups-change-avatar">
                     <input type="file" id="photo-input" onChange={this.getFile} accept=".jpg, .png, .jpeg"/>
