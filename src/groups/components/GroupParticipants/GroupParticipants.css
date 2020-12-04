@@ -20,6 +20,9 @@
     border-radius: 50%;
     
 }
+.participant-photo-container{
+	margin-right: 25px;	
+}
 .no-photo{
 	 width: 100px;
     height: 100px;
