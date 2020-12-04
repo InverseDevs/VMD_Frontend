@@ -6,7 +6,7 @@ class GroupParticipants extends Component {
         super(props);
     }
     render() { 
-        const status = this.props.online === false || this.props.online === "false" ? <div className="friend-offline"></div> : <div className="friend-online"></div>
+        const status = this.props.online === false || this.props.online === "false" ? <div className="part-offline"></div> : <div className="part-online"></div>
         return (
             
 				<div className="friend participant">
