@@ -7,6 +7,9 @@
 .participant{
 	width: 850px;
 }
+.participant-name{
+	margin-left: 50px;
+}
 .friend-info{
     display:flex;
 }
