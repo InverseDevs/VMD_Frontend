@@ -12,6 +12,7 @@ class GroupsPosts extends Component {
     }
     render() { 
         const items = this.renderPosts(this.props.posts);
+        console.log(items)
         return ( <div className="group-posts">
                 {items}
     </div> );
