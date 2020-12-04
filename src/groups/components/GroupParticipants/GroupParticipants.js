@@ -11,6 +11,7 @@ class GroupParticipants extends Component {
             
 				<div className="friend participant">
                         {this.props.avatar != '' ? <img src={this.props.avatar} className="participant-photo"/> : <div className="no-photo"></div> }
+	    		<div className="gap"></div>
                         <div className="participant-name">
                             {this.props.name}
                             {status}
