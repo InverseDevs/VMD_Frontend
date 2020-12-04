@@ -10,7 +10,7 @@ class GroupParticipants extends Component {
         return (
             
 				<div className="friend participant">
-                        <div className="participant-photo-container>
+                        <div className="participant-photo-container">
 	{this.props.avatar != '' ? <img src={this.props.avatar} className="participant-photo"/> : <div className="no-photo"></div> }
 	    		</div>
                         <div className="participant-name">
