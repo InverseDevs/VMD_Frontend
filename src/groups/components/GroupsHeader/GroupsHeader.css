@@ -16,8 +16,8 @@
     background: #C4C4C4;
 }
 .groups-header-image-exists{
-    max-width: 200px;
-    max-height: 240px;
+    width: 200px;
+    height: 240px;
     margin-top: 6px;
     margin-left: 32px;
 }
