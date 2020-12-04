@@ -73,7 +73,7 @@ class GroupsPost extends Component {
                         <h6 className="post-time">{this.props.time}</h6>
                         <div className="post-author">{this.props.sender}</div>
                         <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
-                            <Comments comments={this.props.comments} token={this.props.token} sender={this.props.sender} Postid={this.props.Postid}/>
+                            <Comments comments={this.props.comments} token={window.localStorage.getItem('token')} sender={this.props.sender} Postid={this.props.id}/>
                     </ProfileCommentsModal>
                     </div>
                     <div className="user-img"></div>
@@ -93,9 +93,9 @@ class GroupsPost extends Component {
                     </div>
                     <div className="user-full-img"></div>
                 </div>
-                {this.props.photo !== '' || this.props.photo !== undefined ? <img src={this.props.photo} className="post-img"/> : null}
+               {this.props.photo !== ''  ? <img src={this.props.photo} className="post-img"/> : null}
                 <h6 className="post-full-text">{this.props.content}</h6>
-                <PostComments comments={this.props.comments} token={this.props.token} sender={this.props.sender} Postid={this.props.Postid} id={this.props.id}/>
+                <PostComments comments={this.props.comments} token={window.localStorage.getItem('token')} sender={this.props.sender} Postid={this.props.id} id={this.props.id}/>
                 </div>
                     </ProfilePostModal>
             </div>
