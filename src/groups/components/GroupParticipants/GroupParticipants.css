@@ -55,6 +55,7 @@
     margin-left: 5px;
     margin-top: 10px;
 	width: 10px;
+	padding-left:10px;
 	height: 10px;
 	border-radius: 50%;
 	background: red;
@@ -62,6 +63,8 @@
 .friend-offline{
     margin-left: 20px;
     margin-top: 10px;
+	
+	padding-left:10px;
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
