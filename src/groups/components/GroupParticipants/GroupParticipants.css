@@ -7,12 +7,10 @@
 
 .participant{
 	width: 850px;
+	display:flex;
 }
 
-.friend-info{
-    display:flex;
-}
-.ava{
+.participant-photo{
     max-width: 100px;
     max-height: 100px;
     overflow:hidden;
@@ -26,7 +24,7 @@
     
 }
 
-.friend-name{
+.participant-name{
     display:flex;
     margin:0;
     margin-left: 25px;
@@ -36,9 +34,6 @@
     height: 30px;
     font-size:24px;
 
-}
-.participant-name{
-	margin-left: 50px;
 }
 .friend-online{
     margin-left: 20px;
