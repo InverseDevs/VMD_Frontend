@@ -23,6 +23,10 @@
 .participant-photo-container{
 	margin-right: 25px;	
 }
+.part-name{
+    width: 210px;
+	margin-left: 40px;
+}
 .no-photo{
 	 width: 100px;
     height: 100px;
