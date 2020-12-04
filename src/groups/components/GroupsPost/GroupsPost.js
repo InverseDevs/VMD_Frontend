@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './GroupsPost.css';
+import like from './heart.svg';
+import likeClicked from './heart_clicked.svg';
 import ProfileCommentsModal from '../ProfileCommentsModal/ProfileCommentsModal';
 import Comments from '../ProfileComments/ProfileComments';
 import ProfilePostModal from '../ProfilePostModal/ProfilePostModal';
