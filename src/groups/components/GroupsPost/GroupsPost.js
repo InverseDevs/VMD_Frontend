@@ -5,7 +5,7 @@ import likeClicked from './heart_clicked.svg';
 import ProfileCommentsModal from '../ProfileCommentsModal/ProfileCommentsModal';
 import Comments from '../ProfileComments/ProfileComments';
 import ProfilePostModal from '../ProfilePostModal/ProfilePostModal';
-import ProfilePostComments from '../ProfilePostComments/ProfilePostComments';
+import PostComments from '../ProfilePostComments/ProfilePostComments';
 class GroupsPost extends Component {
     constructor(props) {
         super(props);
