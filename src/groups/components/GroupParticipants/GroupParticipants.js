@@ -10,13 +10,11 @@ class GroupParticipants extends Component {
         return (
             
 				<div className="friend participant">
-                        <div className="participant-photo">{this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar"/> : null }</div>
-                        <div className="photo-gap">
+                        {this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar"/> : <div className="no-photo"></div> }
                         <div className="participant-name">
                             {this.props.name}
                             {status}
                         </div>
-                    </div>
                     <button  type="button" className="delete-friend">Забанить</button>
                     
 				</div>
