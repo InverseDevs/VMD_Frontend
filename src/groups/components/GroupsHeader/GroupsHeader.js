@@ -113,7 +113,7 @@ class GroupsHeader extends React.Component {
         }
         console.log(new_members);
         new_members = Object.values(new_members).filter(member =>this.state.searchMembers != ''? member.name.includes(this.state.searchMembers) || member.name.toLowerCase().includes(this.state.searchMember) : member)       
-return Object.values(new_members).map((member,idx) => <GroupParticipants admin={this.state.isAdmin} owner={this.state.isOwner} key={idx} groupId={this.props.id} id={member.id} avatar={member.avatar} name={member.name} status={member.online}/>)
+return Object.values(new_members).map((member,idx) => <GroupParticipants admin={this.state.isAdmin} admins={this.props.admins} owner={this.state.isOwner} key={idx} groupId={this.props.id} id={member.id} avatar={member.avatar} name={member.name} status={member.online}/>)
                                               }
     else{
             return null
