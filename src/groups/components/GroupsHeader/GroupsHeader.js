@@ -20,22 +20,7 @@ class GroupsHeader extends React.Component {
             isOwner: false,
         }
     }
-    setAdmin = () => {
-        console.log(this.props.admins)
-        for (let i = 0; i < this.props.admins; ++i)
-        {
-            if (Object.values(this.props.admins)[i].id == window.localStorage.getItem('id')){
-                this.setState({isAdmin: true})   
-            }
-        }
-    }
-    setOwner = () => {
-        console.log(this.props.owner)
-      
-        if (this.props.owner == window.localStorage.getItem('id')){
-            this.setState({isOwner: true});   
-        }
-    }
+
     getClosePost = () => {
            this.setState({show_post: false});
     }
@@ -162,15 +147,11 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
         if (this.props.owner == window.localStorage.getItem('id')){
             this.setState({isOwner: true});   
         }
-        console.log(this.props.admins);
-        console.log(Object.values(this.props.admins))
-        for (let i = 0; i < this.props.admins; ++i){
-            if (this.props.admins[i].id == window.localStorage.getItem('id')){
+        for (let i = 0; i < Object.values(this.props.admins).length; ++i){
+            if (Object.values(this.props.admins)[i].id == window.localStorage.getItem('id')){
                 this.setState({isAdmin: true});   
             }
         }
-        console.log('owner',this.state.isOwner);
-        console.log('admin',this.state.isAdmin);
 
     }
     render() { 
