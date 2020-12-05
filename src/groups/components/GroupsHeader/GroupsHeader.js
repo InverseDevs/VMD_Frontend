@@ -113,7 +113,7 @@ class GroupsHeader extends React.Component {
         }
         console.log(new_members);
         new_members = Object.values(new_members).filter(member =>this.state.searchMembers != ''? member.name.includes(this.state.searchMembers) || member.name.toLowerCase().includes(this.state.searchMember) : member)       
-return Object.values(new_members).map((member,idx) => <GroupParticipants key={idx} groupId={this.props.id} id={member.id} avatar={member.avatar} name={member.name} status={member.online}/>)
+return Object.values(new_members).map((member,idx) => <GroupParticipants admin={this.state.isAdmin} owner={this.state.isOwner} key={idx} groupId={this.props.id} id={member.id} avatar={member.avatar} name={member.name} status={member.online}/>)
                                               }
     else{
             return null
@@ -122,7 +122,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
     renderBanned = (banned) => {
             if (banned != []){
         let new_banned = Object.values(banned).filter(ban => this.state.searchBanned != '' ? ban.name.includes(this.state.searchBanned) || ban.name.toLowerCase().includes(this.state.searchBanned) : ban)
-        return Object.values(new_banned).map((ban,idx) => <GroupBanned key={idx} groupId={this.props.id} id={ban.id} avatar={ban.avatar} name={ban.name} status={ban.online} />)
+        return Object.values(new_banned).map((ban,idx) => <GroupBanned  admin={this.state.isAdmin} owner={this.state.isOwner} key={idx} groupId={this.props.id} id={ban.id} avatar={ban.avatar} name={ban.name} status={ban.online} />)
                                              }
         else{
     return null;
@@ -180,16 +180,16 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                             {this.props.avatar != ''? <img src={this.props.avatar} className="groups-header-image-exists" alt="group-avatar"/> : <div className="groups-header-image"></div>}
 
                     <div className="group-buttons">
-                    <label className="groups-change-avatar">
+            {this.state.isOwner == true || this.state.isAdmin == true ? <label className="groups-change-avatar">
                     <input type="file" id="photo-input" onChange={this.getFile} accept=".jpg, .png, .jpeg"/>
                     Изменить
-                </label>
+                </label> : null}
                         <button onClick={this.checkMember(this.props.members,this.props.banned) == false ? this.joinGroup : this.leaveGroup} className="groups-join">{this.checkMember(this.props.members,this.props.banned) == false ? 'Вступить' : 'Выйти'}</button>
                         <GroupsModal show={this.state.show_post} handleClose={this.hidePost}>
                             <GroupsPostModal id={this.props.id} getClosePost={this.getClosePost}/>
                         </GroupsModal>
                         
-                        <button onClick={this.showPost} className="groups-send-post">Оставить запись</button>
+                {this.state.isOwner == true || this.state.isAdmin == true ? <button onClick={this.showPost} className="groups-send-post">Оставить запись</button> : null}
                     </div>
                 </div>
                 <div className="right-header">
