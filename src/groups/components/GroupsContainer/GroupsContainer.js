@@ -35,7 +35,7 @@ class GroupsContainer extends React.Component {
         return ( 
             <div className="groups-container">
                 
-                <GroupsHeader name={this.state.groupInfo.name} id={this.state.groupInfo.id} avatar={this.state.groupInfo.picture} admins={this.state.groupInfo.admins} banned={this.state.groupInfo.banned_users} members={this.state.groupInfo.members}/>
+                <GroupsHeader name={this.state.groupInfo.name} owner={this.state.groupInfo.owner_id} id={this.state.groupInfo.id} avatar={this.state.groupInfo.picture} admins={this.state.groupInfo.admins} banned={this.state.groupInfo.banned_users} members={this.state.groupInfo.members}/>
                 <hr className="groups-break-line" />
                 <GroupsFooter posts={this.state.groupInfo.posts}/>
             </div>
