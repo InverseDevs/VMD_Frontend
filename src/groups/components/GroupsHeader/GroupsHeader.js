@@ -23,7 +23,7 @@ class GroupsHeader extends React.Component {
     setAdmin = () => {
         for (let i = 0; i < this.props.admins; ++i)
         {
-            if (this.props.admins[i] == window.localStorage.getItem('id')){
+            if (Object.values(this.props.admins)[i].id == window.localStorage.getItem('id')){
                 this.setState({isAdmin: true})   
             }
         }
