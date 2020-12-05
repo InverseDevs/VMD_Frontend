@@ -94,7 +94,9 @@
 }
 .make-admin{
 	width: 240px;
-	margin-left: 150px;
+    height: 70px;
+    margin-left: 100px;
+    margin-top: 20px;
 }
 .ban-user{
 	margin-left: 30px	
