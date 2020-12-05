@@ -29,7 +29,7 @@ class GroupBanned extends Component {
 	      		    <div className="part-name">{this.props.name}</div>
 	    		</div>
                             {status} 
-                    <button onClick={this.unbanUser}  type="button" className="delete-friend">Разбанить</button>
+	    {this.props.admin == true || this.props.owner == true ? <button onClick={this.unbanUser}  type="button" className="delete-friend">Разбанить</button> : null}
                     
 				</div>
         )
