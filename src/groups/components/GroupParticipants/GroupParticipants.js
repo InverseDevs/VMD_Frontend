@@ -18,7 +18,7 @@ class GroupParticipants extends Component {
                             {this.props.name}</div>
 	      </div>
                             {status}
-                      
+                      <button className="delete-friend">Сделать администратором</button>
                     <button  type="button" className="delete-friend">Забанить</button>
                     
 				</div>
