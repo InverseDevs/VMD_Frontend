@@ -31,6 +31,7 @@ class GroupsHeader extends React.Component {
     }
     setOwner = () => {
         console.log(this.props.owner)
+      
         if (this.props.owner == window.localStorage.getItem('id')){
             this.setState({isOwner: true});   
         }
@@ -162,6 +163,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
         this.setOwner();
         console.log('owner',this.state.isOwner);
         console.log('admin',this.state.isAdmin);
+        console.log('ownerCheck',this.props.owner == window.localStorage.getItem('id'))
     }
     render() { 
 
