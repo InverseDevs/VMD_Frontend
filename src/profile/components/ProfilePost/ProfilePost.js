@@ -94,7 +94,7 @@ class ProfilePost extends React.Component {
                     </div>
                     <div className="user-full-img"></div>
                 </div>
-                {this.props.photo !== '' || this.props.photo !== undefined ? <img src={this.props.photo} className="post-img"/> : null}
+                {this.props.photo !== '' ? <img src={this.props.photo} className="post-img"/> : null}
                 <h6 className="post-full-text">{this.props.content}</h6>
                 <PostComments comments={this.props.comments} token={this.props.token} sender={this.props.sender} Postid={this.props.Postid} id={this.props.id}/>
                 </div>
