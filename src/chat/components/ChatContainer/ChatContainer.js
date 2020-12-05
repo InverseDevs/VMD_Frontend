@@ -5,7 +5,7 @@ import Chats from '../Chats/Chats';
 
 class ChatContainer extends React.Component {
     state = {
-        tabs: window.localStorage.getItem('tabs') != '' ? JSON.parse(window.localStorage.getItem('tabs')): [],
+        tabs: {window.localStorage.getItem('tabs') != "" ? JSON.parse(window.localStorage.getItem('tabs')): []},
         show: false,
         chatInfo: {'name': null, 'img':null, 'id': null},
         messages: [],
@@ -43,7 +43,6 @@ class ChatContainer extends React.Component {
 
     }
     render() {
-        console.log(window.localStorage.getItem('tabs'));
         return(
         <div className="chat-container">
         <Chats getInfo={this.getInfo} getMessages={this.getMessages} show={this.state.show}  getShow={this.getShow} addTab={this.addTab}/>
