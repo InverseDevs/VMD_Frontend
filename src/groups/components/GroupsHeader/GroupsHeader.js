@@ -21,6 +21,7 @@ class GroupsHeader extends React.Component {
         }
     }
     setAdmin = () => {
+        console.log(this.props.admins)
         for (let i = 0; i < this.props.admins; ++i)
         {
             if (Object.values(this.props.admins)[i].id == window.localStorage.getItem('id')){
@@ -29,6 +30,7 @@ class GroupsHeader extends React.Component {
         }
     }
     setOwner = () => {
+        console.log(this.props.owner)
         if (this.props.owner == window.localStorage.getItem('id')){
             this.setState({isOwner: true});   
         }
