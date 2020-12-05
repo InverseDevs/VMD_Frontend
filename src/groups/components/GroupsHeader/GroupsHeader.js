@@ -147,8 +147,8 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
         if (this.props.owner == window.localStorage.getItem('id')){
             this.setState({isOwner: true});   
         }
-        for (let i = 0; i < this.props.admins.length; ++i){
-            if (this.props.admins[i].id == window.localStorage.getItem('id')){
+        for (let i = 0; i < Object.values(this.props.admins).length; ++i){
+            if (Object.values(this.props.admins)[i].id == window.localStorage.getItem('id')){
                 this.setState({isAdmin: true});   
             }
         }
