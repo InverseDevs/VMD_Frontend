@@ -72,7 +72,7 @@ class ProfilePost extends React.Component {
                         <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : likeClicked}/></button>
                         <button onClick={this.showCommentsModal} className="profile-post-comments">Комментарии</button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
-                        <div className="post-author">{this.props.sender}</div>
+                        <div className="profile-post-author">{this.props.sender}</div>
                         <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
                             <Comments comments={this.props.comments} token={this.props.token} sender={this.props.sender} Postid={this.props.Postid}/>
                     </ProfileCommentsModal>
@@ -90,7 +90,7 @@ class ProfilePost extends React.Component {
                         <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : likeClicked}/></button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <h6 className="post-full-time">{this.props.time}</h6>
-                        <div className="post-full-author">{this.props.sender}</div>
+                        <div className="profile-post-full-author">{this.props.sender}</div>
                     </div>
                     <div className="user-full-img"></div>
                 </div>
