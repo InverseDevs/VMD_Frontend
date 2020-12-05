@@ -128,10 +128,10 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
     checkMember = (members,banned)=>{
         let all = [];
         for (let i = 0; i < Object.values(members).length;++i){
-            all.push(Object.values(members)[i];   
+            all.push(Object.values(members)[i]);   
         }
         for (let i = 0; i < Object.values(banned).length;++i){
-            all.push(Object.values(banned)[i];   
+            all.push(Object.values(banned)[i]);   
         }
         for (let i = 0; i < all.length;++i){
             if (all[i].id == window.localStorage.getItem('id')){
