@@ -25,7 +25,12 @@ class ChatContainer extends React.Component {
         tabs = tabs.filter(tab => tab.name != name);
         console.log('after',tabs)
         this.setState({tabs: tabs})
+        if (tabs.length != 0){ 
         window.localStorage.setItem('tabs', JSON.stringify(this.state.tabs));   
+        }
+        else{
+            window.localStorage.setItem('tabs',"");   
+        }
     };
     addTab = (name,avatar,id) => {
         let tabs = this.state.tabs;
