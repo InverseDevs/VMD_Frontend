@@ -6,20 +6,16 @@ class GroupBanned extends Component {
         super(props);
     }
     render() { 
-        const status = this.props.online === false || this.props.online === "false" ? <div className="friend-offline"></div> : <div className="friend-online"></div>
+        const status = this.props.status === false || this.props.status === "false" ? <div className="part-offline"></div> : <div className="part-online"></div>
         return (
             
-				<div className="friend">
-                    <div className="friend-info">
-                        <div className="ava">{this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar"/> : null }</div>
-                        <div className="ava-devisor">
-                        <div className="friend-name">
-	      		    {this.props.name}
+				<div className="friend participant">
+                        <div className="participant-photo-container">{this.props.avatar != '' ? <img src={this.props.avatar} className="participant-photo"/> : <div className="no-photo"></div> }</div>
+                        <div className="participant-name">
+	      		    <div className="part-name">{this.props.name}</div>
+	    		</div>
                             {status} 
-                        </div>
-                    </div>
                     <button  type="button" className="delete-friend">Разбанить</button>
-                    </div>
                     
 				</div>
         )
