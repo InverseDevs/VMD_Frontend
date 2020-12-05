@@ -16,6 +16,21 @@ class GroupsHeader extends React.Component {
             postText: '',
         groupPhoto: '',
             isMember: false,
+            isAdmin: false,
+            isOwner: false,
+        }
+    }
+    setAdmin = () => {
+        for (let i = 0; i < this.props.admins; ++i)
+        {
+            if (this.props.admins[i] == window.localStorage.getItem('id')){
+                this.setState({isAdmin: true})   
+            }
+        }
+    }
+    setOwner = () => {
+        if (this.props.owner == window.localStorage.getItem('id')){
+            this.setState({isOwner: true});   
         }
     }
     getClosePost = () => {
@@ -140,7 +155,12 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
         }
         return false;
      }
-
+    componentDidMount(){
+        this.setAdmin();
+        this.setOwner();
+        console.log('owner',this.state.isOwner);
+        console.log('admin',this.state.isAdmin);
+    }
     render() { 
 
         const members = this.renderMembers(this.props.members,this.props.banned);
