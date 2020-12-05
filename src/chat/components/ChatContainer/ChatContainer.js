@@ -21,7 +21,9 @@ class ChatContainer extends React.Component {
     }
     closeTab = (name) => {
         let tabs = this.state.tabs;
+        console.log('before',tabs)
         tabs = tabs.filter(tab => tab.name != name);
+        console.log('after',tabs)
         this.setState({tabs: tabs})
         window.localStorage.setItem('tabs', JSON.stringify(this.state.tabs));   
     };
