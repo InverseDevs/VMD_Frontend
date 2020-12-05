@@ -25,8 +25,8 @@ class ChatGroup extends React.Component {
     let user = this.extractUser(this.props.users);
     return(
         <div className="chat-group" onClick={this.makeInfo}>
-            <div className={user.avatar != '' ? 'group-image-exist' : 'group-image'}>{user.avatar != '' ? <img className="user-pic" src={user.avatar} alt="user-img"/> : null}</div>
-            <p className="group-name">{user.name}</p>
+            <div className={user.avatar != '' ? 'group-image-exist' : 'chat-group-image'}>{user.avatar != '' ? <img className="user-pic" src={user.avatar} alt="user-img"/> : null}</div>
+            <p className="chat-group-name">{user.name}</p>
         </div>
     );
 }
