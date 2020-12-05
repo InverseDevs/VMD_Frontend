@@ -92,3 +92,10 @@
     outline: none;
     background: #70B351;
 }
+.make-admin{
+	width: 210px;
+	margin-left: 150px;
+}
+.ban-user{
+	margin-left: 350px	
+}
