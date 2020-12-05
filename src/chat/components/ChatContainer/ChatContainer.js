@@ -36,6 +36,7 @@ class ChatContainer extends React.Component {
             }
         }
         if (check == true){
+         
             tabs.push(tab)   
         }
         this.setState({tabs: tabs});
@@ -43,6 +44,7 @@ class ChatContainer extends React.Component {
 
     }
     render() {
+        console.log(this.state.tabs)
         return(
         <div className="chat-container">
         <Chats getInfo={this.getInfo} getMessages={this.getMessages} show={this.state.show}  getShow={this.getShow} addTab={this.addTab}/>
