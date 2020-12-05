@@ -20,7 +20,8 @@ class GroupsContainer extends React.Component {
         return await res.json();
     } 
     getGroup = async () => {
-        await this.getData(`https://inversedevs.herokuapp.com/group/getGroupById/${this.props.groupId}`)
+	let numbers = /^[0-9]+$/;
+        await this.getData(`https://inversedevs.herokuapp.com/group/${this.props.groupId.match(numbers) ? 'getGroupById' : 'getGroupByNamedLink'}/${this.props.groupId}`)
         .then(data => {
 			this.setState({groupInfo: data}); 
         })
