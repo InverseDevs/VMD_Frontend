@@ -125,25 +125,22 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
     return null;
                                              }
                                              }
-    checkMember = (members)=>{
-        for (let i = 0; i < members.length; ++i){
-            if (members[i].id == window.localStorage.getItem('id')){
-                
-                return true   
-            }
-            return false
+    checkMember = (members,banned)=>{
+        let all = [];
+        for (let i = 0; i < Object.values(members).length;++i){
+            all.push(Object.values(members)[i];   
         }
+        for (let i = 0; i < Object.values(banned).length;++i){
+            all.push(Object.values(banned)[i];   
+        }
+        for (let i = 0; i < all.length;++i){
+            if (all[i].id == window.localStorage.getItem('id')){
+                return true;   
+            }
+        }
+        return false;
      }
-     componentDidMount(){
-      
-      if (Object.values(this.props.members).length == 0){
-        this.setState({isMember: false})   
-      }else{
-         let check = this.checkMember(Object.values(this.props.members));
-      this.setState({isMember: check}) 
-      }
-     
-     }
+
     render() { 
 
         const members = this.renderMembers(this.props.members,this.props.banned);
@@ -174,7 +171,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
                     <input type="file" id="photo-input" onChange={this.getFile} accept=".jpg, .png, .jpeg"/>
                     Изменить
                 </label>
-                        <button onClick={this.state.isMember == false ? this.joinGroup : this.leaveGroup} className="groups-join">{this.state.isMember == false ? 'Вступить' : 'Выйти'}</button>
+                        <button onClick={this.checkMember(this.props.members,this.props.banned) == false ? this.joinGroup : this.leaveGroup} className="groups-join">{this.checkMember(this.props.members,this.props.banned) == false ? 'Вступить' : 'Выйти'}</button>
                         <GroupsModal show={this.state.show_post} handleClose={this.hidePost}>
                             <GroupsPostModal id={this.props.id} getClosePost={this.getClosePost}/>
                         </GroupsModal>
