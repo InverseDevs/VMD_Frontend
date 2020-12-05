@@ -64,7 +64,7 @@ class GroupsHeader extends React.Component {
       
     }
     membersChange= (event)=>{
-        this.setState({searchMember:event.target.value});
+        this.setState({searchMembers:event.target.value});
     }
     bannedChange=(event) =>{
         this.setState({searchBanned:event.target.value});
