@@ -6,6 +6,7 @@ class GroupParticipants extends Component {
         super(props);
     }
     render() { 
+	console.log(this.props.online)
         const status = this.props.online === false || this.props.online === "false" ? <div className="part-offline"></div> : <div className="part-online"></div>
         return (
             
