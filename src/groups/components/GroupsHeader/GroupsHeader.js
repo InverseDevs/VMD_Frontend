@@ -91,7 +91,6 @@ class GroupsHeader extends React.Component {
         this.setState({ show_post: false });
     };
     renderMembers =(members,banned) => {
-        console.log(members,banned);
         if (members != []){
         let new_members = Object.values(members).filter(member =>this.state.searchMembers != ''? member.name.includes(this.state.searchMembers) || member.name.toLowerCase().includes(this.state.searchMember) : member)       
 return Object.values(new_members).map((member,idx) => <GroupParticipants key={idx} groupId={this.props.id} id={member.id} avatar={member.avatar} name={member.name} status={member.online}/>)
@@ -131,6 +130,8 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
     render() { 
 
         const members = this.renderMembers(this.props.members,this.props.banned);
+        console.log(this.props.members)
+        console.log('banned',this.props.banned);
         const banned = this.renderBanned(this.props.banned);
         return ( 
             <div className="groups-header">
