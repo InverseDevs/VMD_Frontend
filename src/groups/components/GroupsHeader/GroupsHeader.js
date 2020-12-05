@@ -94,9 +94,9 @@ class GroupsHeader extends React.Component {
         if (members != []){
         let new_members = [];
         let check = false;
-        for (let i = 0; i < members.length;++i){
-            for (let j = 0; j < banned.length;++j){
-                if (members[i].id == banned[j].id){
+        for (let i = 0; i < Object.values(members).length;++i){
+            for (let j = 0; j < Object.values(banned).length;++j){
+                if (Object.values(members)[i].id == Object.values(banned)[j].id){
                     check = true   
                 }
             }
@@ -105,7 +105,7 @@ class GroupsHeader extends React.Component {
                 continue;
             }
             else{
-                new_members.push(members[i])
+                new_members.push(Object.values(members)[i])
             }
         }
         console.log(new_members);
