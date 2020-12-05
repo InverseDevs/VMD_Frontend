@@ -35,6 +35,7 @@ class ProfileInfo extends React.Component{
         window.localStorage.setItem('id', '');
         window.localStorage.setItem('username','');
         window.localStorage.setItem('name','')
+        window.localStorage.setItem('tabs',[])
         
     }
     render() {
