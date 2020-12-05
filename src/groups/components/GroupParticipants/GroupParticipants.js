@@ -27,6 +27,14 @@ class GroupParticipants extends Component {
         });
         return res.json();
     } 
+    checkAdmin = () => {
+	for (let i = 0; i < Object.values(this.props.admins).length; ++i){
+		if (Object.values(this.props.admins)[i].id == this.props.id){
+			return true	
+		}
+	}
+	    return false
+    }
     render() { 
         const status = this.props.status === false || this.props.status === "false" ? <div className="part-offline"></div> : <div className="part-online"></div>
         return (
@@ -40,8 +48,8 @@ class GroupParticipants extends Component {
                             {this.props.name}</div>
 	      </div>
                             {status}
-                      <button onClick={this.makeAdmin} className="delete-friend make-admin">Сделать администратором</button>
-                    <button onClick={this.banUser} className="delete-friend ban-user">Забанить</button>
+	    {this.props.owner == true ?         <button onClick={this.checkAdmin == false ? this.makeAdmin: this.deleteAdmin} className="delete-friend make-admin">{this.checkAdmin == false ? 'Сделать администратором' : 'Убрать из администраторов'}</button> : null}
+	    {this.props.admin == true || this.props.owner == true ? <button onClick={this.banUser} className="delete-friend ban-user">Забанить</button> : null}
                     
 				</div>
         )
