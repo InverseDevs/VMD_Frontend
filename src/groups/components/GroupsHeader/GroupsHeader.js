@@ -93,7 +93,7 @@ class GroupsHeader extends React.Component {
     renderMembers =(members) => {
         if (members != []){
         let new_members = Object.values(members).filter(member =>this.state.searchMembers != ''? member.name.includes(this.state.searchMembers) || member.name.toLowerCase().includes(this.state.searchMember) : member)       
-return Object.values(new_members).map((member,idx) => <GroupParticipants key={idx} avatar={member.avatar} name={member.name} status={member.online}/>)
+return Object.values(new_members).map((member,idx) => <GroupParticipants key={idx} groupId={this.props.id} id={member.id} avatar={member.avatar} name={member.name} status={member.online}/>)
                                               }
     else{
             return null
@@ -102,7 +102,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
     renderBanned = (banned) => {
             if (banned != []){
         let new_banned = Object.values(banned).filter(ban => this.state.searchBanned != '' ? ban.name.includes(this.state.searchBanned) || ban.name.toLowerCase().includes(this.state.searchBanned) : ban)
-        return Object.values(new_banned).map((ban,idx) => <GroupBanned key={idx} avatar={ban.avatar} name={ban.name} status={ban.online} />)
+        return Object.values(new_banned).map((ban,idx) => <GroupBanned key={idx} groupId={this.props.id} id={ban.id} avatar={ban.avatar} name={ban.name} status={ban.online} />)
                                              }
         else{
     return null;
