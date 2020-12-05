@@ -5,6 +5,28 @@ class GroupParticipants extends Component {
     constructor(props) {
         super(props);
     }
+	makeAdmin = async() =>{
+        await this.postData(`https://inversedevs.herokuapp.com/group/avatar/${this.props.groupId}`,{user_id: this.props.id})
+        .then(data => console.log(data))
+    }
+	deleteAdmin = async() =>{
+        await this.postData(`https://inversedevs.herokuapp.com/group/avatar/${this.props.groupId}`,{user_id: this.props.id})
+        .then(data => console.log(data))
+    }
+	banUser= async() =>{
+        await this.postData(`https://inversedevs.herokuapp.com/group/avatar/${this.props.groupId}`,{user_id: this.props.id})
+        .then(data => console.log(data))
+    }
+    postData = async (url,data) => {
+        const res = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Authorization': `${window.localStorage.getItem('token')}`
+            }
+        });
+        return res.json();
+    } 
     render() { 
         const status = this.props.status === false || this.props.status === "false" ? <div className="part-offline"></div> : <div className="part-online"></div>
         return (
@@ -18,8 +40,8 @@ class GroupParticipants extends Component {
                             {this.props.name}</div>
 	      </div>
                             {status}
-                      <button className="delete-friend make-admin">Сделать администратором</button>
-                    <button  type="button" className="delete-friend ban-user">Забанить</button>
+                      <button onClick={this.makeAdmin} className="delete-friend make-admin">Сделать администратором</button>
+                    <button onClick={this.banUser} className="delete-friend ban-user">Забанить</button>
                     
 				</div>
         )
