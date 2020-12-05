@@ -159,11 +159,17 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants key={id
         return false;
      }
     componentDidMount(){
-        this.setAdmin();
-        this.setOwner();
+        if (this.props.owner == window.localStorage.getItem('id')){
+            this.setState({isOwner: true});   
+        }
+        for (let i = 0; i < this.props.admins; ++i){
+            if (this.props.admins[i].id == window.localStorage.getItem('id')){
+                this.setState({isAdmin: true});   
+            }
+        }
         console.log('owner',this.state.isOwner);
         console.log('admin',this.state.isAdmin);
-        console.log('ownerCheck',this.props.owner == window.localStorage.getItem('id'))
+
     }
     render() { 
 
