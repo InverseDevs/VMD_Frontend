@@ -7,6 +7,7 @@
     height: 160px;
     background: #C4C4C4;
     border-radius: 50%;
+    overflow: hidden;
     margin-left: 20px;
 }
 .chat-group-name{
@@ -23,5 +24,6 @@
     overflow:hidden;
     max-width: 160px;
     max-height: 160px;
+    border-radius: 50%;
    margin-left: 25px;
 }
