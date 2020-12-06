@@ -77,7 +77,7 @@ class ProfileInnerComment extends React.Component {
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-container">
           <div className="comment-img"></div>
-          {/* <img src={this.props.img} className="comment-img"/> */}
+          {this.props.avatar != '' ?  <img src={this.props.avatar} className="comment-img" alt="avatar"/> : <div className="comment-img"></div>}
           <div className="comment-body">
             <div className="comment-info">
             <Link to="/" className="comment-profile-link">{this.props.name}</Link>
