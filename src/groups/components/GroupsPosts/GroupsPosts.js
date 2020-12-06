@@ -7,7 +7,7 @@ class GroupsPosts extends Component {
     }
     renderPosts =(posts)=>{
         console.log(posts)
-        return Object.values(posts).map((post,i)=><GroupsPost key={i} sender={post.sender} photo={post.picture} id={post.id} content={post.content} sent_time={post.sent_time}
+        return Object.values(posts).map((post,i)=><GroupsPost key={i} sender={post.sender.name} avatar={post.sender.avatar} photo={post.picture} id={post.id} content={post.content} sent_time={post.sent_time}
                                         likes={post.likes} comments={post.comments} />)
     }
     render() { 
