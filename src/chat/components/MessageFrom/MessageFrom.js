@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './MessageFrom.css';
 
 class MessageFrom extends React.Component {
@@ -21,7 +22,6 @@ class MessageFrom extends React.Component {
     getUserInfo = async () => {
         await this.getData(`https://inversedevs.herokuapp.com/api/users/${this.props.sender_id}`)
         .then(data => {
-            console.log(data);
             this.setState({userInfo:data})
         })
        
@@ -35,8 +35,8 @@ class MessageFrom extends React.Component {
         return(
             <div className="message-from">
                 <div className="user-from-info">
-                    <div className={user.avatar != '' ? "user-from-img-exist" : "user-from-img"}>{user.avatar != '' ? <img src={user.avatar} className="user-from-avatar" alt="user-from"/> : null }</div>
-                    <p className="user-from-name">{user.name}</p>
+                    <Link className="chat-profile-link" to={`/profile/${this.props.sender_id}`}><div className={user.avatar != '' ? "user-from-img-exist" : "user-from-img"}>{user.avatar != '' ? <img src={user.avatar} className="user-from-avatar" alt="user-from"/> : null }</div></Link>
+                    <Link className="chat-profile-link" to={`/profile/${this.props.sender_id}`}><p className="user-from-name">{user.name}</p></Link>
                 </div>
                 <div className="message-from-container">
                    {this.props.message}

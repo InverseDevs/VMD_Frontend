@@ -4,6 +4,7 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) -35.83%, rgba(255, 255, 255, 0.3) 64.17%), #7CBC5F;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     display:flex;
+    justify-content: space-between;
 }
 .chat-img{
     height: 50px;
@@ -29,8 +30,19 @@
     margin:0;
     font-size: 24px;
     line-height: 28px;
+    margin-left: 30px;
     color: white;
     margin-top: 1.8%;
-    margin-left: 33%;
     font-family: 'Source Serif Pro', sans-serif;
+}
+.delete-chat{
+    width: 140px;
+    margin-top: 10px;
+    height: 40px;
+    margin-right: 20px;
+    background: #7CBC5F;
+    border-radius: 50px;
+    border:none;
+    outline:none;
+    font-size:16px;   
 }

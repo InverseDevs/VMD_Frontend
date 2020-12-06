@@ -5,9 +5,9 @@ import Chats from '../Chats/Chats';
 
 class ChatContainer extends React.Component {
     state = {
-        tabs: [],
+        tabs: JSON.parse(window.localStorage.getItem('tabs')),
         show: false,
-        chatInfo: null,
+        chatInfo: {'name': null, 'img':null, 'id': null},
         messages: [],
     };
     getMessages = (messages) => {

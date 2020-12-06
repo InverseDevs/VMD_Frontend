@@ -25,7 +25,6 @@ class ChatWindow extends React.Component{
       }
     
       onMessageReceived = (msg) => {
-        console.log('New Message Received!!', msg);
         let messages = this.props.messages;
         messages.push(msg);
         this.props.getMessages(messages);
@@ -36,15 +35,14 @@ class ChatWindow extends React.Component{
         }));
     };
     render(){
-    return(
-        
+        if (this.props.chatInfo.id != null){ 
+        return (
         <div className="chat-window">
             { <SockJsClient
               url={SOCKET_URL}
               topics={['/topic/user']}
               ref={ (client) => { this.clientRef = client }}
-              onConnect={this.onConnected}
-              onDisconnect={console.log('disconnected!')}
+            
               autoReconnect={true}
               onMessage={msg => this.onMessageReceived(msg)}
               debug={false}
@@ -55,9 +53,24 @@ class ChatWindow extends React.Component{
             <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
                     <ChatAddForm getShow={this.props.getShow}/>
             </ChatAddModal>
-            <Chat sendMessage={this.sendMessage} messages={this.props.messages}/>
+            <Chat chatId={this.props.chatInfo.id !== null ? this.props.chatInfo.id : null} sendMessage={this.sendMessage} messages={this.props.messages}/>
         </div>
     );
+            }
+            else{
+                return(
+                        <div className="preload-container">
+                            <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
+                                <ChatAddForm getShow={this.props.getShow}/>
+                            </ChatAddModal>
+                            <TabList chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
+                            <div className="preload-message">
+                                Выберите чат
+                            </div>
+                        </div>
+
+                )
+            }
 }
 }
 

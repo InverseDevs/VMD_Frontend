@@ -38,3 +38,7 @@
     max-height: 50px;
     overflow: hidden;
 }
+.chat-profile-link{
+    text-decoration: none;
+    color: black;
+}
