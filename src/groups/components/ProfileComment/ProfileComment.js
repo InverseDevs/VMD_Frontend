@@ -58,7 +58,7 @@ class ProfileComment extends React.Component {
       if(comments){
       return Object.values(comments).map(comment => {
               return (
-                  <ProfileInnerComment getInnerPressed={this.getInnerPressed} commentId={comment.id} setCommentId={this.props.setCommentId} comments={comment.comments} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender.name} avatar={comment.sender.avatar} date={comment.sent_time} />
+                  <ProfileInnerComment getInnerPressed={this.getInnerPressed} commentId={comment.id} setCommentId={this.props.setCommentId} comments={comment.comments} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} avatar={comment.sender.avatar} name={comment.sender.name} date={comment.sent_time} />
               )
              
 
@@ -80,7 +80,8 @@ class ProfileComment extends React.Component {
           <>
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-container">
-          {this.props.avatar != '' ?  <img src={this.props.avatar} className="comment-img" alt="avatar"/> : <div className="comment-img"></div>}
+          
+          {this.props.avatar != ''?  <img src={this.props.avatar} className="comment-img" alt="avatar"/> : <div className="comment-img"></div>}
           <div className="comment-body">
             <div className="comment-info">
             <Link to="/" className="comment-profile-link">{this.props.name}</Link>
