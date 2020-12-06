@@ -7,30 +7,93 @@ import liked from './heart_clicked.svg';
 class ProfileInnerComment extends React.Component {
     constructor(props){
         super(props);
+        this.state={like:false};
     }
+    postData = async (url,data) => {
+      const res = await fetch(url, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+              'Authorization' : `${window.localStorage.getItem('token')}`
+          }
+      });
+      return await res.json();
+  } 
+  
+  likeComment = async (e) => {
+      e.preventDefault();
+      await this.postData(`https://inversedevs.herokuapp.com/like/comment/${this.props.commentId}`,
+      {   userId: `${window.localStorage.getItem('id')}`
+       }).then(data => {console.log(data)
+      if (data.status === 'added' || data.status === 'removed'){
+        this.setState({like: !this.state.like});
+      }
     
+    })
+     }
+     postDeleteData = async (url) => {
+      const res = await fetch(url, {
+          method: 'POST',
+          headers: {
+              'Authorization' : `${window.localStorage.getItem('token')}`
+          }
+      });
+      return await res.json();
+  } 
+     deleteComment = async (e) => {
+      e.preventDefault();
+      await this.postDeleteData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`).then(data => console.log(data)
+    
+    )
+     }
+    onUserClick = ()=>{
+        this.props.setSender(this.props.name);
+        this.props.setCommentId(this.props.commentId);
+        this.props.getInnerPressed(true)
+    }
+    renderItems(comments){
+      if(comments){
+      return Object.values(comments).map(comment => {
+              return (
+                  <ProfileInnerComment commentId={comment.id} setCommentId={this.props.setCommentId} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender} date={comment.sent_time} />
+              )
+             
+
+      });
+    }
+  }
+  checkLike = (likes) => {
+    likes = Object.values(likes);
+    for (let i = 0; i < likes.length; ++i){
+        if (likes[i].id == window.localStorage.getItem('id')){
+            return true
+        }  
+    }
+    return false
+  }
     render() {
+      const items = this.renderItems(this.props.comments);
         return (
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-container">
-          <div className="comment-img"></div>
-          {/* <img src={this.props.img} className="comment-img"/> */}
+          
+          {this.props.avatar != ''? <img src={this.props.avatar} className="comment-img" alt="avatar"/> : <div className="comment-img"></div>}
           <div className="comment-body">
             <div className="comment-info">
-            Имя
-            <div className="like-number-comms">1</div>
-            <button className="like"><img className="post-like" /></button>
+            <Link to="/" className="comment-profile-link">{this.props.name}</Link>
+            <div className="like-number-comms">{Object.values(this.props.likes).length}</div>
+            <button className="like" onClick={this.likeComment}><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : liked}/></button>
             <p className="comment-date">
-              5 дней назад
+              {this.props.date}
             </p>
             
-            <button className="delete" ><img src={close} className="delete-comment"/></button>
+            <button className="delete" onClick={this.deleteComment}><img src={close} className="delete-comment"/></button>
             </div>
-            <p className="comment-text">текст</p>
-            <p  className="comment-reply">Ответить</p>
+            <p className="comment-text">{this.props.text}</p>
+            <p onClick={this.onUserClick} className="comment-reply">Ответить</p>
             </div>
           </div>
-
+          {items}
         </div>
         )
     }

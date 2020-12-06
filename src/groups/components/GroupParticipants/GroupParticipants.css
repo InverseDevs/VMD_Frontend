@@ -5,45 +5,64 @@
     
 }
 
-.friend-info{
-    display:flex;
+.participant{
+	width: 850px;
+	display:flex;
 }
-.ava{
-    max-width: 100px;
-    max-height: 100px;
+
+.participant-photo{
+    width: 100px;
+    height: 100px;
     overflow:hidden;
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-    background: #C4C4C4;
+    border-radius: 50%;
     
 }
-
-.friend-name{
+.participant-photo-container{
+	margin-right: 25px;	
+}
+.part-name{
+    width: 240px;
+	margin-left: 20px;
+}
+.no-photo{
+	 width: 100px;
+    height: 100px;
+    overflow:hidden;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+	background: #C4C4C4;
+    border-radius: 50%;
+}
+.gap{
+	width: 50px;
+	height: 1px;
+	opacity: 0;
+}
+.participant-name{
     display:flex;
     margin:0;
-    margin-left: 25px;
     margin-top: 40px;
     margin-bottom: 10px;
-	width: 240px;
+	width: 210px;
     height: 30px;
     font-size:24px;
 
 }
-.friend-online{
-    margin-left: 20px;
-    margin-top: 10px;
+.part-online{
+    margin-left: 5px;
+    margin-top: 48px;
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
 	background: red;
  }
-.friend-offline{
-    margin-left: 20px;
-    margin-top: 10px;
+.part-offline{
+    margin-left: 5px;
+    margin-top: 48px;
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
@@ -57,11 +76,10 @@
     line-height: 28px;
 }
 
-
 .delete-friend{
     width: 140px;
     margin-top: 30px;
-    margin-left: 400px;
+    margin-left: 350px;
     height: 50px;
     background: #7CBC5F;
 	border-radius: 50px;
@@ -73,4 +91,13 @@
 	color: #FFFFFF;
     outline: none;
     background: #70B351;
+}
+.make-admin{
+	width: 240px;
+    height: 70px;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.ban-user{
+	margin-left: 30px	
 }

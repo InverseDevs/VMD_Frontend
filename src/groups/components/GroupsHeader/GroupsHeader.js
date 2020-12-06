@@ -14,9 +14,15 @@ class GroupsHeader extends React.Component {
             searchMembers: '',
             searchBanned: '',
             postText: '',
-        postPhoto: '',
         groupPhoto: '',
+            isMember: false,
+            isAdmin: false,
+            isOwner: false,
         }
+    }
+
+    getClosePost = () => {
+           this.setState({show_post: false});
     }
     joinGroup = async() => {
         await this.postData(`https://inversedevs.herokuapp.com/group/join/${this.props.id}`, {user_id: window.localStorage.getItem('id')})
@@ -40,22 +46,13 @@ class GroupsHeader extends React.Component {
         });
         return res.json();
     } 
-    sendPost = async () => {
-        
-        await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.userData.id}`, {sender : this.props.userData.username, content:this.state.postText, picture: this.state.photo})
-        .then(res => {console.log(res)});
-        document.getElementById('textarea').value = '';
-        this.setState({dataChanged:true})
-        this.props.getChanged(this.state.dataChanged);
-        this.setState({dataChanged:false});
-    }
+    
     getFile = () => {
-        var file = document.getElementById('post-photo-input').files[0];
+        var file = document.getElementById('photo-input').files[0];
         var img = document.createElement("img");
         img.file = file;
-        img.width = 540;
-        img.height = 270;
-        document.getElementById('post-create-img').appendChild(img);
+        img.width = 200;
+        img.height = 240;
         var reader = new FileReader();
         reader.onload = (function(aImg) { 
             return function(e) { 
@@ -63,14 +60,14 @@ class GroupsHeader extends React.Component {
         }; 
         })(img);
         reader.onloadend = () => {
-            this.setState({photo: reader.result})
+            this.setState({groupPhoto: reader.result})
+            this.avatarGroup();
           }
-          document.getElementById('post-create-img').appendChild(img);
         reader.readAsDataURL(file);
       
     }
     membersChange= (event)=>{
-        this.setState({searchMember:event.target.value});
+        this.setState({searchMembers:event.target.value});
     }
     bannedChange=(event) =>{
         this.setState({searchBanned:event.target.value});
@@ -96,16 +93,70 @@ class GroupsHeader extends React.Component {
     hidePost = () => {
         this.setState({ show_post: false });
     };
-    renderMembers =(members) => {
-        let new_members = members.filter(member =>this.state.searchMembers != ''? member.name.includes(this.state.searchMembers) || member.name.toLowerCase().includes(this.state.searchMember) : member)
-        return Object.values(new_members).map((member,idx) => <GroupParticipants key={idx} avatar={member.avatar} name={member.name} status={member.online}/>)
-    }
+    renderMembers =(members,banned) => {
+        if (members != []){
+        let new_members = [];
+        let check = false;
+        for (let i = 0; i < Object.values(members).length;++i){
+            for (let j = 0; j < Object.values(banned).length;++j){
+                if (Object.values(members)[i].id == Object.values(banned)[j].id){
+                    check = true   
+                }
+            }
+            if (check == true){
+                check = false;
+                continue;
+            }
+            else{
+                new_members.push(Object.values(members)[i])
+            }
+        }
+        console.log(new_members);
+        new_members = Object.values(new_members).filter(member =>this.state.searchMembers != ''? member.name.includes(this.state.searchMembers) || member.name.toLowerCase().includes(this.state.searchMember) : member)       
+return Object.values(new_members).map((member,idx) => <GroupParticipants admin={this.state.isAdmin} admins={this.props.admins} owner={this.state.isOwner} key={idx} groupId={this.props.id} id={member.id} avatar={member.avatar} name={member.name} status={member.online}/>)
+                                              }
+    else{
+            return null
+                                              }  
+   }
     renderBanned = (banned) => {
-        let new_banned = banned.filter(ban => this.state.searchBanned != '' ? ban.name.includes(this.state.searchBanned) || ban.name.toLowerCase().includes(this.state.searchBanned) : ban)
-        return Object.values(new_banned).map((ban,idx) => <GroupBanned key={idx} avatar={ban.avatar} name={ban.name} status={ban.online} />)
+            if (banned != []){
+        let new_banned = Object.values(banned).filter(ban => this.state.searchBanned != '' ? ban.name.includes(this.state.searchBanned) || ban.name.toLowerCase().includes(this.state.searchBanned) : ban)
+        return Object.values(new_banned).map((ban,idx) => <GroupBanned  admin={this.state.isAdmin} owner={this.state.isOwner} key={idx} groupId={this.props.id} id={ban.id} avatar={ban.avatar} name={ban.name} status={ban.online} />)
+                                             }
+        else{
+    return null;
+                                             }
+                                             }
+    checkMember = (members,banned)=>{
+        let all = [];
+        for (let i = 0; i < Object.values(members).length;++i){
+            all.push(Object.values(members)[i]);   
+        }
+        for (let i = 0; i < Object.values(banned).length;++i){
+            all.push(Object.values(banned)[i]);   
+        }
+        for (let i = 0; i < all.length;++i){
+            if (all[i].id == window.localStorage.getItem('id')){
+                return true;   
+            }
+        }
+        return false;
+     }
+    componentDidMount(){
+        if (this.props.owner == window.localStorage.getItem('id')){
+            this.setState({isOwner: true});   
+        }
+        for (let i = 0; i < Object.values(this.props.admins).length; ++i){
+            if (Object.values(this.props.admins)[i].id == window.localStorage.getItem('id')){
+                this.setState({isAdmin: true});   
+            }
+        }
+
     }
     render() { 
-        const members = this.renderMembers(this.props.members);
+
+        const members = this.renderMembers(this.props.members,this.props.banned);
         const banned = this.renderBanned(this.props.banned);
         return ( 
             <div className="groups-header">
@@ -123,23 +174,22 @@ class GroupsHeader extends React.Component {
                     <button onClick={this.showParticipants}  className="group-participants">Учатники</button>
                 </div>
                 <div className="middle-header">
-                    <div className="group-name">
+                    <div className="group-header-name">
                         {this.props.name}
                     </div>
-                    <div className="groups-image">
-                        
-                    </div>
+                            {this.props.avatar != ''? <img src={this.props.avatar} className="groups-header-image-exists" alt="group-avatar"/> : <div className="groups-header-image"></div>}
+
                     <div className="group-buttons">
-                    <label className="groups-change-avatar">
+            {this.state.isOwner == true || this.state.isAdmin == true ? <label className="groups-change-avatar">
                     <input type="file" id="photo-input" onChange={this.getFile} accept=".jpg, .png, .jpeg"/>
                     Изменить
-                </label>
-                        <button className="groups-join">Вступить</button>
+                </label> : null}
+                        <button onClick={this.checkMember(this.props.members,this.props.banned) == false ? this.joinGroup : this.leaveGroup} className="groups-join">{this.checkMember(this.props.members,this.props.banned) == false ? 'Вступить' : 'Выйти'}</button>
                         <GroupsModal show={this.state.show_post} handleClose={this.hidePost}>
-                            <GroupsPostModal/>
+                            <GroupsPostModal id={this.props.id} getClosePost={this.getClosePost}/>
                         </GroupsModal>
                         
-                        <button onClick={this.showPost} className="groups-send-post">Оставить запись</button>
+                {this.state.isOwner == true || this.state.isAdmin == true ? <button onClick={this.showPost} className="groups-send-post">Оставить запись</button> : null}
                     </div>
                 </div>
                 <div className="right-header">

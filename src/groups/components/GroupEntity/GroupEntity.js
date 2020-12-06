@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import './GroupEntity.css';
 
 class GroupEntity extends Component {
     constructor(props) {
         super(props);
     }
-    groupOpen = ()=>{
-        this.props.setGroupClick();
-        this.props.getGroupInfo(this.props.id);
-    }
+
     render() { 
         return ( 
             <div className="group-entity">
-                <div className="group-avatar"></div>
+            {this.props.avatar != '' ? <img src={this.props.avatar} className="group-avatar-exists" alt="group-picture"/> : <div className="group-avatar"></div>}
+            
                 <div className="group-name">
                     {this.props.name}
                 </div>
-                <button onClick={this.groupOpen} className="group-btn">Перейти</button>
+                <Link to={`/groups/${this.props.id}`}><button className="group-btn">Перейти</button></Link>
             </div>
          );
     }

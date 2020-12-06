@@ -7,7 +7,7 @@ class GroupsFooter extends Component {
     }
     render() { 
         return ( <div className="group-footer">
-            <GroupsPosts/>
+            <GroupsPosts posts={this.props.posts}/>
         </div>  );
     }
 }

@@ -11,7 +11,11 @@ class GroupsList extends Component {
             show: false,
             name: '',
             namedLink: '',
+		allGroups: [],
         }
+    }	
+    handleSearch = (event) => {
+    	this.setState({search: event.target.value});
     }
     handleNameChange= (event) => {
         this.setState({name: event.target.value});
@@ -24,6 +28,7 @@ class GroupsList extends Component {
         .then(data => console.log(data))
         document.getElementById('group-name').value = '';
         document.getElementById('group-named-link').value = '';
+	this.setState({show: false})
     }
     postData = async (url,data) => {
         const res = await fetch(url, {
@@ -61,20 +66,64 @@ class GroupsList extends Component {
         })
        
     }
+    getAllGroups = async () => {
+        await this.getData(`https://inversedevs.herokuapp.com/group/all`)
+        .then(data => {
+			this.setState({allGroups: data.groups}); 
+        })
+       
+    }
     componentDidMount(){
         this.getGroups();
+	 this.getAllGroups();
     }
     renderGroups = (groups) => {
-        let new_groups = groups.filter(group => this.state.search != '' ? group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search) : group);
-        return Object.values(new_groups).map((group,id) => 
-        <GroupEntity key={id} name={group.name} id={group.id} 
-        setGroupClick={this.props.setGroupClick} getGroupInfo={this.props.getGroupInfo}/>)
+        if (groups != []){
+	    let new_groups = Object.values(groups).filter(group =>
+					   group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search) );
+			return Object.values(new_groups).map((group,id) => 
+        <GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}
+        />)
+	}else{
+		return null						    
+	}
+	
     }
+    renderAll = (all,yourGroups)=>{
+	if (all != [] ){
+	let arr = [];
+	let check = false;
+	for (let i = 0; i < all.length; ++i){
+		for (let j = 0; j < yourGroups.length;++j){
+			if (all[i].id == yourGroups[j].id){
+				check = true;	
+			}
+		}
+		if (check == true){
+			check = false;
+			continue;
+		}
+		else{
+			arr.push(all[i]);
+		}
+	}
+	arr = arr.filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search))
+		return Object.values(arr).map((group,id)=> 
+	<GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}/>)
+	
+	
+						  }
+						  else{
+						  	return null
+						  }			  
+	
+}
     render() { 
         const items = this.renderGroups(this.state.groups);
+        const groups = this.renderAll(Object.values(this.state.allGroups), Object.values(this.state.groups));
         return (
             <div className="groups-container">
-                <input type="text" id="groups-list-search" className="groups-list-search" /> 
+                <input onChange={this.handleSearch} type="text" id="groups-list-search" className="groups-list-search" /> 
                 <GroupsModal show={this.state.show} handleClose={this.handleClose}>
                     <div className="group-form">
                         <input onChange={this.handleNameChange} id="group-name" className="group-form-field" placeholder="Название группы"/>
@@ -87,7 +136,7 @@ class GroupsList extends Component {
 
             <div className="groups-entities">
                 {items}
-                <GroupEntity setGroupClick={this.props.setGroupClick} getGroupInfo={this.props.getGroupInfo}/>
+		{groups}
             </div>
         </div> </div>);
     }

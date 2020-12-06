@@ -5,21 +5,51 @@ class GroupParticipants extends Component {
     constructor(props) {
         super(props);
     }
+	makeAdmin = async() =>{
+        await this.postData(`https://inversedevs.herokuapp.com/group/admin/add/${this.props.groupId}`,{user_id: this.props.id})
+        .then(data => console.log(data))
+    }
+	deleteAdmin = async() =>{
+        await this.postData(`https://inversedevs.herokuapp.com/group/admin/remove/${this.props.groupId}`,{user_id: this.props.id})
+        .then(data => console.log(data))
+    }
+	banUser= async() =>{
+        await this.postData(`https://inversedevs.herokuapp.com/group/ban/${this.props.groupId}`,{user_id: this.props.id})
+        .then(data => console.log(data))
+    }
+    postData = async (url,data) => {
+        const res = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Authorization': `${window.localStorage.getItem('token')}`
+            }
+        });
+        return res.json();
+    } 
+    checkAdmin = () => {
+	for (let i = 0; i < Object.values(this.props.admins).length; ++i){
+		if (Object.values(this.props.admins)[i].id == this.props.id){
+			return true	
+		}
+	}
+	    return false
+    }
     render() { 
-        const status = this.props.online === false || this.props.online === "false" ? <div className="friend-offline"></div> : <div className="friend-online"></div>
+        const status = this.props.status === false || this.props.status === "false" ? <div className="part-offline"></div> : <div className="part-online"></div>
         return (
             
-				<div className="friend">
-                    <div className="friend-info">
-                        <div className="ava">{this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar"/> : null }</div>
-                        <div className="ava-devisor">
-                        <div className="friend-name">
-                            {this.props.name}
+				<div className="friend participant">
+                        <div className="participant-photo-container">
+	{this.props.avatar != '' ? <img src={this.props.avatar} className="participant-photo"/> : <div className="no-photo"></div> }
+	    		</div>
+                        <div className="participant-name">
+				<div className="part-name">
+                            {this.props.name}</div>
+	      </div>
                             {status}
-                        </div>
-                    </div>
-                    <button  type="button" className="delete-friend">Забанить</button>
-                    </div>
+	    {this.props.owner == true ?         <button onClick={this.checkAdmin == false ? this.makeAdmin: this.deleteAdmin} className="delete-friend make-admin">{this.checkAdmin == false ? 'Сделать администратором' : 'Убрать из администраторов'}</button> : null}
+	    {this.props.admin == true || this.props.owner == true ? <button onClick={this.banUser} className="delete-friend ban-user">Забанить</button> : null}
                     
 				</div>
         )

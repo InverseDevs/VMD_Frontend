@@ -20,9 +20,10 @@ class GroupsContainer extends React.Component {
         return await res.json();
     } 
     getGroup = async () => {
-        await this.getData(`https://inversedevs.herokuapp.com/group/getGroupById/${this.props.groupId}`)
+	let numbers = /^[0-9]+$/;
+        await this.getData(`https://inversedevs.herokuapp.com/group/${this.props.groupId.match(numbers) ? 'getGroupById' : 'getGroupByNamedLink'}/${this.props.groupId}`)
         .then(data => {
-			this.setState({groupInfo: data.group}); 
+			this.setState({groupInfo: data}); 
         })
        
     }
@@ -30,14 +31,20 @@ class GroupsContainer extends React.Component {
         this.getGroup();
     }
     render() { 
+	    if (this.state.groupInfo != null){
         return ( 
             <div className="groups-container">
                 
-                <GroupsHeader name={this.state.groupInfo.name} id={this.state.groupInfo.id} admins={this.state.groupInfo.admins} banned={this.state.groupInfo.banned_users} members={this.state.groupInfo.members}/>
+                <GroupsHeader name={this.state.groupInfo.name} owner={this.state.groupInfo.owner_id} id={this.state.groupInfo.id} avatar={this.state.groupInfo.picture} admins={this.state.groupInfo.admins} banned={this.state.groupInfo.banned_users} members={this.state.groupInfo.members}/>
                 <hr className="groups-break-line" />
                 <GroupsFooter posts={this.state.groupInfo.posts}/>
             </div>
          );
+	    }
+	    else{
+		return (<div className="groups-container">
+			</div>)
+	    }
     }
 }
  

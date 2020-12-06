@@ -2,17 +2,26 @@
     display:flex;
     justify-content: space-evenly;
 }
-.group-name{
-    margin-top:5px;
+.group-header-name{
+    margin-top:10px;
     font-size: 24px;
-    margin-left: 100px;
+    margin-left: 30px;
+    text-align:center;
 }
-.groups-image{
+.groups-header-image{
     width: 200px;
     height: 240px;
     margin-top: 6px;
     margin-left: 32px;
     background: #C4C4C4;
+    overflow: hidden;
+}
+.groups-header-image-exists{
+    width: 200px;
+    height: 240px;
+    margin-top: 6px;
+    margin-left: 32px;
+    overflow: hidden;
 }
 .middle-header{
     margin-left:-50px;
@@ -68,6 +77,7 @@ input[type="file"] {
     height:30px;
     text-align:center;
     padding-top:10px;
+    font-size: 20px;
 }
 .search-input {
 	display:flex;
@@ -81,7 +91,6 @@ input[type="file"] {
 	font-size: 20px;
 	padding-bottom: 25px;
 	padding-left: 25px;
-	font-family: 'Source Serif Pro', sans-serif;
 	overflow:hidden;
 	outline:none;
 }
