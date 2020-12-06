@@ -73,7 +73,7 @@ class ProfileComments extends React.Component {
         if (comments){
         return Object.values(comments).map(comment => {
                 return (
-                    <ProfileComment name={comment.name} commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} date={comment.sent_time} />
+                    <ProfileComment name={comment.sender.name} avatar={comment.sender.name} commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} date={comment.sent_time} />
                 )
         })};
     }
