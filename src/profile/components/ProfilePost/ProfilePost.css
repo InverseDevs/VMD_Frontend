@@ -12,6 +12,7 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99.99%, rgba(255, 255, 255, 0.0234375) 100%), #77BB59;
     padding-bottom: 20px;
 }
+
 .profile-post-header{
     display:flex;
     justify-content:space-between;
@@ -157,4 +158,10 @@
     font-size: 18px;
     margin-top:30px;
     font-family: 'Source Serif Pro', sans-serif;
+}
+.post-avatar{
+    width: 60px;
+    height: 60px;
+    margin-top: 25px;
+    overflow: hidden;
 }
