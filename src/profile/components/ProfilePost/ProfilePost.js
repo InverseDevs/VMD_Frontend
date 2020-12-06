@@ -77,7 +77,7 @@ class ProfilePost extends React.Component {
                             <Comments comments={this.props.comments} token={this.props.token} sender={this.props.name} Postid={this.props.Postid}/>
                     </ProfileCommentsModal>
                     </div>
-                    <div className="user-img">{this.props.avatar != '' <img src={this.props.avatar} alt="avatar"/> : null}</div>
+                    <div className="user-img">{this.props.avatar != '' ? <img src={this.props.avatar} alt="avatar"/> : null}</div>
                 </div>
                 {this.props.photo !== ''  ? <img src={this.props.photo} className="post-img"/> : null}
                 <h6 className="post-text">{this.props.content}</h6>
@@ -92,7 +92,7 @@ class ProfilePost extends React.Component {
                         <h6 className="post-full-time">{this.props.time}</h6>
                         <div className="profile-post-full-author">{this.props.name}</div>
                     </div>
-                    <div className="user-full-img">{this.props.avatar != '' <img src={this.props.avatar} alt="avatar"/> : null}</div>
+                    <div className="user-full-img">{this.props.avatar != '' ? <img src={this.props.avatar} alt="avatar"/> : null}</div>
                 </div>
                 {this.props.photo !== '' ? <img src={this.props.photo} className="post-img"/> : null}
                 <h6 className="post-full-text">{this.props.content}</h6>
