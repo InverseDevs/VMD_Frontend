@@ -61,14 +61,14 @@ class Chat extends React.Component {
 
     }
     componentDidUpdate(){
-        if (document.getElementById('slider-container').scrollTop != 0){
+        if (document.getElementById('slider-container').scrollTop > 10){
             this.scrollToBottom();
         }
-                console.log(this.state.messages);
-        if (this.props.chatId != null && this.state.firstLoad != true){
-            this.getMessages();
-            this.setState({firstLoad:true})
-        }
+           
+       // if (this.props.chatId != null && this.state.firstLoad != true){
+       //     this.getMessages();
+        //    this.setState({firstLoad:true})
+      //  }
         
         if (this.state.chatId != this.props.chatId){
             this.setState({load: true})
@@ -78,10 +78,10 @@ class Chat extends React.Component {
             this.setState({chatId: this.props.chatId})
             this.getMessages();
         }
-        if (this.state.messages == [] && this.state.load == false){
-            this.getMessages();
-            this.setState({load: true})
-        }
+        //if (this.state.messages == [] && this.state.load == false){
+         //   this.getMessages();
+      //      this.setState({load: true})
+       // }
     }
     scrollToBottom = () => {
         this.el.scrollIntoView({behavior:"smooth"});
