@@ -41,11 +41,11 @@ class Chat extends React.Component {
 
                     messages.push(data.messages[i])   
                 }
-                (this.state.firstLoad == true){
-                this.setState({first_idx: this.state.first_idx + 10})
-                this.setState({second_idx: this.state.second_idx + 10})
+                if (this.state.firstLoad == true){
+                    this.setState({first_idx: this.state.first_idx + 10})
+                    this.setState({second_idx: this.state.second_idx + 10})
                 }
-                this.setState({firstLoad: true});
+                this.setState({firstLoad: true})
             }
             this.setState({messages: messages.concat(this.state.messages)})
         })
