@@ -20,7 +20,7 @@ class ProfileApp extends React.Component{
         return await res.json();
     } 
     getUserData = async () => {
-        if (window.location.pathname === '/profile/undefined%7D' || window.location.pathname === `https://verymagicduck.netlify.app/profile/${window.localStorage.getItem('id')}%7D`)
+        if (window.location.pathname === '/profile/undefined%7D' || window.location.pathname === `/profile/${window.localStorage.getItem('id')}%7D`)
         {
             window.location.pathname = `/profile/${window.localStorage.getItem('id')}`
         }
