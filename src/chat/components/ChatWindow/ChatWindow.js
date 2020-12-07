@@ -25,9 +25,12 @@ class ChatWindow extends React.Component{
       }
     
       onMessageReceived = (msg) => {
-        let messages = this.props.messages;
-        messages.push(msg);
-        this.props.getMessages(messages);
+        let arr = [];
+        arr.push(msg);
+        for (let i = 0; i < this.props.messages.length;++i){
+            arr.push(messages[i]);   
+        }
+        this.props.getMessages(arr);
       }
       sendMessage = (msg) => {
         this.clientRef.sendMessage('/app/user-all', JSON.stringify({chat_id: this.props.chatInfo.id, sender_id:window.localStorage.getItem('id'),
