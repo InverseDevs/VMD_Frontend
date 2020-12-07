@@ -23,7 +23,7 @@ class ChatInfo extends React.Component{
         if (this.props.chatInfo != null) {
         return (
             <div className="chat-info">
-                <div className={this.props.chatInfo.img != '' ? "chat-img-exist" : "chat-img"}>{this.props.chatInfo.img != ''? <img src={this.props.chatInfo.img} alt="chat-img" className="chat-img-icon"/> : null}</div>
+                {this.props.chatInfo.img != ''? <img src={this.props.chatInfo.img} alt="chat-img" className="chat-img-icon"/> : <div className="chat-img"></div>}
                 <p className="chat-info-name">{this.props.chatInfo.name != '' ? this.props.chatInfo.name : 'chatName'}</p>
                 <button onClick={this.deleteChat} className="delete-chat">Удалить</button>
             </div>
