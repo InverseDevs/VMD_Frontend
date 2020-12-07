@@ -57,12 +57,13 @@ class Chat extends React.Component {
     componentDidMount() {
         this.scrollToBottom();
         this.getMessages();
-        console.log(this.state.messages);
+
     }
     componentDidUpdate(){
         if (document.getElementById('slider-container').scrollTop != 0){
             this.scrollToBottom();
         }
+                console.log(this.state.messages);
         if (this.props.chatId != null && this.state.firstLoad != true){
             this.getMessages();
             this.setState({firstLoad:true})
