@@ -14,8 +14,12 @@ class Chat extends React.Component {
             firstLoad: false,
             chatId: null,
             load: false,
+            msgCame: false,
         }
 
+    }
+    setMsgCame = (bool) => {
+        this.setState({msgCame: bool});   
     }
     getData = async (url,data) => {
         const res = await fetch(url, {
@@ -61,7 +65,7 @@ class Chat extends React.Component {
 
     }
     componentDidUpdate(){
-        if (document.getElementById('slider-container').scrollTop > 10){
+        if (this.state.msgCame == true){
             this.scrollToBottom();
         }
            
@@ -119,7 +123,7 @@ class Chat extends React.Component {
                             </div>
                         </div>
                 </div>
-                <ChatInput sendMessage={this.props.sendMessage} onMessageSubmit={this.onMessageSubmit}/>
+                <ChatInput setMsgCame={this.setMsgCame} sendMessage={this.props.sendMessage} onMessageSubmit={this.onMessageSubmit}/>
             </div>
         );
     }
