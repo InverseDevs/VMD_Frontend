@@ -114,7 +114,7 @@ class Chat extends React.Component {
         return new_messages[0] != undefined ? new_messages.map(message => message.sender_id == window.localStorage.getItem('id') ? <MessageTo message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> : <MessageFrom message={message.message} sender_id={message.sender_id} sent_time={message.sent_time}/> ) : null;                    
      }
     render(){
-         const messages = this.renderMessages(this.props.messages.concat(this.state.messages))
+         const messages = this.renderMessages(this.state.messages.concat(this.props.messages))
             return(
             
             <div className="chat-container">
