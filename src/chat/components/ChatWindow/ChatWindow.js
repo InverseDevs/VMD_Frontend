@@ -28,7 +28,7 @@ class ChatWindow extends React.Component{
         let arr = [];
         arr.push(msg);
         for (let i = 0; i < this.props.messages.length;++i){
-            arr.push(messages[i]);   
+            arr.push(this.props.messages[i]);   
         }
         this.props.getMessages(arr);
       }
