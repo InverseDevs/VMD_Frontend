@@ -67,6 +67,7 @@ class Chat extends React.Component {
     componentDidUpdate(){
         if (this.state.msgCame == true){
             this.scrollToBottom();
+            this.setMsgCame(false);
         }
            
        // if (this.props.chatId != null && this.state.firstLoad != true){
