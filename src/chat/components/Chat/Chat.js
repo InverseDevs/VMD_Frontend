@@ -59,7 +59,6 @@ class Chat extends React.Component {
         this.getMessages();
     }
     componentDidUpdate(){
-        this.scrollToBottom()
         if (this.props.chatId != null && this.state.firstLoad != true){
             this.getMessages();
             this.setState({firstLoad:true})
@@ -105,7 +104,7 @@ class Chat extends React.Component {
             return(
             
             <div className="chat-container">
-                <div onScroll={this.onScrollBarChange} ref={this.top} className="chat" id="slider-container">
+                <div onScroll={this.onScrollBarChange}  className="chat" id="slider-container">
                         <div  className="messages-container" id="for-slider" >
                             {messages}
                             <div style={{ float:"left", clear: "both" }}
