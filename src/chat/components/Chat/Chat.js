@@ -44,7 +44,6 @@ class Chat extends React.Component {
                 if (this.state.firstLoad == true){
                     this.setState({first_idx: this.state.first_idx + 6})
                     this.setState({second_idx: this.state.second_idx + 6})
-                    document.getElementById('slider-container').scrollTop = 150;
                 }
                 this.setState({firstLoad: true})
             }
@@ -57,7 +56,7 @@ class Chat extends React.Component {
         event.preventDefault();
     }
     onScrollBarChange = () => {
-        if (document.getElementById('slider-container').scrollTop == 100){
+        if (document.getElementById('slider-container').scrollTop == 60){
             this.getMessages();
         }
     }
