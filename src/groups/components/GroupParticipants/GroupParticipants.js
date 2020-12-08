@@ -6,15 +6,15 @@ class GroupParticipants extends Component {
         super(props);
     }
 	makeAdmin = async() =>{
-        await this.postData(`https://inversedevs.herokuapp.com/group/admin/add/${this.props.groupId}`,{user_id: this.props.id})
+        await this.postData(`https://inversedevs.herokuapp.com/group/admin/add/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
         .then(data => console.log(data))
     }
 	deleteAdmin = async() =>{
-        await this.postData(`https://inversedevs.herokuapp.com/group/admin/remove/${this.props.groupId}`,{user_id: this.props.id})
+        await this.postData(`https://inversedevs.herokuapp.com/group/admin/remove/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
         .then(data => console.log(data))
     }
 	banUser= async() =>{
-        await this.postData(`https://inversedevs.herokuapp.com/group/ban/${this.props.groupId}`,{user_id: this.props.id})
+        await this.postData(`https://inversedevs.herokuapp.com/group/ban/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
         .then(data => console.log(data))
     }
     postData = async (url,data) => {
