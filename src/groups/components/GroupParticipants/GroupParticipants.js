@@ -28,7 +28,7 @@ class GroupParticipants extends Component {
         return res.json();
     } 
     checkAdmin = () => {
-	    console.log('admins',this.props.admins)
+	    
 	if (this.props.admins.length == 0){
 		return false	
 	}
@@ -40,6 +40,7 @@ class GroupParticipants extends Component {
 	    return false
     }
     render() { 
+	    console.log('admins',this.props.admins)
         const status = this.props.status === false || this.props.status === "false" ? <div className="part-offline"></div> : <div className="part-online"></div>
         return (
             
