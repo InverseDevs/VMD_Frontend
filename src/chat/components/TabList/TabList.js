@@ -30,8 +30,9 @@ class TabList extends React.Component {
     }
     render(){
    
-    const tabs = this.props.tabs != [] ? window.localStorage.getItem('tabs') != "" ?  this.renderTabs(JSON.parse(window.localStorage.getItem('tabs')).concat(this.props.tabs)) : null : window.localStorage.getItem('tabs') != "" ? this.renderTabs(JSON.parse(window.localStorage.getItem('tabs'))) : null;
-    return (
+    //const tabs = this.props.tabs != [] ? window.localStorage.getItem('tabs') != "" ?  this.renderTabs(JSON.parse(window.localStorage.getItem('tabs')).concat(this.props.tabs)) : null : window.localStorage.getItem('tabs') != "" ? this.renderTabs(JSON.parse(window.localStorage.getItem('tabs'))) : null;
+        const tabs = this.props.tabs != []? this.renderTabs(this.props.tabs) : null
+        return (
         <div className="tab-list">
             {tabs}
         </div>
