@@ -33,8 +33,9 @@ class GroupsContainer extends React.Component {
     render() { 
 	    
 	    if (this.state.groupInfo != null){
+		    console.log('admins from container', this.state.groupInfo.admins)
         return ( 
-		console.log('admins from container', this.state.groupInfo.admins)
+		
             <div className="groups-container">
                 
                 <GroupsHeader name={this.state.groupInfo.name} owner={this.state.groupInfo.owner_id} id={this.state.groupInfo.id} avatar={this.state.groupInfo.picture} admins={this.state.groupInfo.admins} banned={this.state.groupInfo.banned_users} members={this.state.groupInfo.members}/>
