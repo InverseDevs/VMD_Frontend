@@ -56,7 +56,7 @@ class Chat extends React.Component {
         event.preventDefault();
     }
     onScrollBarChange = () => {
-        if (document.getElementById('slider-container').scrollTop == 5){
+        if (document.getElementById('slider-container').scrollTop <= 15){
             this.getMessages();
         }
     }
