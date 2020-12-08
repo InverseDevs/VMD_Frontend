@@ -64,7 +64,7 @@ class Chat extends React.Component {
             document.getElementById('slider-container').scrollTop = 200;
         }
       if (document.getElementById('slider-container').scrollTop >= document.getElementById('slider-container').clientHeightt - 120){
-               document.getElementById('slider-container').scrollTop = document.getElementById('slider-container').scrollHeight-120;
+               document.getElementById('slider-container').scrollTop = document.getElementById('slider-container').scrollHeight-320;
        }
     }
 
