@@ -25,7 +25,7 @@ class GroupsPostModal extends Component {
     sendPost = async () => {
         
         await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.id}`, {sender : window.localStorage.getItem('username'), 
-                                                                                        content:this.state.postText, picture: this.state.photo,type: 'group' })
+                                                                                        content:this.state.postText, picture: this.state.photo,type: 'group' , attempter_id: window.localStorage.getItem('id')})
         .then(res => {console.log(res)});
         document.getElementById('textarea').value = '';
         this.props.getClosePost();
