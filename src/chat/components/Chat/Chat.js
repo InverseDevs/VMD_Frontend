@@ -9,7 +9,7 @@ class Chat extends React.Component {
         super(props);
         this.state={
             first_idx : 0,
-            second_idx : 6,
+            second_idx : 10,
             messages: [],
             firstLoad: false,
             chatId: null,
@@ -42,8 +42,8 @@ class Chat extends React.Component {
                     messages.push(data.messages[i])   
                 }
                 if (this.state.firstLoad == true){
-                    this.setState({first_idx: this.state.first_idx + 6})
-                    this.setState({second_idx: this.state.second_idx + 6})
+                    this.setState({first_idx: this.state.first_idx + 7})
+                    this.setState({second_idx: this.state.second_idx + 7})
                 }
                 this.setState({firstLoad: true})
             }
