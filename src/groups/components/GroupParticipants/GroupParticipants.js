@@ -28,7 +28,7 @@ class GroupParticipants extends Component {
         return res.json();
     } 
     checkAdmin = () => {
-	if (this.props.admins == ""){
+	if (this.props.admins.length == 0){
 		return false	
 	}
 	for (let i = 0; i < Object.values(this.props.admins).length; ++i){
