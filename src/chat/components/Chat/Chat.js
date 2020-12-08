@@ -72,7 +72,6 @@ class Chat extends React.Component {
     componentDidUpdate(){
         if (this.state.msgCame == true){
             this.scrollToBottom();
-            document.getElementById('slider-container').scrollTop = 100000;
             this.setMsgCame(false);
         }
            
@@ -126,11 +125,12 @@ class Chat extends React.Component {
                             {messages}
                            
                         </div>
-                             <div style={{ float:"left", clear: "both" }}
+                             
+                </div>
+        <div style={{ float:"left", clear: "both" }}
                                     ref={el => {this.el=el;}}>
                                 
                             </div>
-                </div>
                 <ChatInput setMsgCame={this.setMsgCame} sendMessage={this.props.sendMessage} onMessageSubmit={this.onMessageSubmit}/>
             </div>
         );
