@@ -38,7 +38,7 @@ class Friend extends React.Component {
         return (
 				<div className="friend">
                     <div className="friend-info">
-                        <div className="ava"></div>
+	      {this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar" alt="avatar" /> :<div className="ava"></div> } 
                         <div className="ava-devisor">
                         <div className="friend-name">
                             <Link to={`/profile/${this.props.id}`}>{this.props.name}</Link>
