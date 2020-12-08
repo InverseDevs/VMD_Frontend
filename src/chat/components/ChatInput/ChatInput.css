@@ -1,5 +1,6 @@
 .chat-form{
     display:flex;
+    margin-top: 30px;
 }
 .chat-input-container{
     width: 700px;
