@@ -62,6 +62,7 @@ class Chat extends React.Component {
     }
 
     componentDidMount() {
+        this.scrollToBottom();
         this.getMessages();
         this.scrollToBottom();
         this.el.scrollIntoView({behavior:"smooth"});
