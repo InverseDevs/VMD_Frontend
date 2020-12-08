@@ -70,10 +70,10 @@ class Chat extends React.Component {
 
     }
     componentDidUpdate(){
-        if (this.state.msgCame == true){
-            this.scrollToBottom();
-            this.setMsgCame(false);
-        }
+        //if (this.state.msgCame == true){
+          //  this.scrollToBottom();
+           // this.setMsgCame(false);
+        //}
            
        // if (this.props.chatId != null && this.state.firstLoad != true){
        //     this.getMessages();
@@ -117,6 +117,10 @@ class Chat extends React.Component {
      }
     render(){
          const messages = this.renderMessages(this.state.messages.concat(this.props.messages))
+        if (this.state.msgCame == true){
+            this.scrollToBottom();
+            this.setMsgCame(false);
+        }
             return(
             
             <div className="chat-container">
