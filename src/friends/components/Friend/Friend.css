@@ -17,6 +17,15 @@
     background: #C4C4C4;
     
 }
+.friend-avatar{
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+}
 
 .friend-name{
     display:flex;
