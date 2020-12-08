@@ -63,16 +63,16 @@ class FriendsApp extends React.Component {
 		return window.localStorage.getItem('id') === id;
 	}
 	renderItems(users){
-	return Object.values(users).map((user,idx) => user.id != window.localStorage.getItem('id') ? <User online={user.online} key={idx} id={user.id} name={user.name} /> : null );
+	return Object.values(users).map((user,idx) => user.id != window.localStorage.getItem('id') ? <User online={user.online} avatar={user.avatar} key={idx} id={user.id} name={user.name} /> : null );
 	}	
 	renderFriends(friends) {
-		return Object.values(friends).map((friend,id) => <Friend online={friend.online} key={id} name={friend.name} id={friend.id}/>)
+		return Object.values(friends).map((friend,id) => <Friend online={friend.online} avatar={friend.avatar} key={id} name={friend.name} id={friend.id}/>)
 	}
 	renderOnline(users){
-		return Object.values(users).map((user,idx) => user.id != window.localStorage.getItem('id') && (user.online === "true" || user.online === true) ? <Friend online={user.online} key={idx} id={user.id} name={user.name} /> : null );
+		return Object.values(users).map((user,idx) => user.id != window.localStorage.getItem('id') && (user.online === "true" || user.online === true) ? <Friend avatar={user.avatar} online={user.online} key={idx} id={user.id} name={user.name} /> : null );
 	}
 	renderRequests(requests){
-		return Object.values(requests).map((user,idx) =>  <FriendRequest online={user.online} key={idx} id={user.id} name={user.name} /> );
+		return Object.values(requests).map((user,idx) =>  <FriendRequest online={user.online} key={idx} id={user.id} name={user.name} avatar={user.avatar} /> );
 	}
 	checkId = (users,friends) => {
 		let notFriends = []
@@ -96,7 +96,7 @@ class FriendsApp extends React.Component {
 		let friends = Object.values(this.state.friends)
 		let notFriends = this.checkId(users,friends)
 		foundUsers = notFriends.filter(user => ((user.name.includes(this.state.search) || user.name.toLowerCase().includes(this.state.search))))
-		return Object.values(foundUsers).map((user,idx) => user.id != window.localStorage.getItem('id')  ? <User online={user.online} key={idx} id={user.id} name={user.name} /> : null )
+		return Object.values(foundUsers).map((user,idx) => user.id != window.localStorage.getItem('id')  ? <User online={user.online}  avatar={user.avatar} key={idx} id={user.id} name={user.name} /> : null )
 	}
     render(){
 		const items = this.renderItems(this.state.users);
