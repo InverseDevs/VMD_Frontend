@@ -33,7 +33,7 @@ class GroupsContainer extends React.Component {
     render() { 
 	    
 	    if (this.state.groupInfo != null){
-		    console.log('admins from container', this.state.admins)
+		    console.log('admins from container', this.state.groupInfo)
         return ( 
 		
             <div className="groups-container">
