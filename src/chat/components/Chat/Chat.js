@@ -72,6 +72,7 @@ class Chat extends React.Component {
     componentDidUpdate(){
         if (this.state.msgCame == true){
             this.scrollToBottom();
+            document.getElementById('slider-container').scrollTop = 100000;
             this.setMsgCame(false);
         }
            
