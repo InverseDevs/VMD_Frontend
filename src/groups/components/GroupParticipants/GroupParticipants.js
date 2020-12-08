@@ -28,6 +28,7 @@ class GroupParticipants extends Component {
         return res.json();
     } 
     checkAdmin = () => {
+	    console.log('admins',this.props.admins)
 	if (this.props.admins.length == 0){
 		return false	
 	}
