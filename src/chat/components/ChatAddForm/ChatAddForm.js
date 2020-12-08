@@ -47,7 +47,7 @@ componentDidMount(){
 }
 renderFriends(friends) {
     console.log(friends);
-    return Object.values(friends).map((friend,id) => <Friend getShow={this.props.getShow} onClick={this.createChat} online={friend.online} key={id} name={friend.name} id={friend.id}/>)
+    return Object.values(friends).map((friend,id) => <Friend getShow={this.props.getShow} avatar={friend.avatar} onClick={this.createChat} online={friend.online} key={id} name={friend.name} id={friend.id}/>)
 }
   render()
   {
