@@ -123,14 +123,14 @@ class Chat extends React.Component {
                 <div onScroll={this.onScrollBarChange}  className="chat" id="slider-container">
                         <div  className="messages-container" id="for-slider" >
                             {messages}
-                           
-                        </div>
-                             
-                </div>
-        <div style={{ float:"left", clear: "both" }}
+                             <div style={{ float:"left", clear: "both" }}
                                     ref={el => {this.el=el;}}>
                                 
                             </div>
+                        </div>
+                             
+                </div>
+      
                 <ChatInput setMsgCame={this.setMsgCame} sendMessage={this.props.sendMessage} onMessageSubmit={this.onMessageSubmit}/>
             </div>
         );
