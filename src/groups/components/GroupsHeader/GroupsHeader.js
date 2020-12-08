@@ -155,7 +155,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants admin={
 
     }
     render() { 
-        console.log('admins from header', this.props.admins)
+        console.log('admins from header:', this.props.admins)
         const members = this.renderMembers(this.props.members,this.props.banned);
         const banned = this.renderBanned(this.props.banned);
         return ( 
