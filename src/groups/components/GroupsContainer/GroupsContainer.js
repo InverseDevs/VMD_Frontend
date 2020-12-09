@@ -31,12 +31,13 @@ class GroupsContainer extends React.Component {
         this.getGroup();
     }
 	checkAdmin = () => {
+
+		if(this.state.groupInfo.owner_id == window.localStorage.getItem('id')){
+			return true;	
+		}
 		if (this.state.groupInfo.admins == '')
 		{
 			return false;	
-		}
-		if(this.state.groupInfo.owner_id == window.localStorage.getItem('id')){
-			return true;	
 		}
 		for (let i = 0; i < Object.values(this.state.groupInfo.admins).length;++i)
 		{
