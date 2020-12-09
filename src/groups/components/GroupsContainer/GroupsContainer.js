@@ -49,7 +49,7 @@ class GroupsContainer extends React.Component {
     render() { 
 	    
 	    if (this.state.groupInfo != null){
-		  
+		  console.log('check',this.checkAdmin());
         return ( 
 		
             <div className="groups-container">
