@@ -30,16 +30,32 @@ class GroupsContainer extends React.Component {
     componentDidMount(){
         this.getGroup();
     }
+	checkAdmin = () => {
+		if (this.state.groupInfo.admins == '')
+		{
+			return false;	
+		}
+		if(this.state.groupInfo.owner_id == window.localStorage.getItem('id')){
+			return true;	
+		}
+		for (let i = 0; i < Object.values(this.state.groupInfo.admins).length;++i)
+		{
+			if (Object.values(this.state.groupInfo.admins)[i].id == window.localStorage.getItem('id')){
+				return true;	
+			}
+		}
+		return false;
+	}
     render() { 
 	    
 	    if (this.state.groupInfo != null){
-		    console.log('admins from container', this.state.groupInfo)
+		  
         return ( 
 		
             <div className="groups-container">
                 
                 <GroupsHeader name={this.state.groupInfo.name} owner={this.state.groupInfo.owner_id} id={this.state.groupInfo.id} avatar={this.state.groupInfo.picture} admins={this.state.groupInfo.admins != '' ? this.state.groupInfo.admins : []} banned={this.state.groupInfo.banned_users} members={this.state.groupInfo.members}/>
-                <hr className="groups-break-line" />
+                <hr className={this.checkAdmin() == true ? "groups-break-line" : "groups-break-line-user"} />
                 <GroupsFooter posts={this.state.groupInfo.posts}/>
             </div>
          );
