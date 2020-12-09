@@ -53,7 +53,7 @@ class GroupParticipants extends Component {
                             {this.props.name}</div>
 	      </div>
                             {status}
-	    {this.props.owner == true ?         <button onClick={this.checkAdmin == false ? this.makeAdmin: this.deleteAdmin} className="delete-friend make-admin">{this.checkAdmin == false ? 'Сделать администратором' : 'Убрать из администраторов'}</button> : null}
+	    {this.props.owner == true ?         <button onClick={this.checkAdmin() == false ? this.makeAdmin: this.deleteAdmin} className="delete-friend make-admin">{this.checkAdmin() == false ? 'Сделать администратором' : 'Убрать из администраторов'}</button> : null}
 	    {this.props.admin == true || this.props.owner == true ? <button onClick={this.banUser} className="delete-friend ban-user">Забанить</button> : null}
                     
 				</div>
