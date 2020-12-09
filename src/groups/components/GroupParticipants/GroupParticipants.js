@@ -29,7 +29,7 @@ class GroupParticipants extends Component {
     } 
     checkAdmin = () => {
 	    
-	if (this.props.admins.length == 0){
+	if (this.props.admins == []){
 		return false	
 	}
 	for (let i = 0; i < Object.values(this.props.admins).length; ++i){
