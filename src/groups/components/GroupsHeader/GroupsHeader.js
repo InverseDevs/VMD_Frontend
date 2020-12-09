@@ -144,6 +144,10 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants admin={
         return false;
      }
     componentDidMount(){
+        if (window.location.pathname === `/groups/${this.props.id}`)
+        {
+            window.location.pathname = `/groups/${this.props.link}`
+        }
         if (this.props.owner == window.localStorage.getItem('id')){
             this.setState({isOwner: true});   
         }
