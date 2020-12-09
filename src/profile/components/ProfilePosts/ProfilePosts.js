@@ -46,7 +46,7 @@ class ProfilePosts extends React.Component {
     renderItems(posts){
         return Object.values(posts).map(post => {
                 return (
-                    <ProfilePost photo={post.picture} likes={post.likes} comments={post.comments} userId={window.localStorage.getItem('id')} token={window.localStorage.getItem('token')} Postid={post.id} key={post.id} name={post.sender.name} avatar={post.sender.avatar} content={post.content} time={post.sent_time}/>
+                    <ProfilePost photo={post.picture} likes={post.likes} comments={post.comments} userId={window.localStorage.getItem('id')} token={window.localStorage.getItem('token')} Postid={post.id} key={post.id} name={post.sender.name} senderId={post.sender.id} avatar={post.sender.avatar} content={post.content} time={post.sent_time}/>
                 )
         });
     }
