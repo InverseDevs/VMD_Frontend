@@ -77,10 +77,10 @@ class ProfileInnerComment extends React.Component {
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-container">
           
-          {this.props.avatar != ''? <img src={this.props.avatar} className="comment-img" alt="avatar"/> : <div className="comment-img"></div>}
+          <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != ''? <img src={this.props.avatar} className="comment-img" alt="avatar"/> : <div className="comment-img"></div>}</Link>
           <div className="comment-body">
             <div className="comment-info">
-            <Link to="/" className="comment-profile-link">{this.props.name}</Link>
+            <Link to={`/profile/${this.props.senderId}`} className="comment-profile-link">{this.props.name}</Link>
             <div className="like-number-comms">{Object.values(this.props.likes).length}</div>
             <button className="like" onClick={this.likeComment}><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : liked}/></button>
             <p className="comment-date">
