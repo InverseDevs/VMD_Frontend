@@ -26,7 +26,7 @@ class Registration extends React.Component{
             this.setState({validated: true});   
         }
         else{
-            this.setState({validated: false)};   
+            this.setState({validated: false});   
         }
         this.setState({email:e.target.value});
     }
