@@ -36,7 +36,7 @@ class FriendsApp extends React.Component {
 		let data = []
         await this.getData(`https://inversedevs.herokuapp.com/api/users`)
         .then(data => {
-			this.setState({users: data}); return data
+			this.setState({users: data.users}); return data
         }).then(data => data = data)
        return data
     }
