@@ -26,14 +26,15 @@ class Chats extends React.Component {
     getChats = async () => {
         await this.getData(`https://inversedevs.herokuapp.com/chats/${window.localStorage.getItem('id')}`)
         .then(data => {
-            console.log(data);
             this.setState({groups:data.chats})
         })
        
     }
     checkUsers = (groups,users) => {
-           for (let i = 0; i < Object.values(groups).length; ++i){
-                if (Object.values(groups)[i].users == users){
+           console.log(users)
+           
+           for (let i = 0; i <groups.length; ++i){
+                if (groups[i].users == users){
                  return true;   
                 }
            }
@@ -48,9 +49,6 @@ class Chats extends React.Component {
 }
     render(){
     const groups = this.renderGroups(this.state.groups);
-    console.log('groups',this.state.groups);
-    console.log('Object',Object.values(this.state.groups));
-    console.log('rendered',groups);
     return (
         
         <div className="chats">
