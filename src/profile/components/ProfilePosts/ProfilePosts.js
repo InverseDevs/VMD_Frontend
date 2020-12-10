@@ -26,7 +26,7 @@ class ProfilePosts extends React.Component {
         }
         await this.getData(`https://inversedevs.herokuapp.com/posts/${window.location.pathname.slice(9)}`)
         .then(data => {
-            this.setState({posts: data}
+            this.setState({posts: data.posts}
                ); 
         })
        
