@@ -69,6 +69,11 @@ class Chat extends React.Component {
     componentDidMount() {
         this.scrollToBottom();
         this.getMessages();
+        for (let i = 0; i < Object.values(this.state.messages).length; ++i){
+            if (Object.values(this.state.messages)[i].sender_id != window.localStorage.getItem('id')){
+                this.props.getUserId(Object.values(this.state.messages)[i].sender_id); 
+            }
+        }
         this.scrollToBottom();
         this.el.scrollIntoView({behavior:"smooth"});
 
