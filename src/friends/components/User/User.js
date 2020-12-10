@@ -36,7 +36,7 @@ class User extends React.Component {
             
 				<div className="friend">
                     <div className="friend-info">
-                          {this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar" alt="avatar" /> :<div className="ava"></div> } 
+                         <Link to={`/profile/${this.props.id}`} >{{this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar" alt="avatar" /> :<div className="ava"></div> }</Link> 
                         <div className="ava-devisor">
                         <div className="friend-name">
                             <Link to={`/profile/${this.props.id}`} >{this.props.name}</Link>
