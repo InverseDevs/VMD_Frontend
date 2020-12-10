@@ -32,7 +32,7 @@ class Chats extends React.Component {
     }
     checkUsers = (groups,users) => {
            console.log(users)
-           
+           console.log(groups[0].users)
            for (let i = 0; i <groups.length; ++i){
                 if (groups[i].users == users){
                  return true;   
