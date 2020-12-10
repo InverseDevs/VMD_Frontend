@@ -1,6 +1,6 @@
 import React from 'react';
 import './ChatInfo.css';
-
+import {Link} from 'react-router-dom';
 class ChatInfo extends React.Component{
     constructor(props) {
         super(props);
