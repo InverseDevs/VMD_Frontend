@@ -56,8 +56,7 @@ class ProfileComments extends React.Component {
             )
         }
          else{
-            console.log(this.state.sender)
-            console.log(window.localStorage.getItem('name'))
+
             await this.postData(`https://inversedevs.herokuapp.com/comment/comment/${this.state.commentId}`,
             {   sender: window.localStorage.getItem('username'),
                 content: this.state.comment,

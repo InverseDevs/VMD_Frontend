@@ -24,7 +24,7 @@ class ProfileInnerComment extends React.Component {
       e.preventDefault();
       await this.postData(`https://inversedevs.herokuapp.com/like/comment/${this.props.commentId}`,
       {   userId: `${window.localStorage.getItem('id')}`
-       }).then(data => {console.log(data)
+       }).then(data => {
       if (data.status === 'added' || data.status === 'removed'){
         this.setState({like: !this.state.like});
       }
@@ -42,7 +42,7 @@ class ProfileInnerComment extends React.Component {
   } 
      deleteComment = async (e) => {
       e.preventDefault();
-      await this.postDeleteData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`).then(data => console.log(data)
+      await this.postDeleteData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`)
     
     )
      }

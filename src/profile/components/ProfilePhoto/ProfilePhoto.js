@@ -63,7 +63,6 @@ class ProfilePhoto extends React.Component{
     sendAvatar = async () => {
 
         await this.postData(`https://inversedevs.herokuapp.com/avatar/${window.localStorage.getItem('id')}`, {avatar: this.state.photo})
-        .then(res => {console.log(res)});
         this.setState({dataChanged:true});
         this.props.getChanged(this.dataChanged);
         this.setState({dataChanged: false});

@@ -39,7 +39,6 @@ class ProfilePost extends React.Component {
         {
             userId: window.localStorage.getItem('id')
          })
-         .then(data => console.log(data))
     }
     showCommentsModal = () => {
         this.setState({ showComments: true });

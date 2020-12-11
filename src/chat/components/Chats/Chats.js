@@ -31,9 +31,7 @@ class Chats extends React.Component {
        
     }
     checkUsers = (groups,users) => {
-           console.log('1',users)
-           console.log('2',groups[0].users)
-           console.log('check',users == groups[0].users)
+
            for (let i = 0; i <groups.length; ++i){
                 if (groups[i].users == users){
                  return true;   
@@ -48,6 +46,9 @@ class Chats extends React.Component {
         this.getChats();
 
 }
+    componentDidUpdate(){
+        this.getChats();
+    }
     render(){
     const groups = this.renderGroups(this.state.groups);
     return (

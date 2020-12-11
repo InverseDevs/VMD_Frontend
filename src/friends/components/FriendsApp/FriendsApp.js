@@ -53,6 +53,10 @@ class FriendsApp extends React.Component {
 		this.getUsers();
 		this.getFriends();
 	}
+	componentDidUpdate(){
+		this.getUsers();
+		this.getFriends();
+	}
 	//componentDidUpdate(){
 	//	this.getUsers();
 	//	this.getFriends();

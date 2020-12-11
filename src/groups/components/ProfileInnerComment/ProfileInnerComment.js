@@ -24,7 +24,7 @@ class ProfileInnerComment extends React.Component {
       e.preventDefault();
       await this.postData(`https://inversedevs.herokuapp.com/like/comment/${this.props.commentId}`,
       {   userId: `${window.localStorage.getItem('id')}`
-       }).then(data => {console.log(data)
+       }).then(data => {
       if (data.status === 'added' || data.status === 'removed'){
         this.setState({like: !this.state.like});
       }
@@ -42,9 +42,7 @@ class ProfileInnerComment extends React.Component {
   } 
      deleteComment = async (e) => {
       e.preventDefault();
-      await this.postDeleteData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`).then(data => console.log(data)
-    
-    )
+      await this.postDeleteData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`)
      }
     onUserClick = ()=>{
         this.props.setSender(this.props.name);
@@ -76,11 +74,11 @@ class ProfileInnerComment extends React.Component {
         return (
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-container">
-          
-          {this.props.avatar != ''? <img src={this.props.avatar} className="comment-img" alt="avatar"/> : <div className="comment-img"></div>}
+          <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != ''? <img src={this.props.avatar} className="comment-img-exists" alt="avatar"/> : <div className="comment-img"></div>}</Link>
+
           <div className="comment-body">
             <div className="comment-info">
-            <Link to="/" className="comment-profile-link">{this.props.name}</Link>
+            <Link to={`/profile/${this.props.senderId}`} className="comment-profile-link">{this.props.name}</Link>
             <div className="like-number-comms">{Object.values(this.props.likes).length}</div>
             <button className="like" onClick={this.likeComment}><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : liked}/></button>
             <p className="comment-date">

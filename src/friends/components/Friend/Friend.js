@@ -18,9 +18,6 @@ class Friend extends React.Component {
     deleteFriend = async (e) => {
         e.preventDefault();
         await this.postData(`https://inversedevs.herokuapp.com/friends/remove/${this.props.id}`, {id: window.localStorage.getItem('id')})
-        .then(res => {console.log(res)
-            
-        });
     }
     createChat = async () => {
      
@@ -28,7 +25,6 @@ class Friend extends React.Component {
             ids.push(window.localStorage.getItem('id'));
             ids.push(this.props.id);
             await this.postData('https://inversedevs.herokuapp.com/chat/create', {users: ids})
-            .then(res => console.log(res));
 	    if (this.props.getShow){
 		this.props.getShow(false);    
 	    }

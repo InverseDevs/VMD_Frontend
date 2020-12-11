@@ -26,15 +26,12 @@ class GroupsHeader extends React.Component {
     }
     joinGroup = async() => {
         await this.postData(`https://inversedevs.herokuapp.com/group/join/${this.props.id}`, {user_id: window.localStorage.getItem('id')})
-        .then(data => console.log(data))
     }
     leaveGroup = async () => {
         await this.postData(`https://inversedevs.herokuapp.com/group/leave/${this.props.id}`, {user_id: window.localStorage.getItem('id')})
-        .then(data => console.log(data))
     }
     avatarGroup = async() =>{
         await this.postData(`https://inversedevs.herokuapp.com/group/avatar/${this.props.id}`,{picture: this.state.groupPhoto})
-        .then(data => console.log(data))
     }
     postData = async (url,data) => {
         const res = await fetch(url, {
@@ -111,7 +108,6 @@ class GroupsHeader extends React.Component {
                 new_members.push(Object.values(members)[i])
             }
         }
-        console.log(new_members);
         new_members = Object.values(new_members).filter(member =>this.state.searchMembers != ''? member.name.includes(this.state.searchMembers) || member.name.toLowerCase().includes(this.state.searchMember) : member)       
 return Object.values(new_members).map((member,idx) => <GroupParticipants admin={this.state.isAdmin} admins={this.props.admins} owner={this.state.isOwner} key={idx} groupId={this.props.id} id={member.id} avatar={member.avatar} name={member.name} status={member.online}/>)
                                               }
@@ -159,7 +155,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants admin={
 
     }
     render() { 
-        console.log('admins from header:', this.props.admins)
+
         const members = this.renderMembers(this.props.members,this.props.banned);
         const banned = this.renderBanned(this.props.banned);
         return ( 

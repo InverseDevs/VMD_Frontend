@@ -55,7 +55,7 @@ sendInfo = async () => {
   birth_date: this.state.birth,
   languages: this.state.lang,
   phone: this.state.phone,
-  hobbies: this.state.hobby}).then(res => console.log(res))
+  hobbies: this.state.hobby})
   document.getElementById('name-f').value = '';
   document.getElementById('town-f').value = '';
   document.getElementById('study-f').value = '';

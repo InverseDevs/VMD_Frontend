@@ -24,8 +24,6 @@ class TabList extends React.Component {
             }
         }
       
-        console.log('new',new_tabs)
-        console.log('old',tabs)
         return new_tabs[0] != undefined ? Object.values(new_tabs).map((tab,i) => <Tab key={i} getMessages={this.props.getMessages} getInfo={this.props.getInfo} chatInfo={this.props.chatInfo} closeTab={this.props.closeTab} name={tab.name} avatar={tab.avatar} id={tab.id}/>) : null
     }
     render(){

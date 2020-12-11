@@ -17,17 +17,12 @@ class FriendRequest extends React.Component {
     AddFriend = async (e) => {
         e.preventDefault();
         await this.postData(`https://inversedevs.herokuapp.com/friends/accept/${this.props.id}`, {id: window.localStorage.getItem('id')})
-        .then(res => {console.log(res)
-            
-        });
     }
 
     DeclineFriend = async (e) => {
         e.preventDefault();
         await this.postData(`https://inversedevs.herokuapp.com/friends/decline/${this.props.id}`, {id: window.localStorage.getItem('id')})
-        .then(res => {console.log(res)
-            
-        });
+
     }
 
     render(){

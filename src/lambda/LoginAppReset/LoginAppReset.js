@@ -29,7 +29,6 @@ class LoginAppReset extends React.Component {
         .then(data =>  {
             if (data.status !== undefined){
                 this.setState({error: data.status});
-                console.log(this.state.error);
             } 
             if (data.status == 'success'){
                 this.setState({correct: true});
