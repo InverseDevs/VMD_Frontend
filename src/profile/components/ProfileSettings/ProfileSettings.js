@@ -20,7 +20,7 @@ class ProfileSettings extends React.Component {
         validatedLang: true,
         validatedPhone: true,
         validatedHobby: true,
-      
+
     }
   }
   handleNameChange= (e) => {
@@ -132,12 +132,15 @@ sendInfo = async () => {
   }
   }
   render()
-  { 
+
+  {
     let check = this.state.validatedName && this.state.validatedTown && this.state.validatedStudy && this.state.validatedLang && this.state.validatedPhone && this.state.validatedHobby;
       return (
         <div className="settings">
             <h6 className="modal-title">Настройки</h6>
+
             <p className="check-email max">{check == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
+
             <input onChange={this.handleNameChange} id="name-f" type="text" className={this.state.validatedName == true ? "set-field" : "set-field-invalid"} placeholder="Имя" />
             <input onChange={this.handleTownChange} id="town-f" type="text" className={this.state.validatedTown == true ? "set-field" : "set-field-invalid"} placeholder="Город" />
             <input onChange={this.handleStudyChange} id="study-f" type="text" className={this.state.validatedStudy == true ? "set-field" : "set-field-invalid"} placeholder="Место учёбы" />
