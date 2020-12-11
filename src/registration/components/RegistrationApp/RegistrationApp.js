@@ -47,6 +47,7 @@ class Registration extends React.Component{
         return await res.json();
     } 
     submitForm = async (e) => {
+        if (this.state.validated == true) {
         e.preventDefault();
         this.setState({error: ''});
         this.setState({same_password: true})
@@ -66,7 +67,8 @@ class Registration extends React.Component{
             if (data.status === 'success' && this.state.same_password == true){
                 this.setState({success: true});
             }
-        })}else{this.setState({same_password: false, success:false})} };
+        })}else{this.setState({same_password: false, success:false})} }
+    };
 
         err_msg = () => {
         if (this.state.error == 'user already exists'){
@@ -95,6 +97,7 @@ class Registration extends React.Component{
                 <p id="reg-form-title">Регистрация</p>
                 </div>
                 <p className="error-msg">{`${this.err_msg()}`}</p>
+                <p className="check-email">{this.state.validated == false ? 'Вы ввели почту в неправильном формате' : null}</p>
                 <p className="check-email">{this.state.success === true ? 'Подтвердите регистрацию на почте' : ''}</p>
                 <input onChange={this.handleEmailChange} type="email" name="email" id={this.state.validated == true ? "reg-email-field" : "reg-email-field-incorrect"} placeholder="Почта" required autoFocus/>
                 <input onChange={this.handleLoginChange} type="text" name="login" id="reg-login-field" placeholder="Логин" required/>

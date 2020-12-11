@@ -16,6 +16,24 @@
         border: 1px solid  #48BF4A;
    
 } 
+.comment-input-invalid{
+    margin-top: 20px;
+
+    font-family: 'Source Serif Pro', sans-serif;
+    border:none;
+    resize:none;
+    outline:none;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    height: 160px;
+    font-size:17px;
+    width: 865px;
+    border-radius: 50px;
+    border: 1px solid  red;
+
+} 
 .comment-input::-webkit-scrollbar{
     width:0;
     height:0;

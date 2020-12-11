@@ -90,6 +90,23 @@
     border-radius: 25px;
     box-shadow: 0 1px 3px inset;
 }
+.post-input-invalid{
+    margin-left: 45px;
+    margin-top: 10px;
+    font-family: 'Source Serif Pro', sans-serif;
+    border: 1px solid red;
+    resize:none;
+    outline:none;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 330px;
+    font-size:17px;
+    width: 810px;
+    border: 1px solid white;
+    border-radius: 25px;
+    box-shadow: 0 1px 3px inset;
+}
 .post-create-img{
     margin-left: 45px;
     width: 860px;

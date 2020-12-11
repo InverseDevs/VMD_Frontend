@@ -10,6 +10,7 @@ class ProfileInfo extends React.Component{
         postText: '',
         photo: '',
         dataChanged: false,
+        validated: true,
     }
 
 }
@@ -34,6 +35,12 @@ getFile = () => {
   
 }
     handlePostTextChange= (e) => {
+        var regexp = /^[a-z\s]+$/i;
+   if(!regexp.test(e.target.value)) {
+      this.setState({validated: false})
+   }else{
+     this.setState({validated: true})
+   }
         this.setState({postText:e.target.value});
     }
     onCheckInfo = () => {
@@ -60,7 +67,7 @@ getFile = () => {
     } 
 
     sendPost = async () => {
-        
+        if (this.state.validated == true){
         await this.postData(`https://inversedevs.herokuapp.com/post/${this.props.userData.id}`, {sender : window.localStorage.getItem('username'), content:this.state.postText, picture: this.state.photo, type: 'user', attempter_id: window.localStorage.getItem('id')})
 
 
@@ -68,6 +75,7 @@ getFile = () => {
         this.setState({dataChanged:true})
         this.props.getChanged(this.state.dataChanged);
         this.setState({dataChanged:false});
+        }
     }
     render() {
         const status = this.props.userData.online === false ? <div className="offline"></div> : <div className="online"></div>
@@ -96,7 +104,8 @@ getFile = () => {
                                     <div id="post-img-container">
                                         <div className="post-create-img" id="post-create-img"></div> 
                                     </div>
-                                    <textarea onChange={this.handlePostTextChange} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
+                                    <p className="check-email">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
+                                    <textarea onChange={this.handlePostTextChange} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className={this.state.validated == true ? "post-input" : "post-input-invalid"} />
 
                             </form>
                             <input type="submit" className="post-send" value="Отправить" onClick={()=>{this.setState({show:false}); this.sendPost();
