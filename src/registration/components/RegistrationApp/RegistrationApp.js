@@ -98,7 +98,7 @@ class Registration extends React.Component{
                 </div>
                 <p className="error-msg">{`${this.err_msg()}`}</p>
                 <p className="check-email">{this.state.validated == false ? 'Вы ввели почту в неправильном формате' : null}</p>
-                <p className="check-email">{this.state.success === true ? 'Подтвердите регистрацию на почте' : ''}</p>
+                <p className="check-email-valid">{this.state.success === true ? 'Подтвердите регистрацию на почте' : ''}</p>
                 <input onChange={this.handleEmailChange} type="email" name="email" id={this.state.validated == true ? "reg-email-field" : "reg-email-field-incorrect"} placeholder="Почта" required autoFocus/>
                 <input onChange={this.handleLoginChange} type="text" name="login" id="reg-login-field" placeholder="Логин" required/>
                 <input onChange={this.handlePasswordChange} type="password" name="pass" id="reg-pass-field" placeholder="Пароль" required/>

@@ -36,6 +36,12 @@ handleCommentChange = (e) => {
         }
     }
     else{
+        var regexp = /^[a-z\s]+$/i;
+        if(!regexp.test(e.target.value)) {
+           this.setState({validated: false})
+        }else{
+          this.setState({validated: true})
+        }
     this.setState({comment: e.target.value})
     }
 }

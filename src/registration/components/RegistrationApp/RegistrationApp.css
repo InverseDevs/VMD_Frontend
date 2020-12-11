@@ -186,6 +186,11 @@ form #reg-btn{
 .check-email{
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
+    margin-bottom: 2px;
+}
+.check-email-valid{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
     margin-left: 15%;
     margin-bottom: 2px;
     max-width: 70%;
