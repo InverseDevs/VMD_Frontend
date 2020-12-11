@@ -16,6 +16,9 @@
     font-family: 'Source Serif Pro', sans-serif;
     box-shadow: 0 1px 3px inset;
 }
+.max{
+    max-width: 70%;
+}
 .set-field-invalid{
     display:block;
     width: 70%;

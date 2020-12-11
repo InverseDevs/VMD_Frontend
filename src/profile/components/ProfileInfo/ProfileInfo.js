@@ -104,7 +104,7 @@ getFile = () => {
                                     <div id="post-img-container">
                                         <div className="post-create-img" id="post-create-img"></div> 
                                     </div>
-                                    <p className="check-email">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
+                                    <p className="check-email ml">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
                                     <textarea onChange={this.handlePostTextChange} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className={this.state.validated == true ? "post-input" : "post-input-invalid"} />
 
                             </form>

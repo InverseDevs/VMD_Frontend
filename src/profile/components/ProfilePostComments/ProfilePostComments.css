@@ -25,7 +25,7 @@
         border-radius: 50px;
         border: 1px solid  #48BF4A;
 }
-.comment-post-input-invalid{
+.comment-post-input-validated{
     margin-top: 20px;
 
         font-family: 'Source Serif Pro', sans-serif;
