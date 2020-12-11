@@ -43,8 +43,7 @@ class ProfileInnerComment extends React.Component {
      deleteComment = async (e) => {
       e.preventDefault();
       await this.postDeleteData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`)
-    
-    )
+
      }
     onUserClick = ()=>{
         this.props.setSender(this.props.name);
