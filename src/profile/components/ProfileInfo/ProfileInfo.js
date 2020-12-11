@@ -35,7 +35,7 @@ getFile = () => {
   
 }
     handlePostTextChange= (e) => {
-        var regexp = /^[a-z\s]+$/i;
+        var regexp = /^[a-z\s,]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validated: false})
    }else{

@@ -20,7 +20,7 @@ setSender = (username) => {
 }
 handleCommentChange = (e) => {
     if (this.state.sender !== ''){
-        var regexp = /^[a-z\s]+$/i;
+        var regexp = /^[a-z\s,]*$/i;
             if(!regexp.test(e.target.value)) {
                this.setState({validated: false})
             }else{
@@ -36,7 +36,7 @@ handleCommentChange = (e) => {
         }
     }
     else{
-        var regexp = /^[a-z\s]+$/i;
+        var regexp = /^[a-z\s,]*$/i;
         if(!regexp.test(e.target.value)) {
            this.setState({validated: false})
         }else{

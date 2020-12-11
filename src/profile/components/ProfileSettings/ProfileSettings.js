@@ -20,10 +20,11 @@ class ProfileSettings extends React.Component {
         validatedLang: true,
         validatedPhone: true,
         validatedHobby: true,
+        validated: this.state.validatedName && this.state.validatedTown && this.state.validatedStudy && this.state.validatedLang && this.state.validatedPhone && this.state.validatedHobby,
     }
   }
   handleNameChange= (e) => {
-    var regexp = /^[a-z\s]+$/i;
+    var regexp = /^[a-z\s,]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedName: false})
    }else{
@@ -32,7 +33,7 @@ class ProfileSettings extends React.Component {
     this.setState({name:e.target.value});
 }
 handleTownChange= (e) => {
-  var regexp = /^[a-z\s]+$/i;
+  var regexp = /^[a-z\s,]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedTown: false})
    }else{
@@ -41,7 +42,7 @@ handleTownChange= (e) => {
     this.setState({town:e.target.value});
 }
 handleStudyChange= (e) => {
-  var regexp = /^[a-z\s]+$/i;
+  var regexp = /^[a-z\s,]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedStudy: false})
    }else{
@@ -50,14 +51,14 @@ handleStudyChange= (e) => {
     this.setState({study:e.target.value});
 }
 handleBirthChange= (e) => {
-  var regexp = /^[a-z\s]+$/i;
+  var regexp = /^[a-z\s,]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validated: false})
    }
     this.setState({birth:e.target.value});
 }
 handleLangChange= (e) => {
-  var regexp = /^[a-z\s]+$/i;
+  var regexp = /^[a-z\s,]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedLang: false})
    }else{
@@ -66,7 +67,7 @@ handleLangChange= (e) => {
     this.setState({lang:e.target.value});
 }
 handlePhoneChange= (e) => {
-  var reg = /^[\d]+$/;
+  var reg = /^[\d]*$/;
    if(!reg.test(e.target.value)) {
       this.setState({validatedPhone: false})
    }else{
@@ -75,7 +76,7 @@ handlePhoneChange= (e) => {
     this.setState({phone:e.target.value});
 }
 handleHobbyChange= (e) => {
-  var regexp = /^[a-z\s]+$/i;
+  var regexp = /^[a-z\s,]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedHobby: false})
    }else{
@@ -94,7 +95,7 @@ postData = async (url,data) => {
   return res.json();
 } 
 sendInfo = async () => {
-  if (this.state.validatedName && this.state.validatedTown && this.state.validatedStudy && this.state.validatedLang && this.state.validatedPhone && this.state.validatedHobby){
+  if (this.state.validated == true){
     await this.postData(`https://inversedevs.herokuapp.com/api/users/change/${window.localStorage.getItem('id')}`, 
     {name : this.state.name, 
       birth_town:this.state.town, 
@@ -132,11 +133,10 @@ sendInfo = async () => {
   }
   render()
   {
-      let check = this.state.validatedName && this.state.validatedTown && this.state.validatedStudy && this.state.validatedLang && this.state.validatedPhone && this.state.validatedHobby;
       return (
         <div className="settings">
             <h6 className="modal-title">Настройки</h6>
-            <p className="check-email">{check == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
+            <p className="check-email">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
             <input onChange={this.handleNameChange} id="name-f" type="text" className={this.state.validatedName == true ? "set-field" : "set-field-invalid"} placeholder="Имя" />
             <input onChange={this.handleTownChange} id="town-f" type="text" className={this.state.validatedTown == true ? "set-field" : "set-field-invalid"} placeholder="Город" />
             <input onChange={this.handleStudyChange} id="study-f" type="text" className={this.state.validatedStudy == true ? "set-field" : "set-field-invalid"} placeholder="Место учёбы" />
