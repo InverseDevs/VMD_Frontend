@@ -14,8 +14,13 @@ class Chat extends React.Component {
             firstLoad: false,
             chatId: null,
             load: false,
+            msgCame: false,
+            moreMessages: true,
         }
 
+    }
+    setMsgCame = (bool) => {
+        this.setState({msgCame: bool});   
     }
     getData = async (url,data) => {
         const res = await fetch(url, {
@@ -37,10 +42,15 @@ class Chat extends React.Component {
 
                     messages.push(data.messages[i])   
                 }
-                this.setState({first_idx: this.state.first_idx + 10})
-                this.setState({second_idx: this.state.second_idx + 10})
+                if (this.state.firstLoad == true){
+                    this.setState({first_idx: this.state.first_idx + 3})
+                    this.setState({second_idx: this.state.second_idx + 3})
+                }
+                this.setState({firstLoad: true})
+            }else{
+                this.setState({moreMessages: false});   
             }
-            this.setState({messages: this.state.messages.concat(messages)})
+            this.setState({messages: messages.concat(this.state.messages)})
         })
        
     }
@@ -49,21 +59,35 @@ class Chat extends React.Component {
         event.preventDefault();
     }
     onScrollBarChange = () => {
-        if (document.getElementById('slider-container').scrollTop == 0){
+        if (document.getElementById('slider-container').scrollTop == 0 && this.state.moreMessages){
             this.getMessages();
+            document.getElementById('slider-container').scrollTop = 200;
         }
+  
     }
 
     componentDidMount() {
         this.scrollToBottom();
         this.getMessages();
+        for (let i = 0; i < Object.values(this.state.messages).length; ++i){
+            if (Object.values(this.state.messages)[i].sender_id != window.localStorage.getItem('id')){
+                this.props.getUserId(Object.values(this.state.messages)[i].sender_id); 
+            }
+        }
+        this.scrollToBottom();
+        this.el.scrollIntoView({behavior:"smooth"});
+
     }
     componentDidUpdate(){
-        this.scrollToBottom()
-        if (this.props.chatId != null && this.state.firstLoad != true){
-            this.getMessages();
-            this.setState({firstLoad:true})
-        }
+        //if (this.state.msgCame == true){
+          //  this.scrollToBottom();
+           // this.setMsgCame(false);
+        //}
+           
+       // if (this.props.chatId != null && this.state.firstLoad != true){
+       //     this.getMessages();
+        //    this.setState({firstLoad:true})
+      //  }
         
         if (this.state.chatId != this.props.chatId){
             this.setState({load: true})
@@ -73,10 +97,10 @@ class Chat extends React.Component {
             this.setState({chatId: this.props.chatId})
             this.getMessages();
         }
-        if (this.state.messages == [] && this.state.load == false){
-            this.getMessages();
-            this.setState({load: true})
-        }
+        //if (this.state.messages == [] && this.state.load == false){
+         //   this.getMessages();
+      //      this.setState({load: true})
+       // }
     }
     scrollToBottom = () => {
         this.el.scrollIntoView({behavior:"smooth"});
@@ -102,19 +126,25 @@ class Chat extends React.Component {
      }
     render(){
          const messages = this.renderMessages(this.state.messages.concat(this.props.messages))
+        if (this.state.msgCame == true){
+            this.scrollToBottom();
+            this.setMsgCame(false);
+        }
             return(
             
             <div className="chat-container">
-                <div onScroll={this.onScrollBarChange} ref={this.top} className="chat" id="slider-container">
+                <div onScroll={this.onScrollBarChange}  className="chat" id="slider-container">
                         <div  className="messages-container" id="for-slider" >
                             {messages}
-                            <div style={{ float:"left", clear: "both" }}
-                            ref={el => {this.el=el;}}>
+                             <div style={{ float:"left", clear: "both" }}
+                                    ref={el => {this.el=el;}}>
                                 
                             </div>
                         </div>
+                             
                 </div>
-                <ChatInput sendMessage={this.props.sendMessage} onMessageSubmit={this.onMessageSubmit}/>
+      
+                <ChatInput setMsgCame={this.setMsgCame} sendMessage={this.props.sendMessage} onMessageSubmit={this.onMessageSubmit}/>
             </div>
         );
     }

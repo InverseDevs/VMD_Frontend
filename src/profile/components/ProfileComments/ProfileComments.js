@@ -56,8 +56,7 @@ class ProfileComments extends React.Component {
             )
         }
          else{
-            console.log(this.state.sender)
-            console.log(window.localStorage.getItem('name'))
+
             await this.postData(`https://inversedevs.herokuapp.com/comment/comment/${this.state.commentId}`,
             {   sender: window.localStorage.getItem('username'),
                 content: this.state.comment,
@@ -73,7 +72,7 @@ class ProfileComments extends React.Component {
         if (comments){
         return Object.values(comments).map(comment => {
                 return (
-                    <ProfileComment name={comment.sender.name} avatar={comment.sender.avatar} commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} date={comment.sent_time} />
+                    <ProfileComment name={comment.sender.name} avatar={comment.sender.avatar} senderId={comment.sender.id} commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} date={comment.sent_time} />
                 )
         })};
     }

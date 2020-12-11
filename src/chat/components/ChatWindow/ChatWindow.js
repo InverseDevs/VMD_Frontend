@@ -16,17 +16,20 @@ class ChatWindow extends React.Component{
         this.state = {
 
             show: false,
+            userId: -1,
         }
     }
-   
-
+   getUserId = (id) => {
+           this.setState({userId: id});
+   }
+    
     onConnected = () => {
         console.log("Connected!!")
       }
     
       onMessageReceived = (msg) => {
         let messages = this.props.messages;
-        messages.push(msg);
+        messages.push(msg)
         this.props.getMessages(messages);
       }
       sendMessage = (msg) => {
@@ -48,12 +51,12 @@ class ChatWindow extends React.Component{
               debug={false}
             /> }
             <TabList chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
-            <ChatInfo chatInfo={this.props.chatInfo}/>
+            <ChatInfo id={this.state.userId} chatInfo={this.props.chatInfo}/>
 
             <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
                     <ChatAddForm getShow={this.props.getShow}/>
             </ChatAddModal>
-            <Chat chatId={this.props.chatInfo.id !== null ? this.props.chatInfo.id : null} sendMessage={this.sendMessage} messages={this.props.messages}/>
+            <Chat getUserId={this.getUserId} chatId={this.props.chatInfo.id !== null ? this.props.chatInfo.id : null} sendMessage={this.sendMessage} messages={this.props.messages}/>
         </div>
     );
             }

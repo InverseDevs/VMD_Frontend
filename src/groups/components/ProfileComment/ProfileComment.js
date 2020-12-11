@@ -29,7 +29,7 @@ class ProfileComment extends React.Component {
       e.preventDefault();
       await this.postData(`https://inversedevs.herokuapp.com/like/comment/${this.props.commentId}`,
       {   userId: `${window.localStorage.getItem('id')}`
-       }).then(data => {console.log(data)
+       }).then(data => {
       if (data.status === 'added' || data.status === 'removed'){
         this.setState({like: !this.state.like});
       }
@@ -40,9 +40,7 @@ class ProfileComment extends React.Component {
       e.preventDefault();
       await this.postData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`,
       {   userId: `${window.localStorage.getItem('id')}`
-       }).then(data => console.log(data)
-    
-    )
+       })
      }
     onUserClick = ()=>{
       if (this.state.innerPressed === false){
@@ -58,7 +56,7 @@ class ProfileComment extends React.Component {
       if(comments){
       return Object.values(comments).map(comment => {
               return (
-                  <ProfileInnerComment getInnerPressed={this.getInnerPressed} commentId={comment.id} setCommentId={this.props.setCommentId} comments={comment.comments} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender.name} avatar={comment.sender.avatar} date={comment.sent_time} />
+                  <ProfileInnerComment getInnerPressed={this.getInnerPressed} commentId={comment.id} setCommentId={this.props.setCommentId} comments={comment.comments} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} avatar={comment.sender.avatar} senderId={comment.sender.id} name={comment.sender.name} date={comment.sent_time} />
               )
              
 
@@ -80,10 +78,11 @@ class ProfileComment extends React.Component {
           <>
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-container">
-          {this.props.avatar != '' ?  <img src={this.props.avatar} className="comment-img" alt="avatar"/> : <div className="comment-img"></div>}
+          
+          <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != ''?  <img src={this.props.avatar} className="comment-img-exists" alt="avatar"/> : <div className="comment-img"></div>}</Link>
           <div className="comment-body">
             <div className="comment-info">
-            <Link to="/" className="comment-profile-link">{this.props.name}</Link>
+            <Link to={`/profile/${this.props.senderId}`} className="comment-profile-link">{this.props.name}</Link>
             <div className="like-number-comms">{Object.values(this.props.likes).length}</div>
             <button className="like" onClick={this.likeComment}><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : liked}/></button>
             <p className="comment-date">

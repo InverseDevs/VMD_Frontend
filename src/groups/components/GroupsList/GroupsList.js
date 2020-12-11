@@ -25,7 +25,6 @@ class GroupsList extends Component {
     }
     createGroup = async() =>{
         await this.postData(`https://inversedevs.herokuapp.com/group/create`,{name: this.state.name, named_link:this.state.namedLink, owner_id: window.localStorage.getItem('id')})
-        .then(data => console.log(data))
         document.getElementById('group-name').value = '';
         document.getElementById('group-named-link').value = '';
 	this.setState({show: false})
@@ -76,6 +75,10 @@ class GroupsList extends Component {
     componentDidMount(){
         this.getGroups();
 	 this.getAllGroups();
+    }
+    componentDidUpdate(){
+        this.getGroups();
+        this.getAllGroups();
     }
     renderGroups = (groups) => {
         if (groups != []){

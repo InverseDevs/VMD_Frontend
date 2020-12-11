@@ -30,7 +30,6 @@ class ProfileInfo extends React.Component{
     } 
     clearStorage = async () => {
         await this.postData(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`)
-        .then(res => {console.log(res)});
         window.localStorage.setItem('token', '');
         window.localStorage.setItem('id', '');
         window.localStorage.setItem('username','');

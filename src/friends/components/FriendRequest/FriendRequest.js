@@ -17,17 +17,12 @@ class FriendRequest extends React.Component {
     AddFriend = async (e) => {
         e.preventDefault();
         await this.postData(`https://inversedevs.herokuapp.com/friends/accept/${this.props.id}`, {id: window.localStorage.getItem('id')})
-        .then(res => {console.log(res)
-            
-        });
     }
 
     DeclineFriend = async (e) => {
         e.preventDefault();
         await this.postData(`https://inversedevs.herokuapp.com/friends/decline/${this.props.id}`, {id: window.localStorage.getItem('id')})
-        .then(res => {console.log(res)
-            
-        });
+
     }
 
     render(){
@@ -35,7 +30,7 @@ class FriendRequest extends React.Component {
         return (
 				<div className="friend">
                     <div className="friend-info">
-                        <div className="ava"></div>
+                          {this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar" alt="avatar" /> :<div className="ava"></div> } 
                         <div className="ava-devisor">
                         <div className="friend-name">
                             <Link to={`/profile/${this.props.id}`}>{this.props.name}</Link>

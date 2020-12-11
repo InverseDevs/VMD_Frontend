@@ -6,16 +6,16 @@ class GroupParticipants extends Component {
         super(props);
     }
 	makeAdmin = async() =>{
-        await this.postData(`https://inversedevs.herokuapp.com/group/admin/add/${this.props.groupId}`,{user_id: this.props.id})
-        .then(data => console.log(data))
+        await this.postData(`https://inversedevs.herokuapp.com/group/admin/add/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
+
     }
 	deleteAdmin = async() =>{
-        await this.postData(`https://inversedevs.herokuapp.com/group/admin/remove/${this.props.groupId}`,{user_id: this.props.id})
-        .then(data => console.log(data))
+        await this.postData(`https://inversedevs.herokuapp.com/group/admin/remove/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
+
     }
 	banUser= async() =>{
-        await this.postData(`https://inversedevs.herokuapp.com/group/ban/${this.props.groupId}`,{user_id: this.props.id})
-        .then(data => console.log(data))
+        await this.postData(`https://inversedevs.herokuapp.com/group/ban/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
+
     }
     postData = async (url,data) => {
         const res = await fetch(url, {
@@ -28,6 +28,10 @@ class GroupParticipants extends Component {
         return res.json();
     } 
     checkAdmin = () => {
+	    
+	if (this.props.admins == []){
+		return false	
+	}
 	for (let i = 0; i < Object.values(this.props.admins).length; ++i){
 		if (Object.values(this.props.admins)[i].id == this.props.id){
 			return true	
@@ -48,7 +52,7 @@ class GroupParticipants extends Component {
                             {this.props.name}</div>
 	      </div>
                             {status}
-	    {this.props.owner == true ?         <button onClick={this.checkAdmin == false ? this.makeAdmin: this.deleteAdmin} className="delete-friend make-admin">{this.checkAdmin == false ? 'Сделать администратором' : 'Убрать из администраторов'}</button> : null}
+	    {this.props.owner == true ?         <button onClick={this.checkAdmin() == false ? this.makeAdmin: this.deleteAdmin} className="delete-friend make-admin">{this.checkAdmin() == false ? 'Сделать администратором' : 'Убрать из администраторов'}</button> : null}
 	    {this.props.admin == true || this.props.owner == true ? <button onClick={this.banUser} className="delete-friend ban-user">Забанить</button> : null}
                     
 				</div>

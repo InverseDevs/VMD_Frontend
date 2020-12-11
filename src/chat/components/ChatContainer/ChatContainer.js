@@ -21,9 +21,7 @@ class ChatContainer extends React.Component {
     }
     closeTab = (name) => {
         let tabs = this.state.tabs;
-        console.log('before',tabs)
         tabs = tabs.filter(tab => tab.name != name);
-        console.log('after',tabs)
         this.setState({tabs: tabs})
         if (tabs.length != 0){ 
         window.localStorage.setItem('tabs', JSON.stringify(this.state.tabs));   
@@ -51,7 +49,6 @@ class ChatContainer extends React.Component {
 
     }
     render() {
-        console.log(this.state.tabs)
         return(
         <div className="chat-container">
         <Chats getInfo={this.getInfo} getMessages={this.getMessages} show={this.state.show}  getShow={this.getShow} addTab={this.addTab}/>

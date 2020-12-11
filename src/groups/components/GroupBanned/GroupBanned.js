@@ -6,8 +6,7 @@ class GroupBanned extends Component {
         super(props);
     }
 	unbanUser= async() =>{
-        await this.postData(`https://inversedevs.herokuapp.com/group/unban/${this.props.groupId}`,{user_id: this.props.id})
-        .then(data => console.log(data))
+        await this.postData(`https://inversedevs.herokuapp.com/group/unban/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
     }
     postData = async (url,data) => {
         const res = await fetch(url, {

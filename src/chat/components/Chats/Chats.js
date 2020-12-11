@@ -26,13 +26,12 @@ class Chats extends React.Component {
     getChats = async () => {
         await this.getData(`https://inversedevs.herokuapp.com/chats/${window.localStorage.getItem('id')}`)
         .then(data => {
-            console.log(data);
             this.setState({groups:data.chats})
         })
        
     }
     checkUsers = (groups,users) => {
-           for (let i = 0; i < groups.length; ++i){
+           for (let i = 0; i <groups.length; ++i){
                 if (groups[i].users == users){
                  return true;   
                 }
@@ -40,12 +39,15 @@ class Chats extends React.Component {
         return false;
     }
     renderGroups = (groups)=>{
-        return Object.values(groups).map((group,i) => this.checkUsers(groups,group.users) == false ? <ChatGroup getMessages={this.props.getMessages} addTab={this.props.addTab} getInfo={this.props.getInfo} key={i} id={group.chat_id} users={group.users}/> : null );
+        return groups.map((group,i) =>  <ChatGroup getMessages={this.props.getMessages} addTab={this.props.addTab} getInfo={this.props.getInfo} key={i} id={group.chat_id} users={group.users}/>  );
     }
     componentDidMount() {
         this.getChats();
 
 }
+    componentDidUpdate(){
+        this.getChats();
+    }
     render(){
     const groups = this.renderGroups(this.state.groups);
     return (

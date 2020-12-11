@@ -17,9 +17,7 @@ class User extends React.Component {
     addFriend = async (e) => {
         e.preventDefault();
         await this.postData(`https://inversedevs.herokuapp.com/friends/${this.props.id}`, {id: window.localStorage.getItem('id')})
-        .then(res => {console.log(res)
-            
-        });
+
     }
     createChat = async () => {
      
@@ -27,7 +25,6 @@ class User extends React.Component {
         ids.push(window.localStorage.getItem('id'));
         ids.push(this.props.id);
         await this.postData('https://inversedevs.herokuapp.com/chat/create', {users: ids})
-        .then(res => console.log(res));
     
 }
     render(){
@@ -36,7 +33,7 @@ class User extends React.Component {
             
 				<div className="friend">
                     <div className="friend-info">
-                        <div className="ava"></div>
+                         <Link to={`/profile/${this.props.id}`} >{this.props.avatar != '' ? <img src={this.props.avatar} className="friend-avatar" alt="avatar" /> :<div className="ava"></div> }</Link> 
                         <div className="ava-devisor">
                         <div className="friend-name">
                             <Link to={`/profile/${this.props.id}`} >{this.props.name}</Link>

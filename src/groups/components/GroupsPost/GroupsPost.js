@@ -6,6 +6,7 @@ import ProfileCommentsModal from '../ProfileCommentsModal/ProfileCommentsModal';
 import Comments from '../ProfileComments/ProfileComments';
 import ProfilePostModal from '../ProfilePostModal/ProfilePostModal';
 import PostComments from '../ProfilePostComments/ProfilePostComments';
+import {Link} from 'react-router-dom';
 class GroupsPost extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +39,6 @@ class GroupsPost extends Component {
         {
             userId: window.localStorage.getItem('id')
          })
-         .then(data => console.log(data))
     }
     showCommentsModal = () => {
         this.setState({showComments: true})
@@ -70,13 +70,14 @@ class GroupsPost extends Component {
                         <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : likeClicked}/></button>
                         <button onClick={this.showCommentsModal} className="profile-post-comments">Комментарии</button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
-                        <h6 className="post-time">{this.props.time}</h6>
-                        <div className="post-author">{this.props.sender}</div>
+                        <div className="friend-name-link">
+                        <Link to={`/profile/${this.props.senderId}`}><div className="post-author">{this.props.sender}</div></Link>
+                        </div>
                         <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
                             <Comments comments={this.props.comments} token={window.localStorage.getItem('token')} sender={this.props.sender} Postid={this.props.id}/>
                     </ProfileCommentsModal>
                     </div>
-                    {this.props.avatar != '' ? <img src={this.props.avatar} className="post-avatar" alt="avatar"/> : <div className="user-img"></div>}
+                    <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != '' ? <img src={this.props.avatar} className="post-avatar" alt="avatar"/> : <div className="user-img"></div>}</Link>
                 </div>
                 {this.props.photo !== ''  ? <img src={this.props.photo} className="post-img"/> : null}
                 <h6 className="post-text">{this.props.content}</h6>
@@ -89,9 +90,11 @@ class GroupsPost extends Component {
                         <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : likeClicked}/></button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <h6 className="post-full-time">{this.props.time}</h6>
-                        <div className="post-full-author">{this.props.sender}</div>
+                        <div className="friend-name-link"> 
+                        <Link to={`/profile/${this.props.senderId}`}><div className="post-full-author">{this.props.sender}</div></Link>
+                        </div>
                     </div>
-                   {this.props.avatar != '' ? <img src={this.props.avatar} className="post-avatar" alt="avatar"/> : <div className="user-full-img"></div>}
+                   <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != '' ? <img src={this.props.avatar} className="post-avatar" alt="avatar"/> : <div className="user-full-img"></div>}</Link>
                 </div>
                {this.props.photo !== ''  ? <img src={this.props.photo} className="post-img"/> : null}
                 <h6 className="post-full-text">{this.props.content}</h6>
