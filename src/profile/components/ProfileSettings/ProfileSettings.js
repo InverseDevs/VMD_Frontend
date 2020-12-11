@@ -20,7 +20,6 @@ class ProfileSettings extends React.Component {
         validatedLang: true,
         validatedPhone: true,
         validatedHobby: true,
-        validated: this.state.validatedName && this.state.validatedTown && this.state.validatedStudy && this.state.validatedLang && this.state.validatedPhone && this.state.validatedHobby,
     }
   }
   handleNameChange= (e) => {
@@ -95,7 +94,7 @@ postData = async (url,data) => {
   return res.json();
 } 
 sendInfo = async () => {
-  if (this.state.validated == true){
+  if (this.state.validatedName && this.state.validatedTown && this.state.validatedStudy && this.state.validatedLang && this.state.validatedPhone && this.state.validatedHobby){
     await this.postData(`https://inversedevs.herokuapp.com/api/users/change/${window.localStorage.getItem('id')}`, 
     {name : this.state.name, 
       birth_town:this.state.town, 
@@ -133,10 +132,11 @@ sendInfo = async () => {
   }
   render()
   {
+    let check = this.state.validatedName && this.state.validatedTown && this.state.validatedStudy && this.state.validatedLang && this.state.validatedPhone && this.state.validatedHobby;
       return (
         <div className="settings">
             <h6 className="modal-title">Настройки</h6>
-            <p className="check-email">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
+            <p className="check-email">{check == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
             <input onChange={this.handleNameChange} id="name-f" type="text" className={this.state.validatedName == true ? "set-field" : "set-field-invalid"} placeholder="Имя" />
             <input onChange={this.handleTownChange} id="town-f" type="text" className={this.state.validatedTown == true ? "set-field" : "set-field-invalid"} placeholder="Город" />
             <input onChange={this.handleStudyChange} id="study-f" type="text" className={this.state.validatedStudy == true ? "set-field" : "set-field-invalid"} placeholder="Место учёбы" />
