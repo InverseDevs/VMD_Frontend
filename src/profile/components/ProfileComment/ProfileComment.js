@@ -40,9 +40,7 @@ class ProfileComment extends React.Component {
       e.preventDefault();
       await this.postData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`,
       {   userId: `${window.localStorage.getItem('id')}`
-       }).then(data => 
-    
-    )
+       })
      }
     onUserClick = ()=>{
       if (this.state.innerPressed === false){
