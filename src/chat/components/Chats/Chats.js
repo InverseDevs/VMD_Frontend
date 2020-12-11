@@ -31,6 +31,7 @@ class Chats extends React.Component {
        
     }
     checkUsers = (groups,users) => {
+
            for (let i = 0; i <groups.length; ++i){
                 if (groups[i].users == users){
                  return true;   

@@ -8,6 +8,7 @@ class GroupParticipants extends Component {
 	makeAdmin = async() =>{
         await this.postData(`https://inversedevs.herokuapp.com/group/admin/add/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
 
+
     }
 	deleteAdmin = async() =>{
         await this.postData(`https://inversedevs.herokuapp.com/group/admin/remove/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
@@ -15,6 +16,7 @@ class GroupParticipants extends Component {
     }
 	banUser= async() =>{
         await this.postData(`https://inversedevs.herokuapp.com/group/ban/${this.props.groupId}`,{user_id: this.props.id, attempter_id: window.localStorage.getItem('id')})
+
 
     }
     postData = async (url,data) => {
@@ -40,6 +42,7 @@ class GroupParticipants extends Component {
 	    return false
     }
     render() { 
+	    console.log('admins from list',this.checkAdmin())
         const status = this.props.status === false || this.props.status === "false" ? <div className="part-offline"></div> : <div className="part-online"></div>
         return (
             

@@ -13,9 +13,21 @@ class Registration extends React.Component{
             error: '',
             same_password: true,
             success: false,
+            validated: true,
         }
     }
+    
+    validateEmail = (email) => {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
     handleEmailChange= (e) => {
+        if (this.validateEmail(e.target.value) == true){
+            this.setState({validated: true});   
+        }
+        else{
+            this.setState({validated: false});   
+        }
         this.setState({email:e.target.value});
     }
     handlePasswordChange = (e) => {
@@ -83,8 +95,8 @@ class Registration extends React.Component{
                 <p id="reg-form-title">Регистрация</p>
                 </div>
                 <p className="error-msg">{`${this.err_msg()}`}</p>
-                <p className="check-email">{this.state.success === true ? 'Проверьте почту' : ''}</p>
-                <input onChange={this.handleEmailChange} type="email" name="email" id="reg-email-field" placeholder="Почта" required autoFocus/>
+                <p className="check-email">{this.state.success === true ? 'Подтвердите регистрацию на почте' : ''}</p>
+                <input onChange={this.handleEmailChange} type="email" name="email" id={this.state.validated == true ? "reg-email-field" : "reg-email-field-incorrect"} placeholder="Почта" required autoFocus/>
                 <input onChange={this.handleLoginChange} type="text" name="login" id="reg-login-field" placeholder="Логин" required/>
                 <input onChange={this.handlePasswordChange} type="password" name="pass" id="reg-pass-field" placeholder="Пароль" required/>
                 <input onChange={this.handleRePasswordChange} type="password" name="pass" id="reg-pass-field" placeholder="Повторите пароль" required/>

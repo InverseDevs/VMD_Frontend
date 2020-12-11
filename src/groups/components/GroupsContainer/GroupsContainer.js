@@ -30,9 +30,11 @@ class GroupsContainer extends React.Component {
     componentDidMount(){
         this.getGroup();
     }
+
     componentDidUpdate(){
         this.getGroup();
     }
+
 	checkAdmin = () => {
 
 		if(this.state.groupInfo.owner_id == window.localStorage.getItem('id')){
@@ -53,6 +55,7 @@ class GroupsContainer extends React.Component {
     render() { 
 	    
 	    if (this.state.groupInfo != null){
+		  console.log('check',this.checkAdmin());
         return ( 
 		
             <div className="groups-container">
