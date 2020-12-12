@@ -44,6 +44,7 @@ class ProfileApp extends React.Component{
     componentDidMount(){
         
         this.rememberData();
+                document.location.reload();
     }
     componentDidUpdate(){
         this.getUserData();
