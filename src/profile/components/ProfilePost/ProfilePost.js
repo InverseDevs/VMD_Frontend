@@ -63,9 +63,7 @@ class ProfilePost extends React.Component {
         }
         return false
       }
-        refresh = () => {
-        document.location.reload();
-      }
+
     render() {
         return(
             <div className="profile-post">
@@ -76,7 +74,7 @@ class ProfilePost extends React.Component {
                         <button onClick={this.showCommentsModal} className="profile-post-comments">Комментарии</button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <div className="friend-name-link">
-                         <Link onClick={this.refresh} to={`/profile/${this.props.senderId}`}><div className="profile-post-author">{this.props.name}</div></Link>
+                         <Link to={`/profile/${this.props.senderId}`}><div className="profile-post-author">{this.props.name}</div></Link>
                         </div> 
                         <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
                             <Comments comments={this.props.comments} token={this.props.token} sender={this.props.name} Postid={this.props.Postid}/>
