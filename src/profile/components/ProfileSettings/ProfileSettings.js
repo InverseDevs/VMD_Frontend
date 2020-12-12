@@ -51,7 +51,7 @@ handleStudyChange= (e) => {
     this.setState({study:e.target.value});
 }
 handleBirthChange= (e) => {
-  console.log(e.target.value);
+  this.setState({birth: e.target.value});
 }
 handleLangChange= (e) => {
   var regexp = /^[a-z\s,]*$/i;
