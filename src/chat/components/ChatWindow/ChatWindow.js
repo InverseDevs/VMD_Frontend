@@ -52,7 +52,7 @@ class ChatWindow extends React.Component{
               debug={false}
             /> }
             <TabList setDeletedChat={this.props.setDeletedChat} chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
-            <ChatInfo setDeletedChat={this.props.setDeletedChat} id={this.state.userId} chatInfo={this.props.chatInfo}/>
+            <ChatInfo closeTab={this.props.closeTab} setDeletedChat={this.props.setDeletedChat} id={this.state.userId} chatInfo={this.props.chatInfo}/>
 
             <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
                     <ChatAddForm getShow={this.props.getShow}/>
