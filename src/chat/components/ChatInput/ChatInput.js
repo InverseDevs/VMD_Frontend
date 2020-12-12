@@ -29,9 +29,7 @@ class ChatInput extends React.Component {
     render()
 {    return(
         <div className="chat-input">
-
             <p className="check-email top-fixed">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
-
             <form className="chat-form" onSubmit={this.props.onMessageSubmit}>
             
                 <div className={this.state.validated == true ? "chat-input-container" : "chat-input-container-invalid"}>
