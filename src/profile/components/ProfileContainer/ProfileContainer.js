@@ -7,23 +7,21 @@ class ProfileContainer extends React.Component {
         super(props);
         this.state={
             dataChanged:false,
-            nameCheck: true,
+            nameCheck: this.props.userData.name == '',
         }
     }
     setNameCheck = (bool) => {
         
         this.setState({nameCheck: bool})
     }
-    componentDidMount(){
-        this.setNameCheck(this.props.userData.name == '')
-    }
+
     getChanged = (bool) => {
         this.setState({dataChanged: bool})
     }
     render() {
         return(
         <div className="profile-container">
-            <ProfileHeader setNameCheck={this.setNameCheck} getChanged={this.getChanged} token={window.localStorage.getItem('token')} userData={this.props.userData} />
+            <ProfileHeader  getChanged={this.getChanged} token={window.localStorage.getItem('token')} userData={this.props.userData} />
             <ProfileFooter nameCheck={this.state.nameCheck} dataChanged={this.state.dataChanged} token={window.localStorage.getItem('token')} userData={this.props.userData}/>
         </div>
     );}
