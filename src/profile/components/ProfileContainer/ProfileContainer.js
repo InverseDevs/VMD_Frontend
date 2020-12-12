@@ -18,7 +18,7 @@ class ProfileContainer extends React.Component {
         return(
         <div className="profile-container">
             <ProfileHeader getChanged={this.getChanged} token={window.localStorage.getItem('token')} userData={this.props.userData} />
-            <ProfileFooter nameCheck={this.props.nameCheck} dataChanged={this.state.dataChanged} token={window.localStorage.getItem('token')} userData={this.props.userData}/>
+            <ProfileFooter name={this.props.userData.name} nameCheck={this.props.nameCheck} dataChanged={this.state.dataChanged} token={window.localStorage.getItem('token')} userData={this.props.userData}/>
         </div>
     );}
 }
