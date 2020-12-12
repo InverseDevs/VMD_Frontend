@@ -40,7 +40,10 @@ class ProfileInfo extends React.Component{
     }
     componentDidUpdate(){
         if (this.props.userData.name == ''){
-            this.setState({show:true})   
+            if (this.state.firstTime == false){
+                this.setState({show:true})
+                this.setState({firstTime: true})
+            }
         }
     }
     render() {
