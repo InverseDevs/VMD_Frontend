@@ -8,6 +8,7 @@ class ProfileInfo extends React.Component{
         super(props);
         this.state={
             show: false,
+            firstTime: false,
         }
     }
     showModal = () => {
@@ -37,7 +38,11 @@ class ProfileInfo extends React.Component{
         window.localStorage.setItem('tabs',"")
         
     }
-
+    componentDidUpdate(){
+        if (this.props.userData.name == ''){
+            this.setState({show:true})   
+        }
+    }
     render() {
         return (
             <div className="profile-aside">
