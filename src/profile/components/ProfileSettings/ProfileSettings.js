@@ -20,7 +20,7 @@ class ProfileSettings extends React.Component {
         validatedLang: true,
         validatedPhone: true,
         validatedHobby: true,
-
+      
     }
   }
   handleNameChange= (e) => {
@@ -51,11 +51,7 @@ handleStudyChange= (e) => {
     this.setState({study:e.target.value});
 }
 handleBirthChange= (e) => {
-  var regexp = /^[a-z\s,]*$/i;
-   if(!regexp.test(e.target.value)) {
-      this.setState({validated: false})
-   }
-    this.setState({birth:e.target.value});
+  console.log(e.target.value);
 }
 handleLangChange= (e) => {
   var regexp = /^[a-z\s,]*$/i;
@@ -107,7 +103,7 @@ sendInfo = async () => {
     document.getElementById('name-f').value = '';
     document.getElementById('town-f').value = '';
     document.getElementById('study-f').value = '';
-    document.getElementById('birth-f').value = '';
+    //document.getElementById('birth-f').value = '';
     document.getElementById('lang-f').value = '';
     document.getElementById('phone-f').value = '';
     document.getElementById('hobby-f').value = '';
@@ -117,7 +113,7 @@ sendInfo = async () => {
 }
   fillGaps = () => {
       this.props.userData.name ? document.getElementById('name-f').value = `${this.props.userData.name}` : document.getElementById('name-f').value = '';
-      this.props.userData.birth_town ? document.getElementById('town-f').value = `${this.props.userData.birth_town}` : document.getElementById('town-f').value = '';
+      //this.props.userData.birth_town ? document.getElementById('town-f').value = `${this.props.userData.birth_town}` : document.getElementById('town-f').value = '';
       this.props.userData.study_place ? document.getElementById('study-f').value =  `${this.props.userData.study_place}` : document.getElementById('study-f').value = '';
       this.props.userData.birth_date ? document.getElementById('birth-f').value =  `${this.props.userData.birth_date}`: document.getElementById('birth-f').value = '';
       this.props.userData.languages ? document.getElementById('lang-f').value =  `${this.props.userData.languages}`: document.getElementById('lang-f').value = '';
@@ -132,19 +128,16 @@ sendInfo = async () => {
   }
   }
   render()
-
-  {
+  { 
     let check = this.state.validatedName && this.state.validatedTown && this.state.validatedStudy && this.state.validatedLang && this.state.validatedPhone && this.state.validatedHobby;
       return (
         <div className="settings">
             <h6 className="modal-title">Настройки</h6>
-
             <p className="check-email max">{check == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
-
             <input onChange={this.handleNameChange} id="name-f" type="text" className={this.state.validatedName == true ? "set-field" : "set-field-invalid"} placeholder="Имя" />
             <input onChange={this.handleTownChange} id="town-f" type="text" className={this.state.validatedTown == true ? "set-field" : "set-field-invalid"} placeholder="Город" />
             <input onChange={this.handleStudyChange} id="study-f" type="text" className={this.state.validatedStudy == true ? "set-field" : "set-field-invalid"} placeholder="Место учёбы" />
-            <input onChange={this.handleBirthChange} id="birth-f" type="text" className="set-field" placeholder="День рождения" />
+            <input onChange={this.handleBirthChange} id="birth-f" type="date" className="set-field" placeholder="День рождения" />
             <input onChange={this.handleLangChange} id="lang-f" type="text" className={this.state.validatedLang == true ? "set-field" : "set-field-invalid"} placeholder="Языки" />
             <input onChange={this.handlePhoneChange} id="phone-f" type="text" className={this.state.validatedPhone == true ? "set-field" : "set-field-invalid"} placeholder="Телефон"/>
             <textarea onChange={this.handleHobbyChange} id="hobby-f" className={this.state.validatedHobby == true ? "hobby-field" : "hobby-field-invalid"} placeholder="Хобби" />
