@@ -7,12 +7,10 @@ class ProfileContainer extends React.Component {
         super(props);
         this.state={
             dataChanged:false,
-            nameCheck: false,
+            nameCheck:  /^$/.test(this.props.userData.name),
         }
     }
-    componentDidUpdate(){
-        this.setState({nameCheck: this.props.userData.name == ""});   
-    }
+
 
     getChanged = (bool) => {
         this.setState({dataChanged: bool})
