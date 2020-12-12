@@ -1,5 +1,4 @@
 import React from 'react';
-import ProfileSettingsModal from '../ProfileSettingsModal/ProfileSettingsModal';
 import './ProfileSettings.css';
 
 class ProfileSettings extends React.Component {
@@ -24,7 +23,7 @@ class ProfileSettings extends React.Component {
     }
   }
   handleNameChange= (e) => {
-    var regexp = /^[a-z\s,]*$/i;
+    var regexp = /^[\u0020-\u007F]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedName: false})
    }else{
@@ -33,7 +32,7 @@ class ProfileSettings extends React.Component {
     this.setState({name:e.target.value});
 }
 handleTownChange= (e) => {
-  var regexp = /^[a-z\s,]*$/i;
+  var regexp =  /^[\u0020-\u007F]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedTown: false})
    }else{
@@ -42,7 +41,7 @@ handleTownChange= (e) => {
     this.setState({town:e.target.value});
 }
 handleStudyChange= (e) => {
-  var regexp = /^[a-z\s,]*$/i;
+  var regexp =  /^[\u0020-\u007F]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedStudy: false})
    }else{
@@ -54,7 +53,7 @@ handleBirthChange= (e) => {
   this.setState({birth: e.target.value});
 }
 handleLangChange= (e) => {
-  var regexp = /^[a-z\s,]*$/i;
+  var regexp =  /^[\u0020-\u007F]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedLang: false})
    }else{
@@ -72,7 +71,7 @@ handlePhoneChange= (e) => {
     this.setState({phone:e.target.value});
 }
 handleHobbyChange= (e) => {
-  var regexp = /^[a-z\s,]*$/i;
+  var regexp = /^[\u0020-\u007F]*$/i;
    if(!regexp.test(e.target.value)) {
       this.setState({validatedHobby: false})
    }else{
@@ -91,7 +90,7 @@ postData = async (url,data) => {
   return res.json();
 } 
 sendInfo = async () => {
-  if (this.state.validatedName && this.state.validatedTown && this.state.validatedStudy && this.state.validatedLang && this.state.validatedPhone && this.state.validatedHobby){
+  
     await this.postData(`https://inversedevs.herokuapp.com/api/users/change/${window.localStorage.getItem('id')}`, 
     {name : this.state.name, 
       birth_town:this.state.town, 
@@ -109,7 +108,6 @@ sendInfo = async () => {
     document.getElementById('hobby-f').value = '';
     this.setState({changed: false})
     this.props.getShow(false);
-  }
 }
   fillGaps = () => {
       this.props.userData.name ? document.getElementById('name-f').value = `${this.props.userData.name}` : document.getElementById('name-f').value = '';

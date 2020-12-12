@@ -15,7 +15,7 @@ class GroupEntity extends Component {
                 <div className="group-name">
                     {this.props.name}
                 </div>
-                <Link to={`/groups/${this.props.id}`}><button className="group-btn">Перейти</button></Link>
+                <Link to={`/groups/${this.props.link}`}><button className="group-btn">Перейти</button></Link>
             </div>
          );
     }

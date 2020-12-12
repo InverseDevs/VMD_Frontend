@@ -10,6 +10,7 @@ class Tab extends React.Component {
     }
     setInfo = () => {  
         this.props.getInfo(this.props.name,this.props.avatar,this.props.id)
+        this.props.setDeletedChat(false);
         this.props.getMessages([]);
     }
     render(){

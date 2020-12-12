@@ -9,7 +9,11 @@ class ChatContainer extends React.Component {
         show: false,
         chatInfo: {'name': null, 'img':null, 'id': null},
         messages: [],
+        deletedChat: false,
     };
+    setDeletedChat = (bool) => {
+        this.setState({deletedChat: bool});
+    } 
     getMessages = (messages) => {
         this.setState({messages: messages});
     }
@@ -51,8 +55,8 @@ class ChatContainer extends React.Component {
     render() {
         return(
         <div className="chat-container">
-        <Chats getInfo={this.getInfo} getMessages={this.getMessages} show={this.state.show}  getShow={this.getShow} addTab={this.addTab}/>
-        <ChatWindow messages={this.state.messages} getMessages={this.getMessages} chatInfo={this.state.chatInfo} getInfo={this.getInfo} getShow={this.getShow} show={this.state.show} tabs={this.state.tabs} closeTab={this.closeTab}/>
+        <Chats setDeletedChat={this.setDeletedChat} getInfo={this.getInfo} getMessages={this.getMessages} show={this.state.show}  getShow={this.getShow} addTab={this.addTab}/>
+        <ChatWindow setDeletedChat={this.setDeletedChat} deletedChat={this.state.deletedChat} messages={this.state.messages} getMessages={this.getMessages} chatInfo={this.state.chatInfo} getInfo={this.getInfo} getShow={this.getShow} show={this.state.show} tabs={this.state.tabs} closeTab={this.closeTab}/>
         </div>
     );}
 }

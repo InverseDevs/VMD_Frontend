@@ -86,7 +86,7 @@ class GroupsList extends Component {
 	    let new_groups = Object.values(groups).filter(group =>
 					   group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search) );
 			return Object.values(new_groups).map((group,id) => 
-        <GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}
+        <GroupEntity key={id} link={group.named_link} name={group.name} id={group.id} avatar={group.picture}
         />)
 	}else{
 		return null						    
@@ -113,7 +113,7 @@ class GroupsList extends Component {
 	}
 	arr = arr.filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search))
 		return Object.values(arr).map((group,id)=> 
-	<GroupEntity key={id} name={group.name} id={group.named_link} avatar={group.picture}/>)
+	<GroupEntity key={id} name={group.name} link={group.named_link} id={group.id} avatar={group.picture}/>)
 	
 	
 						  }

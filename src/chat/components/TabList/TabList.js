@@ -8,6 +8,7 @@ class TabList extends React.Component {
     renderTabs = (tabs) => {
         let found = false;
         let new_tabs = []
+        if (tabs != null){
         new_tabs.push(tabs[0])
         for (let i = 1; i < tabs.length;++i){
             found = false
@@ -24,7 +25,11 @@ class TabList extends React.Component {
             }
         }
       
-        return new_tabs[0] != undefined ? Object.values(new_tabs).map((tab,i) => <Tab key={i} getMessages={this.props.getMessages} getInfo={this.props.getInfo} chatInfo={this.props.chatInfo} closeTab={this.props.closeTab} name={tab.name} avatar={tab.avatar} id={tab.id}/>) : null
+        return new_tabs[0] != undefined ? Object.values(new_tabs).map((tab,i) => <Tab setDeletedChat={this.setDeletedChat} key={i} getMessages={this.props.getMessages} getInfo={this.props.getInfo} chatInfo={this.props.chatInfo} closeTab={this.props.closeTab} name={tab.name} avatar={tab.avatar} id={tab.id}/>) : null
+    }
+        else{
+            return null;
+        }
     }
     render(){
    

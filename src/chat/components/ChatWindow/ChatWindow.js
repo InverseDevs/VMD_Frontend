@@ -17,12 +17,13 @@ class ChatWindow extends React.Component{
 
             show: false,
             userId: -1,
+
         }
     }
    getUserId = (id) => {
            this.setState({userId: id});
    }
-    
+
     onConnected = () => {
         console.log("Connected!!")
       }
@@ -38,7 +39,7 @@ class ChatWindow extends React.Component{
         }));
     };
     render(){
-        if (this.props.chatInfo.id != null){ 
+        if (this.props.chatInfo.id != null && this.state.deletedChat == false){ 
         return (
         <div className="chat-window">
             { <SockJsClient
@@ -50,8 +51,8 @@ class ChatWindow extends React.Component{
               onMessage={msg => this.onMessageReceived(msg)}
               debug={false}
             /> }
-            <TabList chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
-            <ChatInfo id={this.state.userId} chatInfo={this.props.chatInfo}/>
+            <TabList setDeletedChat={this.props.setDeletedChat} chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
+            <ChatInfo setDeletedChat={this.props.setDeletedChat} id={this.state.userId} chatInfo={this.props.chatInfo}/>
 
             <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
                     <ChatAddForm getShow={this.props.getShow}/>
@@ -66,7 +67,7 @@ class ChatWindow extends React.Component{
                             <ChatAddModal getShow={this.props.getShow} show={this.props.show} >
                                 <ChatAddForm getShow={this.props.getShow}/>
                             </ChatAddModal>
-                            <TabList chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
+                            <TabList setDeletedChat={this.props.setDeletedChat} chatInfo={this.props.chatInfo} getMessages={this.props.getMessages} getInfo={this.props.getInfo} tabs={this.props.tabs} closeTab={this.props.closeTab}/>
                             <div className="preload-message">
                                 Выберите чат
                             </div>

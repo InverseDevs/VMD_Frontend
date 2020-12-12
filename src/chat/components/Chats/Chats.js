@@ -40,7 +40,7 @@ class Chats extends React.Component {
         return false;
     }
     renderGroups = (groups)=>{
-        return groups.map((group,i) =>  <ChatGroup getMessages={this.props.getMessages} addTab={this.props.addTab} getInfo={this.props.getInfo} key={i} id={group.chat_id} users={group.users}/>  );
+        return groups.map((group,i) =>  <ChatGroup setDeletedChat={this.props.setDeletedChat} getMessages={this.props.getMessages} addTab={this.props.addTab} getInfo={this.props.getInfo} key={i} id={group.chat_id} users={group.users}/>  );
     }
     componentDidMount() {
         this.getChats();
