@@ -11,7 +11,7 @@
     border-radius: 50px;
     overflow:hidden;
 }
-.chat-input-container{
+.chat-input-container-invalid{
     width: 700px;
     height: 80px;
     margin-left: 110px;
@@ -19,6 +19,11 @@
     box-sizing: border-box;
     border-radius: 50px;
     overflow:hidden;
+}
+.top-fixed{
+    position: absolute;
+    left: 0;
+    top: -75px;
 }
 .msg-input{
     margin-left: 22px;
