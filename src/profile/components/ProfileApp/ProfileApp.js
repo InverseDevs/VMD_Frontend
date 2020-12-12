@@ -8,7 +8,8 @@ class ProfileApp extends React.Component{
         super(props);
         this.state={token: '', 
                     userData: [], 
-                    id: ''};
+                    id: '',
+                nameCheck: false};
     }
     getData = async (url) => {
         const res = await fetch(url, {
@@ -28,6 +29,7 @@ class ProfileApp extends React.Component{
         await this.getData(`https://inversedevs.herokuapp.com/api/users/${window.location.pathname.slice(9)}`)
         .then(data => {
             this.setState({userData: data}) 
+            this.setState({nameCheck:  /^$/.test(data.name)})
             window.localStorage.setItem('name',data.name)
         });
     }
@@ -60,7 +62,7 @@ class ProfileApp extends React.Component{
                         <div className="profile-ellipse" id="profile-2"></div>
                         <div className="profile-ellipse" id="profile-3"></div>
                         <div className="profile-ellipse" id="profile-4"></div>
-                        <ProfileContainer token={window.localStorage.getItem('token')} userData={this.state.userData}/>
+                        <ProfileContainer nameCheck={this.state.nameCheck} token={window.localStorage.getItem('token')} userData={this.state.userData}/>
                         
                     </div>
         );
