@@ -56,9 +56,7 @@ class ProfileComment extends React.Component {
       if(comments){
       return Object.values(comments).map(comment => {
               return (
-
                   <ProfileInnerComment getInnerPressed={this.getInnerPressed} commentId={comment.id} setCommentId={this.props.setCommentId} comments={comment.comments} setSender={this.props.setSender} text={comment.content} key={comment.id} likes={comment.likes} avatar={comment.sender.avatar} senderId={comment.sender.id} name={comment.sender.name} date={comment.sent_time} />
-
               )
              
 
@@ -81,9 +79,7 @@ class ProfileComment extends React.Component {
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-container">
           
-
           <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != ''?  <img src={this.props.avatar} className="comment-img-exists" alt="avatar"/> : <div className="comment-img"></div>}</Link>
-
           <div className="comment-body">
             <div className="comment-info">
             <Link to={`/profile/${this.props.senderId}`} className="comment-profile-link">{this.props.name}</Link>

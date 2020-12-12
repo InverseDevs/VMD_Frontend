@@ -34,7 +34,8 @@
     min-width: 60px;
     max-height: 60px;
     max-width: 60px;
-
+    overflow: hidden;
+    border-radius: 50%;
 }
 .comment-img{
 
@@ -43,6 +44,8 @@
     min-width: 60px;
     max-height: 60px;
     max-width: 60px;
+    overflow: hidden;
+    border-radius: 50%;
     background: #C4C4C4;
 
 }

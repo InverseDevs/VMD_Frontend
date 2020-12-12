@@ -43,6 +43,7 @@ class ProfileInnerComment extends React.Component {
      deleteComment = async (e) => {
       e.preventDefault();
       await this.postDeleteData(`https://inversedevs.herokuapp.com/comment/delete/${this.props.commentId}`)
+
      }
     onUserClick = ()=>{
         this.props.setSender(this.props.name);
@@ -74,8 +75,8 @@ class ProfileInnerComment extends React.Component {
         return (
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-container">
+          
           <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != ''? <img src={this.props.avatar} className="comment-img-exists" alt="avatar"/> : <div className="comment-img"></div>}</Link>
-
           <div className="comment-body">
             <div className="comment-info">
             <Link to={`/profile/${this.props.senderId}`} className="comment-profile-link">{this.props.name}</Link>

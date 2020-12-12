@@ -9,6 +9,7 @@ class ProfileComments extends React.Component {
             sender: '',
             valChanged: 0,
             commentId: '',
+            validated: true,
         }
     }
     setCommentId = (id) => {
@@ -19,6 +20,12 @@ class ProfileComments extends React.Component {
     }
     handleCommentChange = (e) => {
         if (this.state.sender !== ''){
+            var regexp = /^[a-z\s,]*$/i;
+            if(!regexp.test(e.target.value)) {
+               this.setState({validated: false})
+            }else{
+              this.setState({validated: true})
+            }
             this.setState({comment: `${e.target.value}`});
             if (this.state.valChanged === 0){
                 document.getElementById('comments-textarea').value = `${this.state.sender}, ${e.target.value}`;
@@ -29,6 +36,12 @@ class ProfileComments extends React.Component {
             }
         }
         else{
+            var regexp = /^[a-z\s,]*$/i;
+            if(!regexp.test(e.target.value)) {
+               this.setState({validated: false})
+            }else{
+              this.setState({validated: true})
+            }
         this.setState({comment: e.target.value})
         }
     }
@@ -44,6 +57,7 @@ class ProfileComments extends React.Component {
     } 
     
     sendComment = async (e) => {
+        if (this.state.validated == true){
         e.preventDefault();
         if (this.state.sender === ''){
         await this.postData(`https://inversedevs.herokuapp.com/comment/post/${this.props.Postid}`,
@@ -56,6 +70,7 @@ class ProfileComments extends React.Component {
             )
         }
          else{
+
             await this.postData(`https://inversedevs.herokuapp.com/comment/comment/${this.state.commentId}`,
             {   sender: window.localStorage.getItem('username'),
                 content: this.state.comment,
@@ -65,13 +80,13 @@ class ProfileComments extends React.Component {
             this.setState({valChanged: 0})})
          }
          document.getElementById('comments-textarea').value = '';
-         
+        }
        }
        renderItems(comments){
         if (comments){
         return Object.values(comments).map(comment => {
                 return (
-                    <ProfileComment name={comment.sender.name} avatar={comment.sender.avatar} commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} date={comment.sent_time} />
+                    <ProfileComment name={comment.sender.name} avatar={comment.sender.avatar} senderId={comment.sender.id} commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} date={comment.sent_time} />
                 )
         })};
     }
@@ -82,7 +97,8 @@ class ProfileComments extends React.Component {
                 <p className="comments-header">Комментарии</p>
                 {items}
                 <form className="comment-form">
-                    <textarea onChange={this.handleCommentChange} id="comments-textarea" className="comment-input" placeholder="Введите текст"/>
+                    <p className="check-email">{this.state.validated == true ? null : 'Пока Very Magic Duck не поддерживает русский язык'}</p>
+                    <textarea onChange={this.handleCommentChange} id="comments-textarea" className={this.state.validated == true ? "comment-input" : "comment-input-invalid"} placeholder="Введите текст"/>
                     <button onClick={this.sendComment} className="comment-reply-btn">Ответить</button>
                 </form>
             </div>

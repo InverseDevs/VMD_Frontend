@@ -9,6 +9,7 @@ class ProfilePostComments extends React.Component {
         sender: '',
         valChanged: 0,
         commentId: '',
+        validated: true,
     }
 }
 setCommentId = (id) => {
@@ -19,6 +20,12 @@ setSender = (username) => {
 }
 handleCommentChange = (e) => {
     if (this.state.sender !== ''){
+        var regexp = /^[a-z\s,]*$/i;
+            if(!regexp.test(e.target.value)) {
+               this.setState({validated: false})
+            }else{
+              this.setState({validated: true})
+            }
         this.setState({comment: `${e.target.value}`});
         if (this.state.valChanged === 0){
             document.getElementById('post-textarea').value = `${this.state.sender}, ${e.target.value}`;
@@ -29,6 +36,12 @@ handleCommentChange = (e) => {
         }
     }
     else{
+        var regexp = /^[a-z\s,]*$/i;
+        if(!regexp.test(e.target.value)) {
+           this.setState({validated: false})
+        }else{
+          this.setState({validated: true})
+        }
     this.setState({comment: e.target.value})
     }
 }
@@ -44,6 +57,7 @@ postData = async (url,data) => {
 } 
 
 sendComment = async (e) => {
+    if (this.state.validated == true){
     e.preventDefault();
     if (this.state.sender === ''){
     await this.postData(`https://inversedevs.herokuapp.com/comment/post/${this.props.Postid}`,
@@ -60,6 +74,7 @@ sendComment = async (e) => {
          })
      }
      document.getElementById('post-textarea').value = '';
+    }
    }
    renderItems(comments){
     if (comments){
@@ -78,7 +93,8 @@ sendComment = async (e) => {
       <hr className="break-line"/>
     {items}
     <form className="comment-form">
-        <textarea onChange={this.handleCommentChange} id="post-textarea" className="comment-post-input" placeholder="Введите текст"/>
+        <p className="check-email">{this.state.validated == true ? null : 'Пока Very Magic Duck не поддерживает русский язык'}</p>
+        <textarea onChange={this.handleCommentChange} id="post-textarea" className={this.state.validated == true ? "comment-post-input" : "comment-post-input-validated"} placeholder="Введите текст"/>
         <button onClick={this.sendComment} className="comment-reply-post-btn">Ответить</button>
     </form>
     </div>)

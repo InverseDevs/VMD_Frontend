@@ -15,6 +15,7 @@ class GroupsList extends Component {
         }
     }	
     handleSearch = (event) => {
+        
     	this.setState({search: event.target.value});
     }
     handleNameChange= (event) => {
@@ -112,7 +113,7 @@ class GroupsList extends Component {
 	}
 	arr = arr.filter(group => group.name.includes(this.state.search) || group.name.toLowerCase().includes(this.state.search))
 		return Object.values(arr).map((group,id)=> 
-	<GroupEntity key={id} name={group.name} id={group.id} avatar={group.picture}/>)
+	<GroupEntity key={id} name={group.name} id={group.named_link} avatar={group.picture}/>)
 	
 	
 						  }
