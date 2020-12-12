@@ -14,12 +14,7 @@ class ChatInput extends React.Component {
     sendMsg = (e) => {
         e.preventDefault();
         if (this.state.typedMessage != ''){
-            var regexp = /^[\u0020-\u007F]*$/i;
-            if(!regexp.test(e.target.value)) {
-                this.setState({validated: false})
-            }else{
-                this.setState({validated: true})
-            }
+            
         this.props.sendMessage(this.state.typedMessage);
             this.props.setMsgCame(true)
         }
@@ -38,7 +33,13 @@ class ChatInput extends React.Component {
                 <div className="chat-input-container">
                 <p className="check-email ml">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
                     <textarea onKeyPress={this.handleKeyPress} type="text" id="message-area" placeholder="Напечатайте текст..." onChange={(event) => {
-                                               this.setState({typedMessage: event.target.value});
+                        var regexp = /^[\u0020-\u007F]*$/i;
+                        if(!regexp.test(event.target.value)) {
+                            this.setState({validated: false})
+                        }else{
+                            this.setState({validated: true})
+                        }
+                        this.setState({typedMessage: event.target.value});
                                            }} className={this.state.validated == true ? "msg-input":"msg-input-invalid"} autofocus/>
                 </div>
                 <div className="send-btn">
