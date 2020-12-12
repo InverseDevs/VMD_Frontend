@@ -171,7 +171,7 @@ return Object.values(new_members).map((member,idx) => <GroupParticipants admin={
                             </div>
                         
                     </GroupsModal>
-                    <button onClick={this.showParticipants}  className="group-participants">Учатники</button>
+                    <button onClick={this.showParticipants}  className="group-participants">Участники</button>
                 </div>
                 <div className="middle-header">
                     <div className="group-header-name">

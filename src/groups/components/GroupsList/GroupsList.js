@@ -137,7 +137,7 @@ class GroupsList extends Component {
                 <input onChange={this.handleSearch} type="text" id="groups-list-search" className="groups-list-search" /> 
                 <GroupsModal show={this.state.show} handleClose={this.handleClose}>
                     <div className="group-form">
-                        <p className="check-email">{this.state.validated == true ? null : 'Пока Very Magic Duck не поддерживает русский язык'}</p>
+                        <p className="check-email ml15">{this.state.validated == true ? null : 'Пока Very Magic Duck не поддерживает русский язык'}</p>
                         <input onChange={this.handleNameChange} id="group-name" className={this.state.validated == true ? "group-form-field" :"group-form-field-invalid"} placeholder="Название группы"/>
                         <input onChange={this.handleNamedLinkChange} id="group-named-link" className="group-form-field" placeholder="Именная ссылка"/>
                         <button onClick={this.createGroup} id="create-btn" className="create-group">Подтвердить</button>

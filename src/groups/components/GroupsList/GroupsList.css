@@ -60,7 +60,7 @@
     margin-bottom:20px;
 	outline:none;
 }
-.group-form-field{
+.group-form-field-invalid{
     width: 680px;
 	height: 40px;
 	margin-left: 15px;
@@ -78,4 +78,8 @@
 #create-btn{
     margin-top: 40px;
     margin-left: 10px;
+}
+.ml15{
+    width: 700px;
+    margin-left: 15px;
 }
