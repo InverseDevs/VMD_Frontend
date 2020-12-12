@@ -7,7 +7,7 @@ class ProfileInfo extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            show: false,
+            show: this.props.nameCheck,
         }
     }
     showModal = () => {
@@ -37,9 +37,7 @@ class ProfileInfo extends React.Component{
         window.localStorage.setItem('tabs',"")
         
     }
-        componentDidMount() {
-        this.setState({show: this.props.nameCheck})
-}
+
     render() {
         return (
             <div className="profile-aside">
