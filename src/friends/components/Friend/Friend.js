@@ -42,7 +42,7 @@ class Friend extends React.Component {
                         </div>
                         <Link to="/chat"><button type="button" onClick={this.createChat} className="write-message-btn">Написать сообщение</button></Link>
                     </div>
-                    <button type="button" onClick={this.deleteFriend} className="delete-friend">Удалить</button>
+                    <button type="button" onClick={this.deleteFriend} className="delete-friend-btn">Удалить</button>
                     </div>
                     
 				</div>

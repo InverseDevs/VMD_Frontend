@@ -39,7 +39,7 @@ class ChatWindow extends React.Component{
         }));
     };
     render(){
-        if (this.props.chatInfo.id != null && this.state.deletedChat == false){ 
+        if (this.props.chatInfo.id != null && this.props.deletedChat == false){ 
         return (
         <div className="chat-window">
             { <SockJsClient
