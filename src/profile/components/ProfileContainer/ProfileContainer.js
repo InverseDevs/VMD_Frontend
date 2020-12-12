@@ -15,7 +15,7 @@ class ProfileContainer extends React.Component {
         this.setState({nameCheck: bool})
     }
     componentDidMount(){
-        this.setNameCheck(this.props.userData.name != '')
+        this.setNameCheck(this.props.userData.name == '')
     }
     getChanged = (bool) => {
         this.setState({dataChanged: bool})
