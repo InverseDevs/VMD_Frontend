@@ -11,6 +11,15 @@
     border-radius: 50px;
     overflow:hidden;
 }
+.chat-input-container{
+    width: 700px;
+    height: 80px;
+    margin-left: 110px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    border-radius: 50px;
+    overflow:hidden;
+}
 .msg-input{
     margin-left: 22px;
     margin-top: 26px;
@@ -29,24 +38,8 @@
     width:0;
     height:0;
 }
-.msg-input-invalid{
-    margin-left: 22px;
-    margin-top: 26px;
-    font-family: 'Source Serif Pro', sans-serif;
-    border:1px solid red;
-    resize:none;
-    outline:none;
-    font-size:17px;
-    width: 650px;
-}
-.msg-input-invalid::-webkit-scrollbar{
-    width:0;
-    height:0;
-}
-.msg-input-invalid::-webkit-scrollbar-thumb{
-    width:0;
-    height:0;
-}
+
+
 .send-btn {
     width: 70px;
     height: 70px;

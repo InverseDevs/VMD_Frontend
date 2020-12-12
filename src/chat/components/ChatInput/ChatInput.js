@@ -30,8 +30,9 @@ class ChatInput extends React.Component {
 {    return(
         <div className="chat-input">
             <form className="chat-form" onSubmit={this.props.onMessageSubmit}>
-                <div className="chat-input-container">
-                <p className="check-email ml">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
+            <p className="check-email">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
+                <div className={this.state.validated == true ? "chat-input-container" : "chat-input-container-invalid"}>
+                
                     <textarea onKeyPress={this.handleKeyPress} type="text" id="message-area" placeholder="Напечатайте текст..." onChange={(event) => {
                         var regexp = /^[\u0020-\u007F]*$/i;
                         if(!regexp.test(event.target.value)) {
@@ -40,7 +41,7 @@ class ChatInput extends React.Component {
                             this.setState({validated: true})
                         }
                         this.setState({typedMessage: event.target.value});
-                                           }} className={this.state.validated == true ? "msg-input":"msg-input-invalid"} autofocus/>
+                                           }} className="msg-input" autofocus/>
                 </div>
                 <div className="send-btn">
                     <input onClick={this.sendMsg}  type="submit" className="msg-send" value=""/>
