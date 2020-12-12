@@ -7,9 +7,16 @@ class GroupsPostModal extends Component {
         this.state={
             photo: '',
             postText: '',
+            validated: true,
         }
     }
     handleText = (event) => {
+        var regexp = /^[\u0020-\u007F]*$/i;
+   if(!regexp.test(event.target.value)) {
+      this.setState({validated: false})
+   }else{
+     this.setState({validated: true})
+   }
         this.setState({postText:event.target.value});   
     }
     postData = async (url,data) => {
@@ -59,7 +66,8 @@ class GroupsPostModal extends Component {
                                     <div id="post-img-container">
                                         <div className="post-create-img" id="post-create-img"></div> 
                                     </div>
-                                    <textarea onChange={this.handleText} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className="post-input" />
+                                    <p className="check-email ml">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
+                                    <textarea onChange={this.handleText} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className={this.state.validated == true ? "post-input" : "post-input-invalid"}  />
 
                             </form>
                             <button onClick={this.sendPost} type="submit" className="post-send" >Отправить</button>

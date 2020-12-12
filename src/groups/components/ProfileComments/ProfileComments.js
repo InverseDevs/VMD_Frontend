@@ -20,7 +20,8 @@ class ProfileComments extends React.Component {
     }
     handleCommentChange = (e) => {
         if (this.state.sender !== ''){
-            var regexp = /^[a-z\s,]*$/i;
+
+            var regexp =  /^[\u0020-\u007F]*$/i;
             if(!regexp.test(e.target.value)) {
                this.setState({validated: false})
             }else{
@@ -36,7 +37,7 @@ class ProfileComments extends React.Component {
             }
         }
         else{
-            var regexp = /^[a-z\s,]*$/i;
+            var regexp = /^[\u0020-\u007F]*$/i;
             if(!regexp.test(e.target.value)) {
                this.setState({validated: false})
             }else{

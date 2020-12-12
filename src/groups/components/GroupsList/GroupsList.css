@@ -60,6 +60,21 @@
     margin-bottom:20px;
 	outline:none;
 }
+.group-form-field{
+    width: 680px;
+	height: 40px;
+	margin-left: 15px;
+	margin-top: 20px;
+	border: 1px solid red;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+	padding-left: 25px;
+	font-family: 'Source Serif Pro', sans-serif;
+    overflow:hidden;
+    margin-bottom:20px;
+	outline:none;
+}
 #create-btn{
     margin-top: 40px;
     margin-left: 10px;

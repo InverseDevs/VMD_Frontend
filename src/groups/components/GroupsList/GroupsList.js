@@ -11,7 +11,8 @@ class GroupsList extends Component {
             show: false,
             name: '',
             namedLink: '',
-		allGroups: [],
+        allGroups: [],
+        validated: true,
         }
     }	
     handleSearch = (event) => {
@@ -19,6 +20,12 @@ class GroupsList extends Component {
     	this.setState({search: event.target.value});
     }
     handleNameChange= (event) => {
+        var regexp =  /^[\u0020-\u007F]*$/i;
+        if(!regexp.test(event.target.value)) {
+           this.setState({validated: false})
+        }else{
+          this.setState({validated: true})
+        }
         this.setState({name: event.target.value});
     }
     handleNamedLinkChange=(event) => {
@@ -130,7 +137,8 @@ class GroupsList extends Component {
                 <input onChange={this.handleSearch} type="text" id="groups-list-search" className="groups-list-search" /> 
                 <GroupsModal show={this.state.show} handleClose={this.handleClose}>
                     <div className="group-form">
-                        <input onChange={this.handleNameChange} id="group-name" className="group-form-field" placeholder="Название группы"/>
+                        <p className="check-email">{this.state.validated == true ? null : 'Пока Very Magic Duck не поддерживает русский язык'}</p>
+                        <input onChange={this.handleNameChange} id="group-name" className={this.state.validated == true ? "group-form-field" :"group-form-field-invalid"} placeholder="Название группы"/>
                         <input onChange={this.handleNamedLinkChange} id="group-named-link" className="group-form-field" placeholder="Именная ссылка"/>
                         <button onClick={this.createGroup} id="create-btn" className="create-group">Подтвердить</button>
                     </div>
