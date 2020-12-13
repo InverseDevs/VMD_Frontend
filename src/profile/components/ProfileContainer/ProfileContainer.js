@@ -1,8 +1,8 @@
 import React from 'react';
 import ProfileHeader from '../ProfileHeader/ProfileHeader';
 import ProfileFooter from '../ProfileFooter/ProfileFooter';
-import './ProfileContainer.css';
 import logo from './logo.png';
+import './ProfileContainer.css';
 class ProfileContainer extends React.Component {
     constructor(props){
         super(props);

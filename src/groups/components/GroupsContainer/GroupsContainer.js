@@ -2,6 +2,8 @@ import React from 'react'
 import './GroupsContainer.css';
 import GroupsHeader from '../GroupsHeader/GroupsHeader';
 import GroupsFooter from '../GroupsFooter/GroupsFooter';
+import logo from './logo.png';
+import {Link} from 'react-router-dom';
 class GroupsContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -58,7 +60,7 @@ class GroupsContainer extends React.Component {
         return ( 
 		
             <div className="groups-container">
-                
+                <Link to="/"><img src={logo} id="profile-logo"/></Link>
                 <GroupsHeader name={this.state.groupInfo.name} owner={this.state.groupInfo.owner_id} link={this.state.groupInfo.named_link} id={this.state.groupInfo.id} avatar={this.state.groupInfo.picture} admins={this.state.groupInfo.admins != '' ? this.state.groupInfo.admins : []} banned={this.state.groupInfo.banned_users} members={this.state.groupInfo.members}/>
                 <hr className={this.checkAdmin() == true ? "groups-break-line" : "groups-break-line-user"} />
                 <GroupsFooter posts={this.state.groupInfo.posts}/>

@@ -1,7 +1,6 @@
 import React from 'react';
 import './GroupsApp.css';
-import logo from './logo.png';
-import {Link} from 'react-router-dom';
+
 import GroupsContainer from '../GroupsContainer/GroupsContainer';
 import GroupsList from '../GroupsList/GroupsList';
 class GroupsApp extends React.Component {
@@ -22,7 +21,7 @@ class GroupsApp extends React.Component {
         return ( 
             <div className="profile-page">
 
-                        <Link to="/"><img src={logo} id="profile-logo"/></Link>
+                        
                         <div className="profile-big-ellipse" id="profile-big-1"></div>
                         <div className="profile-big-ellipse" id="profile-big-2"></div>
                         <div className="profile-ellipse" id="profile-1"></div>

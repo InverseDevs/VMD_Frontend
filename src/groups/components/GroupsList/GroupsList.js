@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './GroupsList.css';
 import GroupEntity from '../GroupEntity/GroupEntity';
 import GroupsModal from '../GroupsModal/GroupsModal';
+import logo from './logo.png';
+import {Link} from 'react-router-dom';
 class GroupsList extends Component {
     constructor(props) {
         super(props);
@@ -134,6 +136,7 @@ class GroupsList extends Component {
         const groups = this.renderAll(Object.values(this.state.allGroups), Object.values(this.state.groups));
         return (
             <div className="groups-container">
+                <Link to="/"><img src={logo} id="profile-logo"/></Link>
                 <input onChange={this.handleSearch} type="text" id="groups-list-search" className="groups-list-search" /> 
                 <GroupsModal show={this.state.show} handleClose={this.handleClose}>
                     <div className="group-form">
