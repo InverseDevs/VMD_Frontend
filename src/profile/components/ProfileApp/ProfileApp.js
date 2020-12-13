@@ -55,7 +55,7 @@ class ProfileApp extends React.Component{
         return (
                     <div className="profile-page">
 
-                        <img onClick={this.changeLocation} src={logo} id="profile-logo"/>
+                       
                         <div className="profile-big-ellipse" id="profile-big-1"></div>
                         <div className="profile-big-ellipse" id="profile-big-2"></div>
                         <div className="profile-ellipse" id="profile-1"></div>

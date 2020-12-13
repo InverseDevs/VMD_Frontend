@@ -1,5 +1,5 @@
 
-.profile-create-post{
+.group-create-post{
     width: 140px;
     height: 30px;
     margin-top: 24px;
@@ -12,14 +12,14 @@
     font-size:12px;
     
 }
-.profile-create-post:active{
+.group-create-post:active{
     border:1px solid black;
 }
 
-.post-create-modal{
+.group-post-create-modal{
     z-index:11;
 }
-.post-input{
+.group-post-input{
     margin-left: 45px;
     margin-top: 10px;
     font-family: 'Source Serif Pro', sans-serif;
@@ -36,7 +36,24 @@
     border-radius: 25px;
     box-shadow: 0 1px 3px inset;
 }
-.post-create-img{
+.group-post-input-invalid{
+    margin-left: 45px;
+    margin-top: 10px;
+    font-family: 'Source Serif Pro', sans-serif;
+    border:none;
+    resize:none;
+    outline:none;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 330px;
+    font-size:17px;
+    width: 810px;
+    border: 1px solid red;
+    border-radius: 25px;
+    box-shadow: 0 1px 3px inset;
+}
+.group-post-create-img{
     margin-left: 45px;
     width: 860px;
     height: 300px;
@@ -44,22 +61,22 @@
     margin-bottom: 10px;
     box-shadow: 0 1px 3px inset;
 }
-.post-input::-webkit-scrollbar{
+.group-post-input::-webkit-scrollbar{
     width:0;
     height:0;
 }
-.post-input::-webkit-scrollbar-thumb{
+.group-post-input::-webkit-scrollbar-thumb{
     width:0;
     height:0;
 }
-.post-send-btn {
+.group-post-send-btn {
     width: 120px;
     height: 40px;
     background: #92CE76;
     border-radius: 50px;
     margin-left: 9px;
 }
-.post-send{
+.group-post-send{
     outline:none;
     margin-left: 45px;
     margin-top: 19px; 
@@ -72,10 +89,10 @@
     border:none;
     box-shadow: 0px 1px 3px inset;
 }
-.post-send:active{
+.group-post-send:active{
     box-shadow: none;
 }
-.close-btn{
+.group-close-btn{
     outline:none;
     margin-left: 16px;
     margin-top: 19px; 
@@ -85,7 +102,7 @@
     border-radius: 50px;
     border:none;
 }
-.add-file{
+.group-add-file{
     padding-top: 9px;
     padding-bottom: 9px;
     padding-left: 15px;

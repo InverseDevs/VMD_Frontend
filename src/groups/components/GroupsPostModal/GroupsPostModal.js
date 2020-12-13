@@ -61,17 +61,17 @@ class GroupsPostModal extends Component {
    
     render() { 
         return (
-            <div className="post-create-modal">
+            <div className="group-post-create-modal">
                 <form className="post-form" >
                                     <div id="post-img-container">
-                                        <div className="post-create-img" id="post-create-img"></div> 
+                                        <div className="group-post-create-img" id="post-create-img"></div> 
                                     </div>
                                     <p className="check-email ml">{this.state.validated == true ? null : 'Пока что Very Magic Duck не поддерживает русский язык'}</p>
-                                    <textarea onChange={this.handleText} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className={this.state.validated == true ? "post-input" : "post-input-invalid"}  />
+                                    <textarea onChange={this.handleText} id="textarea" type="text" placeholder="Расскажите ваши мысли здесь..."  className={this.state.validated == true ? "group-post-input" : "group-post-input-invalid"}  />
 
                             </form>
-                            <button onClick={this.sendPost} type="submit" className="post-send" >Отправить</button>
-                            <label className="post-send add-file">
+                            <button onClick={this.sendPost} type="submit" className="group-post-send" >Отправить</button>
+                            <label className="group-post-send group-add-file">
                             <input onChange={this.getFile} type="file" id="post-photo-input" accept=".jpg, .png, .jpeg"/>
                             Прикрепить
                             </label>  

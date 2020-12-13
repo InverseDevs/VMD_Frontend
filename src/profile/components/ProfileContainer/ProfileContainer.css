@@ -9,3 +9,9 @@
     box-shadow: inset calc(0*var(--size)) calc(4*var(--size)) calc(4*var(--size)) rgba(0, 0, 0, 0.25);
     z-index: 5;
 }
+#profile-logo{
+    position: absolute;
+    top:calc(10*var(--size));
+    right:calc(10*var(--size));
+    cursor: pointer;
+    }
