@@ -63,7 +63,9 @@ class ProfilePost extends React.Component {
         }
         return false
       }
-
+      changeLocation = () => {
+        window.location.pathname = `/profile/${this.props.senderId}`;
+    }
     render() {
         return(
             <div className="profile-post">
@@ -74,7 +76,7 @@ class ProfilePost extends React.Component {
                         <button onClick={this.showCommentsModal} className="profile-post-comments">Комментарии</button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <div className="friend-name-link">
-                         <Link  to={`/profile/${this.props.senderId}`}><div className="profile-post-author">{this.props.name}</div></Link>
+                        <div onClick={this.changeLocation} className="profile-post-author">{this.props.name}</div>
                         </div> 
                         <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
                             <Comments comments={this.props.comments} token={this.props.token} sender={this.props.name} Postid={this.props.Postid}/>
