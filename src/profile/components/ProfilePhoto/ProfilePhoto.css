@@ -1,41 +1,41 @@
 .profile-photo{
     position:relative;
-    top: 40px;
-    left: 10px;
-    width: 200px;
-    height: 240px;
+    top: calc(40*var(--size));
+    left: calc(10*var(--size));
+    width: calc(200*var(--size));
+    height: calc(240*var(--size));
     background: #C4C4C4;
     overflow: hidden;
 }
 .profile-photo-ungray{
     position:relative;
-    top: 40px;
-    left: 10px;
-    width: 200px;
-    height: 240px;
+    top: calc(40*var(--size));
+    left: calc(10*var(--size));
+    width: calc(200*var(--size));
+    height: calc(240*var(--size));
     overflow: hidden;
 }
 
 .profile-btn{
     position:relative;
-    width: 140px;
-    height: 30px;
-    left: 40px;
-    top: 65px;
+    width: calc(140*var(--size));
+    height: calc(30*var(--size));
+    left: calc(40*var(--size));
+    top: calc(65*var(--size));
     display: inline-block;
-    padding-top: 12px;
+    padding-top: calc(12*var(--size));
     text-align: center;
     cursor: pointer;
     background: #7CBC5F;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
     border:none;
     outline:none;
     font-weight:bold;
-    font-size:14px;
+    font-size:calc(14*var(--size));
     z-index: 1;
 }
 .profile-btn:active{
-    border:1px solid black;
+    border:calc(1*var(--size)) solid black;
 }
 input[type="file"] {
     display: none;

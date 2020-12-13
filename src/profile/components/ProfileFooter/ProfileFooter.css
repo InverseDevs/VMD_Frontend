@@ -1,4 +1,4 @@
 .profile-footer{
     display: flex;
-    margin-left:-10px;
+    margin-left:calc(-10*var(--size));
 }

@@ -1,56 +1,56 @@
 .comments-post-section{
-    margin-left: 40px;
-    max-width: 875px;
+    margin-left: calc(40*var(--size));
+    max-width: calc(875*var(--size));
 }
 .comments-header{
-    font-size: 24px;
+    font-size: calc(24*var(--size));
 }
 .break-line{
-    border: 1px solid black;
+    border: calc(1*var(--size)) solid black;
 }
 .comment-post-input{
-    margin-top: 20px;
+    margin-top: calc(20*var(--size));
 
         font-family: 'Source Serif Pro', sans-serif;
         border:none;
         resize:none;
         outline:none;
-        padding-top: 25px;
-        padding-left: 25px;
-        padding-right: 25px;
-        padding-bottom: 25px;
-        height: 160px;
-        font-size:17px;
-        width: 820px;
-        border-radius: 50px;
-        border: 1px solid  #48BF4A;
+        padding-top: calc(25*var(--size));
+        padding-left: calc(25*var(--size));
+        padding-right: calc(25*var(--size));
+        padding-bottom: calc(25*var(--size));
+        height: calc(160*var(--size));
+        font-size:calc(17*var(--size));
+        width: calc(820*var(--size));
+        border-radius: calc(50*var(--size));
+        border: calc(1*var(--size)) solid  #48BF4A;
 }
 .comment-post-input-validated{
-    margin-top: 20px;
+    margin-top: calc(20*var(--size));
 
         font-family: 'Source Serif Pro', sans-serif;
         border:none;
         resize:none;
         outline:none;
-        padding-top: 25px;
-        padding-left: 25px;
-        padding-right: 25px;
-        padding-bottom: 25px;
-        height: 160px;
-        font-size:17px;
-        width: 820px;
-        border-radius: 50px;
-        border: 1px solid  red;
+        padding-top: calc(25*var(--size));
+        padding-left: calc(25*var(--size));
+        padding-right: calc(25*var(--size));
+        padding-bottom: calc(25*var(--size));
+        height: calc(160*var(--size));
+        font-size:calc(17*var(--size));
+        width: calc(820*var(--size));
+        border-radius: calc(50*var(--size));
+        border: calc(1*var(--size)) solid  red;
 }
 .comment-reply-post-btn{
-    width: 140px;
-    height: 40px;
-    margin-top: 20px;
+    width: calc(140*var(--size));
+    height: calc(40*var(--size));
+    margin-top: calc(20*var(--size));
     background: #7CBC5F;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
     border:none;
     outline:none;
     font-weight:bold;
-    font-size:14px;
+    font-size:calc(14*var(--size));
 
 }

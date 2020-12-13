@@ -1,8 +1,11 @@
 .profile-container{
-    position: relative;
-    width: 960px;
-    height: 940px;
-    margin:auto;
+    position: absolute;
+    top: 2%;
+    width: calc(960*var(--size));
+    height: 96%;
+    left: 50%;
+    transform: translate(-50%   ,0);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) -0.76%, rgba(255, 255, 255, 0.5) 99.24%), #7CBC5F;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset calc(0*var(--size)) calc(4*var(--size)) calc(4*var(--size)) rgba(0, 0, 0, 0.25);
+    z-index: 5;
 }

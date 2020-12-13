@@ -1,55 +1,66 @@
 body{
     margin:0;
-    overflow:hidden;
+    overflow: hidden;
     font-family: 'Source Serif Pro', sans-serif;
+    --size: calc(0.80*1px + (1*0.4) * ((100vw - 480px) / (2560 - 480)));
 }
 #profile-logo{
-    margin-left: 460px;
+    margin-left: calc(260*var(--size));
     cursor: pointer;
 }
 .profile-page{
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%), #92CE76;
-    height: 1007px;
+    height: 100vh;
 }
 
 .profile-big-ellipse{
     position: absolute;
-    width: 440px;
-    height: 440px;
-    border: 1px solid #2B6C34;
+    width: calc(440*var(--size));
+    height: calc(440*var(--size));
+    border: calc(1*var(--size)) solid #2B6C34;
     box-sizing: border-box;
     border-radius: 50%;
     z-index: 1;
 }
 .profile-ellipse{
     position:absolute;
-    width: 100px;
-    height: 100px;
+    width: calc(100*var(--size));
+    height: calc(100*var(--size));
     background: #EEEEEE;
     border-radius: 50%;
     z-index:2;
 }
 #profile-big-1{
-    right:-44px;
-    top: -350px;
+    right:calc(-44*var(--size));
+    top: calc(-350*var(--size));
 }
 #profile-big-2{
-    right: -286px;
-    top: -12px;
+    right: calc(-286*var(--size));
+    top: calc(-12*var(--size));
 }
 #profile-1{
-    top: -41px;
-    right: 300px;
+    top: calc(-41*var(--size));
+    right: calc(300*var(--size));
 }
 #profile-2{
-    top: 40px;
-    right: 80px;
+    top: calc(40*var(--size));
+    right: calc(80*var(--size));
 }
 #profile-3{
-    top: 220px;
-    right: 105px;
+    top: calc(220*var(--size));
+    right: calc(105*var(--size));
 }
 #profile-4{
-    top: 378px;
-    right: -30px;
+    top: calc(378*var(--size));
+    right: calc(-30*var(--size));
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.25),
+only screen and (-moz-min-device-pixel-ratio: 1.25),
+only screen and (-o-min-device-pixel-ratio: 5/4),
+only screen and (min-device-pixel-ratio: 1.25)
+{
+    body{
+        --size: calc(0.80*0.8px + (0.8*0.4) * ((100vw - 480px) / (2560 - 480)));
+    }
 }

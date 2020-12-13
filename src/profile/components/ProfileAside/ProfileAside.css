@@ -1,17 +1,16 @@
-
 .profile-friends, .profile-groups, .profile-music, .profile-chats{
-    width: 200px;
-    height: 50px;
-    margin-left: 50px;
-    margin-bottom: 30px;
+    width: calc(200*var(--size));
+    height: calc(50*var(--size));
+    margin-left: calc(50*var(--size));
+    margin-bottom: calc(30*var(--size));
     background: #7CBC5F;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
     border:none;
     outline:none;
     font-weight:bold;
-    font-size:20px;
+    font-size:calc(20*var(--size));
 } 
 
 .profile-friends:active, .profile-groups:active, .profile-music:active, .profile-chats:active{
-    border: 1px solid black;
-} 
+    border: calc(1*var(--size)) solid black;
+}

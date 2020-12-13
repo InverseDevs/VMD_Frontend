@@ -6,15 +6,15 @@
 .set-field{
     display:block;
     width: 70%;
-    height: 50px;
-    margin-bottom: 30px;
-    font-size: 24px;
+    height: calc(50*var(--size));
+    margin-bottom: calc(30*var(--size));
+    font-size: calc(24*var(--size));
     background: #fff;
     border: none;
     color: #000;
     outline: none;
     font-family: 'Source Serif Pro', sans-serif;
-    box-shadow: 0 1px 3px inset;
+    box-shadow: 0 calc(1*var(--size)) calc(3*var(--size)) inset;
 }
 .max{
     max-width: 70%;
@@ -22,62 +22,62 @@
 .set-field-invalid{
     display:block;
     width: 70%;
-    height: 50px;
-    margin-bottom: 30px;
-    font-size: 24px;
+    height: calc(50*var(--size));
+    margin-bottom: calc(30*var(--size));
+    font-size: calc(24*var(--size));
     background: #fff;
-    border: 1px solid red;
+    border: calc(1*var(--size)) solid red;
     color: #000;
     outline: none;
     font-family: 'Source Serif Pro', sans-serif;
-    box-shadow: 0 1px 3px inset;
+    box-shadow: 0 calc(1*var(--size)) calc(3*var(--size)) inset;
 }
 .hobby-field{
-    margin-top: 10px;
+    margin-top: calc(10*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
     border:none;
     resize:none;
     outline:none;
-    padding-top: 25px;
-    padding-left: 25px;
-    padding-right: 25px;
-    height: 100px;
-    font-size:24px;
+    padding-top: calc(25*var(--size));
+    padding-left: calc(25*var(--size));
+    padding-right: calc(25*var(--size));
+    height: calc(100*var(--size));
+    font-size:calc(24*var(--size));
     width: 64%;
-    border-radius: 25px;
-    box-shadow: 0 1px 3px inset;
+    border-radius: calc(25*var(--size));
+    box-shadow: 0 calc(1*var(--size)) calc(3*var(--size)) inset;
 }
 .hobby-field-invalid{
-    margin-top: 10px;
+    margin-top: calc(10*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
-    border:1px solid red;
+    border:calc(1*var(--size)) solid red;
     resize:none;
     outline:none;
-    padding-top: 25px;
-    padding-left: 25px;
-    padding-right: 25px;
-    height: 100px;
-    font-size:24px;
+    padding-top: calc(25*var(--size));
+    padding-left: calc(25*var(--size));
+    padding-right: calc(25*var(--size));
+    height: calc(100*var(--size));
+    font-size:calc(24*var(--size));
     width: 64%;
-    border-radius: 25px;
-    box-shadow: 0 1px 3px inset;
+    border-radius: calc(25*var(--size));
+    box-shadow: 0 calc(1*var(--size)) calc(3*var(--size)) inset;
 }
 .modal-title{
-    font-size: 30px;
+    font-size: calc(30*var(--size));
     margin: 0;
-    margin-bottom: 20px;
-    margin-left: 180px;
+    margin-bottom: calc(20*var(--size));
+    margin-left: calc(180*var(--size));
 }
 .send-info-btn{
     display:block;
-    width: 160px;
-    height: 50px;
+    width: calc(160*var(--size));
+    height: calc(50*var(--size));
     background:#7CBC5F;
-    font-size: 20px;
-    margin-top: 20px;
-    border-radius: 50px;
+    font-size: calc(20*var(--size));
+    margin-top: calc(20*var(--size));
+    border-radius: calc(50*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
-    margin-left: 170px;
-    border: 1px solid #7CBC5F;
+    margin-left: calc(170*var(--size));
+    border: calc(1*var(--size)) solid #7CBC5F;
     outline: none;
 }
