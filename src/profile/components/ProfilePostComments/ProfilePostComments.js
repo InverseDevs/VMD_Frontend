@@ -80,7 +80,7 @@ sendComment = async (e) => {
     if (comments){
     return Object.values(comments).map(comment => {
             return (
-                <ProfileComment commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender.name} avatar={comment.sender.avatar} date={comment.sent_time} />
+                <ProfileComment commentId={comment.id} setCommentId={this.setCommentId} setSender={this.setSender} innerComments={comment.comments} text={comment.content} key={comment.id} likes={comment.likes} name={comment.sender.name} senderId={comment.sender.id} avatar={comment.sender.avatar} date={comment.sent_time} />
             )
     })};
 }
