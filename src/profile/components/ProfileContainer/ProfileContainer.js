@@ -2,6 +2,7 @@ import React from 'react';
 import ProfileHeader from '../ProfileHeader/ProfileHeader';
 import ProfileFooter from '../ProfileFooter/ProfileFooter';
 import './ProfileContainer.css';
+import logo from './logo.png';
 class ProfileContainer extends React.Component {
     constructor(props){
         super(props);
