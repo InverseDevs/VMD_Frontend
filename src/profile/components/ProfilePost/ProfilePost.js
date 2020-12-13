@@ -82,7 +82,7 @@ class ProfilePost extends React.Component {
                             <Comments comments={this.props.comments} token={this.props.token} sender={this.props.name} Postid={this.props.Postid}/>
                     </ProfileCommentsModal>
                     </div>
-                    <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != '' ? <img src={this.props.avatar} className="post-avatar" alt="avatar"/> : <div className="user-img"></div>}</Link>
+                    {this.props.avatar != '' ? <img src={this.props.avatar} onClick={this.changeLocation} className="post-avatar" alt="avatar"/> : <div className="user-img"></div>}
                 </div>
                 {this.props.photo !== ''  ? <img src={this.props.photo} className="post-img"/> : null}
                 <h6 className="post-text">{this.props.content}</h6>
@@ -96,10 +96,10 @@ class ProfilePost extends React.Component {
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <h6 className="post-full-time">{this.props.time}</h6>
                         <div className="friend-name">
-                            <Link to={`/profile/${this.props.senderId}`}><div className="profile-post-full-author">{this.props.name}</div></Link>
+                            <div onClick={this.changeLocation} className="profile-post-full-author">{this.props.name}</div>
                         </div>
                     </div>
-                   <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != '' ? <img src={this.props.avatar} className="post-avatar" alt="avatar"/> :  <div className="user-img"></div>}</Link>
+                   {this.props.avatar != '' ? <img src={this.props.avatar} onClick={this.changeLocation} className="post-avatar" alt="avatar"/> :  <div className="user-img"></div>}
                 </div>
                 {this.props.photo !== '' ? <img src={this.props.photo} className="post-full-img"/> : null}
                 <h6 className="post-full-text">{this.props.content}</h6>

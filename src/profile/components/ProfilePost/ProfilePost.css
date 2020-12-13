@@ -29,10 +29,10 @@
 
 }
 .profile-post-author{
-    margin-left: calc(5*var(--size));
+    margin-left: calc(100*var(--size));
     margin-right: calc(15*var(--size));
     text-align: right;
-    margin-top: calc(25*var(--size));
+    margin-top: calc(27*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
 
 }

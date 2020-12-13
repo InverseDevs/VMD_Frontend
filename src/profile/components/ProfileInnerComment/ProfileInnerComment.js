@@ -70,16 +70,19 @@ class ProfileInnerComment extends React.Component {
     }
     return false
   }
+  changeLocation = () => {
+    window.location.pathname = `/profile/${this.props.senderId}`;
+}
     render() {
       const items = this.renderItems(this.props.comments);
         return (
         <div className={this.props.secondary === true ? 'secondary-comment' : 'comment'}>
           <div className="comment-container">
           
-          <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != ''? <img src={this.props.avatar} className="comment-img-exists" alt="avatar"/> : <div className="comment-img"></div>}</Link>
+         {this.props.avatar != ''? <img src={this.props.avatar} onClick={this.changeLocation} className="comment-img-exists" alt="avatar"/> : <div className="comment-img"></div>}
           <div className="comment-body">
             <div className="comment-info">
-            <Link to={`/profile/${this.props.senderId}`} className="comment-profile-link">{this.props.name}</Link>
+            <div onClick={this.changeLocation} className="comment-profile-link">{this.props.name}</div>
             <div className="like-number-comms">{Object.values(this.props.likes).length}</div>
             <button className="like" onClick={this.likeComment}><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : liked}/></button>
             <p className="comment-date">
