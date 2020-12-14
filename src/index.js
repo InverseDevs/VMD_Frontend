@@ -42,16 +42,16 @@ postData = async (url,data) => {
     }
     componentDidMount() {
         this.onLoad();
-         window.addEventListener("beforeunload", this.exit);
+        // window.addEventListener("beforeunload", this.exit);
          window.addEventListener("beforeunload", this.unload);
-        window.addEventListener("unload", this.exit);
+        //window.addEventListener("unload", this.exit);
          window.addEventListener("unload", this.unload);
      }
 
   componentWillUnmount() {
-    window.removeEventListener("beforeunload", this.exit);
+   // window.removeEventListener("beforeunload", this.exit);
       window.removeEventListener("beforeunload", this.unload);
-      window.removeEventListener("unload", this.exit);
+    //  window.removeEventListener("unload", this.exit);
       window.removeEventListener("unload", this.unload);
   }
 
