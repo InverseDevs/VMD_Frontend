@@ -29,11 +29,10 @@ class App extends React.Component{
     } 
     changeStatus = async () => {
         await this.postData(`https://inversedevs.herokuapp.com/user/ping/${window.localStorage.getItem('id')}`)
-        .then(data => console.log(data))
     }
     
     componentDidMount() {
-        setInterval(this.changeStatus, 5000);
+        setInterval(this.changeStatus, 60000);
 
      }
  
