@@ -17,7 +17,7 @@
 .close-div{
     width: calc(30*var(--size));
     height: calc(30*var(--size));
-    margin-top: calc(8*var(-size));
+    margin-top: calc(8*var(--size));
     margin-right: calc(5*var(--size));
     background: #C4C4C4;
     border-radius: 50%;
