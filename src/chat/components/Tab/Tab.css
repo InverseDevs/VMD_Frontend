@@ -4,27 +4,27 @@
     flex-direction: row;
     justify-content:space-between;
     background: #7CBC5F;
-    max-height: 43px;
+    max-height: calc(43*var(--size));
     color: white;
-    min-width: 200px;
+    min-width: calc(200*var(--size));
     border-right: 1px solid darkgreen;
 }
 
 .chat-name{
-    margin-left: 10px;
-    margin-top: 6%;
+    margin-left: calc(10*var(--size));
+    margin-top: calc(12*var(--size));
 }
 .close-div{
-    width: 30px;
-    height: 30px;
-    margin-top: 4%;
-    margin-right: 5px;
+    width: calc(30*var(--size));
+    height: calc(30*var(--size));
+    margin-top: calc(8*var(-size));
+    margin-right: calc(5*var(--size));
     background: #C4C4C4;
     border-radius: 50%;
 }
 
 .close-icon{
-    margin-left:7px;
-    margin-top: 23%;
+    margin-left:calc(7*var(--size));
+    margin-top: calc(7*var(--size));
 }
 

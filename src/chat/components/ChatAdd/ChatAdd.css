@@ -1,19 +1,19 @@
 #add-btn{
     position:fixed;
-    width: 160px;
-    height: 160px;
+    width: calc(160*var(--size));
+    height: calc(160*var(--size));
     background: #92CE76;
     border-radius: 50%;
     outline: none;
     border: none;
-    margin-left: 20px;
+    margin-left: calc(20*var(--size));
     overflow:hidden;
-    margin-top: 20px;
-    bottom:60px;
+    margin-top: calc(20*var(--size));
+    bottom:calc(60*var(--size));
 }
 #add-btn-img{
-    width: 100px;
-    height: 100px;
+    width: calc(100*var(--size));
+    height: calc(100*var(--size));
     background: #92CE76;
-    margin-left:0px;
+    margin-left:0;
 }

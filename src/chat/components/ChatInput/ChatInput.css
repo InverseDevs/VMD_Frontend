@@ -1,39 +1,39 @@
 .chat-form{
     display:flex;
-    margin-top: 30px;
+    margin-top: calc(30*var(--size));
 }
 .chat-input-container{
-    width: 700px;
-    height: 80px;
-    margin-left: 110px;
+    width: calc(700*var(--size));
+    height: calc(80*var(--size));
+    margin-left: calc(110*var(--size));
     border: 1px solid #48BF4A;
     box-sizing: border-box;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
     overflow:hidden;
 }
 .chat-input-container-invalid{
-    width: 700px;
-    height: 80px;
-    margin-left: 110px;
+    width: calc(700*var(--size));
+    height: calc(80*var(--size));
+    margin-left: calc(110*var(--size));
     border: 1px solid red;
     box-sizing: border-box;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
     overflow:hidden;
 }
 .top-fixed{
     position: absolute;
     left: 0;
-    top: -75px;
+    top: calc(-75*var(--size));
 }
 .msg-input{
-    margin-left: 22px;
-    margin-top: 26px;
+    margin-left: calc(22*var(--size));
+    margin-top: calc(26*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
     border:none;
     resize:none;
     outline:none;
-    font-size:17px;
-    width: 650px;
+    font-size:calc(17*var(--size));
+    width: calc(650*var(--size));
 }
 .msg-input::-webkit-scrollbar{
     width:0;
@@ -46,19 +46,18 @@
 
 
 .send-btn {
-    width: 70px;
-    height: 70px;
+    width: calc(70*var(--size));
+    height: calc(70*var(--size));
     background: #92CE76;
     border-radius: 50%;
-    margin-left: 9px;
-    overflow: hidden;
+    margin-left: calc(9*var(--size))calc(;*var(--size)) overflow: hidden;
 }
 .msg-send{
     background: url('./send_icon_react.svg');
     outline:none;
-    margin-left: 16px;
-    margin-top: 19px; 
-    width: 50px;
-    height: 32px;
+    margin-left: calc(16*var(--size));
+    margin-top: calc(19*var(--size)); 
+    width: calc(50*var(--size));
+    height: calc(32*var(--size));
     border:none;
 }

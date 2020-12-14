@@ -1,11 +1,11 @@
 .chat{
-    height: 540px;
-    padding-bottom: 120px;
+    height: calc(540*var(--size));
+    padding-bottom: calc(120*var(--size));
     overflow-y: scroll;
     overflow-x:hidden;
 }
 .chat::-webkit-scrollbar{
-    width: 10px;
+    width: calc(10*var(--size));
     background: none;
 }
 .chat::-webkit-scrollbar-thumb{
@@ -13,9 +13,9 @@
 }
 .chat::-webkit-scrollbar-thumb:hover{
     background: #2A9E50;
-    border-radius: 7px;
+    border-radius: calc(7*var(--size));
 }
 .messages-container{
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: calc(20*var(--size));
+    margin-top: calc(20*var(--size));
 }

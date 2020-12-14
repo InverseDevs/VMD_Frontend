@@ -1,29 +1,29 @@
 .chat-group{
     margin: auto;
-    margin-top: 30px;
+    margin-top: calc(30*var(--size));
 }
 .chat-group-image{
-    width: 160px;
-    height: 160px;
+    width: calc(160*var(--size));
+    height: calc(160*var(--size));
     background: #C4C4C4;
     border-radius: 50%;
     overflow: hidden;
-    margin-left: 20px;
+    margin-left: calc(20*var(--size));
 }
 .chat-group-name{
 
     font-style: normal;
     font-weight: 300;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: calc(24*var(--size));
+    line-height: calc(28*var(--size));
     text-align: center;
 
     color: #EEEEEE;
 }
 .user-pic{
     overflow:hidden;
-    width: 160px;
-    height: 160px;
+    width: calc(160*var(--size));
+    height: calc(160*var(--size));
     border-radius: 50%;
-   margin-left: 20px;
+   margin-left: calc(20*var(--size));
 }

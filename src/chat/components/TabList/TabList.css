@@ -2,14 +2,14 @@
 .tab-list{
     background: #92CE76;
     display:flex;
-    height: 60px;
+    height: calc(60*var(--size));
     overflow-x: scroll;
     overflow-y: hidden;
     
 
 }
 .tab-list::-webkit-scrollbar{
-    width: 10px;
+    width: calc(10*var(--size));
     background: #7CBC5F;
 }
 .tab-list::-webkit-scrollbar-thumb{

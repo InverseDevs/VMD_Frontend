@@ -4,50 +4,50 @@
 }
 
 .user-to-img{
-    margin-left: 30px;
+    margin-left: calc(30*var(--size));
 }
 .user-to-name{
-    margin-left: 610px;
-    width: 190px;
+    margin-left: calc(610*var(--size));
+    width: calc(190*var(--size));
     text-align:right;
     font-family: 'Source Serif Pro', sans-serif;
 }
 .message-to-container{
-    margin-left: 430px;
-    max-width: 380px;
-    padding-right: 22px;
-    min-height: 70px;
-    padding-bottom:21px;
+    margin-left: calc(430*var(--size));
+    max-width: calc(380*var(--size));
+    padding-right: calc(22*var(--size));
+    min-height: calc(70*var(--size));
+    padding-bottom:calc(21*var(--size));
     word-wrap: break-word;
-    padding-left: 22px;
-    padding-top:21px;
+    padding-left: calc(22*var(--size));
+    padding-top:calc(21*var(--size));
     border: 1px solid #48BF4A;
     box-sizing: border-box;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
 }
 .msg-to{
-    margin-left: 22px;
-    margin-top: 21px;
+    margin-left: calc(22*var(--size));
+    margin-top: calc(21*var(--size));
     overflow:hidden;
-    max-width: 336px;
-    min-height: 22px;
+    max-width: calc(336*var(--size));
+    min-height: calc(22*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
 }
  .user-to-img{
-    width: 50px;
-    height: 50px;
+    width: calc(50*var(--size));
+    height: calc(50*var(--size));
     background: #C4C4C4;
     border-radius: 50%;
 }
 .user-to-img-exist{
-    width: 50px;
-    height: 50px;
+    width: calc(50*var(--size));
+    height: calc(50*var(--size));
     border-radius: 50%;
 }
 .user-to-avatar{
-    width: 50px;
-    height: 50px;
+    width: calc(50*var(--size));
+    height: calc(50*var(--size));
     border-radius: 50%;
-    margin-left: 40px;
+    margin-left: calc(40*var(--size));
     overflow: hidden;
 }
