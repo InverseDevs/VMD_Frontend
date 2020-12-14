@@ -41,9 +41,10 @@ postData = async (url,data) => {
         await this.changeStatus(true)
     }
     componentDidMount() {
-        this.onUnload();
+        this.onLoad();
+        window.addEventListener("beforeunload", this.onUnload);
      }
- 
+    
 
     getUserData = (data) => {
         this.setState({userData: data});
