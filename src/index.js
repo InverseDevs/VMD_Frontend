@@ -33,22 +33,19 @@ postData = async (url,data) => {
             .then(data => console.log(data)); 
         }
     }
-    onUnload = async e => {
-        e.preventDefault();
+    onUnload = async () => {
         await this.changeStatus(false)
     }
-    onLoad = async e => {
-        e.preventDefault();
+    onLoad = async () => {
+
         await this.changeStatus(true)
     }
     componentDidMount() {
-        window.addEventListener("load",this.onLoad)
-        window.addEventListener("beforeunload", this.onUnload);
+        this.onLoad();
      }
  
      componentWillUnmount() {
-         window.removeEventListener("beforeunload", this.onUnload);
-         window.removeEventListener("load", this.onLoad);
+         this.onUnload()
      }
     getUserData = (data) => {
         this.setState({userData: data});
