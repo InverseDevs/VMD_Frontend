@@ -42,7 +42,7 @@ postData = async (url,data) => {
     }
     componentDidMount() {
         this.onLoad();
-        window.addEventListener("beforeunload", this.onUnload);
+        window.onunload = this.onUnload;
      }
     
 
