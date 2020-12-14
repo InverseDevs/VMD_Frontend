@@ -50,7 +50,8 @@
     height: calc(70*var(--size));
     background: #92CE76;
     border-radius: 50%;
-    margin-left: calc(9*var(--size))calc(;*var(--size)) overflow: hidden;
+    margin-left: calc(9*var(--size))calc(;*var(--size));
+    overflow: hidden;
 }
 .msg-send{
     background: url('./send_icon_react.svg');
