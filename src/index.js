@@ -33,7 +33,7 @@ class App extends React.Component{
     }
     
     componentDidMount() {
-        setInterval(() => this.changeStatus, 5000);
+        setInterval(this.changeStatus, 5000);
 
      }
  
