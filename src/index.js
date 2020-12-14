@@ -32,7 +32,8 @@ class App extends React.Component{
     }
     
     componentDidMount() {
-        setTimeout(() => { this.changeStatus}, 60000);
+        setInterval(() => this.changeStatus, 60000);
+
      }
  
     getUserData = (data) => {
