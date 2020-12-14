@@ -50,6 +50,7 @@ postData = async (url,data) => {
   }
 
   unload = (e) => {
+      e.preventDefault();
     navigator.sendBeacon(`https://inversedevs.herokuapp.com/user/online/${window.localStorage.getItem('id')}`,{state: false});
   }
 
