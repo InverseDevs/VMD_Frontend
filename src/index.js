@@ -42,9 +42,16 @@ postData = async (url,data) => {
     }
     componentDidMount() {
         this.onLoad();
-        window.onunload = this.onUnload;
+         window.addEventListener("beforeunload", this.unload);
      }
-    
+
+  componentWillUnmount() {
+    window.removeEventListener("beforeunload", this.unload);
+  }
+
+  unload = (e) => {
+    navigator.sendBeacon(`https://inversedevs.herokuapp.com/user/online/${window.localStorage.getItem('id')}`,{state: false});
+  }
 
     getUserData = (data) => {
         this.setState({userData: data});
