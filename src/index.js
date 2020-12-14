@@ -41,12 +41,10 @@ postData = async (url,data) => {
         await this.changeStatus(true)
     }
     componentDidMount() {
-        this.onLoad();
+        this.onUnload();
      }
  
-     componentWillUnmount() {
-         this.onUnload()
-     }
+
     getUserData = (data) => {
         this.setState({userData: data});
     }
