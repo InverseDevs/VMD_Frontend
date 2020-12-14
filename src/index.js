@@ -42,16 +42,21 @@ postData = async (url,data) => {
     }
     componentDidMount() {
         this.onLoad();
+         window.addEventListener("beforeunload", this.exit);
          window.addEventListener("beforeunload", this.unload);
      }
 
   componentWillUnmount() {
-    window.removeEventListener("beforeunload", this.unload);
+    window.removeEventListener("beforeunload", this.exit);
+      window.removeEventListener("beforeunload", this.unload);
   }
 
-  unload = (e) => {
+    exit = async () => {
+        await this.postData(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`)
+    }
+  unload = async (e) => {
       e.preventDefault();
-    navigator.sendBeacon(`https://inversedevs.herokuapp.com/user/online/${window.localStorage.getItem('id')}`,{state: false});
+    await navigator.sendBeacon(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`);
   }
 
     getUserData = (data) => {
