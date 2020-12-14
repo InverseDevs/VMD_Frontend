@@ -17,62 +17,24 @@ class App extends React.Component{
         userData: [],
         token: '',
     };
-postData = async (url,data) => {
+    postData = async (url) => {
         const res = await fetch(url, {
             method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Authorization': `${window.localStorage.getItem('token')}`
-            }
-        });
-        return res.json();
-    } 
-post = async (url) => {
-        const res = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Authorization': `${window.localStorage.getItem('token')}`
-            }
-        });
-        return res.json();
-    } 
-    changeStatus = async (bool) => {
-        if (window.localStorage.getItem('id') != null || window.localStorage.getItem('id') != undefined || window.localStorage.getItem('id') != ''){
-            await this.postData(`https://inversedevs.herokuapp.com/user/online/${window.localStorage.getItem('id')}`,{state: bool})
-            .then(data => console.log(data)); 
-        }
-    }
-    onUnload = async () => {
-        await this.changeStatus(false)
-    }
-    onLoad = async () => {
 
-        await this.changeStatus(true)
+            headers: {
+                'Authorization': `${window.localStorage.getItem('token')}`
+            }
+        });
+        return res.json();
+    } 
+    changeStatus = async () => {
+        await this.postData(`https://inversedevs.herokuapp.com/user/ping/${window.localStorage.getItem('id')}`)
     }
+    
     componentDidMount() {
-        this.onLoad();
-         window.addEventListener("beforeunload", this.exit);
-         //window.addEventListener("beforeunload", this.unload);
-        window.addEventListener("unload", this.exit);
-        // window.addEventListener("unload", this.unload);
+        setTimeout(() => { this.changeStatus}, 60000);
      }
-
-  componentWillUnmount() {
-   window.removeEventListener("beforeunload", this.exit);
-      //window.removeEventListener("beforeunload", this.unload);
-      window.removeEventListener("unload", this.exit);
-     // window.removeEventListener("unload", this.unload);
-  }
-
-    exit =  (e) => {
-        e.preventDefault()
-         this.post(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`)
-    }
-  unload = async (e) => {
-      e.preventDefault();
-    await navigator.sendBeacon(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`);
-  }
-
+ 
     getUserData = (data) => {
         this.setState({userData: data});
     }
@@ -88,14 +50,14 @@ post = async (url) => {
                     { window.localStorage.getItem('token') !== ''  && window.localStorage.getItem('id') !== '' && window.localStorage.getItem('id') !== null? <Redirect to={`/profile/${window.localStorage.getItem('id')}`} /> : <LoginAppLogin  getUserToken={this.getUserToken} getUserData={this.getUserData}/>}
                 </Route>
                 <Route exact path="/login">
-                <LoginAppLogin  getUserToken={this.getUserToken} getUserData={this.getUserData}/>
+                    <LoginAppLogin  getUserToken={this.getUserToken} getUserData={this.getUserData}/>
                 </Route>
 
                 <Route exact path="/changePass" component={LoginAppReset}/>
                 <Route exact path="/registration" component={RegistrationApp}/>
                 <Route exact path="/after-registration/:id" component={AfterRegister}/>
                 <Route exact path="/chat">
-                <ChatApp userData={this.state.userData}/>
+                    <ChatApp userData={this.state.userData}/>
                 </Route>
                 <Route exact path="/friends" component={FriendsApp} />
                 <Route exact path="/music" component={MusicApp} />
@@ -114,3 +76,41 @@ ReactDOM.render(
     document.getElementById('root')
 );
 serviceWorker.unregister();
+
+
+// changeStatus = async (bool) => {
+//     if (window.localStorage.getItem('id') != null || window.localStorage.getItem('id') != undefined || window.localStorage.getItem('id') != ''){
+//         await this.postData(`https://inversedevs.herokuapp.com/user/online/${window.localStorage.getItem('id')}`,{state: bool})
+//         .then(data => console.log(data)); 
+//     }
+// }
+// onUnload = async () => {
+//     await this.changeStatus(false)
+// }
+// onLoad = async () => {
+
+//     await this.changeStatus(true)
+// }
+// componentDidMount() {
+//     this.onLoad();
+//      window.addEventListener("beforeunload", this.exit);
+//      window.addEventListener("beforeunload", this.unload);
+//     window.addEventListener("unload", this.exit);
+//     window.addEventListener("unload", this.unload);
+//  }
+
+// componentWillUnmount() {
+// window.removeEventListener("beforeunload", this.exit);
+//   window.removeEventListener("beforeunload", this.unload);
+//   window.removeEventListener("unload", this.exit);
+//  window.removeEventListener("unload", this.unload);
+// }
+
+// exit =  (e) => {
+//     e.preventDefault()
+//      this.post(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`)
+// }
+// unload = async (e) => {
+//   e.preventDefault();
+// await navigator.sendBeacon(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`);
+// }
