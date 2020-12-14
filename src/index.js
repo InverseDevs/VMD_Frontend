@@ -64,7 +64,8 @@ post = async (url) => {
      // window.removeEventListener("unload", this.unload);
   }
 
-    exit =  () => {
+    exit =  (e) => {
+        e.preventDefault()
          this.post(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`)
     }
   unload = async (e) => {
