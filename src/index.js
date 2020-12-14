@@ -27,6 +27,15 @@ postData = async (url,data) => {
         });
         return res.json();
     } 
+post = async (url) => {
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': `${window.localStorage.getItem('token')}`
+            }
+        });
+        return res.json();
+    } 
     changeStatus = async (bool) => {
         if (window.localStorage.getItem('id') != null || window.localStorage.getItem('id') != undefined || window.localStorage.getItem('id') != ''){
             await this.postData(`https://inversedevs.herokuapp.com/user/online/${window.localStorage.getItem('id')}`,{state: bool})
@@ -42,21 +51,21 @@ postData = async (url,data) => {
     }
     componentDidMount() {
         this.onLoad();
-        // window.addEventListener("beforeunload", this.exit);
-         window.addEventListener("beforeunload", this.unload);
-        //window.addEventListener("unload", this.exit);
-         window.addEventListener("unload", this.unload);
+         window.addEventListener("beforeunload", this.exit);
+         //window.addEventListener("beforeunload", this.unload);
+        window.addEventListener("unload", this.exit);
+        // window.addEventListener("unload", this.unload);
      }
 
   componentWillUnmount() {
-   // window.removeEventListener("beforeunload", this.exit);
-      window.removeEventListener("beforeunload", this.unload);
-    //  window.removeEventListener("unload", this.exit);
-      window.removeEventListener("unload", this.unload);
+   window.removeEventListener("beforeunload", this.exit);
+      //window.removeEventListener("beforeunload", this.unload);
+      window.removeEventListener("unload", this.exit);
+     // window.removeEventListener("unload", this.unload);
   }
 
     exit = async () => {
-        await this.postData(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`)
+        await this.post(`https://inversedevs.herokuapp.com/exit/${window.localStorage.getItem('id')}`)
     }
   unload = async (e) => {
       e.preventDefault();
