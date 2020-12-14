@@ -17,6 +17,39 @@ class App extends React.Component{
         userData: [],
         token: '',
     };
+postData = async (url,data) => {
+        const res = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Authorization': `${window.localStorage.getItem('token')}`
+            }
+        });
+        return res.json();
+    } 
+    changeStatus = async (bool) => {
+        if (window.localStorage.getItem('id') != null || window.localStorage.getItem('id') != undefined || window.localStorage.getItem('id') != ''){
+            await this.postData(`https://inversedevs.herokuapp.com/user/online/${window.localStorage.getItem('id')}`,{state: bool})
+            .then(data => console.log(data)); 
+        }
+    }
+    onUnload = async e => {
+        e.preventDefault();
+        await this.changeStatus(false)
+    }
+    onLoad = async e => {
+        e.preventDefault();
+        await this.changeStatus(true)
+    }
+    componentDidMount() {
+        window.addEventListener("load",this.onLoad)
+        window.addEventListener("beforeunload", this.onUnload);
+     }
+ 
+     componentWillUnmount() {
+         window.removeEventListener("beforeunload", this.onUnload);
+         window.removeEventListener("load", this.onLoad);
+     }
     getUserData = (data) => {
         this.setState({userData: data});
     }
