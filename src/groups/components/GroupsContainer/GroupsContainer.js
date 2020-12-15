@@ -31,11 +31,9 @@ class GroupsContainer extends React.Component {
     }
     componentDidMount(){
         this.getGroup();
+        setTimeout(() => { this.getGroup}, 2000);
     }
 
-    componentDidUpdate(){
-        this.getGroup();
-    }
 
 	checkAdmin = () => {
 

@@ -44,11 +44,9 @@ class Chats extends React.Component {
     }
     componentDidMount() {
         this.getChats();
-
+        setTimeout(() => { this.getChats}, 2000);
 }
-    componentDidUpdate(){
-        this.getChats();
-    }
+
     render(){
     const groups = this.renderGroups(this.state.groups);
     return (

@@ -52,15 +52,9 @@ class FriendsApp extends React.Component {
 	componentDidMount(){
 		this.getUsers();
 		this.getFriends();
+		setTimeout(() => { this.getUsers}, 2000);
+		setTimeout(() => { this.getFriends}, 2000);
 	}
-	componentDidUpdate(){
-		this.getUsers();
-		this.getFriends();
-	}
-	//componentDidUpdate(){
-	//	this.getUsers();
-	//	this.getFriends();
-	//}
 
 	searchChange = (e) => {this.setState({search:e.target.value})};
 	checkId = (id ) => {

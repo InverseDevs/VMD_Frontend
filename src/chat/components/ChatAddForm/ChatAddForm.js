@@ -43,6 +43,7 @@ createChat = async () => {
 }
 componentDidMount(){
     this.getFriends();
+    setTimeout(() => { this.getFriends},2000);
 }
 renderFriends(friends) {
 

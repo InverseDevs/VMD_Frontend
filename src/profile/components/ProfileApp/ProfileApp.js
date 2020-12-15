@@ -44,10 +44,9 @@ class ProfileApp extends React.Component{
     componentDidMount(){
         
         this.rememberData();
+        setTimeout(() => { this.rememberData}, 2000);
     }
-    componentDidUpdate(){
-        this.getUserData();
-    }
+
     changeLocation = () => {
         window.location.pathname = `/profile/${window.localStorage.getItem('id')}`;
     }

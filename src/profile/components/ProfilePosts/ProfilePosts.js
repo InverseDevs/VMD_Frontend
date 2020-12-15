@@ -34,15 +34,10 @@ class ProfilePosts extends React.Component {
     componentDidMount(){
         if (window.localStorage.getItem('id') !=  ''){
         this.getPosts();
+        setTimeout(() => { this.getPosts}, 2000);
         }
     }
-    componentDidUpdate(){
-        if (window.localStorage.getItem('id') != ''){
-    //    setInterval(() =>  this.getPosts(), 10000);
-            this.getPosts();
-        }
-    
-    }
+
     renderItems(posts){
         return Object.values(posts).map(post => {
                 return (

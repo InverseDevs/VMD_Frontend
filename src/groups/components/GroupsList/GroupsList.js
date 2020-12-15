@@ -84,12 +84,11 @@ class GroupsList extends Component {
     }
     componentDidMount(){
         this.getGroups();
-	 this.getAllGroups();
+     this.getAllGroups();
+     setTimeout(() => { this.getGroups}, 2000);
+     setTimeout(() => { this.getAllGroups}, 2000);
     }
-    componentDidUpdate(){
-        this.getGroups();
-        this.getAllGroups();
-    }
+
     renderGroups = (groups) => {
         if (groups != []){
 	    let new_groups = Object.values(groups).filter(group =>
