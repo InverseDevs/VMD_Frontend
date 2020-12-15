@@ -34,7 +34,7 @@ class ProfilePosts extends React.Component {
     componentDidMount(){
         if (window.localStorage.getItem('id') !=  ''){
         this.getPosts();
-        setTimeout(this.getPosts, 2000);
+        setInterval(this.getPosts, 2000);
         }
     }
 

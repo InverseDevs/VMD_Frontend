@@ -52,8 +52,8 @@ class FriendsApp extends React.Component {
 	componentDidMount(){
 		this.getUsers();
 		this.getFriends();
-		setTimeout(this.getUsers, 2000);
-		setTimeout(this.getFriends, 2000);
+		setInterval(this.getUsers, 2000);
+		setInterval(this.getFriends, 2000);
 	}
 
 	searchChange = (e) => {this.setState({search:e.target.value})};
