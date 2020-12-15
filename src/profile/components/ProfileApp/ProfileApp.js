@@ -44,7 +44,7 @@ class ProfileApp extends React.Component{
     componentDidMount(){
         
         this.rememberData();
-        setTimeout(() => { this.rememberData}, 2000);
+        setTimeout(this.rememberData, 2000);
     }
 
     changeLocation = () => {

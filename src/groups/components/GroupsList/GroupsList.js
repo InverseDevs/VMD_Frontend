@@ -85,8 +85,8 @@ class GroupsList extends Component {
     componentDidMount(){
         this.getGroups();
      this.getAllGroups();
-     setTimeout(() => { this.getGroups}, 2000);
-     setTimeout(() => { this.getAllGroups}, 2000);
+     setTimeout(this.getGroups, 2000);
+     setTimeout(this.getAllGroups, 2000);
     }
 
     renderGroups = (groups) => {

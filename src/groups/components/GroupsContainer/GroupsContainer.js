@@ -31,7 +31,7 @@ class GroupsContainer extends React.Component {
     }
     componentDidMount(){
         this.getGroup();
-        setTimeout(() => { this.getGroup}, 2000);
+        setTimeout(this.getGroup, 2000);
     }
 
 
