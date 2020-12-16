@@ -50,6 +50,10 @@ class ProfileApp extends React.Component{
             clearInterval(timer);
         }
     }
+    componentWillUnmount(){
+        console.log('cleared')
+        clearInterval(timer);
+    }
 
     changeLocation = () => {
         window.location.pathname = `/profile/${window.localStorage.getItem('id')}`;
