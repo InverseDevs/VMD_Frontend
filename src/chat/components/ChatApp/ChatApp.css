@@ -5,7 +5,7 @@ body{
     --size: calc(0.80*1px + (1*0.4) * ((100vw - 480px) / (2560 - 480)));
 }
 #chat-logo{
-    margin-left: calc(328*var(--size));
+    margin-left: calc(100*var(--size));
     cursor: pointer;
 }
 .chat-page{

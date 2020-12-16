@@ -1,5 +1,5 @@
 #add-btn{
-    position:fixed;
+    position: absolute;;
     width: calc(160*var(--size));
     height: calc(160*var(--size));
     background: #92CE76;
