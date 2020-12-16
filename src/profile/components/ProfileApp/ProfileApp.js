@@ -3,6 +3,7 @@ import ProfileContainer from '../ProfileContainer/ProfileContainer';
 import './ProfileApp.css';
 import logo from './logo.png';
 import {Redirect} from 'react-router-dom';
+let timer;
 class ProfileApp extends React.Component{
     constructor(props){
         super(props);
@@ -44,11 +45,8 @@ class ProfileApp extends React.Component{
     componentDidMount(){
         
         this.rememberData();
-        var timer = setInterval(this.rememberData, 2000);
-        if (!window.location.pathname.includes('profile')){
-            console.log('cleared')
-            clearInterval(timer);
-        }
+        timer = setInterval(this.rememberData, 2000);
+
     }
     componentWillUnmount(){
         console.log('cleared')
