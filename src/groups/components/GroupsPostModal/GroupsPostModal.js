@@ -44,6 +44,7 @@ class GroupsPostModal extends Component {
         img.file = file;
         img.width = 540;
         img.height = 270;
+        img.classList.add('inner-photo');
         document.getElementById('post-create-img').appendChild(img);
         var reader = new FileReader();
         reader.onload = (function(aImg) { 

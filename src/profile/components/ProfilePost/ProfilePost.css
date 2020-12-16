@@ -40,7 +40,7 @@
     margin-left: calc(100*var(--size));
     text-align: right;
     width: calc(302*var(--size));
-    margin-top: calc(5*var(--size));
+    margin-top: calc(15*var(--size));
 
 }
 .profile-post-like{
@@ -89,6 +89,7 @@
     height: calc(270*var(--size));
     margin-left: calc(40*var(--size));
     margin-bottom: calc(20*var(--size));
+    margin-top: calc(10*var(--size));
 }
 .post-full-img{
     width: calc(870*var(--size));
@@ -174,4 +175,8 @@
     margin-top: calc(5*var(--size));
     overflow: hidden;
     border-radius: 50%;
+}
+.profile-user-name{
+    margin-left: calc(100*var(--size));
+    margin-top: calc(5*var(--size));
 }

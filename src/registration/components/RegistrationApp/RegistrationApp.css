@@ -204,3 +204,7 @@ form #reg-btn{
     color: #000;
     outline: none;
 }
+.mlmax{
+    margin-left: 85px;
+    max-width: 68.5%;
+}

@@ -6,7 +6,8 @@
 }
 
 .participant{
-	width: 850px;
+    width: 835px;
+    margin-left:30px;
 	display:flex;
 }
 
@@ -95,7 +96,7 @@
 .make-admin{
 	width: 240px;
     height: 70px;
-    margin-left: 100px;
+    margin-left: 90px;
     margin-top: 20px;
 }
 .ban-user{

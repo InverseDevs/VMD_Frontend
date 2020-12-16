@@ -70,7 +70,7 @@ class GroupsPost extends Component {
                         <button onClick={this.likePressed} className="profile-post-like"><img className="post-like" src={ this.checkLike(this.props.likes) === false ? like : likeClicked}/></button>
                         <button onClick={this.showCommentsModal} className="profile-post-comments">Комментарии</button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
-                        <div className="friend-name-link">
+                        <div className="friend-name-link profile-user-name">
                         <Link to={`/profile/${this.props.senderId}`}><div className="post-author">{this.props.sender}</div></Link>
                         </div>
                         <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>

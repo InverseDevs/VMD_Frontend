@@ -68,7 +68,7 @@ class LoginAppReset extends React.Component {
                     <Link to="/login">Войти</Link>
                 </li>
                 <li>
-                    <Link to="/changePass" class="active">Смена пароль</Link>
+                    <Link to="/changePass" class="active">Восстановить пароль</Link>
                 </li>
                 </ul>
                 <div id="login" class="form-action show">

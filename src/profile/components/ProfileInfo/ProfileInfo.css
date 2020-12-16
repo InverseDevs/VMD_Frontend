@@ -166,3 +166,8 @@
 .ml{
     margin-left:calc(50*var(--size));
 }
+.inner-photo{
+    width: inherit;
+    height: inherit;
+    border-radius: calc(25*var(--size));
+}
