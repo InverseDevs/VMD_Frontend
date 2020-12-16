@@ -2,9 +2,7 @@
 .chat-window{
     position: absolute;
     width: calc(920*var(--size));
-    height: calc(900*var(--size));
-    left: calc(260*var(--size));
-    top: calc(70*var(--size));
+    height: 100%;
     margin-left: calc(297*var(--size));
     background: #FFFFFF;
     box-shadow: inset 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
