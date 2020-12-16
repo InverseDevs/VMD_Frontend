@@ -36,12 +36,12 @@
     font-family: 'Source Serif Pro', sans-serif;
 
 }
-.profile-post-full-author{
-    margin-left: calc(100*var(--size));
+.group-post-full-author{
+    margin-left: calc(270*var(--size));
     text-align: right;
     cursor:pointer;
     width: calc(302*var(--size));
-    margin-top: calc(15*var(--size));
+    margin-top: calc(30*var(--size));
 
 }
 .profile-post-like{
@@ -67,6 +67,7 @@
     height: calc(40*var(--size));
     margin-left:calc(10*var(--size));
     margin-top:calc(25*var(--size));
+    cursor: pointer;
     background: #7CBC5F;
     border-radius: calc(50*var(--size));
     border:none;

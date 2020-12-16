@@ -64,7 +64,6 @@
     background: #7CBC5F;
     border-radius: calc(50*var(--size));
     border:none;
-    cursor: pointer;
     outline:none;
     font-weight:bold;
     font-size:calc(12*var(--size));

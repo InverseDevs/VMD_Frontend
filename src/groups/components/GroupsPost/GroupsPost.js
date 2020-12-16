@@ -91,7 +91,7 @@ class GroupsPost extends Component {
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <h6 className="post-full-time">{this.props.time}</h6>
                         <div className="friend-name-link"> 
-                        <Link to={`/profile/${this.props.senderId}`}><div className="profile-post-full-author">{this.props.sender}</div></Link>
+                        <Link to={`/profile/${this.props.senderId}`}><div className="group-post-full-author">{this.props.sender}</div></Link>
                         </div>
                     </div>
                    <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != '' ? <img src={this.props.avatar} className="post-avatar" alt="avatar"/> : <div className="user-full-img"></div>}</Link>
