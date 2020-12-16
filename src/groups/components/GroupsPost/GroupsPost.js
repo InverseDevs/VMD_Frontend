@@ -71,7 +71,7 @@ class GroupsPost extends Component {
                         <button onClick={this.showCommentsModal} className="profile-post-comments">Комментарии</button>
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <div className="friend-name-link profile-user-name">
-                        <Link to={`/profile/${this.props.senderId}`}><div className="post-author">{this.props.sender}</div></Link>
+                        <Link to={`/profile/${this.props.senderId}`}><div className="profile-post-author">{this.props.sender}</div></Link>
                         </div>
                         <ProfileCommentsModal show={this.state.showComments} handleClose={this.hideCommentsModal}>
                             <Comments comments={this.props.comments} token={window.localStorage.getItem('token')} sender={this.props.sender} Postid={this.props.id}/>
@@ -91,7 +91,7 @@ class GroupsPost extends Component {
                         <button className="profile-post-comments" onClick={this.deletePost}>Удалить</button>
                         <h6 className="post-full-time">{this.props.time}</h6>
                         <div className="friend-name-link"> 
-                        <Link to={`/profile/${this.props.senderId}`}><div className="post-full-author">{this.props.sender}</div></Link>
+                        <Link to={`/profile/${this.props.senderId}`}><div className="profile-post-full-author">{this.props.sender}</div></Link>
                         </div>
                     </div>
                    <Link to={`/profile/${this.props.senderId}`}>{this.props.avatar != '' ? <img src={this.props.avatar} className="post-avatar" alt="avatar"/> : <div className="user-full-img"></div>}</Link>

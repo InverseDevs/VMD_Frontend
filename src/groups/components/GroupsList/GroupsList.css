@@ -36,6 +36,7 @@
     margin-top: 0px;
     background: #7CBC5F;
     border-radius: 50px;
+    cursor: pointer;
     border:none;
     font-size: 18px;
 }
@@ -78,6 +79,7 @@
 #create-btn{
     margin-top: 40px;
     margin-left: 10px;
+    cursor:pointer;
 }
 .ml15{
     width: 700px;

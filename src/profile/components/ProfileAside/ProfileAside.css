@@ -8,6 +8,7 @@
     border:none;
     outline:none;
     font-weight:bold;
+    cursor: pointer;
     font-size:calc(20*var(--size));
 } 
 

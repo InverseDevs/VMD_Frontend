@@ -13,12 +13,14 @@
 .chat-name{
     margin-left: calc(10*var(--size));
     margin-top: calc(12*var(--size));
+    cursor:pointer;
 }
 .close-div{
     width: calc(30*var(--size));
     height: calc(30*var(--size));
     margin-top: calc(4*var(--size));
     margin-right: calc(5*var(--size));
+    cursor:pointer;
     background: #C4C4C4;
     border-radius: 50%;
 }

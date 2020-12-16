@@ -31,6 +31,7 @@
 .profile-post-author{
     margin-right: calc(15*var(--size));
     text-align: right;
+    cursor: pointer;
     margin-top: calc(27*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
 
@@ -38,6 +39,7 @@
 .profile-post-full-author{
     margin-left: calc(100*var(--size));
     text-align: right;
+    cursor: pointer;
     width: calc(302*var(--size));
     margin-top: calc(15*var(--size));
 
@@ -46,6 +48,7 @@
     width: calc(40*var(--size));
     height: calc(40*var(--size));
     margin-top:calc(25*var(--size));
+    cursor: pointer;
     background: #7CBC5F;
     border-radius:50%;
     border:none;
@@ -56,6 +59,7 @@
     margin-top:calc(5*var(--size));
     width: calc(25*var(--size));
     height: calc(25*var(--size));
+    cursor: pointer;
 }
 
 .profile-post-comments{
@@ -77,6 +81,7 @@
     width: calc(60*var(--size));
     height: calc(60*var(--size));
     margin-top: calc(15*var(--size));
+    cursor: pointer;
     border-radius: 50%;
     background: #C4C4C4;
 }
@@ -118,6 +123,7 @@
     margin-top:calc(-15*var(--size));
     margin-left: calc(240*var(--size));
     margin-bottom: calc(20*var(--size));
+    cursor: pointer;
     background: #7CBC5F;
     border-radius: calc(50*var(--size));
     border:none;
@@ -132,6 +138,7 @@
     outline:none;
     margin-left: calc(16*var(--size));
     margin-top: calc(19*var(--size)); 
+    cursor: pointer;
     width: calc(120*var(--size));
     height: calc(40*var(--size));
     background: #92CE76;
@@ -142,6 +149,7 @@
     outline:none;
     margin-left: calc(16*var(--size));
     width: calc(120*var(--size));
+    cursor: pointer;
     height: calc(40*var(--size));
     background: #92CE76;
     border-radius: calc(50*var(--size));
@@ -165,6 +173,7 @@
     width: calc(60*var(--size));
     height: calc(60*var(--size));
     margin-top: calc(15*var(--size));
+    cursor: pointer;
     overflow: hidden;
     border-radius: 50%;
 }
@@ -172,6 +181,7 @@
     width: calc(60*var(--size));
     height: calc(60*var(--size));
     margin-top: calc(5*var(--size));
+    cursor: pointer;
     overflow: hidden;
     border-radius: 50%;
 }

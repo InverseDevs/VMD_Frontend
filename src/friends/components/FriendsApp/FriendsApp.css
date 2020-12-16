@@ -111,6 +111,7 @@
     font-family: Roboto;
 	font-style: normal;
 	font-weight: 300;
+	cursor: pointer;
 	font-size: 24px;
 	line-height: 28px;
 	text-align: center;
@@ -135,7 +136,8 @@
 
 .all-friends-btn {
 
-    width: 33.3%;
+	width: 33.3%;
+	cursor: pointer;
 	height: 60px;
 	left: 0px;
 	top: 0px;
@@ -146,6 +148,7 @@
     width: 33.4%;
 	height: 60px;
 	left: 100px;
+	cursor: pointer;
 	top: 0px;
 }
 .search-input {

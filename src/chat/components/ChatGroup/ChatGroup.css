@@ -1,6 +1,7 @@
 .chat-group{
     margin: auto;
     margin-top: calc(30*var(--size));
+    cursor:pointer;
 }
 .chat-group-image{
     width: calc(160*var(--size));

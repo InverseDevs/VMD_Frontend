@@ -46,6 +46,7 @@
     height: calc(30*var(--size));
     background: #7CBC5F;
     border-radius: calc(50*var(--size));
+    cursor: pointer;
     font-weight:bold;
     font-size:calc(14*var(--size));
     margin-top: calc(55*var(--size));
@@ -63,6 +64,7 @@
     background: #7CBC5F;
     border-radius: calc(50*var(--size));
     border:none;
+    cursor: pointer;
     outline:none;
     font-weight:bold;
     font-size:calc(12*var(--size));
@@ -111,6 +113,7 @@
     margin-left: calc(45*var(--size));
     width: calc(860*var(--size));
     height: calc(300*var(--size));
+    cursor: pointer;
     border-radius: calc(25*var(--size));
     margin-bottom: calc(10*var(--size));
     box-shadow: 0 calc(1*var(--size)) calc(3*var(--size)) inset;
@@ -129,6 +132,7 @@
     background: #92CE76;
     border-radius: calc(50*var(--size));
     margin-left: calc(9*var(--size));
+    cursor: pointer;
 }
 .post-send{
     outline:none;
@@ -138,6 +142,7 @@
     height: calc(40*var(--size));
     background: #92CE76;
     border-radius: calc(50*var(--size));
+    cursor: pointer;
     font-size: calc(18*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
     border:none;
@@ -152,6 +157,7 @@
     margin-top: calc(19*var(--size)); 
     width: calc(120*var(--size));
     height: calc(40*var(--size));
+    cursor: pointer;
     background: #92CE76;
     border-radius: calc(50*var(--size));
     border:none;
@@ -159,6 +165,7 @@
 .add-file{
     padding-top: calc(9*var(--size));
     padding-bottom: calc(9*var(--size));
+    cursor: pointer;
     padding-left: calc(15*var(--size));
     padding-right:calc(15*var(--size));
     font-family: 'Source Serif Pro', sans-serif;

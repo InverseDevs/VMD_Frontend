@@ -78,6 +78,7 @@
     border-radius: calc(50*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
     margin-left: calc(170*var(--size));
+    cursor: pointer;
     border: calc(1*var(--size)) solid #7CBC5F;
     outline: none;
 }

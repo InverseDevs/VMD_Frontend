@@ -1,6 +1,7 @@
 .comment-profile-link{
     color: black;
     margin-right: calc(10*var(--size));
+    cursor: pointer;
 }
 .comment-profile-link:hover{
     color: black;
@@ -33,6 +34,7 @@
     min-height: calc(60*var(--size));
     min-width: calc(60*var(--size));
     max-height: calc(60*var(--size));
+    cursor: pointer;
     max-width: calc(60*var(--size));
     overflow: hidden;
     border-radius: 50%;
@@ -45,6 +47,7 @@
     max-height: calc(60*var(--size));
     max-width: calc(60*var(--size));
     overflow: hidden;
+    cursor: pointer;
     border-radius: 50%;
     background: #C4C4C4;
 
@@ -67,6 +70,7 @@
     width: calc(40*var(--size));
     height: calc(40*var(--size));
     background: none;
+    cursor: pointer;
     border-radius:50%;
     border:none;
     outline:none;
@@ -75,6 +79,7 @@
     width: calc(40*var(--size));
     height: calc(40*var(--size));
     background: none;
+    cursor: pointer;
     outline: none;
     border: none;
     margin-top: calc(-10*var(--size));

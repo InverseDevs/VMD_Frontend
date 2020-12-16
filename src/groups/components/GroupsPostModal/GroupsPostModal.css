@@ -73,6 +73,7 @@
     width: 120px;
     height: 40px;
     background: #92CE76;
+    cursor: pointer;
     border-radius: 50px;
     margin-left: 9px;
 }
@@ -83,6 +84,7 @@
     width: 120px;
     height: 40px;
     background: #92CE76;
+    cursor: pointer;
     border-radius: 50px;
     font-size: 18px;
     font-family: 'Source Serif Pro', sans-serif;
@@ -100,6 +102,7 @@
     height: 40px;
     background: #92CE76;
     border-radius: 50px;
+    cursor: pointer;
     border:none;
 }
 .group-add-file{

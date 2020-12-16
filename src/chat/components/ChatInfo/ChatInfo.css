@@ -39,6 +39,7 @@
     font-family: 'Source Serif Pro', sans-serif;
 }
 .delete-chat{
+    cursor: pointer;
     width: calc(140*var(--size));
     margin-top: calc(10*var(--size));
     height: calc(40*var(--size));

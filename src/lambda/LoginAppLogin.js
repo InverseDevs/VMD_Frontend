@@ -87,7 +87,7 @@ class LoginAppLogin extends React.Component {
                     <Link to="/" className="active">Войти</Link>
                 </li>
                 <li>
-                    <Link to="/changePass">Смена пароль</Link>
+                    <Link to="/changePass">Восстановить пароль</Link>
                 </li>
                 </ul>
                 <div id="login" className="form-action show">

@@ -51,6 +51,7 @@ border-radius: calc(50*var(--size));
 border:none;
 outline:none;
 font-weight:bold;
+cursor: pointer;
 font-size:calc(14*var(--size));
 
 }

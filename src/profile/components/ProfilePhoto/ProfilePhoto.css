@@ -28,6 +28,7 @@
     cursor: pointer;
     background: #7CBC5F;
     border-radius: calc(50*var(--size));
+    
     border:none;
     outline:none;
     font-weight:bold;

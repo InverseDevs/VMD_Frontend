@@ -6,6 +6,7 @@
 }
 .user-from-name{
     margin-left: calc(60*var(--size));
+    cursor:pointer;
     font-family: 'Source Serif Pro', sans-serif;
 }
 .message-from-container{
@@ -26,17 +27,20 @@
     width: calc(50*var(--size));
     height: calc(50*var(--size));
     background: #C4C4C4;
+    cursor: pointer;
     border-radius: 50%;
 }
 .user-from-img-exist{
      width: calc(50*var(--size));
     height: calc(50*var(--size));
+    cursor:pointer;
     border-radius: 50%;
 }
 .user-from-avatar{
    width: calc(50*var(--size));
     height: calc(50*var(--size));
     border-radius: 50%;
+    cursor: pointer;
     margin-left: calc(30*var(--size));
     overflow: hidden;
 }
