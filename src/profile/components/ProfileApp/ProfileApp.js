@@ -44,7 +44,7 @@ class ProfileApp extends React.Component{
     componentDidMount(){
         
         this.rememberData();
-        let timer = setInterval(this.rememberData, 2000);
+        var timer = setInterval(this.rememberData, 2000);
         if (!window.location.pathname.includes('profile')){
             console.log('cleared')
             clearInterval(timer);
