@@ -132,7 +132,7 @@ class Chat extends React.Component {
         }
             return(
             
-            <div className="chat-container">
+            <div className="chat-window-container">
                 <div onScroll={this.onScrollBarChange}  className="chat" id="slider-container">
                         <div  className="messages-container" id="for-slider" >
                             {messages}
