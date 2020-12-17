@@ -5,6 +5,7 @@
     background: #92CE76;
     border-radius: 50%;
     outline: none;
+    cursor: pointer;
     border: none;
     margin-left: calc(20*var(--size));
     overflow:hidden;

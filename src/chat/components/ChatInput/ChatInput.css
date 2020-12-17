@@ -50,6 +50,7 @@
     width: calc(70*var(--size));
     height: calc(70*var(--size));
     background: #92CE76;
+    cursor: pointer;
     border-radius: 50%;
     margin-left: calc(9*var(--size));
     overflow: hidden;

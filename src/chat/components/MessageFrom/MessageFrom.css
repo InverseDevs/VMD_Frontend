@@ -3,10 +3,12 @@
 }
 .user-from-img{
     margin-left: calc(30*var(--size));
+    cursor: pointer;
 }
 .user-from-name{
     margin-left: calc(60*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
+    cursor: pointer;
 }
 .message-from-container{
     margin-left: calc(110*var(--size));
@@ -26,10 +28,12 @@
     width: calc(50*var(--size));
     height: calc(50*var(--size));
     background: #C4C4C4;
+    cursor: pointer;
     border-radius: 50%;
 }
 .user-from-img-exist{
      width: calc(50*var(--size));
+     cursor: pointer;
     height: calc(50*var(--size));
     border-radius: 50%;
 }
@@ -37,6 +41,7 @@
    width: calc(50*var(--size));
     height: calc(50*var(--size));
     border-radius: 50%;
+    cursor: pointer;
     margin-left: calc(30*var(--size));
     overflow: hidden;
 }

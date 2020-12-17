@@ -50,5 +50,6 @@
     border-radius: calc(50*var(--size));
     border:none;
     outline:none;
+    cursor: pointer;
     font-size:calc(16*var(--size));   
 }
