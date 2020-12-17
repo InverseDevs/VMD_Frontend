@@ -1,24 +1,24 @@
 
 .friends-app{
 	margin:0;
-	padding-top: 50px;
-	padding-bottom: 20px;
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%), #92CE76;
+	padding-top: calc(50*var(--size));
+	padding-bottom: calc(20*var(--size));
 
 }
 #friends-logo{
-	margin-left: 470px;
-	margin-top: -50px;
+	margin-left: calc(470*var(--size));
+	margin-top: calc(-50*var(--size));
 }
 .friends-app-window{
-	margin-left: 470px;
-
-	width: 960px;
-
-	height: 938px;
+	position: absolute;
+	left: 50%;
+    transform: translate(-50%   ,0);
+	width: calc(960*var(--size));
+	height: calc(938*var(--size));
 	overflow-y:scroll;
 	background: #82bf66;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+	z-index: 3;
 }
 
 .friends-app-window::-webkit-scrollbar{
@@ -30,39 +30,39 @@
 }
 .friends-app-window::-webkit-scrollbar-thumb:hover{
     background: none;
-    border-radius: 7px;
+    border-radius: calc(7*var(--size));
 }
 
 #friends-left-ellipse{
 	position: absolute;
-	width: 440px;
-	height: 440px;
-	left: 1394px;
-	top: -350px;
+	width: calc(440*var(--size));
+	height: calc(440*var(--size));
+	left: calc(1394*var(--size));
+	top: calc(-350*var(--size));
 	border-radius: 50%;
-	border: 1px solid #2B6C34;
+	border: calc(1*var(--size)) solid #2B6C34;
 	box-sizing: border-box;
 	z-index: 1;
 }
 
 #friends-right-ellipse{
 	position: absolute;
-	width: 440px;
-	height: 440px;
-	left: 1623px;
-	top: -12px;
+	width: calc(440*var(--size));
+	height: calc(440*var(--size));
+	left: calc(1623*var(--size));
+	top: calc(-12*var(--size));
 	border-radius: 50%;
-	border: 1px solid #2B6C34;
+	border: calc(1*var(--size)) solid #2B6C34;
 	box-sizing: border-box;
 	z-index: 1;
 }
 
 #friends-small-ellipse-1{
 	position: absolute;
-	width: 100px;
-	height: 100px;
-	left: 1394px;
-	top: -41px;
+	width: calc(100*var(--size));
+	height: calc(100*var(--size));
+	left: calc(1394*var(--size));
+	top: calc(-41*var(--size));
 	border-radius:50%;
 	background: #FFFFFF;
 	z-index: 2;
@@ -70,10 +70,10 @@
 
 #friends-small-ellipse-2{
 	position: absolute;
-	width: 100px;
-	height: 100px;
-	left: 1600px;
-	top: 40px;
+	width: calc(100*var(--size));
+	height: calc(100*var(--size));
+	left: calc(1600*var(--size));
+	top: calc(40*var(--size));
 	border-radius:50%;
 	background: #FFFFFF;
 	z-index: 2;
@@ -81,10 +81,10 @@
 
 #friends-small-ellipse-3{
 	position: absolute;
-	width: 100px;
-	height: 100px;
-	left: 1577px;
-	top: 220px;
+	width: calc(100*var(--size));
+	height: calc(100*var(--size));
+	left: calc(1577*var(--size));
+	top: calc(220*var(--size));
 	border-radius:50%;
 	background: #FFFFFF;
 	z-index: 2;
@@ -92,10 +92,10 @@
 
 #friends-small-ellipse-4{
 	position: absolute;
-	width: 100px;
-	height: 100px;
-	left: 1720px;
-	top: 378px;
+	width: calc(100*var(--size));
+	height: calc(100*var(--size));
+	left: calc(1720*var(--size));
+	top: calc(378*var(--size));
 	border-radius:50%;
 	background: #FFFFFF;
 	z-index: 2;
@@ -106,14 +106,13 @@
 .btn-group button {
 	border: none;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) -35.83%, rgba(255, 255, 255, 0.3) 64.17%), #7CBC5F;
-    padding: 14px 28px;
+    padding: calc(14*var(--size)) calc(28*var(--size));
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Roboto;
 	font-style: normal;
 	font-weight: 300;
-	cursor: pointer;
-	font-size: 24px;
-	line-height: 28px;
+	font-size: calc(24*var(--size));
+	line-height: calc(28*var(--size));
 	text-align: center;
 	color: #FFFFFF;
 	outline: none;
@@ -136,9 +135,8 @@
 
 .all-friends-btn {
 
-	width: 33.3%;
-	cursor: pointer;
-	height: 60px;
+    width: 33.3%;
+	height: calc(60*var(--size));
 	left: 0px;
 	top: 0px;
 }
@@ -146,37 +144,36 @@
 .online-friends-btn {
 
     width: 33.4%;
-	height: 60px;
-	left: 100px;
-	cursor: pointer;
+	height: calc(60*var(--size));
+	left: calc(100*var(--size));
 	top: 0px;
 }
 .search-input {
 	display:flex;
 }
 .search-input{
-	width: 860px;
-	height: 70px;
-	margin-left: 15px;
-	margin-top: 20px;
+	width: calc(860*var(--size));
+	height: calc(70*var(--size));
+	margin-left: calc(15*var(--size));
+	margin-top: calc(20*var(--size));
 	border: none;
-	font-size: 20px;
-	padding-bottom: 25px;
-	padding-left: 25px;
+	font-size: calc(20*var(--size));
+	padding-bottom: calc(25*var(--size));
+	padding-left: calc(25*var(--size));
 	font-family: 'Source Serif Pro', sans-serif;
 	overflow:hidden;
 	outline:none;
 }
 .search-btn{
 	box-shadow: 1px 1px 3px inset;
-	width: 200px;
-    height: 45px;
-	margin-left: 50px;
-	margin-top: 30px;
+	width: calc(200*var(--size));
+    height: calc(45*var(--size));
+	margin-left: calc(50*var(--size));
+	margin-top: calc(30*var(--size));
 	font-family: 'Source Serif Pro', sans-serif;
-    font-size: 18px;
+    font-size: calc(18*var(--size));
     background: #7CBC5F;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
     border:none;
     outline:none;
 }

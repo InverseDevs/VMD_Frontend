@@ -1,10 +1,13 @@
 .chat-info{
+    position: absolute;
+    top: calc(55*var(--size));
     width: calc(920*var(--size));
     height: calc(60*var(--size));
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) -35.83%, rgba(255, 255, 255, 0.3) 64.17%), #7CBC5F;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     display:flex;
     justify-content: space-between;
+    z-index: 3;
 }
 .chat-img{
     height: calc(50*var(--size));
@@ -39,7 +42,6 @@
     font-family: 'Source Serif Pro', sans-serif;
 }
 .delete-chat{
-    cursor: pointer;
     width: calc(140*var(--size));
     margin-top: calc(10*var(--size));
     height: calc(40*var(--size));

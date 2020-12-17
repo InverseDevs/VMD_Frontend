@@ -5,12 +5,10 @@
 
 .user-to-img{
     margin-left: calc(30*var(--size));
-    cursor:pointer;
 }
 .user-to-name{
     margin-left: calc(610*var(--size));
     width: calc(190*var(--size));
-    cursor:pointer;
     text-align:right;
     font-family: 'Source Serif Pro', sans-serif;
 }
@@ -39,19 +37,16 @@
     width: calc(50*var(--size));
     height: calc(50*var(--size));
     background: #C4C4C4;
-    cursor:pointer;
     border-radius: 50%;
 }
 .user-to-img-exist{
     width: calc(50*var(--size));
     height: calc(50*var(--size));
-    cursor:pointer;
     border-radius: 50%;
 }
 .user-to-avatar{
     width: calc(50*var(--size));
     height: calc(50*var(--size));
-    cursor:pointer;
     border-radius: 50%;
     margin-left: calc(40*var(--size));
     overflow: hidden;

@@ -2,7 +2,7 @@
 .tab-list{
     background: #92CE76;
     display:flex;
-    height: calc(56*var(--size));
+    height: calc(60*var(--size));
     overflow-x: scroll;
     overflow-y: hidden;
     

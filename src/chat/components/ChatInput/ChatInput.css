@@ -1,6 +1,7 @@
 .chat-form{
-    display:flex;
-    margin-top: calc(30*var(--size));
+    display: flex;
+    position: absolute;
+    bottom: 1%;
 }
 .chat-input-container{
     width: calc(700*var(--size));
@@ -46,7 +47,6 @@
 
 
 .send-btn {
-    cursor: pointer;
     width: calc(70*var(--size));
     height: calc(70*var(--size));
     background: #92CE76;
@@ -59,7 +59,7 @@
     outline:none;
     margin-left: calc(16*var(--size));
     margin-top: calc(19*var(--size)); 
-    width: 50px;
-    height: 32px;
+    width: calc(50*var(--size));
+    height: calc(32*var(--size));
     border:none;
 }
