@@ -21,5 +21,4 @@
 .messages-container{
     margin-bottom: calc(20*var(--size));
     margin-top: calc(20*var(--size));
-    overflow-y: scroll;
 }
