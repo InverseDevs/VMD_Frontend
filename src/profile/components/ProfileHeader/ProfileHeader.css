@@ -1,5 +1,5 @@
 .profile-header{
     display:flex;
     margin-left: calc(30*var(--size));
-    margin-bottom: calc(90*var(--size));
+    margin-bottom: calc(40*var(--size));
 }
