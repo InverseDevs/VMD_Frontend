@@ -2,7 +2,7 @@
     width: calc(200*var(--size));
     height: calc(50*var(--size));
     margin-left: calc(50*var(--size));
-    margin-bottom: calc(30*var(--size));
+    margin-bottom: calc(10*var(--size));
     background: #7CBC5F;
     border-radius: calc(50*var(--size));
     border:none;
