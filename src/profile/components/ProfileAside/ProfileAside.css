@@ -15,3 +15,15 @@
 .profile-friends:active, .profile-groups:active, .profile-music:active, .profile-chats:active{
     border: calc(1*var(--size)) solid black;
 }
+
+.profile-aside{
+    height: calc(430*var(--size));
+    overflow-y: scroll;
+}
+.profile-aside::-webkit-scrollbar{
+    width: calc(0*var(--size));
+    background: none;
+}
+.profile-aside::-webkit-scrollbar-thumb{
+    background:none;
+}

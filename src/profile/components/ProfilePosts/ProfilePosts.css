@@ -1,6 +1,6 @@
 
 .profile-posts{
-    height: calc(540*var(--size));
+    height: calc(470*var(--size));
     min-width: calc(665*var(--size));
     margin-right:calc(120*var(--size));
     overflow-y: scroll;
