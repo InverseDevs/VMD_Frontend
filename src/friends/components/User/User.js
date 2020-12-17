@@ -41,7 +41,7 @@ class User extends React.Component {
                         </div>
                         <Link to="/chat"><button type="button" onClick={this.createChat} className="write-message-btn">Написать сообщение</button></Link>
                     </div>
-                    <button onClick={this.addFriend} type="button" className="delete-friend">Добавить</button>
+                    <button onClick={this.addFriend} type="button" className="delete-friend-btn">Добавить</button>
                     </div>
                     
 				</div>

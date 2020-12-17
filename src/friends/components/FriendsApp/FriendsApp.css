@@ -2,6 +2,7 @@
 .friends-app{
 	margin:0;
 	padding-top: calc(50*var(--size));
+	height: 100vh;
 	padding-bottom: calc(20*var(--size));
 
 }
@@ -14,7 +15,7 @@
 	left: 50%;
     transform: translate(-50%   ,0);
 	width: calc(960*var(--size));
-	height: calc(938*var(--size));
+	height: 92.9vh;
 	overflow-y:scroll;
 	background: #82bf66;
 	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -112,6 +113,7 @@
 	font-style: normal;
 	font-weight: 300;
 	font-size: calc(24*var(--size));
+	cursor: pointer;
 	line-height: calc(28*var(--size));
 	text-align: center;
 	color: #FFFFFF;
@@ -135,7 +137,8 @@
 
 .all-friends-btn {
 
-    width: 33.3%;
+	width: 33.3%;
+	cursor: pointer;
 	height: calc(60*var(--size));
 	left: 0px;
 	top: 0px;
@@ -146,6 +149,7 @@
     width: 33.4%;
 	height: calc(60*var(--size));
 	left: calc(100*var(--size));
+	cursor: pointer;
 	top: 0px;
 }
 .search-input {
