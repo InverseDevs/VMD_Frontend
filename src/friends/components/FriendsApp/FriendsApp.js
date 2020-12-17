@@ -119,8 +119,8 @@ class FriendsApp extends React.Component {
                 <button onClick={this.SwitchSearch} type="button" className="all-friends-btn">Поиск</button>
 			</div>
 			{this.state.tabId === 0 ? requests : null}
-			{this.state.tabId === 2 ? <div className="search-input">
-										<input className="search-input" onChange={this.searchChange} type="text" placeholder="Введите имя..."/>
+			{this.state.tabId === 2 ? <div className="friends-search-input">
+										<input className="friends-search-input" onChange={this.searchChange} type="text" placeholder="Введите имя..."/>
 										
 									</div>
 			 : null}

@@ -152,10 +152,10 @@
 	cursor: pointer;
 	top: 0px;
 }
-.search-input {
+.friends-search-input {
 	display:flex;
 }
-.search-input{
+.friends-search-input{
 	width: calc(860*var(--size));
 	height: calc(70*var(--size));
 	margin-left: calc(15*var(--size));
@@ -168,7 +168,7 @@
 	overflow:hidden;
 	outline:none;
 }
-.search-btn{
+.friends-search-btn{
 	box-shadow: 1px 1px 3px inset;
 	width: calc(200*var(--size));
     height: calc(45*var(--size));
