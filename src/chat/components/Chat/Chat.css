@@ -1,19 +1,20 @@
 .chat{
-    height: calc(99% - calc(230*var(--size)));
+    margin-top: calc(50*var(--size));
+    height: calc(99% - calc(260*var(--size)));
     padding-bottom: calc(120*var(--size));
     overflow-x: hidden;
     margin-bottom: calc(30*var(--size));
     position: relative;
     bottom: 0;
 }
-.messages-container::-webkit-scrollbar{
+.chat::-webkit-scrollbar{
     width: calc(5*var(--size));
     background: none;
 }
-.messages-container::-webkit-scrollbar-thumb{
+.chat::-webkit-scrollbar-thumb{
     background:none;
 }
-.messages-container::-webkit-scrollbar-thumb:hover{
+.chat::-webkit-scrollbar-thumb:hover{
     background: #2A9E50;
     border-radius: calc(7*var(--size));
 }
