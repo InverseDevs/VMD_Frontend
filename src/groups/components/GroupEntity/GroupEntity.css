@@ -1,50 +1,50 @@
 .group-entity{
     display:flex;
     justify-content: space-between;
-    width: 720px;
-    margin-bottom: 20px;
-    height: 100px;
+    width: calc(720*var(--size));
+    margin-bottom: calc(20*var(--size));
+    height: calc(100*var(--size));
     background:  #92CE76;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
 }
 .group-avatar{
-    margin-top: 10px;
-    margin-left: 20px;
-    width: 80px;
-    height: 80px;
+    margin-top: calc(10*var(--size));
+    margin-left: calc(20*var(--size));
+    width: calc(80*var(--size));
+    height: calc(80*var(--size));
     border-radius: 50%;
-    max-width: 80px;
-    max-height: 80px;
+    max-width: calc(80*var(--size));
+    max-height: calc(80*var(--size));
     overflow:hidden;
     background: #C4C4C4;
 }
 
 .group-avatar-exists{
-    margin-top: 10px;
-    margin-left: 20px;
+    margin-top: calc(10*var(--size));
+    margin-left: calc(20*var(--size));
     border-radius: 50%;
-    max-width: 80px;
-    max-height: 80px;
+    max-width: calc(80*var(--size));
+    max-height: calc(80*var(--size));
     overflow:hidden;
 }
 .group-name{
-    font-size:20px;
-    margin-left: 10px;
-    margin-top: 35px;
-    min-width: 400px;
-    max-width: 400px;
+    font-size:calc(20*var(--size));
+    margin-left: calc(10*var(--size));
+    margin-top: calc(35*var(--size));
+    min-width: calc(400*var(--size));
+    max-width: calc(400*var(--size));
     overflow-x:hidden;
 }
 .group-btn{
     outline:none;
-    width: 140px;
-    height: 50px;
-    margin-right: 10px;
-    margin-top: 20px;
+    width: calc(140*var(--size));
+    height: calc(50*var(--size));
+    margin-right: calc(10*var(--size));
+    margin-top: calc(20*var(--size));
     background: #7CBC5F;
     opacity: 0.7;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
     border:none;
-    font-size: 18px;
+    font-size: calc(18*var(--size));
     cursor:pointer;
 }

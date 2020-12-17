@@ -11,14 +11,14 @@
   .modal-main {
     position:fixed;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99.99%, rgba(255, 255, 255, 0.0234375) 100%), #77BB59;
-    width: 955px;
-    height: 800px;
-    padding-top: 50px;
+    width: calc(955*var(--size));
+    height: calc(800*var(--size));
+    padding-top: calc(50*var(--size));
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
     z-index:7;
-    border-radius:50px;
+    border-radius:calc(50*var(--size));
   }
   
   .display-block {

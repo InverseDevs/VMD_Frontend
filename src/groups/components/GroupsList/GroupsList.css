@@ -1,8 +1,8 @@
 .groups-list{
-    margin-left: 100px;
-    height: 400px;
+    margin-left: calc(100*var(--size));
+    height: calc(400*var(--size));
     overflow-y:scroll;
-    height: 820px;
+    height: calc(820*var(--size));
 }
 .groups-list::-webkit-scrollbar{
     width: 0px;
@@ -16,72 +16,72 @@
     border-radius: 7px;
 }
 .groups-list-search{
-    margin-left: 100px;
-    width: 720px;
-    margin-top: 30px;
-    height: 60px;
-    border-radius:50px;
+    margin-left: calc(100*var(--size));
+    width: calc(720*var(--size));
+    margin-top: calc(30*var(--size));
+    height: calc(60*var(--size));
+    border-radius:calc(50*var(--size));
     outline: none;
-    font-size: 16px;
-    padding-left: 10px;
+    font-size: calc(16*var(--size));
+    padding-left: calc(10*var(--size));
     border:none;
-    margin-bottom: 20px;
+    margin-bottom: calc(20*var(--size));
 }
 .create-group{
     outline:none;
-    width: 180px;
-    height: 50px;
-    margin-bottom: 20px;
-    margin-left: 350px;
+    width: calc(180*var(--size));
+    height: calc(50*var(--size));
+    margin-bottom: calc(20*var(--size));
+    margin-left: calc(350*var(--size));
     margin-top: 0px;
     background: #7CBC5F;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
     cursor: pointer;
     border:none;
-    font-size: 18px;
+    font-size: calc(18*var(--size));
 }
 .group-form{
-    width: 400px;
-    margin-left: 100px;
+    width: calc(400*var(--size));
+    margin-left: calc(100*var(--size));
     display:flex;
     flex-direction: column;
 }
 .group-form-field{
-    width: 680px;
-	height: 40px;
-	margin-left: 15px;
-	margin-top: 20px;
+    width: calc(680*var(--size));
+	height: calc(40*var(--size));
+	margin-left: calc(15*var(--size));
+	margin-top: calc(20*var(--size));
 	border: none;
-    font-size: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-	padding-left: 25px;
+    font-size: calc(20*var(--size));
+    padding-top: calc(10*var(--size));
+    padding-bottom: calc(10*var(--size));
+	padding-left: calc(25*var(--size));
 	font-family: 'Source Serif Pro', sans-serif;
     overflow:hidden;
-    margin-bottom:20px;
+    margin-bottom:calc(20*var(--size));
 	outline:none;
 }
 .group-form-field-invalid{
-    width: 680px;
-	height: 40px;
-	margin-left: 15px;
-	margin-top: 20px;
+    width: calc(680*var(--size));
+	height: calc(40*var(--size));
+	margin-left: calc(15*var(--size));
+	margin-top: calc(20*var(--size));
 	border: 1px solid red;
-    font-size: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-	padding-left: 25px;
+    font-size: calc(20*var(--size));
+    padding-top: calc(10*var(--size));
+    padding-bottom: calc(10*var(--size));
+	padding-left: calc(25*var(--size));
 	font-family: 'Source Serif Pro', sans-serif;
     overflow:hidden;
-    margin-bottom:20px;
+    margin-bottom:calc(20*var(--size));
 	outline:none;
 }
 #create-btn{
-    margin-top: 40px;
-    margin-left: 10px;
+    margin-top: calc(40*var(--size));
+    margin-left: calc(10*var(--size));
     cursor:pointer;
 }
 .ml15{
-    width: 700px;
-    margin-left: 15px;
+    width: calc(700*var(--size));
+    margin-left: calc(15*var(--size));
 }

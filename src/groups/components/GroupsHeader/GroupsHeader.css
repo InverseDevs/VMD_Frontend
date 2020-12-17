@@ -3,37 +3,37 @@
     justify-content: space-evenly;
 }
 .group-header-name{
-    max-width: 200px;
-    margin-top:10px;
-    font-size: 24px;
-    margin-left: 30px;
+    max-width: calc(200*var(--size));
+    margin-top:calc(10*var(--size));
+    font-size: calc(24*var(--size));
+    margin-left: calc(30*var(--size));
     text-align:center;
 }
 .groups-header-image{
-    width: 200px;
-    height: 240px;
-    margin-top: 6px;
-    margin-left: 32px;
+    width: calc(200*var(--size));
+    height: calc(240*var(--size));
+    margin-top: calc(6*var(--size));
+    margin-left: calc(32*var(--size));
     background: #C4C4C4;
     overflow: hidden;
 }
 .groups-header-image-exists{
-    width: 200px;
-    height: 240px;
-    margin-top: 6px;
-    margin-left: 32px;
+    width: calc(200*var(--size));
+    height: calc(240*var(--size));
+    margin-top: calc(6*var(--size));
+    margin-left: calc(32*var(--size));
     overflow: hidden;
 }
 .middle-header{
-    margin-left:-50px;
+    margin-left:calc(-50*var(--size));
 }
 .groups-break-line{
-    margin-top: -205px;
+    margin-top: calc(-205*var(--size));
     background:black;
     border:1px solid black;
 }
 .groups-break-line-user{
-    margin-top: -70px;
+    margin-top: -calc(70*var(--size));
     background:black;
     border:1px solid black;
 }
@@ -42,35 +42,35 @@
     flex-direction: column;
 }
 .groups-change-avatar, .groups-join, .groups-send-post{
-    width: 200px;
-    height: 40px;
-    margin-top: 10px;
-    margin-left: 30px; 
+    width: calc(200*var(--size));
+    height: calc(40*var(--size));
+    margin-top: calc(10*var(--size));
+    margin-left: calc(30*var(--size)); 
     background: #7CBC5F;
-    border-radius: 50px;
-    font-size:18px;
+    border-radius: calc(50*var(--size));
+    font-size:calc(18*var(--size));
     border:none;
     cursor: pointer;
     outline:none;
 }
 .group-participants{
-    margin-top:275px;
-    width: 200px;
-    height:40px;
+    margin-top:calc(275*var(--size));
+    width: calc(200*var(--size));
+    height:calc(40*var(--size));
     background: #7CBC5F;
-    border-radius: 50px;
-    font-size:18px;
+    border-radius: calc(50*var(--size));
+    font-size:calc(18*var(--size));
     border:none;
     cursor: pointer;
     outline:none;
 }
 .group-banned{
-    margin-top:275px;
-    margin-left:-20px;
-    width:200px;
-    height:40px;
+    margin-top:calc(275*var(--size));
+    margin-left:calc(-20*var(--size));
+    width:calc(200*var(--size));
+    height:calc(40*var(--size));
     background: #7CBC5F;
-    border-radius: 50px;
+    border-radius: calc(50*var(--size));
     font-size:18px;
     cursor: pointer;
     border:none;
@@ -81,32 +81,32 @@ input[type="file"] {
 }
 .groups-change-avatar{
     cursor:pointer;
-    height:30px;
+    height:calc(30*var(--size));
     text-align:center;
-    padding-top:10px;
-    font-size: 20px;
+    padding-top:calc(10*var(--size));
+    font-size: calc(20*var(--size));
 }
 .search-input {
 	display:flex;
 }
 .search-input{
-	width: 850px;
-	height: 70px;
-	margin-left: 15px;
-	margin-top: 20px;
+	width: calc(850*var(--size));
+	height: calc(70*var(--size));
+	margin-left: calc(15*var(--size));
+	margin-top: calc(20*var(--size));
     border: none;
-	font-size: 20px;
-	padding-bottom: 25px;
-	padding-left: 25px;
+	font-size: calc(20*var(--size));
+	padding-bottom: calc(25*var(--size));
+	padding-left: calc(25*var(--size));
 	overflow:hidden;
 	outline:none;
 }
 .user-list{
-	margin-left: 25px;
-    margin-top:10px;
-	width: 900px;
+	margin-left: calc(25*var(--size));
+    margin-top:calc(10*var(--size));
+	width: calc(900*var(--size));
 
-	height: 650px;
+	height: calc(650*var(--size));
 	overflow-y:scroll;
 }
 
