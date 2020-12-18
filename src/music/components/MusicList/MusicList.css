@@ -1,18 +1,19 @@
 .music-input{
-    width: 670px;
-	height: 50px;
-	margin-left: 30px;
-	margin-top: 20px;
+    width: calc(670*var(--size));
+	height: calc(50*var(--size));
+	margin-left: calc(30*var(--size));
+	margin-top: calc(20*var(--size));
 	border: none;
-	font-size: 20px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    padding-left: 25px;
-    border-radius: 50px;
+	font-size: calc(20*var(--size));
+    padding-bottom: calc(15*var(--size));
+    padding-top: calc(15*var(--size));
+    padding-left: calc(25*var(--size));
+    border-radius: calc(50*var(--size));
 	font-family: 'Source Serif Pro', sans-serif;
 	overflow:hidden;
 	outline:none;
 }
 .song-list{
-	margin-top: 20px;
+	margin-top: calc(20*var(--size));
+	height: calc(100% - calc(90*var(--size)))
 }

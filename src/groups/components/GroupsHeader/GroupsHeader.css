@@ -71,7 +71,7 @@
     height:calc(40*var(--size));
     background: #7CBC5F;
     border-radius: calc(50*var(--size));
-    font-size:18px;
+    font-size:calc(18*var(--size));
     cursor: pointer;
     border:none;
     outline:none;

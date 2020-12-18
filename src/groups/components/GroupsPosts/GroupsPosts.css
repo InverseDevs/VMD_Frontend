@@ -1,9 +1,9 @@
 
 .group-posts{
-    height: calc(510*var(--size));
+    height: calc(100% - calc(454*var(--size)));
     min-width: calc(665*var(--size));
     margin-top: calc(220*var(--size));
-    margin-left: calc(150*var(--size));
+    margin-left: calc(130*var(--size));
     overflow-y: scroll;
     overflow-x:hidden;
 }

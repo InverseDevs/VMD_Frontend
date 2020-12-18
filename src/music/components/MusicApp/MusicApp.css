@@ -1,4 +1,4 @@
 #music-logo{
-    margin-left: 560px;
+    margin-left: calc(100*var(--size));
     cursor: pointer;
 }
