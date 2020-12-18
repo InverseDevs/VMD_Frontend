@@ -33,7 +33,7 @@
     border:1px solid black;
 }
 .groups-break-line-user{
-    margin-top: -calc(70*var(--size));
+    margin-top: calc(-120*var(--size));
     background:black;
     border:1px solid black;
 }

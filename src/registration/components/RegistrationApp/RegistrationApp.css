@@ -1,9 +1,12 @@
+
+
+
 #reg-left-ellipse{
     position: absolute;
-    width: 500px;
-    height: 500px;
-    left: -220px;
-    top: -306px;
+    width: calc(500*var(--size));
+    height: calc(500*var(--size));
+    left: calc(-220*var(--size));
+    top: calc(-306*var(--size));
 
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -11,10 +14,10 @@
 }
 #reg-right-ellipse{
         position: absolute;
-    width: 500px;
-    height: 500px;
-    left: -96px;
-    top: -250px;
+    width: calc(500*var(--size));
+    height: calc(500*var(--size));
+    left: calc(-96*var(--size));
+    top: calc(-250*var(--size));
 
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -22,40 +25,41 @@
 }
 #reg-small-ellipse-1{
     position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 212px;
-    top: -36.5px;
+    width: calc(100*var(--size));
+    height: calc(100*var(--size));
+    left: calc(212*var(--size));
+    top: calc(-36.5*var(--size));
 
     background: #7CBC5F;
     border-radius: 50%;
 }
 #reg-small-ellipse-2{
     position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 262px;
-    top: 135px;
+    width: calc(100*var(--size));
+    height: calc(100*var(--size));
+    left: calc(262*var(--size));
+    top: calc(135*var(--size));
 
     background: #7CBC5F;
     border-radius: 50%;
 }
 #reg-small-ellipse-3{
     position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 54px;
-    top: 185px;
+    width: calc(100*var(--size));
+    height: calc(100*var(--size));
+    left: calc(54*var(--size));
+    top: calc(185*var(--size));
 
     background: #7CBC5F;
     border-radius: 50%;
 }
 #reg-form{
     position: absolute;
-    width: 585px;
-    height: 740px;
-    left: 680px;
-    top: 148px;
+    width: calc(585*var(--size));
+    height: calc(740*var(--size));
+    left: 50%;
+    transform: translate(-50%   ,0);
+    top: 14.453125%;
 
     background: linear-gradient(180deg, rgba(169, 217, 147, 0.7) 0%, rgba(255, 255, 255, 0.7) 100%), #7EC272;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -65,21 +69,21 @@
 
     margin-left: 12%;
     margin-top: 7%;
-    margin-bottom: 30px;
+    margin-bottom: calc(30*var(--size));
 }
 #reg-form input{
-    margin-bottom:40px;
+    margin-bottom:calc(40*var(--size));
     margin-left: 15%;
-    width: 380px;
-    height: 50px;
-    padding-left: 15px;
+    width: calc(380*var(--size));
+    height: calc(50*var(--size));
+    padding-left: calc(15*var(--size));
     font-family: 'Source Serif Pro',sans-serif;
-    font-size: 24px;
+    font-size: calc(24*var(--size));
     outline:none;
 }
 #reg-email-field{
-    height: 40px;
-    margin-bottom: 10px;
+    height: calc(40*var(--size));
+    margin-bottom: calc(10*var(--size));
 
     background: #fff;
     border: none;
@@ -89,8 +93,8 @@
 
 #reg-login-field{
     
-    height: 40px;
-    margin-bottom: 10px;
+    height: calc(40*var(--size));
+    margin-bottom: calc(10*var(--size));
 
     background: #fff;
     border: none;
@@ -99,8 +103,8 @@
 }
 #reg-pass-field{
     
-    height: 40px;
-    margin-bottom: 10px;
+    height: calc(40*var(--size));
+    margin-bottom: calc(10*var(--size));
 
     background: #fff;
     border: none;
@@ -111,17 +115,17 @@ form #reg-btn{
     border: none;
     display: block;
     background: #7EC272;
-    height: 50px;
-    width: 290px;
+    height: calc(50*var(--size));
+    width: calc(290*var(--size));
     font-family: 'Source Serif Pro', sans-serif;
-    font-size: 24px;
+    font-size: calc(24*var(--size));
     margin-left: 24%;
     color: #ffffff;
     text-align: center;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    padding-left: 5px;
+    -moz-border-radius: calc(5*var(--size));
+    -webkit-border-radius: calc(5*var(--size));
+    border-radius: calc(5*var(--size));
+    padding-left: calc(5*var(--size));
     -moz-box-shadow: 0px 3px 1px #2e885d;
     -webkit-box-shadow: 0px 3px 1px #2e885d;
     box-shadow: 0px 3px 1px #2e885d;
@@ -148,16 +152,16 @@ form #reg-btn{
 
 
 #reg-form-logo{
-    width: 80px;
-    height: 80px;
-    margin-left: -25px;;
+    width: calc(80*var(--size));
+    height: calc(80*var(--size));
+    margin-left: calc(-25*var(--size));;
 }
 #reg-form-title{
     font-family: 'Open Sans', sans-serif;
     font-style: normal;
     font-weight: 300;
-    font-size: 40px;
-    line-height: 42px;
+    font-size: calc(40*var(--size));
+    line-height: calc(42*var(--size));
     text-align: center;
     margin-left: 10%;
     margin-top: 3.5%;
@@ -165,10 +169,10 @@ form #reg-btn{
 #reg-shadow{
     
     position: absolute;
-    width: 400px;
-    height: 700px;
-    left: 970px;
-    top: 58px;
+    width: calc(400*var(--size));
+    height: calc(700*var(--size));
+    left: 50%;
+    top: 5.6640625%;
 
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.45) 100%), rgba(206, 251, 185, 0.45);
 }
@@ -177,27 +181,27 @@ form #reg-btn{
 }
 .error-msg{
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: calc(20*var(--size));
     margin-left: 15%;
     color: red;
-    margin-bottom: 2px;
+    margin-bottom: calc(2*var(--size));
     max-width: 70%;
 }
 .check-email{
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
-    margin-bottom: 2px;
+    font-size: calc(20*var(--size));
+    margin-bottom: calc(2*var(--size));
 }
 .check-email-valid{
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: calc(20*var(--size));
     margin-left: 15%;
-    margin-bottom: 2px;
+    margin-bottom: calc(2*var(--size));
     max-width: 70%;
 }
 #reg-email-field-incorrect{
-    height: 40px;
-    margin-bottom: 10px;
+    height: calc(40*var(--size));
+    margin-bottom: calc(10*var(--size));
     
     background: #fff;
     border: 1px solid red;
@@ -205,6 +209,6 @@ form #reg-btn{
     outline: none;
 }
 .mlmax{
-    margin-left: 85px;
+    margin-left: calc(85*var(--size));
     max-width: 68.5%;
 }

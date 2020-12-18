@@ -7,7 +7,6 @@
 
 .participant{
     width: calc(835*var(--size));
-    margin-left:calc(30*var(--size));
 	display:flex;
 }
 

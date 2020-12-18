@@ -4,6 +4,7 @@
 	padding-top: calc(50*var(--size));
 	height: 100vh;
 	padding-bottom: calc(20*var(--size));
+    background: linear-gradient(180deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.2)),#92ce76;
 
 }
 #friends-logo{

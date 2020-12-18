@@ -1,8 +1,7 @@
 .groups-list{
     margin-left: calc(100*var(--size));
-    height: calc(400*var(--size));
     overflow-y:scroll;
-    height: calc(820*var(--size));
+    height: calc(96vh - calc(186*var(--size)));
 }
 .groups-list::-webkit-scrollbar{
     width: 0px;
